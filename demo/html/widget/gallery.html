@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>CMUI: 图片轮播</title>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge;Chrome=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no, email=no" />
+<link rel="stylesheet" href="/demo/css/cmui.css">
+<link rel="stylesheet" href="/demo/css/demo.css">
+</head>
+
+<body class="cmWrapper cmSystem dpl-widget-gallery">
+<article class="cmPage cmPageScroll">
+	<header class="cmPageNavBar">
+		<h1>图片轮播</h1>
+		<div class="cmBtnWrapper cmRight">
+			<a class="cmBtn" href="javascript:location.reload();">刷新</a>
+		</div>
+		<div class="cmBtnWrapper cmLeft">
+			<a class="cmBtn cmBack" href="../../"><b>CMUI</b></a>
+		</div>
+	</header>
+	<section>
+		<p class="cmDescr">需要寻找 iScroll 以外的解决方案。</p>
+		<p class="cmDescr">桌面浏览器下的拖拽有问题。</p>
+	</section>
+	<section>
+		<div class="cmGallery">
+			<div class="cmGalleryFrame">
+				<ul>
+					<li><a href="javascript:alert('#link1');"><img alt="[KV]" src="../../img/kv-1.jpg" /></a></li>
+					<li><a href="javascript:alert('#link2');"><img alt="[KV]" src="../../img/kv-2.jpg" /></a></li>
+					<li><a href="javascript:alert('#link3');"><img alt="[KV]" src="../../img/kv-3.jpg" /></a></li>
+					<li><a href="javascript:alert('#link4');"><img alt="[KV]" src="../../img/kv-4.jpg" /></a></li>
+				</ul>
+			</div>
+			<div class="cmGalleryIndicator"></div>
+			<div class="cmGalleryArrow"></div>
+		</div>
+	</section>
+	<hr>
+	<section class="act">
+		<a class="cmBtn" href="javascript:location.reload();">刷新</a>
+	</section>
+	<hr>
+	<footer>
+		<address>&copy; CMUI.NET</address>
+	</footer>
+</article>
+<script src="/deps/lib.js"></script>
+<script src="/dist/cmui.js"></script>
+<script>_.ext.ini(); DPL.ini();</script>
+<script>_.url.gaAccount = 'UA-17208063-8'; _.ga.ini(true);</script>
+<script>DPL.gallery.ini();</script>
+</body>
+</html>

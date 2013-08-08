@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>CMUI: 测试: 事件绑定</title>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge;Chrome=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no, email=no" />
+<link rel="stylesheet" href="/demo/css/cmui.css">
+<link rel="stylesheet" href="/demo/css/demo.css">
+</head>
+
+<body class="cmWrapper cmSystem dpl-test-event-binding">
+<article class="cmPage">
+	<header class="cmPageNavBar">
+		<h1>测试: 事件绑定</h1>
+		<div class="cmBtnWrapper cmRight">
+			<a class="cmBtn" href="javascript:location.reload();">刷新</a>
+		</div>
+		<div class="cmBtnWrapper cmLeft">
+			<a class="cmBtn cmBack" href="../../"><b>CMUI</b></a>
+		</div>
+	</header>
+	<section class="binding">
+		<div class="test" style="width: 200px; height: 200px; background: silver; cursor: pointer;">
+			<!-- testing area -->
+		</div>
+		<p>主要是为了测试 iOS 下无交互元素对点击事件的响应和冒泡。测试脚本就写在本页面底部。</p>
+	</section>
+	<hr>
+	<section class="act">
+		<a class="cmBtn" href="javascript:location.reload();">刷新</a>
+	</section>
+	<hr>
+	<footer>
+		<address>&copy; CMUI.NET</address>
+	</footer>
+</article>
+<script src="/deps/lib.js"></script>
+<script src="/dist/cmui.js"></script>
+<script>_.ext.ini(); DPL.ini();</script>
+<script>_.url.gaAccount = 'UA-17208063-8'; _.ga.ini(true);</script>
+<script>
+function fnTest() {
+	var s = '.test'
+	var j = $(s);
+	$(document).on('click', s, function () {
+		alert('clicked2');
+	});
+}
+fnTest();
+</script>
+</body>
+</html>

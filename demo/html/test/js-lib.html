@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>CMUI: 测试: 模块化与依赖性</title>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge;Chrome=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no, email=no" />
+<link rel="stylesheet" href="/demo/css/cmui.css">
+<link rel="stylesheet" href="/demo/css/demo.css">
+</head>
+
+<body class="cmWrapper cmSystem dpl-test-js-lib">
+<article class="cmPage">
+	<header class="cmPageNavBar">
+		<h1>测试: 模块化与依赖性</h1>
+		<div class="cmBtnWrapper cmRight">
+			<a class="cmBtn" href="javascript:location.reload();">刷新</a>
+		</div>
+		<div class="cmBtnWrapper cmLeft">
+			<a class="cmBtn cmBack" href="../../"><b>CMUI</b></a>
+		</div>
+	</header>
+	<section class="js-lib">
+		<h2>模块化与依赖性</h2>
+		<p>没啥特别的，不报错就行。</p>
+	</section>
+	<hr>
+	<section class="act">
+		<a class="cmBtn" href="javascript:location.reload();">刷新</a>
+	</section>
+	<hr>
+	<footer>
+		<address>&copy; CMUI.NET</address>
+	</footer>
+</article>
+<script>
+(function(d){setTimeout(function(){var e=d.createElement('script');e.onload=function(){e.onload=null;ini()};
+e.src=src;var s=d.getElementsByTagName('script')[0];s.parentNode.insertBefore(e,s)},0);
+var src='/js/mv1/lib/lab-debug.js';
+function ini(){
+	$LAB.setOptions({CacheBust: true, Debug: true})  //for dev/test
+		.script('/js/mv1/lib/lib.js').wait()
+		.script('/js/mv1/dev/ext-str.js')
+		.script('/js/mv1/dev/ext-core.js')
+		.script('/js/mv1/dev/ext-url.js')
+		.script('/js/mv1/dev/ext-event.js')
+		.script('/js/mv1/dev/ext-misc.js')
+		.script('/js/mv1/dev/dpl-core.js')
+		.script('/js/mv1/dev/dpl-btn.js')
+		.script('/js/mv1/dev/dpl-list.js')
+		.script('/js/mv1/dev/dpl-page.js')
+		.script('/js/mv1/dev/dpl-widget-gallery.js')
+		.script('/js/mv1/dev/dpl-widget-overlay.js')
+		.wait(function(){_.ext.ini(); DPL.ini(); _.ga.ini(true);})
+		//.script('/js/mv1/dpl/dpl-test.js');
+}}(document));
+</script>
+</body>
+</html>

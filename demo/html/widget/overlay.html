@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>CMUI: Overlay</title>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge;Chrome=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no, email=no" />
+<link rel="stylesheet" href="/demo/css/cmui.css">
+<link rel="stylesheet" href="/demo/css/demo.css">
+</head>
+
+<body class="cmWrapper cmSystem dpl-widget-overlay">
+<article class="cmPage cmPageScroll">
+	<header class="cmPageNavBar">
+		<h1>Overlay</h1>
+		<div class="cmBtnWrapper cmRight">
+			<a class="cmBtn" href="javascript:location.reload();">刷新</a>
+		</div>
+		<div class="cmBtnWrapper cmLeft">
+			<a class="cmBtn cmBack" href="../../"><b>CMUI</b></a>
+		</div>
+	</header>
+	<section class="mask">
+		<h2>遮罩</h2>
+		<div class="cmBtnLine">
+			<div class="cmBtnWrapper">
+				<a class="cmBtn cmAction" href="#mask-show">显示</a>
+			</div>
+			<div class="cmBtnWrapper">
+				<a class="cmBtn cmAction" href="#mask-hide">关闭</a>
+			</div>
+		</div>
+		<div class="cmBtnLine">
+			<div class="cmBtnWrapper">
+				<a class="cmBtn cmAction" href="#mask-fade-in">淡入</a>
+			</div>
+			<div class="cmBtnWrapper">
+				<a class="cmBtn cmAction" href="#mask-fade-out">淡出</a>
+			</div>
+		</div>
+		<div class="cmBtnLine">
+			<div class="cmBtnWrapper">
+				<a class="cmBtn cmAction" href="#toggle-content">切换改变页面高度</a>
+			</div>
+		</div>
+		<p class="cmDescr">提示：在本页打开遮罩后，仍可点击遮罩下层的按钮。不过请注意这不是遮罩本身的特性，只是本页面为了便于测试而增加的行为。</p>
+		<div class="content">
+			<p>...</p>
+			<p>...</p>
+			<p>...</p>
+			<p>...</p>
+			<p>...</p>
+			<p>...</p>
+			<p>...</p>
+			<p>...</p>
+			<p>...</p>
+			<p>...</p>
+			<p>...</p>
+			<p>...</p>
+			<p>...</p>
+			<p>...</p>
+			<p>...</p>
+			<p>...</p>
+		</div>
+	</section>
+	<hr>
+	<section class="loading">
+		<h2>Loading 标记</h2>
+		<div class="cmBtnLine">
+			<div class="cmBtnWrapper">
+				<a class="cmBtn cmAction" href="#loading-show">显示</a>
+			</div>
+			<div class="cmBtnWrapper">
+				<a class="cmBtn cmAction" href="#loading-hide">关闭</a>
+			</div>
+		</div>
+		<div class="cmBtnLine">
+			<div class="cmBtnWrapper">
+				<a class="cmBtn cmAction" href="#loading-fade-in">淡入</a>
+			</div>
+			<div class="cmBtnWrapper">
+				<a class="cmBtn cmAction" href="#loading-fade-out">淡出</a>
+			</div>
+		</div>
+		<div class="cmBtnLine">
+			<div class="cmBtnWrapper">
+				<a class="cmBtn cmAction" href="#loading-set-text">加文字</a>
+			</div>
+			<div class="cmBtnWrapper">
+				<a class="cmBtn cmAction" href="#loading-set-text-long">加长文字</a>
+			</div>
+			<div class="cmBtnWrapper">
+				<a class="cmBtn cmAction" href="#loading-del-text">删文字</a>
+			</div>
+		</div>
+	</section>
+	<hr>
+	<section class="smooth-jump">
+		<h2>SmoothJump</h2>
+		<div class="cmBtnWrapper">
+			<a class="cmBtn cmSmoothJump" href="../../">返回 Demo 首页</a>
+		</div>
+		<p class="cmDescr">提示：点击后会有 SmoothJump 效果。</p>
+	</section>
+	<hr>
+	<section class="dialog">
+		<h2>对话框</h2>
+		<div class="cmBtnWrapper">
+			<a class="cmBtn cmAction" href="#dialog-show">...</a>
+		</div>
+		<p class="cmDescr">（未开发完。）</p>
+	</section>
+	<hr>
+	<section class="act">
+		<a class="cmBtn" href="javascript:location.reload();">刷新</a>
+	</section>
+	<hr>
+	<footer>
+		<address>&copy; CMUI.NET</address>
+	</footer>
+</article>
+<script src="/deps/lib.js"></script>
+<script src="/dist/cmui.js"></script>
+<script>_.ext.ini(); DPL.ini();</script>
+<script>_.url.gaAccount = 'UA-17208063-8'; _.ga.ini(true);</script>
+<script src="/demo/js/demo.js"></script>
+<script>DPL.demo.overlay.ini();</script>
+</body>
+</html>

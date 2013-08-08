@@ -1,0 +1,319 @@
+/** @charset 'utf-8'; **/
+/* --------------------------------------------- */
+/** The Beginning **/
+body {
+	font: 16px/1.5 Arial, Helvetica, sans-serif;
+	color: black;
+	aa background: white;
+}
+section {
+	padding: 10px;
+}
+section + section {
+	padding-top: 0;
+}
+section h2 {
+	margin-bottom: 5px;
+}
+article > footer {
+	padding: 10px;
+}
+
+
+
+/* --------------------------------------------- */
+/** demo - font **/
+.verdana {font-family: Verdana;}
+.arial {font-family: Arial;}
+.helvetica {font-family: Helvetica;}
+.sans-serif {font-family: Sans-Serif;}
+.serif {font-family: Serif;}
+.monospace {font-family: Monospace;}
+.songti {font-family: '宋体', 'Songti SC', STSong;}
+.heiti {font-family: '黑体', STHeiti;}
+.yahei {font-family: '微软雅黑';}
+.huawenhei {font-family: STHeiti;}
+.dongqinghei {font-family: 'Hiragino Sans GB';}
+
+.fs8px {font-size: 8px;}
+.fs9px {font-size: 9px;}
+.fs10px {font-size: 10px;}
+.fs11px {font-size: 11px;}
+.fs12px {font-size: 12px;}
+.fs13px {font-size: 13px;}
+.fs14px {font-size: 14px;}
+.fs15px {font-size: 15px;}
+.fs16px {font-size: 16px;}
+.fs17px {font-size: 17px;}
+.fs18px {font-size: 18px;}
+.fs19px {font-size: 19px;}
+.fs20px {font-size: 20px;}
+
+.bold {font-weight: 700;}
+
+/** content **/
+body.dpl-demo-font section dl {
+	margin-right: -10px;
+	line-height: 1.5;
+	aa padding-left: 5px;
+}
+body.dpl-demo-font section dt {
+	clear: both;
+	float: left;
+	margin-top: 5px;
+	margin-right: 10px;
+	padding: 0 3px;
+	width: 30px;
+	font-size: 12px;
+	text-align: right;
+	color: gray;
+	background: #eee;
+	border-radius: 4px;
+}
+body.dpl-demo-font section dd {
+	margin-left: 50px;
+	margin-bottom: 10px;
+}
+body.dpl-demo-font p.line-height-test {
+	margin: 0 10px;
+	font-size: 20px;
+	line-height: normal;
+	border: 1px solid gray;
+}
+body.dpl-demo-font p.line-height-test + p.line-height-test {
+	border-top: 0;
+}
+
+/* --------------------------------------------- */
+/** demo - icon **/
+body.dpl-demo-icon {
+	
+}
+body.dpl-demo-icon .x20 dt {width: 30px; height: 30px;}
+body.dpl-demo-icon .x24 dt {width: 40px; height: 40px;}
+body.dpl-demo-icon .x30 dt {width: 40px; height: 40px;}
+body.dpl-demo-icon .x40 dt {width: 60px; height: 60px;}
+body.dpl-demo-icon .x50 dt {width: 60px; height: 60px;}
+
+body.dpl-demo-icon .x20 dt .cmIcon {margin-top: 5px;}
+body.dpl-demo-icon .x24 dt .cmIcon {margin-top: 8px;}
+body.dpl-demo-icon .x30 dt .cmIcon {margin-top: 5px;}
+body.dpl-demo-icon .x40 dt .cmIcon {margin-top: 10px;}
+body.dpl-demo-icon .x50 dt .cmIcon {margin-top: 5px;}
+
+body.dpl-demo-icon .x20 dd {width: 230px;}
+body.dpl-demo-icon .x24 dd {width: 220px;}
+body.dpl-demo-icon .x30 dd {width: 210px;}
+body.dpl-demo-icon .x40 dd {width: 200px;}
+body.dpl-demo-icon .x50 dd {width: 200px;}
+
+body.dpl-demo-icon dl {
+	padding-left: 10px;
+}
+body.dpl-demo-icon dt {
+	clear: left;
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	color: white;
+	background: silver;
+}
+body.dpl-demo-icon dt.black-bg {
+	background: black;
+}
+body.dpl-demo-icon dt.white-bg {
+	background: white;
+	box-shadow: inset 0 0 1px gray;
+	-webkit-box-shadow: inset 0 0 1px gray;
+}
+
+body.dpl-demo-icon dd {
+	float: left;
+}
+
+
+/* --------------------------------------------- */
+/** demo - btn **/
+body.dpl-demo-btn {
+	aa max-width: 400px;
+}
+.cmBtn .cmIcon {
+	background-color: silver;
+}
+section.btn-label .cmBtn {
+	float: left;
+	width: auto;
+}
+section.suite .cmBtnSuite {
+	margin-bottom: 10px;
+}
+
+
+/* --------------------------------------------- */
+/** demo - list **/
+body.dpl-demo-list {
+	aa max-width: 500px;  /** debug **/
+	aa padding-bottom: 100px;
+}
+body.dpl-demo-list .cmList .cmIcon {
+	background-color: silver;
+}
+body.dpl-demo-list .cmList .cmBtnWrapper.delete .cmIcon {
+	background-color: transparent;
+}
+body.dpl-demo-list code {
+	font-weight: 400;
+	background-color: #ccc;
+}
+
+
+/* --------------------------------------------- */
+/** demo - page **/
+body.dpl-demo-page {
+	aa max-width: 320px;  /** debug **/
+}
+body.dpl-demo-page section .cmPageNavBar {
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+
+/* --------------------------------------------- */
+/** widget - overlay **/
+body.dpl-widget-overlay {
+	max-width: 400px;  /** debug **/
+}
+body.dpl-widget-overlay .cmMask {
+	pointer-events: none;  /** debug **/
+}
+body.dpl-widget-overlay section.mask .content {
+	display: none;
+}
+
+/* --------------------------------------------- */
+/** widget - gallery **/
+body.dpl-widget-gallery {
+	aa background: brown;
+}
+body.dpl-widget-gallery .cmGalleryFrame {
+	width: 300px;
+	outline: 1px solid #ccc;
+}
+body.dpl-widget-gallery .cmGalleryFrame li img {
+	width: 300px;
+	height: 150px;
+}
+body.dpl-widget-gallery .cmGallery .cmGalleryArrow a {
+	top: 20px;
+	height: 110px;
+}
+body.dpl-widget-gallery .cmGallery .cmGalleryArrow a.prev {left: -10px;}
+body.dpl-widget-gallery .cmGallery .cmGalleryArrow a.next {right: -10px;}
+
+/* --------------------------------------------- */
+/** widget - notice **/
+body.dpl-widget-notice {
+	
+}
+body.dpl-widget-notice section.demo {
+	margin-bottom: 10px;
+	padding: 0;
+	background: black;
+	color: white;
+}
+body.dpl-widget-notice section.demo header {
+	padding: 10px;
+	height: 40px;
+}
+body.dpl-widget-notice pre {
+	padding: 5px 5px 5px 10px;
+	font-size: 75%;
+	border: 1px solid silver;
+	border-left-width: 4px;
+	background: #eee;
+}
+body.dpl-widget-notice code {
+	font-size: 75%;
+}
+body.dpl-widget-notice pre code {
+	font-size: 100%;
+}
+
+body.dpl-widget-notice section.tip-box {
+	padding-bottom: 20px;
+}
+
+body.dpl-widget-notice #action-list-2 .cmTipBoxInner .cmLeft,
+body.dpl-widget-notice #action-list .cmTipBoxInner .cmLeft {
+	width: 70%;
+}
+body.dpl-widget-notice #action-list-2 .cmTipBoxInner > .cmRight,
+body.dpl-widget-notice #action-list .cmTipBoxInner > .cmRight {
+	width: 20%;
+}
+body.dpl-widget-notice #action-list-2 .cmTipBoxInner > .cmBtnCombo {
+	width: 60%;
+}
+body.dpl-widget-notice #action-list-2 .cmTipBoxInner > .cmBtnCombo input {
+	max-width: 30%;
+}
+body.dpl-widget-notice #action-list-2 .cmTipBoxInner > .cmBtnCombo .cmBtn {
+	max-width: 30%;
+}
+
+
+
+/* --------------------------------------------- */
+/** test - event **/
+body.dpl-test-event-touch section.swipe .test,
+body.dpl-test-event-touch section.pinch .test,
+body.dpl-test-event-device section.viewport-event .test,
+body.dpl-test-event-device section.shake .test,
+body.dpl-test-event-device section.acceleration .result {
+	margin-bottom: 10px;
+	padding: 5px;
+	min-height: 100px;
+	word-wrap: break-word;
+	background-color: white;
+	border: 1px solid gray;
+	border-radius: 5px;
+}
+body.dpl-test-event-device section.viewport-event .test {
+	min-height: 500px;
+}
+body.dpl-test-event-touch section.pinch .test {
+	min-height: 250px;
+}
+body.dpl-test-event-touch section.swipe .test b,
+body.dpl-test-event-touch section.pinch .test b,
+body.dpl-test-event-device section.viewport-event .test b,
+body.dpl-test-event-device section.shake .test b {
+	display: inline;
+	aa margin-right: 5px;
+	padding: 2px 3px;
+	font-weight: 400;
+	white-space: nowrap;
+	border-radius: 5px;
+	background: #eee;
+}
+body.dpl-test-event-touch section.swipe .test b.special,
+body.dpl-test-event-touch section.pinch .test b.special,
+body.dpl-test-event-device section.viewport-event .test b.special,
+body.dpl-test-event-device section.shake .test b.special {
+	background: yellow;
+	font-weight: 700;
+}
+
+/* --------------------------------------------- */
+/** test - viewport **/
+body.dpl-test-viewport {
+	max-width: 400px;  /** debug **/
+}
+body.dpl-test-viewport section.viewport div.result {
+	display: none;
+}
+
+
+/** The End **/
+/* --------------------------------------------- */

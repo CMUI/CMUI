@@ -1,0 +1,304 @@
+/** @charset 'utf-8'; **/
+/* --------------------------------------------- */
+/** form **/
+.cmPlaceHolder {color: #aaa;}
+input::-moz-placeholder {color: #aaa;}
+
+.cmHasOnlyBox label,
+.cmHasLeftBox label,
+.cmHasRightBox label {
+	font-weight: 700;
+}
+.cmHasLeftBox label {
+	cursor: pointer;
+	-webkit-tap-highlight-color:rgba(0,0,0,0.3);
+}
+html.mouse .cmHasLeftBox label:hover {background-color: #eee;}
+.cmPageScroll .cmHasLeftBox label:active {background-color: silver;}
+
+.cmHasLeftBox label.cmLongText,
+.cmHasRightBox label.cmLongText {
+	font-size: 12px;
+	letter-spacing: -1px;
+}
+
+/* --------------------------------------------- */
+/** left box **/
+.cmHasLeftBox li > label:first-child,
+li.cmHasLeftBox > label:first-child {
+	position: relative;
+	padding-left: 40px;
+}
+.cmHasLeftBox li > label:first-child > input,
+li.cmHasLeftBox > label:first-child > input {
+	position: absolute;
+	top: 50%;
+	margin-left: -30px;
+	margin-top: -10px;
+	width: 20px;
+	height: 20px;
+	pointer-events: none;
+}
+.cmHasLeftBox li > label:first-child > input[type=radio],
+li.cmHasLeftBox > label:first-child > input[type=radio] {
+	border-radius: 10px;
+}
+
+/* --------------------------------------------- */
+/** input box **/
+.cmHasRightBox label input,
+.cmHasOnlyBox label input {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	position: absolute;
+	z-index: 20;
+	right: 0;
+	top: 0;
+	padding: 12px 10px;
+	width: 100%;
+	height: 100%;
+	line-height: 20px;
+	font-size: 16px;
+	border-style: none;
+	background: transparent;
+	color: #385487;
+}
+.cmHasRightBox label select,
+.cmHasOnlyBox label select {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: 10px 10px;
+	width: 100%;
+	height: 100%;
+	line-height: 24px;
+	font-size: 16px;
+	border-style: none;
+	background-color: transparent;
+	color: #385487;
+	cursor: pointer;
+}
+html.webkit .cmHasRightBox label select,
+html.webkit .cmHasOnlyBox label select {
+	padding-right: 30px;
+}
+
+/* --------------------------------------------- */
+/** right box **/
+.cmHasRightBox li > label:first-child,
+li.cmHasRightBox > label:first-child {
+	position: relative;
+	padding-right: 70%;
+}
+.cmHasRightBox.cmHasIcon li > label:first-child,
+.cmHasRightBox li.cmHasIcon > label:first-child,
+li.cmHasIcon.cmHasRightBox > label:first-child {
+	padding-right: 58%;
+}
+.cmHasRightBox label input {padding-left: 85px;}
+html.desktop .cmHasRightBox label input {padding-left: 90px;}
+
+.cmHasRightBox.cmHasIcon label input,
+.cmHasRightBox .cmHasIcon label input,
+.cmHasIcon .cmHasRightBox label input {padding-left: 125px;}
+html.desktop .cmHasRightBox.cmHasIcon label input,
+html.desktop .cmHasRightBox .cmHasIcon label input,
+html.desktop .cmHasIcon .cmHasRightBox label input {padding-left: 130px;}
+
+.cmHasRightBox li[data-descr] > label:first-child > input,
+li[data-descr].cmHasRightBox > label:first-child > input {
+	padding-top: 6px;
+	padding-bottom: 22px;
+	height: 52px;
+}
+html.android-low .cmHasRightBox li[data-descr] > label:first-child > input,
+html.android-low li[data-descr].cmHasRightBox > label:first-child > input,
+html.safari .cmHasRightBox li[data-descr] > label:first-child > input,
+html.safari li[data-descr].cmHasRightBox > label:first-child > input {
+	padding-bottom: 6px;
+	height: 36px;
+}
+html.android-low .cmHasRightBox li[data-descr]:before,
+html.safari .cmHasRightBox li[data-descr]:before {
+	top: 36px;
+}
+
+/** label text **/
+.cmHasRightBox li > label span,
+li.cmHasRightBox > label span,
+.cmHasRightBox li > label b,
+li.cmHasRightBox > label b {
+	position: relative;
+	z-index: 30;
+	pointer-events: none;
+}
+
+/** icon **/
+.cmHasRightBox label .cmIcon,
+.cmHasOnlyBox label .cmIcon {
+	z-index: 30;
+}
+
+/** select **/
+.cmHasRightBox label select {padding-left: 85px;}
+html.desktop .cmHasRightBox label select {padding-left: 90px;}
+
+.cmHasOnlyBox label select option,
+.cmHasRightBox label select option {
+	padding: 10px;  /** only works on firefox **/
+	background-color: white;  /** avoid select:focus bg-color **/
+}
+.cmHasRightBox label select option {padding-left: 90px;}  /** only firefox needs this **/
+
+/** select arrow **/
+html.webkit .cmHasRightBox li > label:first-child:after,
+html.webkit li.cmHasRightBox > label:first-child:after {
+	content: '';
+	position: absolute;
+	z-index: 10;
+	top: 50%;
+	right: 10px;
+	margin-top: -4px;
+	color: gray;
+	border-style: solid;
+	border-width: 10px 5px 0;
+	border-left-color: transparent;
+	border-right-color: transparent;
+	pointer-events: none;
+}
+
+/** only box **/
+.cmHasOnlyBox li > label:first-child,
+li.cmHasOnlyBox > label:first-child {
+	position: relative;
+}
+.cmHasOnlyBox.cmHasIcon li > label:first-child > input,
+.cmHasOnlyBox li.cmHasIcon > label:first-child > input,
+li.cmHasIcon.cmHasOnlyBox > label:first-child > input,
+.cmHasOnlyBox.cmHasIcon li > label:first-child > select option,  /** only firefox needs this **/
+.cmHasOnlyBox li.cmHasIcon > label:first-child > select option,  /** only firefox needs this **/
+li.cmHasIcon.cmHasOnlyBox > label:first-child > select option,  /** only firefox needs this **/
+.cmHasOnlyBox.cmHasIcon li > label:first-child > select,
+.cmHasOnlyBox li.cmHasIcon > label:first-child > select,
+li.cmHasIcon.cmHasOnlyBox > label:first-child > select {
+	padding-left: 50px;
+}
+
+/** status **/
+.cmHasOnlyBox label input,
+.cmHasOnlyBox label select,
+.cmHasRightBox label input,
+.cmHasRightBox label select {
+	background-color: white;
+}
+.cmHasOnlyBox label input:focus,
+.cmHasOnlyBox label select:focus,
+.cmHasRightBox label input:focus,
+.cmHasRightBox label select:focus {
+	aa background-color: rgba(0,0,0,0.05);
+	background-color: #f2f2f2;
+	box-shadow: inset 0 1px 5px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 0 1px 5px rgba(0,0,0,0.5);
+}
+
+/** border-radius **/
+.cmHasRightBox label input,
+.cmHasOnlyBox label input,
+.cmHasRightBox label select,
+.cmHasOnlyBox label select {
+	border-radius: 0;
+}
+.cmList > li.cmHasRightBox:first-child label input,
+.cmList.cmHasRightBox > li:first-child label input,
+.cmList > li.cmHasOnlyBox:first-child label input,
+.cmList.cmHasOnlyBox > li:first-child label input,
+.cmList > li.cmHasRightBox:first-child label select,
+.cmList.cmHasRightBox > li:first-child label select,
+.cmList > li.cmHasOnlyBox:first-child label select,
+.cmList.cmHasOnlyBox > li:first-child label select {
+	border-top-left-radius: 9px;
+	border-top-right-radius: 9px;
+}
+.cmList > li.cmHasRightBox:last-child label input,
+.cmList.cmHasRightBox > li:last-child label input,
+.cmList > li.cmHasOnlyBox:last-child label input,
+.cmList.cmHasOnlyBox > li:last-child label input,
+.cmList > li.cmHasRightBox:last-child label select,
+.cmList.cmHasRightBox > li:last-child label select,
+.cmList > li.cmHasOnlyBox:last-child label select,
+.cmList.cmHasOnlyBox > li:last-child label select {
+	border-bottom-left-radius: 9px;
+	border-bottom-right-radius: 9px;
+}
+
+/* --------------------------------------------- */
+/** form **/
+.cmFormLine {
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+.cmFormLine + .cmFormLine {
+	aa margin-top: 10px;
+}
+.cmFormLine > input[type=radio]:first-child,
+.cmFormLine > input[type=checkbox]:first-child {
+	margin-left: 10px;
+}
+.cmList + .cmFormLine {
+	margin-top: 15px;
+}
+.cmFormLine + .cmBtn,
+.cmFormLine + .cmBtnWrapper {
+	margin-top: 15px;
+}
+html.moz .cmFormLine + input.cmBtn,
+html.moz .cmFormLine + button.cmBtn {
+	margin-top: 7px;
+}
+/* --------------------------------------------- */
+/** form - old **/
+.cmXForm input[type=search],
+.cmXForm input[type=email],
+.cmXForm input[type=number],
+.cmXForm input[type=tel],
+.cmXForm input[type=text],
+.cmXForm input[type=password] {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	display: block;
+	padding: 5px;
+	width: 100%;
+	height: 40px;
+	color: #385487;
+	background: white;
+	border: 1px solid #999;
+	border-radius: 5px;
+	box-shadow: inset 0 2px 3px rgba(0,0,0,0.3);
+	-webkit-box-shadow: inset 0 2px 3px rgba(0,0,0,0.3);
+}
+.cmXForm input[type=search]:focus,
+.cmXForm input[type=email]:focus,
+.cmXForm input[type=number]:focus,
+.cmXForm input[type=tel]:focus,
+.cmXForm input[type=text]:focus,
+.cmXForm input[type=password]:focus {
+	border-width: 2px;
+	padding: 4px;
+}
+
+/** The End **/
+/* --------------------------------------------- */

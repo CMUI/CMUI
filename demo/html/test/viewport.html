@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>CMUI: 测试: 视口尺寸</title>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge;Chrome=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no, email=no" />
+<link rel="stylesheet" href="/demo/css/cmui.css">
+<link rel="stylesheet" href="/demo/css/demo.css">
+</head>
+
+<body class="cmWrapper cmSystem dpl-test-viewport">
+<article class="cmPage">
+	<header class="cmPageNavBar">
+		<h1>测试: 视口尺寸</h1>
+		<div class="cmBtnWrapper cmRight">
+			<a class="cmBtn" href="javascript:location.reload();">刷新</a>
+		</div>
+		<div class="cmBtnWrapper cmLeft">
+			<a class="cmBtn cmBack" href="../../"><b>CMUI</b></a>
+		</div>
+	</header>
+	<section class="viewport">
+		<h2>视口尺寸</h2>
+		<div class="cmBtnWrapper scroll">
+			<a class="cmBtn" href="#scroll">滚动并隐藏地址栏</a>
+		</div>
+		<div class="cmBtnLine">
+			<div class="cmBtnWrapper toggle">
+				<a class="cmBtn" href="#toggle">显示/隐藏数据</a>
+			</div>
+			<div class="cmBtnWrapper print">
+				<a class="cmBtn" href="#print">刷新数据</a>
+			</div>
+		</div>
+		<div class="result">
+			<ul>
+				<li class="doc scrolltop">doc.scrollTop: <span>-</span></li>
+				<li class="body scrolltop">body.scrollTop: <span>-</span></li>
+				<li class="screen">screen.~: <span>-</span></li>
+				<li class="screen avail">screen.avail~: <span>-</span></li>
+				<li class="window inner">window.inner~: <span>-</span></li>
+				<li class="window outer">window.outer~: <span>-</span></li>
+				<li class="doc client">doc.client~: <span>-</span></li>
+				<li class="doc offset">doc.offset~: <span>-</span></li>
+				<li class="doc scroll">doc.scroll~: <span>-</span></li>
+				<li class="body client">body.client~: <span>-</span></li>
+				<li class="body offset">body.offset~: <span>-</span></li>
+				<li class="body scroll">body.scroll~: <span>-</span></li>
+				<li>------------</li>
+				<li class="orientation">Orientation: <span>-</span></li>
+				<li class="width">Width: <span>-</span></li>
+				<li class="height">Height: <span>-</span></li>
+			</ul>
+		</div>
+	</section>
+	<hr>
+	<section class="act">
+		<a class="cmBtn" href="javascript:location.reload();">刷新</a>
+		<p>...</p>
+		<p>...</p>
+		<p>...</p>
+		<p>...</p>
+		<p>...</p>
+		<p>...</p>
+		<p>...</p>
+		<p>...</p>
+		<p>...</p>
+		<p>...</p>
+		<p>...</p>
+		<p>...</p>
+		<p>...</p>
+		<p>...</p>
+		<p>...</p>
+		<p>...</p>
+		<p>...</p>
+		<p>...</p>
+		<p>...</p>
+		<p>...</p>
+	</section>
+	<hr>
+	<footer>
+		<address>&copy; CMUI.NET</address>
+	</footer>
+</article>
+<script src="/deps/lib.js"></script>
+<script src="/dist/cmui.js"></script>
+<script>_.ext.ini(); DPL.ini();</script>
+<script>_.url.gaAccount = 'UA-17208063-8'; _.ga.ini(true);</script>
+<script src="/demo/js/test.js"></script>
+</body>
+</html>

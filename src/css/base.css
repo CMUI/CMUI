@@ -1,0 +1,257 @@
+/** @charset 'utf-8'; **/
+/* --------------------------------------------- */
+/** framework **/
+html {background:gray;}
+samp {font-family:inherit;}
+.cmPreloadContainer {position:absolute;display:block;height:0;overflow:hidden;}
+.clearfix:after,.cmClr:after,.cmWrapper:after,.cmPage:after,.cmInfoBox:after,.cmTipBoxInner:after {content:'';display:block;clear:both;height:0;}
+.cmWrapper {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	position: relative;
+	margin: 0 auto;
+	min-width: 320px;
+	max-width: 640px;  /** android 540x960 @1.5x, 1280x720 @1.5x, iphone5 1136x640 @2x **/
+	overflow-x: hidden;
+	overflow-y: hidden;
+	box-shadow: 0 0 16px rgba(0,0,0,0.75);
+	-webkit-box-shadow: 0 0 16px rgba(0,0,0,0.75);
+}
+html.desktop .cmWrapper,
+html.pad .cmWrapper {
+	min-width: 600px;
+}
+
+html,body,a.off {-webkit-tap-highlight-color:transparent;}
+input, textarea, select, label[for], a {-webkit-tap-highlight-color:rgba(0,0,0,0.3);}
+.cmDescr a {padding: 8px 0;}
+.cmInfoBox p a {padding-top: 5px; padding-bottom: 5px;}
+
+html:not(.phone) a[href^="tel:"] {
+	color: inherit;
+	text-decoration: inherit;
+}
+html.desktop a[href^="tel:"] {
+	pointer-events: none;
+}
+
+[data-action-list] > li > a:first-child,
+[data-action], .cmAction,
+.cmBtnWrapper {
+	-webkit-touch-callout: none;
+}
+
+.cmX20 {width: 20px; height: 20px;}
+.cmX30 {width: 30px; height: 30px;}
+.cmX40 {width: 40px; height: 40px;}
+.cmX50 {width: 50px; height: 50px;}
+
+/* --------------------------------------------- */
+/** text **/
+.cmText {
+	text-align: justify; text-justify: distribute;
+}
+.cmText h1 {
+	font-size: 150%;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+.cmText h2 {
+	font-size: 125%;
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+.cmText h1 + h2 {
+	margin-top: 10px;
+}
+.cmText h3 {
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+.cmText p,
+.cmText h4 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.cmText h1:first-child,
+.cmText h2:first-child,
+.cmText h3:first-child,
+.cmText p:first-child,
+.cmText ul:first-child,
+.cmText ol:first-child {
+	margin-top: 0;
+}
+.cmText p:last-child,
+.cmText ul:last-child,
+.cmText ol:last-child {
+	margin-bottom: 0;
+}
+
+@media (min-width: 479px) {  /** more margin for text block on wider screen **/
+	.cmText section,
+	section.cmText {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	section > div.cmText {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+}
+
+/** list - basic **/
+ul.cmText,
+ol.cmText,
+.cmText ul,
+.cmText ol {
+	padding-left: 2em;
+	list-style-type: disc;
+}
+ol.cmText,
+.cmText ol {
+	list-style-type: decimal;
+}
+/** list - margin **/
+.cmText ul,
+.cmText ol {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.cmText ul + ul,
+.cmText ol + ul,
+.cmText ol + ol,
+.cmText ul + ol {
+	margin-top: 10px;
+}
+/** list - style **/
+ul.cmText ul,
+.cmText ul ul {
+	list-style-type: square;
+}
+ul.cmText ul ul,
+.cmText ul ul ul {
+	list-style-type: circle;
+}
+
+/** description **/
+.cmDescr {
+	font-size: 87.5%;
+	color: #808080;
+}
+div.cmDescr,
+p.cmDescr {
+	margin: 0 auto;
+	width: 90%;
+	text-align: center;
+}
+.cmSystem .cmDescr {
+	color: #4c566c;
+}
+.cmDescr samp {
+	white-space: nowrap;
+}
+
+.cmBtn + .cmDescr {margin-top: 10px;}
+.cmBtnSuite .cmBtnWrapper + .cmDescr {margin-top: -5px;}
+.cmBtnSuite .cmBtn + .cmDescr,
+.cmList + .cmDescr,
+.cmInfoBox + .cmDescr {margin-top: 5px;}
+
+.cmDescr + .cmDescr,
+.cmDescr + .cmBtnWrapper,
+.cmDescr + .cmBtn,
+.cmDescr + .cmList,
+.cmDescr + .cmInfoBox {margin-top: 10px;}
+
+/* --------------------------------------------- */
+/** cmInfoBox **/
+.cmInfoBox {
+	padding: 20px;
+	text-shadow: 0 1px 0 white;
+	border-radius: 10px;
+	background-color: #eee;
+	box-shadow: inset 0 1px 2px silver;
+	-webkit-box-shadow: inset 0 1px 2px silver;
+}
+.cmSystem .cmInfoBox {
+	border: 1px solid silver;
+	box-shadow: inset 0 1px 2px #999;
+	-webkit-box-shadow: inset 0 1px 2px #999;
+}
+@media (max-width: 479px) {
+	.cmInfoBox.cmLongText {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+}
+.cmInfoBox + .cmInfoBox {
+	margin-top: 20px;
+}
+
+.cmText.cmInfoBox h1,
+.cmText.cmInfoBox h2,
+.cmText.cmInfoBox h3,
+.cmText.cmInfoBox h4,
+.cmText .cmInfoBox h1,
+.cmText .cmInfoBox h2,
+.cmText .cmInfoBox h3,
+.cmText .cmInfoBox h4 {text-align: center;}
+.cmLongText.cmInfoBox h1,
+.cmLongText.cmInfoBox h2,
+.cmLongText.cmInfoBox h3,
+.cmLongText.cmInfoBox h4,
+.cmLongText .cmInfoBox h1,
+.cmLongText .cmInfoBox h2,
+.cmLongText .cmInfoBox h3,
+.cmLongText .cmInfoBox h4 {text-align: left;}
+
+.cmText.cmInfoBox h1:first-child,
+.cmText.cmInfoBox h2:first-child,
+.cmText.cmInfoBox h3:first-child,
+.cmText.cmInfoBox h4:first-child,
+.cmText .cmInfoBox h1:first-child,
+.cmText .cmInfoBox h2:first-child,
+.cmText .cmInfoBox h3:first-child,
+.cmText .cmInfoBox h4:first-child {margin-top: -10px;}
+
+.cmInfoBox hr {
+	margin: 10px -10px;
+	border-top: 1px dotted #ccc;
+	border-bottom: 1px dotted white;
+}
+.cmInfoBox.loading {
+	margin-bottom: 200px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	line-height: 40px;
+	text-align: center;
+}
+.cmInfoBox.loading p > .cmIcon:first-child {  /** loading icon **/
+	top: -2px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.cmSiteNotice a.i-see,
+.cmTipBox a.i-see,
+.cmInfoBox a.i-see {
+	float: right;
+	margin: -6px -12px;
+	padding: 6px 12px;
+	white-space: nowrap;
+}
+
+/** cmHasBtn **/
+.cmInfoBox.cmHasBtn {
+	padding: 10px;
+}
+.cmInfoBox.cmHasBtn .cmBtn {
+	margin-top: 8px;
+}
+.cmInfoBox.cmHasBtn hr {
+	margin: 5px 0;
+}
+
+/** The End **/
+/* --------------------------------------------- */

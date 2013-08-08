@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>CMUI: 测试: 触摸事件</title>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge;Chrome=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no, email=no" />
+<link rel="stylesheet" href="/demo/css/cmui.css">
+<link rel="stylesheet" href="/demo/css/demo.css">
+</head>
+
+<body class="cmWrapper cmSystem dpl-test-event-touch">
+<article class="cmPage">
+	<header class="cmPageNavBar">
+		<h1>测试: 触摸事件</h1>
+		<div class="cmBtnWrapper cmRight">
+			<a class="cmBtn" href="javascript:location.reload();">刷新</a>
+		</div>
+		<div class="cmBtnWrapper cmLeft">
+			<a class="cmBtn cmBack" href="../../"><b>CMUI</b></a>
+		</div>
+	</header>
+	<section class="click">
+		<h2>点击、双击、长按（基于 Zepto）</h2>
+		<div class="cmBtnWrapper test">
+			<a class="cmBtn cmLarge" href="#test">点击测试</a>
+		</div>
+		<div class="cmBtnLine">
+			<div class="cmBtnWrapper print">
+				<a class="cmBtn disabled" href="#print">打印记录</a>
+			</div>
+			<div class="cmBtnWrapper clear">
+				<a class="cmBtn disabled" href="#clear">清空</a>
+			</div>
+		</div>
+		<div class="result"></div>
+	</section>
+	<hr>
+	<section class="swipe">
+		<h2>轻扫手势（基于 Zepto）</h2>
+		<div class="test"></div>
+		<div class="cmBtnLine">
+			<div class="cmBtnWrapper print">
+				<a class="cmBtn disabled" href="#print">打印记录</a>
+			</div>
+			<div class="cmBtnWrapper clear">
+				<a class="cmBtn disabled" href="#clear">清空</a>
+			</div>
+		</div>
+		<div class="result"></div>
+	</section>
+	<hr>
+	<section class="pinch">
+		<h2>缩放手势（基于 Zepto）</h2>
+		<div class="test"></div>
+		<div class="cmBtnLine">
+			<div class="cmBtnWrapper print">
+				<a class="cmBtn disabled" href="#print">打印记录</a>
+			</div>
+			<div class="cmBtnWrapper clear">
+				<a class="cmBtn disabled" href="#clear">清空</a>
+			</div>
+		</div>
+		<div class="result"></div>
+	</section>
+	<hr>
+	<section class="act">
+		<a class="cmBtn" href="javascript:location.reload();">刷新</a>
+	</section>
+	<hr>
+	<footer>
+		<address>&copy; CMUI.NET</address>
+	</footer>
+</article>
+<script src="/deps/lib.js"></script>
+<script src="/dist/cmui.js"></script>
+<script>_.ext.ini(); DPL.ini();</script>
+<script>_.url.gaAccount = 'UA-17208063-8'; _.ga.ini(true);</script>
+<script src="/demo/js/test.js"></script>
+</body>
+</html>

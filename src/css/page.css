@@ -1,0 +1,427 @@
+/** @charset 'utf-8'; **/
+/* --------------------------------------------- */
+/** page **/
+.cmPage {
+	min-height: 100%;
+	width: 100%;
+	overflow: hidden;
+	background-color: white;
+}
+.cmSystem .cmPage,
+.cmPage.cmSystem {
+	background-color: #c5ccd4;
+	aa background-image: -moz-linear-gradient(left, #c5ccd4, #c5ccd4 71.42857%, #cbd2d8 71.42857%, #cbd2d8);
+	aa background-image: -webkit-gradient(linear, left top, right top, from(#c5ccd4), to(#cbd2d8), color-stop(71.42857%, #c5ccd4), color-stop(71.42857%, #cbd2d8));
+	background-image: -moz-linear-gradient(left, #d1d8df, #d1d8df 71.42857%, #d7dde3 71.42857%, #d7dde3);
+	background-image: -webkit-gradient(linear, left top, right top, from(#d1d8df), to(#d7dde3), color-stop(71.42857%, #d1d8df), color-stop(71.42857%, #d7dde3));
+	background-size: 7px 100px;
+}
+.cmSystem .cmPage > hr,
+.cmPage.cmSystem > hr {
+	border-top-color: #bbb;
+	border-bottom: 1px solid #eee;
+	margin-bottom: -1px;
+}
+.cmSystem section,
+.cmSystem form,
+.cmSystem h1 {
+	text-shadow: 0 1px 0 #eee;
+}
+
+/* --------------------------------------------- */
+/** page slide **/
+.cmPageScroll {
+	aa display: none;
+}
+.cmPageSlideIn,
+.cmPageSlideReady,
+.cmPageSlideOut {
+	position: absolute;
+	top: 0;
+}
+.cmPageBase {
+	position: static;
+}
+.cmPageSlideIn {
+	-moz-transform: translate(0, 0);
+	-webkit-transform: translate3d(0, 0, 0);  /** 3d acceleration **/
+	-moz-transition: -moz-transform .25s linear;
+	-webkit-transition: -webkit-transform .25s linear;
+}
+.cmPageSlideReady {
+	-moz-transform: translate(100%, 0);
+	-webkit-transform: translate3d(100%, 0, 0);  /** 3d acceleration **/
+	-moz-transition: -moz-transform .25s linear;
+	-webkit-transition: -webkit-transform .25s linear;
+}
+.cmPageSlideOut {
+	-moz-transform: translate(-100%, 0);
+	-webkit-transform: translate3d(-100%, 0, 0);  /** 3d acceleration **/
+	-moz-transition: -moz-transform .25s linear;
+	-webkit-transition: -webkit-transform .25s linear;
+}
+
+
+/* --------------------------------------------- */
+/** nav bar **/
+.cmPageNavBar {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	position: relative;
+	z-index: 20;
+	height: 44px;
+	white-space: nowrap;
+	border-style: solid;
+	border-width: 1px 0;
+	border-top-color: #ccc;
+	border-bottom-color: black;
+	background-color: #333;
+	background-image: -moz-linear-gradient(top, gray, black);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(gray), to(black));
+	box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+	-webkit-box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+}
+.cmPageNavBar > .cmLeft,
+.cmPageNavBar > .cmRight {
+	width: 30%;
+}
+
+/** nav - title **/
+.cmPageNavBar > h1 {
+	margin: 0 30%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: center;
+	font-size: 20px;
+	line-height: 42px;
+}
+.cmPageNavBar > h1 {
+	color: white;
+	text-shadow: 0 -1px 0 black;
+}
+
+/** nav - btn **/
+.cmPageNavBar > .cmBtnCombo,
+.cmPageNavBar > .cmBtnLine,
+.cmPageNavBar > .cmBtnWrapper {
+	position: absolute;
+	top: -1px;
+	z-index: 10;
+}
+.cmPageNavBar > .cmBtnWrapper {
+	bottom: -16px;
+	aa background-color: silver;  /** debug **/
+}
+.cmPageNavBar > .cmRight.cmBtnWrapper {
+	right: 0;
+	padding: 7px 5px 0 0;
+}
+.cmPageNavBar > .cmLeft.cmBtnWrapper {
+	left: 0;
+	bottom: -21px;
+	right: auto;
+	padding: 7px 0 0 5px;
+}
+.cmPageNavBar > .cmRight.cmBtnWrapper .cmBtn {float: right; max-width: 86.45%;}
+.cmPageNavBar > .cmLeft.cmBtnWrapper .cmBtn {float: left; max-width: 86.45%;}
+html.safari .cmPageNavBar > .cmRight.cmBtnWrapper .cmBtn.cmBack,
+html.safari .cmPageNavBar > .cmRight.cmBtnWrapper .cmBtn.cmForward,
+html.safari .cmPageNavBar > .cmLeft.cmBtnWrapper .cmBtn.cmBack,
+html.safari .cmPageNavBar > .cmLeft.cmBtnWrapper .cmBtn.cmForward,
+html.chrome .cmPageNavBar > .cmRight.cmBtnWrapper .cmBtn.cmBack,
+html.chrome .cmPageNavBar > .cmRight.cmBtnWrapper .cmBtn.cmForward,
+html.chrome .cmPageNavBar > .cmLeft.cmBtnWrapper .cmBtn.cmBack,
+html.chrome .cmPageNavBar > .cmLeft.cmBtnWrapper .cmBtn.cmForward {max-width: 73%;}
+
+.cmPageNavBar > .cmLeft.cmBtnLine,
+.cmPageNavBar > .cmLeft.cmBtnCombo,
+.cmPageNavBar > .cmRight.cmBtnLine,
+.cmPageNavBar > .cmRight.cmBtnCombo {
+	aa background-color: green;  /** debug **/
+}
+.cmPageNavBar > .cmLeft.cmBtnLine,
+.cmPageNavBar > .cmLeft.cmBtnCombo {left: 5px;}
+.cmPageNavBar > .cmRight.cmBtnLine,
+.cmPageNavBar > .cmRight.cmBtnCombo {right: 5px;}
+
+.cmPageNavBar > .cmLeft.cmBtnLine .cmBtnWrapper,
+.cmPageNavBar > .cmLeft.cmBtnCombo .cmBtnWrapper,
+.cmPageNavBar > .cmRight.cmBtnLine .cmBtnWrapper,
+.cmPageNavBar > .cmRight.cmBtnCombo .cmBtnWrapper {
+	padding-top: 7px;
+	padding-bottom: 20px;
+}
+.cmPageNavBar > .cmLeft.cmBtnLine .cmBtnWrapper:first-child,
+.cmPageNavBar > .cmLeft.cmBtnCombo .cmBtnWrapper:first-child {margin-left: -5px; padding-left: 5px;}
+.cmPageNavBar > .cmLeft.cmBtnLine .cmBtnWrapper:last-child,
+.cmPageNavBar > .cmLeft.cmBtnCombo .cmBtnWrapper:last-child {padding-right: 15.66%;}
+.cmPageNavBar > .cmRight.cmBtnLine .cmBtnWrapper:first-child,
+.cmPageNavBar > .cmRight.cmBtnCombo .cmBtnWrapper:first-child {padding-left: 15.66%;}
+.cmPageNavBar > .cmRight.cmBtnLine .cmBtnWrapper:last-child,
+.cmPageNavBar > .cmRight.cmBtnCombo .cmBtnWrapper:last-child {margin-right: -5px; padding-right: 5px;}
+
+.cmPageNavBar > .cmLeft.cmBtnLine .cmBtnWrapper:first-child,
+.cmPageNavBar > .cmRight.cmBtnLine .cmBtnWrapper:first-child {padding-right: 3px;}
+.cmPageNavBar > .cmLeft.cmBtnLine .cmBtnWrapper:last-child,
+.cmPageNavBar > .cmRight.cmBtnLine .cmBtnWrapper:last-child {padding-left: 3px;}
+
+.cmPageNavBar > .cmLeft.cmBtnLine .cmBtnWrapper:first-child,
+.cmPageNavBar > .cmRight.cmBtnLine .cmBtnWrapper:last-child {max-width: 50%;}
+
+html.moz .cmPageNavBar > .cmLeft.cmBtnLine,
+html.moz .cmPageNavBar > .cmLeft.cmBtnCombo,
+html.moz .cmPageNavBar > .cmRight.cmBtnLine,
+html.moz .cmPageNavBar > .cmRight.cmBtnCombo {
+	width: 25.9%;
+}
+html.moz .cmPageNavBar > .cmLeft.cmBtnCombo .cmBtnWrapper,
+html.moz .cmPageNavBar > .cmRight.cmBtnCombo .cmBtnWrapper {
+	float: left;
+	width: 50%;
+}
+html.moz .cmPageNavBar > .cmLeft.cmBtnLine .cmBtnWrapper,
+html.moz .cmPageNavBar > .cmRight.cmBtnLine .cmBtnWrapper {float: left;}
+html.moz .cmPageNavBar > .cmLeft.cmBtnLine .cmBtnWrapper:first-child {max-width: 60%;}
+html.moz .cmPageNavBar > .cmRight.cmBtnLine .cmBtnWrapper:last-child {float: right; margin-left: -100%; max-width: 60%;}
+
+html.moz .cmPageNavBar > .cmLeft.cmBtnLine .cmBtnWrapper:last-child,
+html.moz .cmPageNavBar > .cmLeft.cmBtnCombo .cmBtnWrapper:last-child {margin-right: -15.66%;}
+html.moz .cmPageNavBar > .cmRight.cmBtnLine .cmBtnWrapper:first-child,
+html.moz .cmPageNavBar > .cmRight.cmBtnCombo .cmBtnWrapper:first-child {margin-left: -15.66%;}
+
+/** nav - switch **/
+.cmPageNavBar > .cmBtnSwitch {
+	position: relative;
+	z-index: 20;
+	margin: 0 28%;
+	padding: 0 2%;
+	max-width: 40%;
+	aa background-color: green;  /** debug **/
+}
+html.moz .cmPageNavBar > .cmBtnSwitch {
+	margin: 0 30%;
+	padding: 0;
+}
+.cmPageNavBar > .cmBtnSwitch .cmBtnWrapper {
+	padding-top: 7px;
+	padding-bottom: 18px;
+}
+.cmPageNavBar > .cmBtnSwitch .current .cmBtn,
+.cmPageNavBar > .cmBtnSwitch .cmBtn.current {
+	border-color: black;
+	box-shadow: inset 0 1px 5px rgba(0,0,0,0.5),
+		0 1px 0 rgba(255,255,255,.25);  /** => btn arrow shadow **/
+	-webkit-box-shadow: inset 0 1px 5px rgba(0,0,0,0.5),
+		0 1px 0 rgba(255,255,255,.25);  /** => btn arrow shadow **/
+}
+
+/** nav - long text **/
+@media (max-width: 479px) {
+	.cmPageNavBar h1.cmLongText {
+		font-size: 16px;
+	}
+	.cmPageNavBar .cmBtnCombo.cmLeft .cmBtn,
+	.cmPageNavBar .cmBtnCombo.cmRight .cmBtn,
+	.cmPageNavBar .cmBtnLine.cmLeft .cmBtn,
+	.cmPageNavBar .cmBtnLine.cmRight .cmBtn,
+	.cmPageNavBar .cmLongText .cmBtn {
+		font-size: 12px;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+}
+
+
+/* --------------------------------------------- */
+/** btn - back & forward **/
+.cmPageNavBar .cmBtn {
+	padding: 0 8px;
+	height: 29px;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 27px;
+	background-color: #aaa;  /** => btn arrow fg **/
+	border-color: black;  /** => btn arrow bg **/
+	box-shadow: 0 1px 0 rgba(255,255,255,.25);
+	-webkit-box-shadow: 0 1px 0 rgba(255,255,255,.25);  /** => btn arrow shadow **/
+}
+.cmPageNavBar .cmBtn.cmBack b,
+.cmPageNavBar .cmBtn.cmForward b {
+	font-weight: inherit;
+}
+.cmPageNavBar .cmBtn.cmBack {padding-left: 13px !important;}
+.cmPageNavBar .cmBtn.cmForward {padding-right: 13px !important;}
+
+/** btn arrow - non safari **/
+html.dpl:not(.safari):not(.chrome) .cmPageNavBar .cmBtn.cmBack:before,
+html.dpl:not(.safari):not(.chrome) .cmPageNavBar .cmBtn.cmBack:after,
+html.dpl:not(.safari):not(.chrome) .cmPageNavBar .cmBtn.cmForward:before,
+html.dpl:not(.safari):not(.chrome) .cmPageNavBar .cmBtn.cmForward:after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 3px;
+}
+html.dpl:not(.safari):not(.chrome) .cmPageNavBar .cmBtn.cmBack:before,
+html.dpl:not(.safari):not(.chrome) .cmPageNavBar .cmBtn.cmBack:after {
+	left: 5px;
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+	-moz-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+}
+html.dpl:not(.safari):not(.chrome) .cmPageNavBar .cmBtn.cmBack:before {
+	top: 12px;
+	border-top-color: white;
+	border-left-color: white;
+}
+html.dpl:not(.safari):not(.chrome) .cmPageNavBar .cmBtn.cmBack:after {
+	top: 11px;
+}
+
+html.dpl:not(.safari):not(.chrome) .cmPageNavBar .cmBtn.cmForward:before,
+html.dpl:not(.safari):not(.chrome) .cmPageNavBar .cmBtn.cmForward:after {
+	right: 5px;
+	border-bottom-color: transparent;
+	border-left-color: transparent;
+	-moz-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+html.dpl:not(.safari):not(.chrome) .cmPageNavBar .cmBtn.cmForward:before {
+	top: 12px;
+	border-top-color: white;
+	border-right-color: white;
+}
+html.dpl:not(.safari):not(.chrome) .cmPageNavBar .cmBtn.cmForward:after {
+	top: 11px;
+}
+
+/** btn arrow - safari **/
+html.chrome .cmPageNavBar .cmBtn.cmBack,
+html.safari .cmPageNavBar .cmBtn.cmBack {
+	margin-left: 13px;
+	padding-left: 1px !important;
+	overflow: visible;
+	border-left-style: none;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+html.chrome .cmPageNavBar .cmBtn.cmForward,
+html.safari .cmPageNavBar .cmBtn.cmForward {
+	margin-right: 13px;
+	padding-right: 1px !important;
+	overflow: visible;
+	border-right-style: none;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+html.chrome .cmPageNavBar .cmBtn.cmBack b,
+html.chrome .cmPageNavBar .cmBtn.cmForward b,
+html.safari .cmPageNavBar .cmBtn.cmBack b,
+html.safari .cmPageNavBar .cmBtn.cmForward b {
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+html.chrome .cmPageNavBar .cmBtn.cmBack:before,  /** btn arrow bg **/
+html.chrome .cmPageNavBar .cmBtn.cmBack:after,  /** btn arrow fg **/
+html.chrome .cmPageNavBar .cmBtn.cmBack b:before,  /** btn arrow shadow **/
+html.chrome .cmPageNavBar .cmBtn.cmForward:before,  /** btn arrow bg **/
+html.chrome .cmPageNavBar .cmBtn.cmForward:after,  /** btn arrow fg **/
+html.chrome .cmPageNavBar .cmBtn.cmForward b:before,  /** btn arrow shadow **/
+html.safari .cmPageNavBar .cmBtn.cmBack:before,  /** btn arrow bg **/
+html.safari .cmPageNavBar .cmBtn.cmBack:after,  /** btn arrow fg **/
+html.safari .cmPageNavBar .cmBtn.cmBack b:before,  /** btn arrow shadow **/
+html.safari .cmPageNavBar .cmBtn.cmForward:before,  /** btn arrow bg **/
+html.safari .cmPageNavBar .cmBtn.cmForward:after,  /** btn arrow fg **/
+html.safari .cmPageNavBar .cmBtn.cmForward b:before {  /** btn arrow shadow **/
+	content: '';
+	position: absolute;
+	width: 13px;
+	height: 29px;
+	-webkit-mask: url(data:image/png;base64,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) no-repeat;
+	-webkit-mask-size: 30px 60px;
+}
+html.chrome .cmPageNavBar .cmBtn.cmBack:before,
+html.safari .cmPageNavBar .cmBtn.cmBack:before {  /** btn arrow bg **/
+	top: -1px;
+	left: -13px;
+	z-index: 5;
+	background-color: black;
+}
+html.chrome .cmPageNavBar .cmBtn.cmBack:after,
+html.safari .cmPageNavBar .cmBtn.cmBack:after {  /** btn arrow fg **/
+	top: -1px;
+	left: -13px;
+	z-index: 10;
+	background-color: #aaa;
+	-webkit-mask-position: -15px 0;
+	background-image: -moz-linear-gradient(top, rgba(255,255,255,0.75), rgba(255,255,255,0));
+	background-image: -webkit-gradient(linear, center top, center bottom, from(rgba(255,255,255,0.75)), to(rgba(255,255,255,0)));
+}
+html.chrome .cmPageNavBar .cmBtn.cmBack b:before,
+html.safari .cmPageNavBar .cmBtn.cmBack b:before {  /** btn arrow shadow **/
+	top: 0;
+	left: -13px;
+	background-color: rgba(255,255,255,.25);
+}
+html.chrome .cmPageNavBar .cmBtn.cmForward:before,
+html.safari .cmPageNavBar .cmBtn.cmForward:before {  /** btn arrow bg **/
+	top: -1px;
+	right: -13px;
+	z-index: 5;
+	background-color: black;
+	-webkit-mask-position: 0 -30px;
+}
+html.chrome .cmPageNavBar .cmBtn.cmForward:after,
+html.safari .cmPageNavBar .cmBtn.cmForward:after {  /** btn arrow fg **/
+	top: -1px;
+	right: -13px;
+	z-index: 10;
+	background-color: #aaa;
+	-webkit-mask-position: -15px -30px;
+	background-image: -moz-linear-gradient(top, rgba(255,255,255,0.75), rgba(255,255,255,0));
+	background-image: -webkit-gradient(linear, center top, center bottom, from(rgba(255,255,255,0.75)), to(rgba(255,255,255,0)));
+}
+html.chrome .cmPageNavBar .cmBtn.cmForward b:before,
+html.safari .cmPageNavBar .cmBtn.cmForward b:before {  /** btn arrow shadow **/
+	top: 0;
+	right: -13px;
+	background-color: rgba(255,255,255,.25);
+	-webkit-mask-position: 0 -30px;
+}
+
+/** btn :active **/
+html.dpl .cmPageNavBar .cmBtnWrapper:active .cmBtn {
+	background-color: #666;  /** => btn arrow fg :active **/
+	border-color: black;  /** => btn arrow bg **/
+	box-shadow: 0 1px 0 rgba(255,255,255,.25);
+	-webkit-box-shadow: 0 1px 0 rgba(255,255,255,.25);  /** => btn arrow shadow **/
+	text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+html.chrome .cmPageNavBar .cmBtnWrapper:active .cmBtn.cmBack:after,
+html.safari .cmPageNavBar .cmBtnWrapper:active .cmBtn.cmBack:after,
+html.chrome .cmPageNavBar .cmBtnWrapper:active .cmBtn.cmForward:after,
+html.safari .cmPageNavBar .cmBtnWrapper:active .cmBtn.cmForward:after {background-color: #666;}  /** btn arrow fg :active **/
+
+/* --------------------------------------------- */
+/** cmPageScroll cmPageContentFrame **/
+.cmPageScroll .cmPageContentFrame {
+	position: relative;
+	z-index: 10;
+	width: 100%;
+}
+.cmPageScroll .cmPageContentFrame > :first-child {
+	width: 100%;
+}
+
+/* --------------------------------------------- */
+/** footer btn **/  /** -- removed -- **/
+
+
+/** The End **/
+/* --------------------------------------------- */
