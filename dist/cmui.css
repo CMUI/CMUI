@@ -1,16 +1,3066 @@
 @charset 'utf-8';
 /* --------------------------------------------- */
-@import url(../src/css/ini-html5.css);
-@import url(../src/css/base.css);
-@import url(../src/css/icon.css);
-@import url(../src/css/btn.css);
-@import url(../src/css/list.css);
-@import url(../src/css/page.css);
-@import url(../src/css/form.css);
-@import url(../src/css/widget-gallery.css);
-@import url(../src/css/widget-overlay.css);
-@import url(../src/css/widget-notice.css);
-@import url(../src/css/skin-classic.css);
+/** reset **/
+html,body,div,dl,dt,dd,ol,ul,li,h1,h2,h3,h4,h5,h6,p,blockquote,pre,address,
+embed,object,iframe,img,audio,video,canvas,hr,
+form,fieldset,legend,label,input,button,textarea,select,table,caption,tfoot,thead,tbody,tr,th,td,
+article,aside,header,footer,hgroup,section,summary,nav,dialog,
+details,figcaption,figure,menu,meter,output,progress,time,mark {margin:0;padding:0;}
+
+embed,object,iframe,img,audio,video,canvas,
+article,aside,header,footer,hgroup,section,summary,nav,dialog,details,figcaption,figure,menu {display:block;}
+
+h1,h2,h3,h4,h5,h6 {font-size:100%;}
+table {border-collapse:collapse;border-spacing:0;}
+fieldset,img {border-style:none;}
+abbr,dfn {border-style:none;font-variant:inherit;}
+blockquote,address,abbr,dfn,cite,q,code,var,kbd,samp,del,ins,sub,sup,s,i,optgroup,em,mark,small {font-style:inherit;font-weight:inherit;}
+input,button,textarea,select,optgroup,option,small {font-size:100%;font-family:inherit;}
+blockquote,q {quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after {content:'';content:none;}
+ul,ol,menu {list-style:none outside;}
+svg:not(:root) {overflow:hidden;}
+
+/** basic style **/
+html {height:100%;}
+body {min-height:100%;}
+html {overflow-y:scroll;-webkit-text-size-adjust: 100%;}
+pre,code,var,kbd,samp {font-size:100%;font-family:Consolas,monospace;}
+pre {white-space:pre;white-space:pre-wrap;word-wrap:break-word;}
+label[for] {cursor:pointer;}
+abbr[title],dfn[title] {border-bottom:1px dotted;cursor:help;}
+hr {display:block;height:0;border-style:none;border-top:1px solid #ccc;background-color:transparent;}
+mark {background-color:#ff9;}
+audio:not([controls]) {display:none;}
+[hidden] {display:none;}
+sup,sub {position:relative;font-size:75%;line-height:1;vertical-align:baseline;}
+sup {top:-0.5em;}
+sub {bottom:-0.25em;}
+img {-ms-interpolation-mode:bicubic;}
+
+
+/** The End **/
+/* --------------------------------------------- */
+
+/** @charset 'utf-8'; **/
+/* --------------------------------------------- */
+/** framework **/
+html {background:gray;}
+samp {font-family:inherit;}
+.cmPreloadContainer {position:absolute;display:block;height:0;overflow:hidden;}
+.clearfix:after,.cmClr:after,.cmWrapper:after,.cmPage:after,.cmInfoBox:after,.cmTipBoxInner:after {content:'';display:block;clear:both;height:0;}
+.cmWrapper {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	position: relative;
+	margin: 0 auto;
+	min-width: 320px;
+	max-width: 640px;  /** android 540x960 @1.5x, 1280x720 @1.5x, iphone5 1136x640 @2x **/
+	overflow-x: hidden;
+	overflow-y: hidden;
+	box-shadow: 0 0 16px rgba(0,0,0,0.75);
+	-webkit-box-shadow: 0 0 16px rgba(0,0,0,0.75);
+}
+html.desktop .cmWrapper,
+html.pad .cmWrapper {
+	min-width: 600px;
+}
+
+html,body,a.off {-webkit-tap-highlight-color:transparent;}
+input, textarea, select, label[for], a {-webkit-tap-highlight-color:rgba(0,0,0,0.3);}
+.cmDescr a {padding: 8px 0;}
+.cmInfoBox p a {padding-top: 5px; padding-bottom: 5px;}
+
+html:not(.phone) a[href^="tel:"] {
+	color: inherit;
+	text-decoration: inherit;
+}
+html.desktop a[href^="tel:"] {
+	pointer-events: none;
+}
+
+[data-action-list] > li > a:first-child,
+[data-action], .cmAction,
+.cmBtnWrapper {
+	-webkit-touch-callout: none;
+}
+
+.cmX20 {width: 20px; height: 20px;}
+.cmX30 {width: 30px; height: 30px;}
+.cmX40 {width: 40px; height: 40px;}
+.cmX50 {width: 50px; height: 50px;}
+
+/* --------------------------------------------- */
+/** text **/
+.cmText {
+	text-align: justify; text-justify: distribute;
+}
+.cmText h1 {
+	font-size: 150%;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+.cmText h2 {
+	font-size: 125%;
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+.cmText h1 + h2 {
+	margin-top: 10px;
+}
+.cmText h3 {
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+.cmText p,
+.cmText h4 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.cmText h1:first-child,
+.cmText h2:first-child,
+.cmText h3:first-child,
+.cmText p:first-child,
+.cmText ul:first-child,
+.cmText ol:first-child {
+	margin-top: 0;
+}
+.cmText p:last-child,
+.cmText ul:last-child,
+.cmText ol:last-child {
+	margin-bottom: 0;
+}
+
+@media (min-width: 479px) {  /** more margin for text block on wider screen **/
+	.cmText section,
+	section.cmText {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	section > div.cmText {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+}
+
+/** list - basic **/
+ul.cmText,
+ol.cmText,
+.cmText ul,
+.cmText ol {
+	padding-left: 2em;
+	list-style-type: disc;
+}
+ol.cmText,
+.cmText ol {
+	list-style-type: decimal;
+}
+/** list - margin **/
+.cmText ul,
+.cmText ol {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.cmText ul + ul,
+.cmText ol + ul,
+.cmText ol + ol,
+.cmText ul + ol {
+	margin-top: 10px;
+}
+/** list - style **/
+ul.cmText ul,
+.cmText ul ul {
+	list-style-type: square;
+}
+ul.cmText ul ul,
+.cmText ul ul ul {
+	list-style-type: circle;
+}
+
+/** description **/
+.cmDescr {
+	font-size: 87.5%;
+	color: #808080;
+}
+div.cmDescr,
+p.cmDescr {
+	margin: 0 auto;
+	width: 90%;
+	text-align: center;
+}
+.cmSystem .cmDescr {
+	color: #4c566c;
+}
+.cmDescr samp {
+	white-space: nowrap;
+}
+
+.cmBtn + .cmDescr {margin-top: 10px;}
+.cmBtnSuite .cmBtnWrapper + .cmDescr {margin-top: -5px;}
+.cmBtnSuite .cmBtn + .cmDescr,
+.cmList + .cmDescr,
+.cmInfoBox + .cmDescr {margin-top: 5px;}
+
+.cmDescr + .cmDescr,
+.cmDescr + .cmBtnWrapper,
+.cmDescr + .cmBtn,
+.cmDescr + .cmList,
+.cmDescr + .cmInfoBox {margin-top: 10px;}
+
+/* --------------------------------------------- */
+/** cmInfoBox **/
+.cmInfoBox {
+	padding: 20px;
+	text-shadow: 0 1px 0 white;
+	border-radius: 10px;
+	background-color: #eee;
+	box-shadow: inset 0 1px 2px silver;
+	-webkit-box-shadow: inset 0 1px 2px silver;
+}
+.cmSystem .cmInfoBox {
+	border: 1px solid silver;
+	box-shadow: inset 0 1px 2px #999;
+	-webkit-box-shadow: inset 0 1px 2px #999;
+}
+@media (max-width: 479px) {
+	.cmInfoBox.cmLongText {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+}
+.cmInfoBox + .cmInfoBox {
+	margin-top: 20px;
+}
+
+.cmText.cmInfoBox h1,
+.cmText.cmInfoBox h2,
+.cmText.cmInfoBox h3,
+.cmText.cmInfoBox h4,
+.cmText .cmInfoBox h1,
+.cmText .cmInfoBox h2,
+.cmText .cmInfoBox h3,
+.cmText .cmInfoBox h4 {text-align: center;}
+.cmLongText.cmInfoBox h1,
+.cmLongText.cmInfoBox h2,
+.cmLongText.cmInfoBox h3,
+.cmLongText.cmInfoBox h4,
+.cmLongText .cmInfoBox h1,
+.cmLongText .cmInfoBox h2,
+.cmLongText .cmInfoBox h3,
+.cmLongText .cmInfoBox h4 {text-align: left;}
+
+.cmText.cmInfoBox h1:first-child,
+.cmText.cmInfoBox h2:first-child,
+.cmText.cmInfoBox h3:first-child,
+.cmText.cmInfoBox h4:first-child,
+.cmText .cmInfoBox h1:first-child,
+.cmText .cmInfoBox h2:first-child,
+.cmText .cmInfoBox h3:first-child,
+.cmText .cmInfoBox h4:first-child {margin-top: -10px;}
+
+.cmInfoBox hr {
+	margin: 10px -10px;
+	border-top: 1px dotted #ccc;
+	border-bottom: 1px dotted white;
+}
+.cmInfoBox.loading {
+	margin-bottom: 200px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	line-height: 40px;
+	text-align: center;
+}
+.cmInfoBox.loading p > .cmIcon:first-child {  /** loading icon **/
+	top: -2px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.cmSiteNotice a.i-see,
+.cmTipBox a.i-see,
+.cmInfoBox a.i-see {
+	float: right;
+	margin: -6px -12px;
+	padding: 6px 12px;
+	white-space: nowrap;
+}
+
+/** cmHasBtn **/
+.cmInfoBox.cmHasBtn {
+	padding: 10px;
+}
+.cmInfoBox.cmHasBtn .cmBtn {
+	margin-top: 8px;
+}
+.cmInfoBox.cmHasBtn hr {
+	margin: 5px 0;
+}
+
+/** The End **/
+/* --------------------------------------------- */
+/** @charset 'utf-8'; **/
+/* --------------------------------------------- */
+/** icon **/
+.cmIcon {
+	display: block;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	line-height: 9em;
+	overflow: hidden;
+	pointer-events: none;
+}
+a.cmIcon {
+	pointer-events: auto;
+}
+.cmIcon b,
+.cmIcon b:before {
+	position: absolute;
+	border: 0 solid;
+}
+
+/* --------------------------------------------- */
+/** cmX20 **/
+
+/** loading **/
+.cmX20.loading-black-bg {
+	background: url(/src/img/ui-loading-32x32-white-black.gif) no-repeat center center;
+	background-size: 16px 16px;
+}
+.cmX20.loading-white-bg {
+	background: url(/src/img/ui-loading-32x32-black-white.gif) no-repeat center center;
+	background-size: 16px 16px;
+}
+
+/** jump-to-top **/
+.cmX20.jump-to-top b:first-child {
+	left: 0;
+	top: 0;
+	width: 0;
+	height: 0;
+	border-width: 0 10px 10px;
+	border-right-color: transparent;
+	border-left-color: transparent;
+}
+.cmX20.jump-to-top b:last-child {
+	left: 6px;
+	top: 10px;
+	width: 0;
+	height: 10px;
+	border-left-width: 8px;
+}
+
+/** back **/
+.cmX20.back b:first-child {
+	left: 1px;
+	top: 2px;
+	width: 0;
+	height: 0;
+	border-width: 8px 8px 8px 0;
+	border-top-color: transparent;
+	border-bottom-color: transparent;
+}
+.cmX20.back b:last-child {
+	left: 9px;
+	top: 6px;
+	width: 10px;
+	height: 0;
+	border-top-width: 8px;
+}
+
+/** home **/
+.cmX20.home b:first-child {
+	left: 0;
+	top: 1px;
+	width: 0;
+	height: 0;
+	border-width: 0 10px 10px;
+	border-right-color: transparent;
+	border-left-color: transparent;
+}
+.cmX20.home b:last-child {
+	left: 4px;
+	top: 11px;
+	width: 4px;
+	height: 5px;
+	border-width: 3px 4px 0;
+}
+
+/** close **/
+.cmX20.close {
+	background: #ccc;
+	border-radius: 10px;
+}
+.cmX20.close:before,
+.cmX20.close:after {
+	content: '';
+	position: absolute;
+	left: 3px;
+	top: 9px;
+	width: 12px;
+	height: 0;
+	border: 1px solid white;
+	border-radius: 1px;
+}
+.cmX20.close:before {
+	-moz-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+.cmX20.close:after {
+	-moz-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+}
+
+/** info **/
+.cmX20.info:before,
+.cmX20.info:after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+}
+.cmX20.info:before {
+	left: 7px;
+	top: 1px;
+	border-style: solid;
+	border-width: 3px;
+	border-radius: 3px;
+}
+.cmX20.info:after {
+	left: 6px;
+	top: 9px;
+	width: 2px;
+	height: 7px;
+	border-top: 2px solid;
+	border-right: 4px solid;
+}
+.cmX20.info b:first-child {
+	left: 5px;
+	top: 18px;
+	width: 10px;
+	border-bottom: 2px solid;
+}
+
+/** add **/
+.cmX20.add:before,
+.cmX20.add:after {
+	content: '';
+	position: absolute;
+}
+.cmX20.add:before {
+	left: 1px;
+	top: 8px;
+	width: 18px;
+	height: 0;
+	border-bottom: 4px solid;
+}
+.cmX20.add:after {
+	left: 8px;
+	top: 1px;
+	width: 0;
+	height: 18px;
+	border-left: 4px solid;
+}
+
+/** action **/
+.cmX20.action:before,
+.cmX20.action:after {
+	content: '';
+	position: absolute;
+	border-style: solid;
+}
+.cmX20.action:before {
+	left: 1px;
+	top: 4px;
+	width: 2px;
+	height: 9px;
+	border-right-color: transparent;
+	border-width: 2px 2px 0;
+}
+.cmX20.action:after {
+	left: 1px;
+	top: 11px;
+	width: 15px;
+	height: 2px;
+	border-top-color: transparent;
+	border-width: 2px 2px 2px 0;
+}
+.cmX20.action b:nth-child(1) {
+	left: 5px;
+	top: 4px;
+	border-left-width: 0;
+	border-top-width: 4px;
+	width: 9px;
+	height: 5px;
+	border-top-left-radius: 9px 9px;
+}
+.cmX20.action b:nth-child(2) {
+	left: 14px;
+	top: 0px;
+	width: 0;
+	height: 0;
+	border-top-color: transparent;
+	border-bottom-color: transparent;
+	border-width: 6px 0 6px 6px;
+}
+
+/* --------------------------------------------- */
+/** cmX30 **/
+
+/** loading **/
+.cmX30.loading-black-bg {
+	background: url(/src/img/ui-loading-48x48-white-black.gif) no-repeat center center;
+	background-size: 24px 24px;
+}
+.cmX30.loading-white-bg {
+	background: url(/src/img/ui-loading-48x48-black-white.gif) no-repeat center center;
+	background-size: 24px 24px;
+}
+
+/** home **/
+.cmX30.home b:first-child {
+	left: 0;
+	top: 1px;
+	width: 0;
+	height: 0;
+	border-width: 0 15px 15px;
+	border-right-color: transparent;
+	border-left-color: transparent;
+}
+.cmX30.home b:last-child {
+	left: 6px;
+	top: 16px;
+	width: 6px;
+	height: 8px;
+	border-width: 4px 6px 0;
+}
+
+/** ellipsis **/
+.cmX30.ellipsis b {
+	top: 12px;
+	width: 0;
+	height: 0;
+	border-width: 3px;
+	border-radius: 3px;
+}
+.cmX30.ellipsis b:nth-child(1) {left: 2px;}
+.cmX30.ellipsis b:nth-child(2) {left: 12px;}
+.cmX30.ellipsis b:nth-child(3) {left: 22px;}
+
+/** search **/
+.cmX30.search b:first-child {
+	top: 4px;
+	left: 4px;
+	width: 12px;
+	height: 12px;
+	border-width: 2px;
+	border-radius: 8px;
+}
+.cmX30.search b:last-child {
+	top: 19px;
+	left: 16px;
+	width: 8px;
+	height: 0;
+	border-width: 2px;
+	border-radius: 2px;
+	-moz-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+
+/** user **/
+.cmX30.user b:first-child {
+	top: 4px;
+	left: 9px;
+	width: 0;
+	height: 0;
+	border-width: 6px;
+	border-radius: 6px;
+}
+.cmX30.user b:last-child {
+	top: 17px;
+	left: 4px;
+	width: 14px;
+	height: 0;
+	border-width: 4px;
+	border-radius: 6px 6px 1px 1px;
+}
+
+/** user-outline **/
+.cmX30.user-outline b:first-child {
+	top: 3px;
+	left: 8px;
+	width: 10px;
+	height: 10px;
+	border-width: 2px;
+	border-radius: 7px;
+}
+.cmX30.user-outline b:last-child {
+	top: 16px;
+	left: 3px;
+	width: 20px;
+	height: 6px;
+	border-width: 2px;
+	border-radius: 6px 6px 2px 2px;
+}
+
+/** notice **/
+.cmX30.notice:before,
+.cmX30.notice:after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+}
+.cmX30.notice:before {
+	left: 5px;
+	top: 8px;
+	width: 1px;
+	border-style: solid;
+	border-width: 7px 0 7px 7px;
+	border-radius: 2px 0 0 2px;
+}
+.cmX30.notice:after {
+	left: 15px;
+	top: 1px;
+	height: 14px;
+	border-style: solid;
+	border-width: 7px 7px 7px 0;
+	border-top-color: transparent;
+	border-bottom-color: transparent;
+}
+
+/** info **/
+.cmX30.info:before,
+.cmX30.info:after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+}
+.cmX30.info:before {
+	left: 11px;
+	top: 3px;
+	border-style: solid;
+	border-width: 4px;
+	border-radius: 4px;
+}
+.cmX30.info:after {
+	left: 9px;
+	top: 13px;
+	width: 3px;
+	height: 10px;
+	border-top: 2px solid;
+	border-right: 6px solid;
+}
+.cmX30.info b:first-child {
+	left: 8px;
+	top: 25px;
+	width: 14px;
+	border-bottom: 2px solid;
+}
+
+/** close **/
+.cmX30.close {
+	background: #ccc;
+	border-radius: 15px;
+}
+.cmX30.close:before,
+.cmX30.close:after {
+	content: '';
+	position: absolute;
+	left: 6px;
+	top: 14px;
+	width: 16px;
+	height: 0;
+	border: 1px solid white;
+	border-radius: 1px;
+}
+.cmX30.close:before {
+	-moz-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+.cmX30.close:after {
+	-moz-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+}
+
+
+
+/* --------------------------------------------- */
+/** cmX40 **/
+
+/** loading **/
+.cmX40.loading-black-bg {
+	background: url(/src/img/ui-loading-32x32-white-black.gif) no-repeat center center;
+}
+.cmX40.loading-white-bg {
+	background: url(/src/img/ui-loading-32x32-black-white.gif) no-repeat center center;
+}
+
+/** jump-to-top **/
+.cmX40.jump-to-top b:first-child {
+	left: 0;
+	top: 0;
+	width: 0;
+	height: 0;
+	border-width: 0 20px 20px;
+	border-right-color: transparent;
+	border-left-color: transparent;
+}
+.cmX40.jump-to-top b:last-child {
+	left: 12px;
+	top: 20px;
+	width: 0;
+	height: 20px;
+	border-left-width: 16px;
+}
+
+/** close **/
+.cmX40.close {
+	background: #ccc;
+	border-radius: 20px;
+}
+.cmX40.close:before,
+.cmX40.close:after {
+	content: '';
+	position: absolute;
+	left: 6px;
+	top: 18px;
+	width: 24px;
+	height: 0;
+	border: 2px solid white;
+	border-radius: 2px;
+}
+.cmX40.close:before {
+	-moz-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+.cmX40.close:after {
+	-moz-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+}
+
+/* --------------------------------------------- */
+/** cmX50 **/
+
+/** loading **/
+.cmX50.loading-black-bg {
+	background: url(/src/img/ui-loading-48x48-white-black.gif) no-repeat center center;
+}
+.cmX50.loading-white-bg {
+	background: url(/src/img/ui-loading-48x48-black-white.gif) no-repeat center center;
+}
+
+
+/** The End **/
+/* --------------------------------------------- */
+/** @charset 'utf-8'; **/
+/* --------------------------------------------- */
+/** btn **/
+.cmBtnWrapper {
+	padding-bottom: 10px;
+	-webkit-tap-highlight-color: transparent;
+}
+html.dpl .cmBtnWrapper {
+	cursor: pointer;  /** fix iOS click event bubbling issue **/
+}
+.cmList + .cmBtn,
+.cmList + .cmBtnWrapper {
+	margin-top: 15px;
+}
+
+.cmBtn {
+	display: block;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding-left: 5px;
+	padding-right: 5px;
+	height: 40px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-size: 20px;
+	line-height: 38px;
+	font-weight: 700;
+	text-align: center;
+	text-decoration: none;
+	border: 1px solid;
+	border-radius: 5px;
+	background-image: -moz-linear-gradient(top, rgba(255,255,255,0.75), rgba(255,255,255,0));
+	background-image: -webkit-gradient(linear, center top, center bottom, from(rgba(255,255,255,0.75)), to(rgba(255,255,255,0)));
+}
+.cmBtn.cmLarge {
+	height: 50px;
+	line-height: 48px;
+	font-size: 24px;
+}
+.cmBtn.cmSmall {
+	font-size: 18px;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+/** nav - long text **/
+@media (max-width: 479px) {
+	.cmBtn.cmLongText {
+		font-size: 16px;
+	}
+	.cmBtn.cmSmall.cmLongText {
+		font-size: 14px;
+	}
+}
+
+.cmBtn {
+	color: black;
+	text-shadow: 0 1px 0 white;
+	border-color: #999;
+	background-color: #ccc;
+	box-shadow: 0 2px 2px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 0 2px 2px rgba(0,0,0,0.3);
+	-webkit-tap-highlight-color: transparent;
+}
+.cmBtn.cmStrong {
+	color: black;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.75);
+	border-color: #c90;
+	background-color: #fc0;
+}
+.cmBtn.cmDangerous {
+	color: white;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+	border-color: #90040f;
+	background-color: #bd1421;
+}
+.cmBtn.cmNoBorder {
+	border-color: transparent !important;
+	background-origin: border-box;
+}
+.cmBtn.cmNoShadow {  /** this is basic style, so it should be put very top, so that to be overridden by :active status **/
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+
+/* --------------------------------------------- */
+/** icon, text, arrow **/
+
+/** icon + text **/
+.cmBtn:not(button) .cmX20,
+.cmBtn .cmX20:not(:only-child) {top: 9px;}
+.cmBtn:not(button) .cmX30,
+.cmBtn .cmX30:not(:only-child) {top: 4px;}
+.cmBtn.cmLarge:not(button) .cmX20,
+.cmBtn.cmLarge .cmX20:not(:only-child) {top: 14px;}
+.cmBtn.cmLarge:not(button) .cmX30,
+.cmBtn.cmLarge .cmX30:not(:only-child) {top: 9px;}
+.cmBtn.cmLarge:not(button) .cmX40,
+.cmBtn.cmLarge .cmX40:not(:only-child) {top: 4px;}
+
+.cmBtn .cmIcon:not(:only-child) {
+	float: left;
+	margin-right: 0;
+}
+.cmBtn .cmX20:not(:only-child) {margin-left: 4px; margin-right: 4px;}
+.cmBtn .cmX30:not(:only-child) {margin-left: 0; margin-right: 0;}
+.cmBtn.cmLarge .cmX20:not(:only-child) {margin-left: 9px; margin-right: 9px;}
+.cmBtn.cmLarge .cmX30:not(:only-child) {margin-left: 4px; margin-right: 4px;}
+.cmBtn.cmLarge .cmX40:not(:only-child) {margin-left: 0; margin-right: 0;}
+
+/** arrow **/
+.cmBtn.cmBack,
+.cmBtn.cmForward,
+.cmBtn.cmUpArrow,
+.cmBtn.cmDownArrow,
+.cmBtn.cmLeftArrow,
+.cmBtn.cmRightArrow {
+	position: relative;
+}
+.cmBtn.cmUpArrow,
+.cmBtn.cmDownArrow,
+.cmBtn.cmRightArrow {padding-right: 20px;}
+.cmBtn.cmLeftArrow {padding-left: 20px;}
+.cmBtn.cmSmall.cmUpArrow,
+.cmBtn.cmSmall.cmDownArrow,
+.cmBtn.cmSmall.cmRightArrow {padding-right: 15px;}
+.cmBtn.cmSmall.cmLeftArrow {padding-left: 15px;}
+
+.cmBtn.cmUpArrow:after,
+.cmBtn.cmDownArrow:after,
+.cmBtn.cmLeftArrow:after,
+.cmBtn.cmRightArrow:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	color: gray;
+	/** border-style: solid; **/  /** can't be put here, cuz arrow will show improper style before js is ready **/
+}
+.cmBtn.cmUpArrow:after,
+.cmBtn.cmDownArrow:after {
+	right: 7px;
+	margin-top: -4px;
+	border-style: solid;
+	border-width: 10px 5px 0;
+	border-left-color: transparent;
+	border-right-color: transparent;
+}
+.cmBtn.cmUpArrow:after {
+	margin-top: -6px;
+	border-width: 0 5px 10px;
+}
+.cmBtn.cmSmall.cmUpArrow:after,
+.cmBtn.cmSmall.cmDownArrow:after {
+	right: 5px;
+	margin-top: -3px;
+	border-width: 8px 4px 0;
+	border-left-color: transparent;
+	border-right-color: transparent;
+}
+.cmBtn.cmSmall.cmUpArrow:after {
+	margin-top: -5px;
+	border-width: 0 4px 8px;
+}
+
+html.dpl:not(.android-low) .cmBtn.cmLeftArrow:after,
+html.dpl:not(.android-low) .cmBtn.cmRightArrow:after {
+	right: 9px;
+	margin-top: -5px;
+	width: 7px;
+	height: 7px;
+	border-style: solid;
+	border-width: 3px 3px 0 0;
+	-moz-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+html.dpl:not(.android-low) .cmBtn.cmLeftArrow:after {
+	left: 9px;
+	border-width: 0 0 3px 3px;
+}
+html.dpl:not(.android-low) .cmBtn.cmSmall.cmLeftArrow:after {left: 6px;}
+html.dpl:not(.android-low) .cmBtn.cmSmall.cmRightArrow:after {right: 6px;}
+
+html.android-low .cmBtn.cmLeftArrow:after,
+html.android-low .cmBtn.cmRightArrow:after {
+	right: 8px;
+	margin-top: -7px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 7px 0 7px 7px;
+	border-top-color: transparent;
+	border-bottom-color: transparent;
+}
+html.android-low .cmBtn.cmLeftArrow:after {
+	left: 8px;
+	border-width: 7px 7px 7px 0;
+}
+html.android-low .cmBtn.cmSmall.cmLeftArrow:after {left: 5px;}
+html.android-low .cmBtn.cmSmall.cmRightArrow:after {right: 5px;}
+
+/* --------------------------------------------- */
+/** btn suite **/
+.cmBtnSuite > h2:first-child,
+.cmBtnSuite > h3:first-child,
+.cmBtnSuite > h4:first-child,
+.cmBtnSuite > h5:first-child,
+.cmBtnSuite > h6:first-child {
+	margin-bottom: 5px;
+}
+
+/* --------------------------------------------- */
+/** multiple btn **/
+.cmBtnLine,
+.cmBtnCombo {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	display: box;
+	display: -moz-box;
+	display: -webkit-box;
+	width: 100%;  /** @ moz **/
+	box-orient: horizontal;
+	-moz-box-orient: horizontal;
+	-webkit-box-orient: horizontal;
+}
+.cmBtnLine > .cmBtn,
+.cmBtnLine > .cmBtnSuite,
+.cmBtnLine > .cmBtnWrapper,
+.cmBtnCombo > input,
+.cmBtnCombo > .cmBtn,
+.cmBtnCombo > .cmBtnWrapper {
+	box-flex: 1;
+	-moz-box-flex: 1;
+	-webkit-box-flex: 1;
+}
+
+/** cmBtnLine **/
+.cmBtnLine > .cmBtn {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.cmBtnLine > .cmBtn:first-child {margin-left: 0;}
+.cmBtnLine > .cmBtn:last-child {margin-right: 0;}
+
+.cmBtnLine > .cmBtnSuite,
+.cmBtnLine > .cmBtnWrapper {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.cmBtnLine > .cmBtnSuite:first-child,
+.cmBtnLine > .cmBtnWrapper:first-child {padding-left: 0;}
+.cmBtnLine > .cmBtnSuite:last-child,
+.cmBtnLine > .cmBtnWrapper:last-child {padding-right: 0;}
+
+/** cmBtnCombo **/
+.cmBtnCombo > input {
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	display: block;
+	padding: 10px 7px 8px;
+	height: 40px;
+	line-height: 20px;
+	aa text-align: center;
+	color: #385487;
+	border: 1px solid #999999;
+	border-radius: 5px;
+	box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 0px rgba(0,0,0,0.2);
+	-webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 0px rgba(0,0,0,0.2);
+}
+.cmBtnCombo > input.cmLarge {
+	height: 50px;
+	padding: 12px 7px;
+}
+@media (max-width: 479px) {
+	.cmBtnCombo > input {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+}
+
+.cmBtnCombo > input:not(:first-child),
+.cmBtnCombo > .cmBtn:not(:first-child),
+.cmBtnCombo > .cmBtnWrapper:not(:first-child) .cmBtn {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	border-left-width: 0;
+}
+.cmBtnCombo > input:not(:last-child),
+.cmBtnCombo > .cmBtn:not(:last-child),
+.cmBtnCombo > .cmBtnWrapper:not(:last-child) .cmBtn {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+.cmBtnCombo .cmBtn {
+	box-shadow: 0 1px 0px rgba(0,0,0,0.2);
+	-webkit-box-shadow: 0 1px 0px rgba(0,0,0,0.2);
+}
+
+
+/* --------------------------------------------- */
+/** status **/
+
+/** actived **/
+html.dpl .cmBtnWrapper:active .cmBtn,
+input.cmBtn:focus,
+button.cmBtn:focus,
+.cmBtn:active {
+	border-color: #666;
+	background-color: #999;
+	box-shadow: inset 0 1px 5px rgba(0,0,0,0.2);
+	-webkit-box-shadow: inset 0 1px 5px rgba(0,0,0,0.2);
+}
+html.dpl .cmBtnWrapper:active .cmBtn.cmStrong,
+input.cmBtn.cmStrong:focus,
+button.cmBtn.cmStrong:focus,
+.cmBtn.cmStrong:active {
+	border-color: #960;
+	background-color: #c90;
+}
+html.dpl .cmBtnWrapper:active .cmBtn.cmDangerous,
+input.cmBtn.cmDangerous:focus,
+button.cmBtn.cmDangerous:focus,
+.cmBtn.cmDangerous:active {
+	border-color: #6c030b;
+	background-color: #90040f;
+}
+
+/** current **/
+.cmBtnWrapper.current .cmBtn,
+.cmBtn.current {
+	color: white;
+	text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+	background-color: gray !important;
+	box-shadow: inset 0 1px 5px rgba(0,0,0,0.5) !important;
+	-webkit-box-shadow: inset 0 1px 5px rgba(0,0,0,0.5) !important;
+}
+.cmBtnWrapper.current .cmBtn,
+.cmBtn.current {
+	border-color: #666;
+	background-image: -moz-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,0.25));
+	background-image: -webkit-gradient(linear, center top, center bottom, from(rgba(255,255,255,0)), to(rgba(255,255,255,0.25)));
+}
+
+/** disabled **/
+.disabled .cmBtn,
+.cmBtn.disabled {
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	opacity: 0.35;
+	text-shadow: none;
+	background-image: none;
+}
+html.dpl .cmBtnWrapper.current,
+.cmBtn.current,
+.disabled .cmBtn,
+.cmBtn.disabled,
+.disabled .cmBtnWrapper,
+.cmBtnWrapper.disabled {
+	cursor: default;
+	pointer-events: none;
+}
+
+/* --------------------------------------------- */
+/** form btn **/
+input.cmBtn,
+button.cmBtn {
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	width: 100%;
+	cursor: pointer;
+}
+html.moz input.cmBtn,
+html.moz button.cmBtn {
+	display: inline-block;
+}
+
+
+
+/** The End **/
+/* --------------------------------------------- */
+/** @charset 'utf-8'; **/
+/* --------------------------------------------- */
+/** list header **/
+.cmListHeader {
+	padding-bottom: 10px;
+	height: 38px;
+	line-height: 38px;
+	white-space: nowrap;
+	border: 1px solid #333;
+	border-bottom: 0;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	box-shadow: inset 0 1px 0 #ccc;
+	-webkit-box-shadow: inset 0 1px 0 #ccc;
+	background-color: #666;
+	background-image: -moz-linear-gradient(top, gray, black);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(gray), to(black));
+	background-image: -moz-linear-gradient(top, #999, #333);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#999), to(#333));
+}
+.cmListHeader + .cmList {
+	margin-top: -10px;
+}
+.cmListHeader > h1,
+.cmListHeader > h2,
+.cmListHeader > h3,
+.cmListHeader > h4,
+.cmListHeader > h5,
+.cmListHeader > h6 {
+	padding: 0 10px;
+	margin-right: 30%;
+	margin-bottom: 0;
+	color: white;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+}
+.cmListHeader > .cmRight.cmBtnWrapper {
+	position: relative;
+	z-index: 30;
+	float: right;
+	margin-top: -39px;
+	margin-right: -1px;
+	margin-bottom: -20px;
+	padding: 5px 6px 15px 0;
+	width: 30%;
+}
+.cmListHeader > .cmRight.cmBtnWrapper .cmBtn {float: right; max-width: 86.45%;}
+
+.cmListHeader .cmBtn {
+	padding: 0 8px;
+	height: 29px;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 27px;
+	background-color: #aaa;  /** => btn arrow fg **/
+	border-color: black;  /** => btn arrow bg **/
+	box-shadow: 0 1px 0 rgba(255,255,255,.25);
+	-webkit-box-shadow: 0 1px 0 rgba(255,255,255,.25);  /** => btn arrow shadow **/
+}
+html.dpl .cmListHeader .cmBtnWrapper:active .cmBtn {
+	background-color: #666;  /** => btn arrow fg :active **/
+	border-color: black;  /** => btn arrow bg **/
+	box-shadow: 0 1px 0 rgba(255,255,255,.25);
+	-webkit-box-shadow: 0 1px 0 rgba(255,255,255,.25);  /** => btn arrow shadow **/
+	text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
+/* --------------------------------------------- */
+/** list **/
+.cmList {
+	border-radius: 10px;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+	background-color: white;
+	text-shadow: none;
+}
+h2 + .cmList,
+h3 + .cmList,
+h4 + .cmList {margin-top: 5px;}
+.cmList + .cmList {margin-top: 15px;}
+
+.cmList + h2,
+.cmList + h3,
+.cmList + h4 {margin-top: 15px;}
+
+.cmList > li {
+	min-height: 44px;
+	white-space: nowrap;
+	border: 1px solid;
+	border-bottom-width: 0;
+	border-color: #999;
+}
+.cmList.cmLarge > li {
+	height: 50px;
+}
+.cmList[data-action-list] > li,
+.cmList > li[data-badge],
+.cmList > li[data-value],
+.cmList > li[data-descr],
+.cmList.cmHasDetail > li,
+.cmList > li.cmHasDetail,
+.cmList.cmDeletable > li,
+.cmList > li.cmDeletable {
+	position: relative;
+}
+.cmList.filtered > li.filtered.first,
+.cmList          > li:first-child {
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+.cmList.filtered > li.filtered.last,
+.cmList          > li:last-child {
+	border-bottom-width: 1px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.cmList.filtered > li {display: none;}
+.cmList.filtered > li.filtered {display: block;}
+
+/** list - content **/
+.cmList > li > :first-child {
+	display: block;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	min-height: 44px;
+	height: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	line-height: 24px;
+}
+.cmList > li > a:first-child {
+	position: relative;
+	z-index: 10;
+	font-weight: 700;
+	color: inherit;
+	text-decoration: none;
+	background-color: #ddd;
+	background-image: -moz-linear-gradient(top, rgba(255,255,255,0.75), rgba(255,255,255,0));
+	background-image: -webkit-gradient(linear, center top, center bottom, from(rgba(255,255,255,0.75)), to(rgba(255,255,255,0)));
+	box-shadow: inset 0 1px 0 white;
+	-webkit-box-shadow: inset 0 1px 0 white;
+	text-shadow: 0 1px 0 white;
+	-webkit-tap-highlight-color: transparent;
+	/** -webkit-touch-callout: none; **/  /** leave this to [data-action] **/
+}
+.cmList.cmLarge > li > :first-child {
+	font-size: 20px;
+	line-height: 30px;
+}
+.cmList > li.cmHasIcon > :first-child,
+.cmList.cmHasIcon > li > :first-child {position: relative;}
+
+html.mouse .cmList > li > a:first-child:hover {
+	background-color: #ccc;  /** darker **/
+}
+html.mouse .cmList > li > a:first-child:focus,
+           .cmList > li > a:first-child:active {
+	background-color: #ccc;
+	background-image: -moz-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,0.25));
+	background-image: -webkit-gradient(linear, center top, center bottom, from(rgba(255,255,255,0)), to(rgba(255,255,255,0.25)));
+	box-shadow: inset 0 1px 5px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 0 1px 5px rgba(0,0,0,0.5);
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+.cmList > li.current > a:first-child {
+	background-color: #999 !important;
+	background-image: -moz-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,0.25));
+	background-image: -webkit-gradient(linear, center top, center bottom, from(rgba(255,255,255,0)), to(rgba(255,255,255,0.25)));
+	box-shadow: inset 0 1px 5px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 0 1px 5px rgba(0,0,0,0.5);
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.cmList.filtered > li.filtered.first > :first-child,
+.cmList          > li:first-child    > :first-child {
+	border-top-left-radius: 9px;
+	border-top-right-radius: 9px;
+}
+.cmList.filtered > li.filtered.last > :first-child,
+.cmList          > li:last-child    > :first-child {
+	border-bottom-left-radius: 9px;
+	border-bottom-right-radius: 9px;
+}
+
+
+/* --------------------------------------------- */
+/** icon **/
+.cmList > li > :first-child > .cmIcon {
+	display: none;
+}
+.cmList > li.cmHasIcon > :first-child > .cmIcon,
+.cmList.cmHasIcon > li > :first-child > .cmIcon {
+	display: block;
+	position: absolute;
+	top: 50%;
+	margin-left: -40px;
+}
+.cmList > li.cmNoIcon > :first-child > .cmIcon,
+.cmList.cmNoIcon > li > :first-child > .cmIcon {
+	display: none;
+}
+.cmList > li.cmHasIcon > :first-child > .cmIcon.cmX30,
+.cmList.cmHasIcon > li > :first-child > .cmIcon.cmX30 {margin-top: -15px;}
+.cmList > li.cmHasIcon > :first-child > .cmIcon.cmX20,
+.cmList.cmHasIcon > li > :first-child > .cmIcon.cmX20 {margin-top: -10px;}
+
+/* --------------------------------------------- */
+/** arrow **/
+.cmList > li.cmNoArrow > :first-child:after,
+.cmList.cmNoArrow > li > :first-child:after {
+	display: none;
+}
+.cmList > li.cmRightArrow > :first-child:after,
+.cmList.cmRightArrow > li > :first-child:after,
+.cmList > li.cmLeftArrow > :first-child:after,
+.cmList.cmLeftArrow > li > :first-child:after {
+	position: absolute;
+	content: '';
+	color: gray;
+	/** border-style: solid; **/  /** can't be put here, cuz arrow will show improper style before js is ready **/
+}
+
+/** right arrow **/
+html.dpl:not(.android-low) .cmList              > li.cmRightArrow      > :first-child:after,
+html.dpl:not(.android-low) .cmList.cmRightArrow > li:not(.cmLeftArrow) > :first-child:after {
+	right: 13px;
+	top: 50%;
+	margin-top: -5px;
+	width: 7px;
+	height: 7px;
+	border-style: solid;
+	border-width: 3px 3px 0 0;
+	-moz-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+html.android-low .cmList              > li.cmRightArrow      > :first-child:after,
+html.android-low .cmList.cmRightArrow > li:not(.cmLeftArrow) > :first-child:after {
+	right: 11px;
+	top: 50%;
+	margin-top: -7px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 7px 0 7px 7px;
+	border-top-color: transparent;
+	border-bottom-color: transparent;
+}
+
+/** left arrow **/
+html.dpl:not(.android-low) .cmList             > li.cmLeftArrow        > :first-child:after,
+html.dpl:not(.android-low) .cmList.cmLeftArrow > li:not(.cmRightArrow) > :first-child:after {
+	left: 13px;
+	top: 50%;
+	margin-top: -5px;
+	width: 7px;
+	height: 7px;
+	border-style: solid;
+	border-width: 0 0 3px 3px;
+	-moz-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+html.android-low .cmList             > li.cmLeftArrow        > :first-child:after,
+html.android-low .cmList.cmLeftArrow > li:not(.cmRightArrow) > :first-child:after {
+	left: 11px;
+	top: 50%;
+	margin-top: -7px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 7px 7px 7px 0;
+	border-top-color: transparent;
+	border-bottom-color: transparent;
+}
+
+
+/* --------------------------------------------- */
+/** detail btn **/
+.cmList.cmHasDetail > li > a:nth-child(2),
+.cmList > li.cmHasDetail > a:nth-child(2) {
+	position: absolute;
+	z-index: 30;
+	top: 0;
+	right: 0;
+	padding-left: 45px;  /** to hide text **/
+	width: 0;  /** to hide text **/
+	height: 100%;
+	font-size: 0;  /** to hide text **/
+	overflow: hidden;  /** to hide text **/
+	color: transparent;  /** to hide text **/
+	-webkit-tap-highlight-color: transparent;
+}
+
+/** anim **/
+.cmList.cmHasDetail > li > a:nth-child(2),
+.cmList > li.cmHasDetail > a:nth-child(2) {
+	-webkit-transform: translate3d(0, 0, 0);  /** 3d acceleration **/
+	opacity: 1;
+	pointer-events: auto;
+	-moz-transition: opacity .20s linear;
+	-webkit-transition: opacity .20s linear;
+}
+.cmList.cmDeletable > li.ready-to-delete > a:nth-child(2),
+.cmList > li.cmDeletable.ready-to-delete > a:nth-child(2),
+.cmList.cmDeletable > li.deleted > a:nth-child(2),
+.cmList > li.cmDeletable.deleted > a:nth-child(2),
+.cmList > li.current > a:nth-child(2) {
+	opacity: 0;
+	pointer-events: none;
+	-moz-transition: opacity .15s linear;
+	-webkit-transition: opacity .15s linear;
+}
+
+/** btn **/
+.cmList.cmHasDetail > li > a:nth-child(2):before,
+.cmList > li.cmHasDetail > a:nth-child(2):before {
+	content: '';
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	width: 20px;
+	height: 20px;
+	margin-top: -12px;
+	border: 2px solid white;
+	border-radius: 12px;
+	background-color: #236ed8;
+	background-image: -moz-linear-gradient(top, rgba(255,255,255,0.4), rgba(255,255,255,0.2) 50%, transparent 50%, transparent);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(rgba(255,255,255,0.4)), to(transparent), color-stop(50%, rgba(255,255,255,0.2)), color-stop(50%, transparent));
+	box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.5);
+}
+.cmList.cmHasDetail > li > a:nth-child(2):active:before,
+.cmList > li.cmHasDetail > a:nth-child(2):active:before {
+	background-color: #11366b;
+}
+.cmList.cmHasDetail > li > a:nth-child(2):after,
+.cmList > li.cmHasDetail > a:nth-child(2):after {
+	content: '';
+	position: absolute;
+	color: white;
+}
+html.dpl:not(.android-low) .cmList.cmHasDetail > li > a:nth-child(2):after,
+html.dpl:not(.android-low) .cmList > li.cmHasDetail > a:nth-child(2):after {
+	right: 18px;
+	top: 50%;
+	margin-top: -5px;
+	width: 7px;
+	height: 7px;
+	border-style: solid;
+	border-width: 3px 3px 0 0;
+	-moz-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+html.android-low .cmList > li.cmHasDetail > a:nth-child(2):after,
+html.android-low .cmList.cmHasDetail > li > a:nth-child(2):after {
+	right: 17px;
+	top: 50%;
+	margin-top: -7px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 7px 0 7px 7px;
+	border-top-color: transparent;
+	border-bottom-color: transparent;
+}
+
+.cmList.filtered.cmHasDetail > li.filtered.first > a:nth-child(2),
+.cmList.cmHasDetail          > li:first-child > a:nth-child(2) ,
+.cmList.filtered > li.cmHasDetail.filtered.first > a:nth-child(2),
+.cmList          > li.cmHasDetail:first-child > a:nth-child(2) {
+	border-top-right-radius: 9px;
+}
+.cmList.filtered.cmHasDetail > li.filtered.last > a:nth-child(2),
+.cmList.cmHasDetail          > li:last-child > a:nth-child(2),
+.cmList.filtered > li.cmHasDetail.filtered.last > a:nth-child(2),
+.cmList          > li.cmHasDetail:last-child > a:nth-child(2) {
+	border-bottom-right-radius: 9px;
+}
+
+/* --------------------------------------------- */
+/** qty **/
+.cmList > li[data-badge]:after {
+	content: attr(data-badge);
+	position: absolute;
+	z-index: 20;
+	top: 50%;
+	right: 10px;
+	margin-top: -10px;
+	padding: 0 5px;
+	min-width: 20px;
+	height: 20px;
+	line-height: 20px;
+	font-weight: 700;
+	text-align: center;
+	color: white;
+	background-color: #7b8585;
+	background-image: -moz-linear-gradient(top, #b5bdbe, #7b8585);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#b5bdbe), to(#7b8585));
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 white;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), 0 1px 0 white;
+	border-radius: 10px;
+	pointer-events: none;
+}
+.cmList.cmRightArrow > li[data-badge]:after,
+.cmList > li[data-badge].cmRightArrow:after {right: 30px;}
+.cmList.cmRightArrow > li[data-badge].cmLeftArrow:after,
+.cmList > li[data-badge].cmNoArrow:after {right: 10px;}
+.cmList.cmHasDetail > li[data-badge]:after,
+.cmList > li[data-badge].cmHasDetail:after {right: 45px;}
+
+
+/* --------------------------------------------- */
+/** option + value **/
+.cmList > li[data-value]:after {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	content: attr(data-value);
+	position: absolute;
+	z-index: 20;
+	top: 50%;
+	right: 0;
+	margin-top: -12px;  /** line-height / 2 **/
+	padding-right: 10px;
+	max-width: 60%;
+	line-height: 24px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: right;
+	color: #808080;
+	pointer-events: none;
+}
+.cmList > li[data-value][data-descr]:after {top: 6px; margin-top: 0;}
+
+.cmList > li[data-value].cmHasLeftBox:after,
+.cmList.cmHasLeftBox > li[data-value]:after,
+.cmList > li[data-value].cmHasIcon:after,
+.cmList.cmHasIcon > li[data-value]:after {max-width: 50%;}
+.cmList.cmHasIcon > li[data-value].cmNoIcon:after {max-width: 60%;}
+
+.cmList.cmRightArrow > li[data-value]:after,
+.cmList > li[data-value].cmRightArrow:after {padding-right: 30px;}
+.cmList.cmRightArrow > li[data-value].cmLeftArrow:after,
+.cmList > li[data-value].cmNoArrow:after {padding-right: 10px;}
+.cmList.cmHasDetail > li[data-value]:after,
+.cmList > li[data-value].cmHasDetail:after {padding-right: 45px;}
+
+
+/* --------------------------------------------- */
+/** title + descr **/
+.cmList > li[data-descr] > :first-child {
+	padding-top: 6px;
+	padding-bottom: 22px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-weight: 700;
+}
+.cmList > li[data-descr]:before {
+	content: attr(data-descr);
+	position: absolute;
+	z-index: 30;
+	top: 32px;
+	left: 10px;
+	right: 10px;
+	line-height: 1.2;
+	font-size: 12px;
+	font-weight: 400;
+	color: #808080;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	pointer-events: none;
+}
+.cmList.cmHasLeftBox > li[data-descr]:before,
+.cmList > li[data-descr].cmHasLeftBox:before {left: 40px;}
+.cmList > li[data-descr].cmHasIcon:before,
+.cmList.cmHasIcon > li[data-descr]:before {left: 50px;}
+.cmList.cmHasIcon > li[data-descr].cmNoIcon:before {left: 10px;}
+
+.cmList > li[data-descr].cmRightArrow:before,
+.cmList.cmRightArrow > li[data-descr]:before {right: 30px;}
+.cmList > li[data-descr].cmLeftArrow:before,
+.cmList.cmLeftArrow > li[data-descr]:before {left: 30px;}
+
+.cmList.cmHasIcon.cmLeftArrow > li[data-descr]:before,
+.cmList.cmHasIcon > li[data-descr].cmLeftArrow:before,
+.cmList.cmLeftArrow > li[data-descr].cmHasIcon:before,
+.cmList > li[data-descr].cmLeftArrow.cmHasIcon:before {left: 70px;}
+
+.cmList.cmRightArrow > li[data-descr].cmNoArrow:before,
+.cmList.cmRightArrow > li[data-descr].cmLeftArrow:before {right: 10px;}
+.cmList.cmLeftArrow > li[data-descr].cmNoArrow:before,
+.cmList.cmLeftArrow > li[data-descr].cmRightArrow:before {left: 10px;}
+
+.cmList.cmLeftArrow > li[data-descr].cmHasIcon.cmNoArrow:before,
+.cmList.cmLeftArrow > li[data-descr].cmHasIcon.cmRightArrow:before,
+.cmList.cmHasIcon.cmLeftArrow > li[data-descr].cmNoArrow:before,
+.cmList.cmHasIcon.cmLeftArrow > li[data-descr].cmRightArrow:before {left: 50px;}
+
+.cmList.cmHasIcon.cmLeftArrow > li[data-descr].cmNoIcon:before,
+.cmList.cmHasIcon > li[data-descr].cmLeftArrow.cmNoIcon:before {left: 30px;}
+
+.cmList.cmHasDetail > li[data-descr]:before,
+.cmList > li[data-descr].cmHasDetail:before {right: 40px;}
+
+.cmList > li[data-descr][data-badge]:before,
+.cmList.cmRightArrow > li[data-descr][data-badge].cmNoArrow:before,
+.cmList.cmRightArrow > li[data-descr][data-badge].cmLeftArrow:before {right: 55px;}
+.cmList > li[data-descr][data-badge].cmRightArrow:before,
+.cmList.cmRightArrow > li[data-descr][data-badge]:before {right: 75px;}
+.cmList.cmHasDetail > li[data-descr][data-badge]:before,
+.cmList > li[data-descr][data-badge].cmHasDetail:before {right: 90px;}
+
+/* --------------------------------------------- */
+/** padding **/
+.cmList > li > :first-child {padding: 10px;}
+
+.cmList > li.cmHasIcon > :first-child,
+.cmList.cmHasIcon > li > :first-child {padding-left: 50px;}
+.cmList.cmHasIcon > li.cmNoIcon > :first-child {padding-left: 10px;}
+
+.cmList > li.cmRightArrow > :first-child,
+.cmList.cmRightArrow > li > :first-child {padding-right: 30px;}
+.cmList > li.cmLeftArrow > :first-child,
+.cmList.cmLeftArrow > li > :first-child {padding-left: 30px;}
+
+.cmList.cmHasIcon.cmLeftArrow > li > :first-child,
+.cmList.cmHasIcon > li.cmLeftArrow > :first-child,
+.cmList.cmLeftArrow > li.cmHasIcon > :first-child,
+.cmList > li.cmLeftArrow.cmHasIcon > :first-child {padding-left: 70px;}
+
+.cmList.cmRightArrow > li.cmNoArrow > :first-child,
+.cmList.cmRightArrow > li.cmLeftArrow > :first-child {padding-right: 10px;}
+.cmList.cmLeftArrow > li.cmNoArrow > :first-child,
+.cmList.cmLeftArrow > li.cmRightArrow > :first-child {padding-left: 10px;}
+
+.cmList.cmLeftArrow > li.cmHasIcon.cmNoArrow > :first-child,
+.cmList.cmLeftArrow > li.cmHasIcon.cmRightArrow > :first-child,
+.cmList.cmHasIcon.cmLeftArrow > li.cmNoArrow > :first-child,
+.cmList.cmHasIcon.cmLeftArrow > li.cmRightArrow > :first-child {padding-left: 50px;}
+
+.cmList.cmHasIcon.cmLeftArrow > li.cmNoIcon > :first-child,
+.cmList.cmHasIcon > li.cmLeftArrow.cmNoIcon > :first-child {padding-left: 30px;}
+
+.cmList.cmHasDetail > li > :first-child,
+.cmList > li.cmHasDetail > :first-child {padding-right: 40px;}
+
+.cmList > li[data-badge] > :first-child,
+.cmList.cmRightArrow > li[data-badge].cmNoArrow > :first-child,
+.cmList.cmRightArrow > li[data-badge].cmLeftArrow > :first-child {padding-right: 55px;}
+.cmList > li[data-badge].cmRightArrow > :first-child,
+.cmList.cmRightArrow > li[data-badge] > :first-child {padding-right: 75px;}
+.cmList.cmHasDetail > li[data-badge] > :first-child,
+.cmList > li[data-badge].cmHasDetail > :first-child {padding-right: 90px;}
+
+.cmList > li[data-value] > :first-child,
+.cmList.cmRightArrow > li[data-value].cmNoArrow > :first-child,
+.cmList.cmRightArrow > li[data-value].cmLeftArrow > :first-child,
+.cmList > li[data-value].cmRightArrow > :first-child,
+.cmList.cmRightArrow > li[data-value] > :first-child,
+.cmList.cmHasDetail > li[data-value] > :first-child,
+.cmList > li[data-value].cmHasDetail > :first-child {padding-right: 62%;}
+.cmList > li[data-value].cmHasLeftBox > :first-child,
+.cmList.cmHasLeftBox > li[data-value] > :first-child,
+.cmList > li[data-value].cmHasIcon > :first-child,
+.cmList.cmHasIcon > li[data-value] > :first-child {padding-right: 52%;}
+.cmList.cmHasIcon > li[data-value].cmNoIcon > :first-child {padding-left: 62%;}
+
+
+/* --------------------------------------------- */
+/** deletable **/
+.cmList.cmDeletable > li,
+.cmList > li.cmDeletable {
+	-webkit-transform: translate3d(0, 0, 0);  /** 3d acceleration **/
+}
+html.touch .cmList.cmDeletable > li,
+html.touch .cmList > li.cmDeletable {
+	cursor: pointer;  /** to make list item to listen click event, then to hide delete btn **/
+}
+
+/** delete btn **/
+.cmList li div.cmBtnWrapper.delete {
+	display: box;
+	display: -moz-box;
+	display: -webkit-box;
+	box-align: center;
+	-moz-box-align: center;
+	-webkit-box-align: center;
+	position: absolute;
+	z-index: 30;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	padding: 0;
+	overflow: hidden;
+	aa -webkit-transform: translate3d(0, 0, 0);  /** 3d acceleration **/
+}
+.cmList li div.cmBtnWrapper.delete .cmBtn {
+	margin: 0 8px 0 10px;
+	padding: 0 10px;
+	height: 32px;
+	min-width: 52px;
+	font-size: 14px;
+	line-height: 30px;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	-webkit-transform: translate3d(0, 0, 0);  /** 3d acceleration **/
+}
+html.moz .cmList li div.cmBtnWrapper.delete {
+	display: block;
+}
+html.moz .cmList li div.cmBtnWrapper.delete .cmBtn {
+	position: relative;
+	top: 50%;
+	margin-top: -16px;
+}
+
+.cmList li div.cmBtnWrapper.delete .cmBtn .cmX20 {
+	top: 5px;
+}
+
+/** status **/
+.cmList li div.cmBtnWrapper.delete {
+	opacity: 0;
+	pointer-events: none;
+}
+.cmList li.ready-to-delete div.cmBtnWrapper.delete {
+	opacity: 1;
+	pointer-events: auto;
+}
+.cmList li.deleted div.cmBtnWrapper.delete {
+	opacity: 1;
+}
+.cmList li.deleted {
+	opacity: 0;
+	pointer-events: none;
+	-moz-transition: all .25s linear;
+	-webkit-transition: all .25s linear;
+	-moz-transform: translate(-100%, 0);
+	-webkit-transform: translate3d(-100%, 0, 0);  /** 3d acceleration **/
+}
+
+/** The End **/
+/* --------------------------------------------- */
+/** @charset 'utf-8'; **/
+/* --------------------------------------------- */
+/** page **/
+.cmPage {
+	min-height: 100%;
+	width: 100%;
+	overflow: hidden;
+	background-color: white;
+}
+.cmSystem .cmPage,
+.cmPage.cmSystem {
+	background-color: #c5ccd4;
+	aa background-image: -moz-linear-gradient(left, #c5ccd4, #c5ccd4 71.42857%, #cbd2d8 71.42857%, #cbd2d8);
+	aa background-image: -webkit-gradient(linear, left top, right top, from(#c5ccd4), to(#cbd2d8), color-stop(71.42857%, #c5ccd4), color-stop(71.42857%, #cbd2d8));
+	background-image: -moz-linear-gradient(left, #d1d8df, #d1d8df 71.42857%, #d7dde3 71.42857%, #d7dde3);
+	background-image: -webkit-gradient(linear, left top, right top, from(#d1d8df), to(#d7dde3), color-stop(71.42857%, #d1d8df), color-stop(71.42857%, #d7dde3));
+	background-size: 7px 100px;
+}
+.cmSystem .cmPage > hr,
+.cmPage.cmSystem > hr {
+	border-top-color: #bbb;
+	border-bottom: 1px solid #eee;
+	margin-bottom: -1px;
+}
+.cmSystem section,
+.cmSystem form,
+.cmSystem h1 {
+	text-shadow: 0 1px 0 #eee;
+}
+
+/* --------------------------------------------- */
+/** page slide **/
+.cmPageScroll {
+	aa display: none;
+}
+.cmPageSlideIn,
+.cmPageSlideReady,
+.cmPageSlideOut {
+	position: absolute;
+	top: 0;
+}
+.cmPageBase {
+	position: static;
+}
+.cmPageSlideIn {
+	-moz-transform: translate(0, 0);
+	-webkit-transform: translate3d(0, 0, 0);  /** 3d acceleration **/
+	-moz-transition: -moz-transform .25s linear;
+	-webkit-transition: -webkit-transform .25s linear;
+}
+.cmPageSlideReady {
+	-moz-transform: translate(100%, 0);
+	-webkit-transform: translate3d(100%, 0, 0);  /** 3d acceleration **/
+	-moz-transition: -moz-transform .25s linear;
+	-webkit-transition: -webkit-transform .25s linear;
+}
+.cmPageSlideOut {
+	-moz-transform: translate(-100%, 0);
+	-webkit-transform: translate3d(-100%, 0, 0);  /** 3d acceleration **/
+	-moz-transition: -moz-transform .25s linear;
+	-webkit-transition: -webkit-transform .25s linear;
+}
+
+
+/* --------------------------------------------- */
+/** nav bar **/
+.cmPageNavBar {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	position: relative;
+	z-index: 20;
+	height: 44px;
+	white-space: nowrap;
+	border-style: solid;
+	border-width: 1px 0;
+	border-top-color: #ccc;
+	border-bottom-color: black;
+	background-color: #333;
+	background-image: -moz-linear-gradient(top, gray, black);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(gray), to(black));
+	box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+	-webkit-box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+}
+.cmPageNavBar > .cmLeft,
+.cmPageNavBar > .cmRight {
+	width: 30%;
+}
+
+/** nav - title **/
+.cmPageNavBar > h1 {
+	margin: 0 30%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: center;
+	font-size: 20px;
+	line-height: 42px;
+}
+.cmPageNavBar > h1 {
+	color: white;
+	text-shadow: 0 -1px 0 black;
+}
+
+/** nav - btn **/
+.cmPageNavBar > .cmBtnCombo,
+.cmPageNavBar > .cmBtnLine,
+.cmPageNavBar > .cmBtnWrapper {
+	position: absolute;
+	top: -1px;
+	z-index: 10;
+}
+.cmPageNavBar > .cmBtnWrapper {
+	bottom: -16px;
+	aa background-color: silver;  /** debug **/
+}
+.cmPageNavBar > .cmRight.cmBtnWrapper {
+	right: 0;
+	padding: 7px 5px 0 0;
+}
+.cmPageNavBar > .cmLeft.cmBtnWrapper {
+	left: 0;
+	bottom: -21px;
+	right: auto;
+	padding: 7px 0 0 5px;
+}
+.cmPageNavBar > .cmRight.cmBtnWrapper .cmBtn {float: right; max-width: 86.45%;}
+.cmPageNavBar > .cmLeft.cmBtnWrapper .cmBtn {float: left; max-width: 86.45%;}
+html.safari .cmPageNavBar > .cmRight.cmBtnWrapper .cmBtn.cmBack,
+html.safari .cmPageNavBar > .cmRight.cmBtnWrapper .cmBtn.cmForward,
+html.safari .cmPageNavBar > .cmLeft.cmBtnWrapper .cmBtn.cmBack,
+html.safari .cmPageNavBar > .cmLeft.cmBtnWrapper .cmBtn.cmForward,
+html.chrome .cmPageNavBar > .cmRight.cmBtnWrapper .cmBtn.cmBack,
+html.chrome .cmPageNavBar > .cmRight.cmBtnWrapper .cmBtn.cmForward,
+html.chrome .cmPageNavBar > .cmLeft.cmBtnWrapper .cmBtn.cmBack,
+html.chrome .cmPageNavBar > .cmLeft.cmBtnWrapper .cmBtn.cmForward {max-width: 73%;}
+
+.cmPageNavBar > .cmLeft.cmBtnLine,
+.cmPageNavBar > .cmLeft.cmBtnCombo,
+.cmPageNavBar > .cmRight.cmBtnLine,
+.cmPageNavBar > .cmRight.cmBtnCombo {
+	aa background-color: green;  /** debug **/
+}
+.cmPageNavBar > .cmLeft.cmBtnLine,
+.cmPageNavBar > .cmLeft.cmBtnCombo {left: 5px;}
+.cmPageNavBar > .cmRight.cmBtnLine,
+.cmPageNavBar > .cmRight.cmBtnCombo {right: 5px;}
+
+.cmPageNavBar > .cmLeft.cmBtnLine .cmBtnWrapper,
+.cmPageNavBar > .cmLeft.cmBtnCombo .cmBtnWrapper,
+.cmPageNavBar > .cmRight.cmBtnLine .cmBtnWrapper,
+.cmPageNavBar > .cmRight.cmBtnCombo .cmBtnWrapper {
+	padding-top: 7px;
+	padding-bottom: 20px;
+}
+.cmPageNavBar > .cmLeft.cmBtnLine .cmBtnWrapper:first-child,
+.cmPageNavBar > .cmLeft.cmBtnCombo .cmBtnWrapper:first-child {margin-left: -5px; padding-left: 5px;}
+.cmPageNavBar > .cmLeft.cmBtnLine .cmBtnWrapper:last-child,
+.cmPageNavBar > .cmLeft.cmBtnCombo .cmBtnWrapper:last-child {padding-right: 15.66%;}
+.cmPageNavBar > .cmRight.cmBtnLine .cmBtnWrapper:first-child,
+.cmPageNavBar > .cmRight.cmBtnCombo .cmBtnWrapper:first-child {padding-left: 15.66%;}
+.cmPageNavBar > .cmRight.cmBtnLine .cmBtnWrapper:last-child,
+.cmPageNavBar > .cmRight.cmBtnCombo .cmBtnWrapper:last-child {margin-right: -5px; padding-right: 5px;}
+
+.cmPageNavBar > .cmLeft.cmBtnLine .cmBtnWrapper:first-child,
+.cmPageNavBar > .cmRight.cmBtnLine .cmBtnWrapper:first-child {padding-right: 3px;}
+.cmPageNavBar > .cmLeft.cmBtnLine .cmBtnWrapper:last-child,
+.cmPageNavBar > .cmRight.cmBtnLine .cmBtnWrapper:last-child {padding-left: 3px;}
+
+.cmPageNavBar > .cmLeft.cmBtnLine .cmBtnWrapper:first-child,
+.cmPageNavBar > .cmRight.cmBtnLine .cmBtnWrapper:last-child {max-width: 50%;}
+
+html.moz .cmPageNavBar > .cmLeft.cmBtnLine,
+html.moz .cmPageNavBar > .cmLeft.cmBtnCombo,
+html.moz .cmPageNavBar > .cmRight.cmBtnLine,
+html.moz .cmPageNavBar > .cmRight.cmBtnCombo {
+	width: 25.9%;
+}
+html.moz .cmPageNavBar > .cmLeft.cmBtnCombo .cmBtnWrapper,
+html.moz .cmPageNavBar > .cmRight.cmBtnCombo .cmBtnWrapper {
+	float: left;
+	width: 50%;
+}
+html.moz .cmPageNavBar > .cmLeft.cmBtnLine .cmBtnWrapper,
+html.moz .cmPageNavBar > .cmRight.cmBtnLine .cmBtnWrapper {float: left;}
+html.moz .cmPageNavBar > .cmLeft.cmBtnLine .cmBtnWrapper:first-child {max-width: 60%;}
+html.moz .cmPageNavBar > .cmRight.cmBtnLine .cmBtnWrapper:last-child {float: right; margin-left: -100%; max-width: 60%;}
+
+html.moz .cmPageNavBar > .cmLeft.cmBtnLine .cmBtnWrapper:last-child,
+html.moz .cmPageNavBar > .cmLeft.cmBtnCombo .cmBtnWrapper:last-child {margin-right: -15.66%;}
+html.moz .cmPageNavBar > .cmRight.cmBtnLine .cmBtnWrapper:first-child,
+html.moz .cmPageNavBar > .cmRight.cmBtnCombo .cmBtnWrapper:first-child {margin-left: -15.66%;}
+
+/** nav - switch **/
+.cmPageNavBar > .cmBtnSwitch {
+	position: relative;
+	z-index: 20;
+	margin: 0 28%;
+	padding: 0 2%;
+	max-width: 40%;
+	aa background-color: green;  /** debug **/
+}
+html.moz .cmPageNavBar > .cmBtnSwitch {
+	margin: 0 30%;
+	padding: 0;
+}
+.cmPageNavBar > .cmBtnSwitch .cmBtnWrapper {
+	padding-top: 7px;
+	padding-bottom: 18px;
+}
+.cmPageNavBar > .cmBtnSwitch .current .cmBtn,
+.cmPageNavBar > .cmBtnSwitch .cmBtn.current {
+	border-color: black;
+	box-shadow: inset 0 1px 5px rgba(0,0,0,0.5),
+		0 1px 0 rgba(255,255,255,.25);  /** => btn arrow shadow **/
+	-webkit-box-shadow: inset 0 1px 5px rgba(0,0,0,0.5),
+		0 1px 0 rgba(255,255,255,.25);  /** => btn arrow shadow **/
+}
+
+/** nav - long text **/
+@media (max-width: 479px) {
+	.cmPageNavBar h1.cmLongText {
+		font-size: 16px;
+	}
+	.cmPageNavBar .cmBtnCombo.cmLeft .cmBtn,
+	.cmPageNavBar .cmBtnCombo.cmRight .cmBtn,
+	.cmPageNavBar .cmBtnLine.cmLeft .cmBtn,
+	.cmPageNavBar .cmBtnLine.cmRight .cmBtn,
+	.cmPageNavBar .cmLongText .cmBtn {
+		font-size: 12px;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+}
+
+
+/* --------------------------------------------- */
+/** btn - back & forward **/
+.cmPageNavBar .cmBtn {
+	padding: 0 8px;
+	height: 29px;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 27px;
+	background-color: #aaa;  /** => btn arrow fg **/
+	border-color: black;  /** => btn arrow bg **/
+	box-shadow: 0 1px 0 rgba(255,255,255,.25);
+	-webkit-box-shadow: 0 1px 0 rgba(255,255,255,.25);  /** => btn arrow shadow **/
+}
+.cmPageNavBar .cmBtn.cmBack b,
+.cmPageNavBar .cmBtn.cmForward b {
+	font-weight: inherit;
+}
+.cmPageNavBar .cmBtn.cmBack {padding-left: 13px !important;}
+.cmPageNavBar .cmBtn.cmForward {padding-right: 13px !important;}
+
+/** btn arrow - non safari **/
+html.dpl:not(.safari):not(.chrome) .cmPageNavBar .cmBtn.cmBack:before,
+html.dpl:not(.safari):not(.chrome) .cmPageNavBar .cmBtn.cmBack:after,
+html.dpl:not(.safari):not(.chrome) .cmPageNavBar .cmBtn.cmForward:before,
+html.dpl:not(.safari):not(.chrome) .cmPageNavBar .cmBtn.cmForward:after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 3px;
+}
+html.dpl:not(.safari):not(.chrome) .cmPageNavBar .cmBtn.cmBack:before,
+html.dpl:not(.safari):not(.chrome) .cmPageNavBar .cmBtn.cmBack:after {
+	left: 5px;
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+	-moz-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+}
+html.dpl:not(.safari):not(.chrome) .cmPageNavBar .cmBtn.cmBack:before {
+	top: 12px;
+	border-top-color: white;
+	border-left-color: white;
+}
+html.dpl:not(.safari):not(.chrome) .cmPageNavBar .cmBtn.cmBack:after {
+	top: 11px;
+}
+
+html.dpl:not(.safari):not(.chrome) .cmPageNavBar .cmBtn.cmForward:before,
+html.dpl:not(.safari):not(.chrome) .cmPageNavBar .cmBtn.cmForward:after {
+	right: 5px;
+	border-bottom-color: transparent;
+	border-left-color: transparent;
+	-moz-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+}
+html.dpl:not(.safari):not(.chrome) .cmPageNavBar .cmBtn.cmForward:before {
+	top: 12px;
+	border-top-color: white;
+	border-right-color: white;
+}
+html.dpl:not(.safari):not(.chrome) .cmPageNavBar .cmBtn.cmForward:after {
+	top: 11px;
+}
+
+/** btn arrow - safari **/
+html.chrome .cmPageNavBar .cmBtn.cmBack,
+html.safari .cmPageNavBar .cmBtn.cmBack {
+	margin-left: 13px;
+	padding-left: 1px !important;
+	overflow: visible;
+	border-left-style: none;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+html.chrome .cmPageNavBar .cmBtn.cmForward,
+html.safari .cmPageNavBar .cmBtn.cmForward {
+	margin-right: 13px;
+	padding-right: 1px !important;
+	overflow: visible;
+	border-right-style: none;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+html.chrome .cmPageNavBar .cmBtn.cmBack b,
+html.chrome .cmPageNavBar .cmBtn.cmForward b,
+html.safari .cmPageNavBar .cmBtn.cmBack b,
+html.safari .cmPageNavBar .cmBtn.cmForward b {
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+html.chrome .cmPageNavBar .cmBtn.cmBack:before,  /** btn arrow bg **/
+html.chrome .cmPageNavBar .cmBtn.cmBack:after,  /** btn arrow fg **/
+html.chrome .cmPageNavBar .cmBtn.cmBack b:before,  /** btn arrow shadow **/
+html.chrome .cmPageNavBar .cmBtn.cmForward:before,  /** btn arrow bg **/
+html.chrome .cmPageNavBar .cmBtn.cmForward:after,  /** btn arrow fg **/
+html.chrome .cmPageNavBar .cmBtn.cmForward b:before,  /** btn arrow shadow **/
+html.safari .cmPageNavBar .cmBtn.cmBack:before,  /** btn arrow bg **/
+html.safari .cmPageNavBar .cmBtn.cmBack:after,  /** btn arrow fg **/
+html.safari .cmPageNavBar .cmBtn.cmBack b:before,  /** btn arrow shadow **/
+html.safari .cmPageNavBar .cmBtn.cmForward:before,  /** btn arrow bg **/
+html.safari .cmPageNavBar .cmBtn.cmForward:after,  /** btn arrow fg **/
+html.safari .cmPageNavBar .cmBtn.cmForward b:before {  /** btn arrow shadow **/
+	content: '';
+	position: absolute;
+	width: 13px;
+	height: 29px;
+	-webkit-mask: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAB4CAYAAACuNZEIAAAGaElEQVR42uRcb2SdVxg/t3dCuIQQxgihhJFqpFKbTsuYjCodMVKh/XI/9OMdFUrIlEs/lZJPpZRQQj+1UmFsRmaTWqUyDZVqqUyj0RCNVefseew59ub2vvf9c54/1/rjIST3nvd33ud3zvOc8zypODnUwBpg34J96r2vuC7AR0LfOwG2ANbvugyHBL6zDnbXmCx61yzYuvRAV8B8OwM4JZsAe+X/w4Hfc2Imjawi4TrYO38QIoSnOpFVIjzj24Od8BjYX8aEp3w6Dvxt7FYxALYKNpj1h4LbEk74ClhPyu8rnKv0rTxkBYETfqcDWVY0stxYwaWXfDZYNDySR7fChBs+H6I1jO7zO4aLRT7ErOERWjvyuHK0hq8WJcsMJHlbS7cTRdxYyKWv+WIo7dK4Iq6BfVxmpphcGid8qeBnSrv0jbJkGbegm1rZEmZAZ4wzO7UJHwZ7U1a7TBqu+/IopOEeCtvGYmctQsPDtA32lvx8IQ3PcZCN3IIWIsgWwkmwd7GuHOnSTR+PXC7dT27ElhiUcGmc8B/AqpFD53LpeeMsqJ8ysSr3F7cjPE1Hq5ZQm/AhsNdcui2p4WnPi1QNo/v8DPaZxEzm1PAQrR19jEOnaviyFNmcqNIW1Kcx2DjnFlTSpWe9DN5z6Rq50WHJGc1w6XGK6KoCQ7/n0telyWagRq5c1RgMCT8y3oL2wB5oD3pbUr85NNwLtqalYUfB+a90OGahYUeyWhVYpdtuS/tg34DtGrr2E7BzGhpWHTAD98C+1x50zji0rOa8UWBLD3F7uEsnhNqhZTJbWqVQk1XDFYUBy+bDRykY6ZVYtFqxQ4vYvqGeH4Jd1B70vPERD9o8p4bzJuOWhHvAVrSOacPJ4Y+xqWPkVcsnlOAMSB/TIt6CTYJtG+r5BT3D3xJnWqIDRuAnsEvagzac/XXpovSi1YpFY8I1sHWN++Fkwo6ZlWXJwzA9Q5/EotUuYbfOrDbALmgPetbZly01NTScRNOYMGZWy5qEMbNaNiSMNgC2qUXYUfSz6WyLSw+DvcxDmKMiHiOwr4wjsSf0DKoLKeavr51tgfg42JZGgXjACZdSAKPYAjAI9liLcLg22TIkHFJKLD59xl0gnoZBWr2HhSIt8WypKJ6DHQH7jn7uGqjNupR+uuUNdy0O0aKCHVyzlAn9r1EhwsnjWbxuuf+huHQ/3TrUFcY286q0+PcK9xtusYBX1C+oske7jKB/RoGwp37BejcQRptSIBww0w2EsT9pTImwpz5CMcKtq3SnyOlYTArYZpX2HQ7+P3dChS55Aw+MjW8pLaJ4tXOn5LVK1CrdzhoKLh2wZKXhVj2PKBH2lOKZaDiJP8BGSWsSGm7VM64dj7Q1nATeOFxV1DN7n2HZS+4JBZcOuGbp0gF/UpK/LejSSXzNkdTE5MPYFndDMea/ybFVxR4AnFHKrFgnOLZg5U3ysE5Iw0nUrTScxAMKB98Kajhgn7bFDcszLUwu5pRcGyvzFmK2Kq4CUmwSOang0gFNS5dOZlWjdDYm5dIBWFH0pfu3usfsmBazqnkl165SBtdvSRiBfYvTSqRLTbBEUwdemw4JaziJaSsNJ/EL2BekNQkNJ7FLa8dTC5cOwGLUy0qu3ecKNHtJ9ivhVjWu4NIBs5YuHYD1F6Mw2J6gSye3Koz4frNw6QBswLquuFWha9csCTun29+Icf2elYY9HdFoaXiN+hjNNIxv9jhmOMLbUtiajtGaYbIt4QNotgKdyyIrTTjXAzAB+xXvWYaWcwrpYfKGomoZWuLJ4mnX0hAipOGnpNudvB/gJpz6AAKE9ynIeGiVHoam6x0l3V4sSpZbw+eVTi099SOq3B6mWWYSzkh4hYpHzY5pMe895TJuE5k0vE1574uyDxurYXyASVfw6jQiE5qMIRtLmOUBCuBS0RNK7kWrUPlDpIYXrUoegi0WntXyhNep39C05OF4Vs7JtGjt0lgbXLooquGQAe0p6fYCJ9kyGj5bepDiLt20LltqRs1qMcLLRTIgCcLLLvIffBUgvEn9hGbFpdhXGF1bkZPwS+ojFCsuzVq0NPsKd2ks8VOSThdiR9kG6fyGt6hv0KxAHAtVTrDOajrhx9QvaNYCsBXug4QJP6Pi0R6v2JfYGmltkI6eSxDuBoRFCwlin+AR12W9gtyodMvMa7/hDwb/CDAAV/SjdI4kLwYAAAAASUVORK5CYII=) no-repeat;
+	-webkit-mask-size: 30px 60px;
+}
+html.chrome .cmPageNavBar .cmBtn.cmBack:before,
+html.safari .cmPageNavBar .cmBtn.cmBack:before {  /** btn arrow bg **/
+	top: -1px;
+	left: -13px;
+	z-index: 5;
+	background-color: black;
+}
+html.chrome .cmPageNavBar .cmBtn.cmBack:after,
+html.safari .cmPageNavBar .cmBtn.cmBack:after {  /** btn arrow fg **/
+	top: -1px;
+	left: -13px;
+	z-index: 10;
+	background-color: #aaa;
+	-webkit-mask-position: -15px 0;
+	background-image: -moz-linear-gradient(top, rgba(255,255,255,0.75), rgba(255,255,255,0));
+	background-image: -webkit-gradient(linear, center top, center bottom, from(rgba(255,255,255,0.75)), to(rgba(255,255,255,0)));
+}
+html.chrome .cmPageNavBar .cmBtn.cmBack b:before,
+html.safari .cmPageNavBar .cmBtn.cmBack b:before {  /** btn arrow shadow **/
+	top: 0;
+	left: -13px;
+	background-color: rgba(255,255,255,.25);
+}
+html.chrome .cmPageNavBar .cmBtn.cmForward:before,
+html.safari .cmPageNavBar .cmBtn.cmForward:before {  /** btn arrow bg **/
+	top: -1px;
+	right: -13px;
+	z-index: 5;
+	background-color: black;
+	-webkit-mask-position: 0 -30px;
+}
+html.chrome .cmPageNavBar .cmBtn.cmForward:after,
+html.safari .cmPageNavBar .cmBtn.cmForward:after {  /** btn arrow fg **/
+	top: -1px;
+	right: -13px;
+	z-index: 10;
+	background-color: #aaa;
+	-webkit-mask-position: -15px -30px;
+	background-image: -moz-linear-gradient(top, rgba(255,255,255,0.75), rgba(255,255,255,0));
+	background-image: -webkit-gradient(linear, center top, center bottom, from(rgba(255,255,255,0.75)), to(rgba(255,255,255,0)));
+}
+html.chrome .cmPageNavBar .cmBtn.cmForward b:before,
+html.safari .cmPageNavBar .cmBtn.cmForward b:before {  /** btn arrow shadow **/
+	top: 0;
+	right: -13px;
+	background-color: rgba(255,255,255,.25);
+	-webkit-mask-position: 0 -30px;
+}
+
+/** btn :active **/
+html.dpl .cmPageNavBar .cmBtnWrapper:active .cmBtn {
+	background-color: #666;  /** => btn arrow fg :active **/
+	border-color: black;  /** => btn arrow bg **/
+	box-shadow: 0 1px 0 rgba(255,255,255,.25);
+	-webkit-box-shadow: 0 1px 0 rgba(255,255,255,.25);  /** => btn arrow shadow **/
+	text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+html.chrome .cmPageNavBar .cmBtnWrapper:active .cmBtn.cmBack:after,
+html.safari .cmPageNavBar .cmBtnWrapper:active .cmBtn.cmBack:after,
+html.chrome .cmPageNavBar .cmBtnWrapper:active .cmBtn.cmForward:after,
+html.safari .cmPageNavBar .cmBtnWrapper:active .cmBtn.cmForward:after {background-color: #666;}  /** btn arrow fg :active **/
+
+/* --------------------------------------------- */
+/** cmPageScroll cmPageContentFrame **/
+.cmPageScroll .cmPageContentFrame {
+	position: relative;
+	z-index: 10;
+	width: 100%;
+}
+.cmPageScroll .cmPageContentFrame > :first-child {
+	width: 100%;
+}
+
+/* --------------------------------------------- */
+/** footer btn **/  /** -- removed -- **/
+
+
+/** The End **/
+/* --------------------------------------------- */
+/** @charset 'utf-8'; **/
+/* --------------------------------------------- */
+/** form **/
+.cmPlaceHolder {color: #aaa;}
+input::-moz-placeholder {color: #aaa;}
+
+.cmHasOnlyBox label,
+.cmHasLeftBox label,
+.cmHasRightBox label {
+	font-weight: 700;
+}
+.cmHasLeftBox label {
+	cursor: pointer;
+	-webkit-tap-highlight-color:rgba(0,0,0,0.3);
+}
+html.mouse .cmHasLeftBox label:hover {background-color: #eee;}
+.cmPageScroll .cmHasLeftBox label:active {background-color: silver;}
+
+.cmHasLeftBox label.cmLongText,
+.cmHasRightBox label.cmLongText {
+	font-size: 12px;
+	letter-spacing: -1px;
+}
+
+/* --------------------------------------------- */
+/** left box **/
+.cmHasLeftBox li > label:first-child,
+li.cmHasLeftBox > label:first-child {
+	position: relative;
+	padding-left: 40px;
+}
+.cmHasLeftBox li > label:first-child > input,
+li.cmHasLeftBox > label:first-child > input {
+	position: absolute;
+	top: 50%;
+	margin-left: -30px;
+	margin-top: -10px;
+	width: 20px;
+	height: 20px;
+	pointer-events: none;
+}
+.cmHasLeftBox li > label:first-child > input[type=radio],
+li.cmHasLeftBox > label:first-child > input[type=radio] {
+	border-radius: 10px;
+}
+
+/* --------------------------------------------- */
+/** input box **/
+.cmHasRightBox label input,
+.cmHasOnlyBox label input {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	position: absolute;
+	z-index: 20;
+	right: 0;
+	top: 0;
+	padding: 12px 10px;
+	width: 100%;
+	height: 100%;
+	line-height: 20px;
+	font-size: 16px;
+	border-style: none;
+	background: transparent;
+	color: #385487;
+}
+.cmHasRightBox label select,
+.cmHasOnlyBox label select {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: 10px 10px;
+	width: 100%;
+	height: 100%;
+	line-height: 24px;
+	font-size: 16px;
+	border-style: none;
+	background-color: transparent;
+	color: #385487;
+	cursor: pointer;
+}
+html.webkit .cmHasRightBox label select,
+html.webkit .cmHasOnlyBox label select {
+	padding-right: 30px;
+}
+
+/* --------------------------------------------- */
+/** right box **/
+.cmHasRightBox li > label:first-child,
+li.cmHasRightBox > label:first-child {
+	position: relative;
+	padding-right: 70%;
+}
+.cmHasRightBox.cmHasIcon li > label:first-child,
+.cmHasRightBox li.cmHasIcon > label:first-child,
+li.cmHasIcon.cmHasRightBox > label:first-child {
+	padding-right: 58%;
+}
+.cmHasRightBox label input {padding-left: 85px;}
+html.desktop .cmHasRightBox label input {padding-left: 90px;}
+
+.cmHasRightBox.cmHasIcon label input,
+.cmHasRightBox .cmHasIcon label input,
+.cmHasIcon .cmHasRightBox label input {padding-left: 125px;}
+html.desktop .cmHasRightBox.cmHasIcon label input,
+html.desktop .cmHasRightBox .cmHasIcon label input,
+html.desktop .cmHasIcon .cmHasRightBox label input {padding-left: 130px;}
+
+.cmHasRightBox li[data-descr] > label:first-child > input,
+li[data-descr].cmHasRightBox > label:first-child > input {
+	padding-top: 6px;
+	padding-bottom: 22px;
+	height: 52px;
+}
+html.android-low .cmHasRightBox li[data-descr] > label:first-child > input,
+html.android-low li[data-descr].cmHasRightBox > label:first-child > input,
+html.safari .cmHasRightBox li[data-descr] > label:first-child > input,
+html.safari li[data-descr].cmHasRightBox > label:first-child > input {
+	padding-bottom: 6px;
+	height: 36px;
+}
+html.android-low .cmHasRightBox li[data-descr]:before,
+html.safari .cmHasRightBox li[data-descr]:before {
+	top: 36px;
+}
+
+/** label text **/
+.cmHasRightBox li > label span,
+li.cmHasRightBox > label span,
+.cmHasRightBox li > label b,
+li.cmHasRightBox > label b {
+	position: relative;
+	z-index: 30;
+	pointer-events: none;
+}
+
+/** icon **/
+.cmHasRightBox label .cmIcon,
+.cmHasOnlyBox label .cmIcon {
+	z-index: 30;
+}
+
+/** select **/
+.cmHasRightBox label select {padding-left: 85px;}
+html.desktop .cmHasRightBox label select {padding-left: 90px;}
+
+.cmHasOnlyBox label select option,
+.cmHasRightBox label select option {
+	padding: 10px;  /** only works on firefox **/
+	background-color: white;  /** avoid select:focus bg-color **/
+}
+.cmHasRightBox label select option {padding-left: 90px;}  /** only firefox needs this **/
+
+/** select arrow **/
+html.webkit .cmHasRightBox li > label:first-child:after,
+html.webkit li.cmHasRightBox > label:first-child:after {
+	content: '';
+	position: absolute;
+	z-index: 10;
+	top: 50%;
+	right: 10px;
+	margin-top: -4px;
+	color: gray;
+	border-style: solid;
+	border-width: 10px 5px 0;
+	border-left-color: transparent;
+	border-right-color: transparent;
+	pointer-events: none;
+}
+
+/** only box **/
+.cmHasOnlyBox li > label:first-child,
+li.cmHasOnlyBox > label:first-child {
+	position: relative;
+}
+.cmHasOnlyBox.cmHasIcon li > label:first-child > input,
+.cmHasOnlyBox li.cmHasIcon > label:first-child > input,
+li.cmHasIcon.cmHasOnlyBox > label:first-child > input,
+.cmHasOnlyBox.cmHasIcon li > label:first-child > select option,  /** only firefox needs this **/
+.cmHasOnlyBox li.cmHasIcon > label:first-child > select option,  /** only firefox needs this **/
+li.cmHasIcon.cmHasOnlyBox > label:first-child > select option,  /** only firefox needs this **/
+.cmHasOnlyBox.cmHasIcon li > label:first-child > select,
+.cmHasOnlyBox li.cmHasIcon > label:first-child > select,
+li.cmHasIcon.cmHasOnlyBox > label:first-child > select {
+	padding-left: 50px;
+}
+
+/** status **/
+.cmHasOnlyBox label input,
+.cmHasOnlyBox label select,
+.cmHasRightBox label input,
+.cmHasRightBox label select {
+	background-color: white;
+}
+.cmHasOnlyBox label input:focus,
+.cmHasOnlyBox label select:focus,
+.cmHasRightBox label input:focus,
+.cmHasRightBox label select:focus {
+	aa background-color: rgba(0,0,0,0.05);
+	background-color: #f2f2f2;
+	box-shadow: inset 0 1px 5px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 0 1px 5px rgba(0,0,0,0.5);
+}
+
+/** border-radius **/
+.cmHasRightBox label input,
+.cmHasOnlyBox label input,
+.cmHasRightBox label select,
+.cmHasOnlyBox label select {
+	border-radius: 0;
+}
+.cmList > li.cmHasRightBox:first-child label input,
+.cmList.cmHasRightBox > li:first-child label input,
+.cmList > li.cmHasOnlyBox:first-child label input,
+.cmList.cmHasOnlyBox > li:first-child label input,
+.cmList > li.cmHasRightBox:first-child label select,
+.cmList.cmHasRightBox > li:first-child label select,
+.cmList > li.cmHasOnlyBox:first-child label select,
+.cmList.cmHasOnlyBox > li:first-child label select {
+	border-top-left-radius: 9px;
+	border-top-right-radius: 9px;
+}
+.cmList > li.cmHasRightBox:last-child label input,
+.cmList.cmHasRightBox > li:last-child label input,
+.cmList > li.cmHasOnlyBox:last-child label input,
+.cmList.cmHasOnlyBox > li:last-child label input,
+.cmList > li.cmHasRightBox:last-child label select,
+.cmList.cmHasRightBox > li:last-child label select,
+.cmList > li.cmHasOnlyBox:last-child label select,
+.cmList.cmHasOnlyBox > li:last-child label select {
+	border-bottom-left-radius: 9px;
+	border-bottom-right-radius: 9px;
+}
+
+/* --------------------------------------------- */
+/** form **/
+.cmFormLine {
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+.cmFormLine + .cmFormLine {
+	aa margin-top: 10px;
+}
+.cmFormLine > input[type=radio]:first-child,
+.cmFormLine > input[type=checkbox]:first-child {
+	margin-left: 10px;
+}
+.cmList + .cmFormLine {
+	margin-top: 15px;
+}
+.cmFormLine + .cmBtn,
+.cmFormLine + .cmBtnWrapper {
+	margin-top: 15px;
+}
+html.moz .cmFormLine + input.cmBtn,
+html.moz .cmFormLine + button.cmBtn {
+	margin-top: 7px;
+}
+/* --------------------------------------------- */
+/** form - old **/
+.cmXForm input[type=search],
+.cmXForm input[type=email],
+.cmXForm input[type=number],
+.cmXForm input[type=tel],
+.cmXForm input[type=text],
+.cmXForm input[type=password] {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	display: block;
+	padding: 5px;
+	width: 100%;
+	height: 40px;
+	color: #385487;
+	background: white;
+	border: 1px solid #999;
+	border-radius: 5px;
+	box-shadow: inset 0 2px 3px rgba(0,0,0,0.3);
+	-webkit-box-shadow: inset 0 2px 3px rgba(0,0,0,0.3);
+}
+.cmXForm input[type=search]:focus,
+.cmXForm input[type=email]:focus,
+.cmXForm input[type=number]:focus,
+.cmXForm input[type=tel]:focus,
+.cmXForm input[type=text]:focus,
+.cmXForm input[type=password]:focus {
+	border-width: 2px;
+	padding: 4px;
+}
+
+/** The End **/
+/* --------------------------------------------- */
+/** @charset 'utf-8'; **/
+/* --------------------------------------------- */
+/** gallery **/
+.cmGallery {
+	position: relative;
+	aa visibility: hidden;
+}
+.cmGallery.ready {
+	aa visibility: visible;
+}
+.cmGallery .cmGalleryFrame {
+	position: relative;
+	margin: 0 auto;
+	overflow: hidden;
+	background-color: gray;
+}
+.cmGallery .cmGalleryFrame > ul {
+	display: table;
+	visibility: hidden;
+}
+.cmGallery.ready .cmGalleryFrame > ul {
+	visibility: visible;
+}
+.cmGallery .cmGalleryFrame > ul > li {
+	display: table-cell;
+}
+.cmGallery .cmGalleryFrame > ul > li > a {
+	display: block;
+}
+
+/* --------------------------------------------- */
+/** indicator **/
+.cmGallery .cmGalleryIndicator {
+	padding-top: 10px;
+	height: 10px;
+}
+.cmGallery .cmGalleryIndicator ol {
+	display: box;
+	display: -moz-box;
+	display: -webkit-box;
+	box-pack: center;
+	-moz-box-pack: center;
+	-webkit-box-pack: center;
+	width: 100%;
+}
+.cmGallery .cmGalleryIndicator li {
+	margin: 0 4px;
+	width: 8px;
+	height: 8px;
+	text-indent: -999px;
+	overflow: hidden;
+	background-color: silver;
+	border-radius: 4px;
+}
+.cmGallery .cmGalleryIndicator li.on {
+	background-color: black;
+	box-shadow: 0 0 0 1px rgba(255,255,255,0.75);
+	-webkit-box-shadow: 0 0 0 1px rgba(255,255,255,0.75);
+}
+
+/* --------------------------------------------- */
+/** arrow **/
+.cmGallery .cmGalleryArrow a {
+	position: absolute;
+	top: 0;
+	width: 40px;
+	height: 100px;
+	color: transparent;
+	text-shadow: none;
+	background-color: rgba(0,0,0,0.4);
+	box-shadow: 0 0 0 1px rgba(255,255,255,0.5);
+	-webkit-box-shadow: 0 0 0 1px rgba(255,255,255,0.5);
+	-moz-transition: background-color .2s linear;
+	-webkit-transition: background-color .2s linear;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+}
+.cmGallery .cmGalleryArrow a.prev {
+	left: 0;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+.cmGallery .cmGalleryArrow a.next {
+	right: 0;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+html.mouse .cmGallery .cmGalleryArrow a:hover {
+	background-color: rgba(0,0,0,0.5);
+	-moz-transition-property: none;
+	-webkit-transition-property: none;
+}
+.cmGallery .cmGalleryArrow a:active {
+	background-color: rgba(0,0,0,0.6) !important;
+	-moz-transition-property: none;
+	-webkit-transition-property: none;
+}
+.cmGallery .cmGalleryArrow a.off {
+	box-shadow: 0 0 0 1px rgba(255,255,255,0.1);
+	-webkit-box-shadow: 0 0 0 1px rgba(255,255,255,0.1);
+	background-color: rgba(0,0,0,0.15) !important;
+	cursor: default;
+	-moz-transition: background-color .2s linear !important;
+	-webkit-transition: background-color .2s linear !important;
+}
+
+.cmGallery .cmGalleryArrow a::before,
+.cmGallery .cmGalleryArrow a::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	width: 2px;
+	height: 30px;
+	background-color: rgba(255,255,255,0.5);
+}
+.cmGallery .cmGalleryArrow a.off::before,
+.cmGallery .cmGalleryArrow a.off::after {
+	background-color: rgba(255,255,255,0.2);
+}
+.cmGallery .cmGalleryArrow a.prev::before {
+	left: 14px;
+	margin-top: -30px;
+	-moz-transform: skewX(-26.565deg);
+	-webkit-transform: skewX(-26.565deg);
+}
+.cmGallery .cmGalleryArrow a.prev::after {
+	left: 14px;
+	-moz-transform: skewX(26.565deg);
+	-webkit-transform: skewX(26.565deg);
+}
+.cmGallery .cmGalleryArrow a.next::before {
+	right: 14px;
+	margin-top: -30px;
+	-moz-transform: skewX(26.565deg);
+	-webkit-transform: skewX(26.565deg);
+}
+.cmGallery .cmGalleryArrow a.next::after {
+	right: 14px;
+	-moz-transform: skewX(-26.565deg);
+	-webkit-transform: skewX(-26.565deg);
+}
+
+/** android **/
+html.android-low .cmGallery .cmGalleryArrow a::before {
+	display: none;
+}
+html.android-low .cmGallery .cmGalleryArrow a::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	margin-top: -20px;
+	width: 0;
+	height: 0;
+	border-top-color: transparent;
+	border-bottom-color: transparent;
+	background-color: transparent;
+	color: rgba(255,255,255,0.5);
+}
+html.android-low .cmGallery .cmGalleryArrow a.prev::after {
+	border-style: solid;
+	border-width: 20px 10px 20px 0;
+	left: 13px;
+	-moz-transform: none;
+	-webkit-transform: none;
+}
+html.android-low .cmGallery .cmGalleryArrow a.next::after {
+	border-style: solid;
+	border-width: 20px 0 20px 10px;
+	right: 13px;
+	-moz-transform: none;
+	-webkit-transform: none;
+}
+
+
+/** The End **/
+/* --------------------------------------------- */
+/** @charset 'utf-8'; **/
+/* --------------------------------------------- */
+/** overlay **/
+
+/** anim **/
+.cmTipBox,
+.cmLoading,
+.cmMask {
+	pointer-events: auto;
+	-webkit-transform: translate3d(0, 0, 0);  /** 3d acceleration **/
+}
+.cmTipBox.fade-in,
+.cmLoading.fade-in,
+.cmMask.fade-in {
+	-moz-transition: opacity .15s linear;
+	-webkit-transition: opacity .15s linear;
+}
+.cmTipBox.hidden,
+.cmTipBox.fade-out,
+.cmLoading.hidden,
+.cmLoading.fade-out,
+.cmMask.hidden,
+.cmMask.fade-out {
+	opacity: 0;
+	pointer-events: none;
+}
+.cmTipBox.fade-out,
+.cmLoading.fade-out,
+.cmMask.fade-out {
+	-moz-transition: opacity .20s linear;
+	-webkit-transition: opacity .20s linear;
+}
+
+
+/* --------------------------------------------- */
+/** mask **/
+.cmMask {position:absolute;left:0;top:0;z-index:100;width:100%;height:100%;
+	background:black;opacity:0.6;-webkit-tap-highlight-color:transparent;}
+
+
+/* --------------------------------------------- */
+/** dialog **/
+.cmDialog {display:none;}
+.cmDialogReady {display:block;position:absolute;left:-999px;top:-999px;z-index:110;}
+
+/* --------------------------------------------- */
+/** loading **/
+.cmLoading {position:absolute;left:-200px;top:-300px;z-index:120;}
+.cmLoading {
+	min-width: 100px;
+	max-width: 200px;
+	min-height: 100px;
+	background: black;
+	opacity: 0.75;
+	border-radius: 10px;
+	overflow: hidden;
+}
+.cmLoading .cmX50 {margin-top: 25px;}
+.cmLoading.cmText .cmX50 {margin-top: 18px;}
+
+.cmLoading p {
+	display: none;
+}
+.cmLoading.cmText p {
+	display: block;
+	margin: 5px 20px 10px;
+	color: white;
+	font-weight: 700;
+	text-align: center;
+}
+
+
+
+
+
+
+/** The End **/
+/* --------------------------------------------- */
+/** @charset 'utf-8'; **/
+/* --------------------------------------------- */
+/** notice **/
+.cmSiteNoticeWrapper {
+	padding: 5px;
+}
+.cmSiteNoticeWrapper .cmSiteNotice {
+	position: relative;
+	padding: 4px;
+	min-height: 30px;
+	color: black;
+	border-radius: 10px;
+	border: 1px solid #00B7EF;
+	background-color: #CCF1FC;
+}
+
+
+/** box arrow **/
+.cmSiteNoticeWrapper .cmSiteNotice:before,
+.cmSiteNoticeWrapper .cmSiteNotice:after {
+	content: '';
+	position: absolute;
+	left: 70px;
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-bottom-width: 0;
+}
+.cmSiteNoticeWrapper .cmSiteNotice:before {
+	bottom: -11px;
+	border-top-color: #00B7EF;
+}
+.cmSiteNoticeWrapper .cmSiteNotice:after {
+	bottom: -9px;
+	border-top-color: #CCF1FC;
+}
+
+/** icon **/
+.cmSiteNoticeWrapper div.icon {
+	float: left;
+	width: 30px;
+	height: 30px;
+	color: white;
+	background: #00B7EF;
+	border-radius: 5px;
+}
+.cmSiteNoticeWrapper div.icon i.cmIcon {
+	margin: 0 auto;
+	margin-top: 5px;
+}
+
+/** close btn **/
+.cmSiteNoticeWrapper div.act {
+	position: absolute;
+	top: -1px;
+	right: -1px;
+	width: 40px;
+	height: 40px;
+}
+.cmSiteNoticeWrapper div.act a {
+	display: block;
+	padding: 10px;
+}
+
+/** content **/
+.cmSiteNoticeWrapper div.content {
+	margin: 0 40px 0 40px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+.cmSiteNoticeWrapper div.content a {
+	text-decoration: underline;
+	padding: 8px 5px;
+}
+.cmSiteNoticeWrapper div.content span {
+	white-space: nowrap;
+}
+.cmSiteNoticeWrapper div.content a.cmAction {
+	white-space: nowrap;
+}
+
+
+/* --------------------------------------------- */
+/** tip-box **/
+.cmTipBox {
+	position: relative;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	margin: 0 auto;
+	max-width: 300px;
+	border-radius: 10px;
+	border: 1px solid #999;
+	background-color: #ddd;
+	background-image: -moz-linear-gradient(top, white, #eee 66%, #ddd);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(white), to(#ddd), color-stop(66%, #eee));
+	text-shadow: 0 1px 0 white;
+	box-shadow: 0 2px 2px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 2px 2px rgba(0,0,0,0.5);
+}
+.cmTipBox > .cmTipBoxInner {
+	padding: 5px;
+}
+
+/** header **/
+.cmTipBox > header + .cmTipBoxInner {
+	padding-top: 0;
+}
+.cmTipBox > header {
+	padding: 0 10px;
+	height: 42px;
+	line-height: 42px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.cmTipBox > .cmTipBoxBtnClose ~ header {
+	margin-right: 40px;
+}
+.cmTipBox > header h1,
+.cmTipBox > header h2,
+.cmTipBox > header h3,
+.cmTipBox > header h4,
+.cmTipBox > header h5,
+.cmTipBox > header h6 {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: center;
+	font-size: 20px;
+}
+
+/** close **/
+.cmTipBox .cmTipBoxBtnClose {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.cmTipBox .cmTipBoxBtnClose a {
+	display: block;
+	padding: 10px;
+}
+
+/** box arrow **/
+.cmTipBox .cmTipBoxArrow,
+.cmTipBox .cmTipBoxArrow:after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	pointer-events: none;
+}
+
+.cmTipBox.cmUpArrow .cmTipBoxArrow {
+	left: 50%;
+	top: -11px;
+	margin-left: -10px;
+	border-top-width: 0;
+	border-bottom-color: inherit;  /** ref to cmTipBox's border-color **/
+}
+.cmTipBox.cmUpArrow .cmTipBoxArrow:after {
+	left: -10px;
+	top: 2px;
+	border-top-width: 0;
+	border-bottom-color: white;  /** ref to cmTipBox's bg **/
+}
+
+.cmTipBox.cmDownArrow .cmTipBoxArrow {
+	left: 50%;
+	bottom: -11px;
+	margin-left: -10px;
+	border-bottom-width: 0;
+	border-top-color: inherit;  /** ref to cmTipBox's border-color **/
+}
+.cmTipBox.cmDownArrow .cmTipBoxArrow:after {
+	left: -10px;
+	bottom: 2px;
+	border-bottom-width: 0;
+	border-top-color: #ddd;  /** ref to cmTipBox's darker side of gradient **/
+}
+
+.cmTipBox.cmLeftArrow .cmTipBoxArrow {
+	top: 50%;
+	left: -11px;
+	margin-top: -10px;
+	border-left-width: 0;
+	border-right-color: inherit;  /** ref to cmTipBox's border-color **/
+}
+.cmTipBox.cmLeftArrow .cmTipBoxArrow:after {
+	top: -10px;
+	left: 2px;
+	border-left-width: 0;
+	border-right-color: #eee;  /** ref to cmTipBox's inner color of gradient **/
+}
+
+.cmTipBox.cmRightArrow .cmTipBoxArrow {
+	top: 50%;
+	right: -11px;
+	margin-top: -10px;
+	border-right-width: 0;
+	border-left-color: inherit;  /** ref to cmTipBox's border-color **/
+}
+.cmTipBox.cmRightArrow .cmTipBoxArrow:after {
+	top: -10px;
+	right: 2px;
+	border-right-width: 0;
+	border-left-color: #eee;  /** ref to cmTipBox's inner color of gradient **/
+}
+
+/* --------------------------------------------- */
+/** list-with-action **/
+.cmTipBox {opacity: 1;}
+
+.cmTipBox.cmActionList {
+	position: absolute;
+	z-index: 50;
+	top: 0;
+	width: 98%;
+	max-width: none;
+	border-color: black;
+	background-color: #333;
+	background-image: -moz-linear-gradient(top, #999, #666 66%, #333);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#999), to(#333), color-stop(66%, #666));
+	color: white;
+	text-shadow: 0 -1px 0 black;
+}
+aa .cmTipBox.cmActionList {  /** debug **/
+	position: relative !important;
+	opacity: 1 !important;
+	pointer-events: auto !important;
+}
+li .cmTipBox.cmActionList {
+	top: auto;
+	left: 50%;
+	bottom: 80%;
+	margin-left: -49%;
+	z-index: 30;
+}
+.cmTipBox.cmActionList > .cmTipBoxInner {
+	padding: 5px 0 6px;
+}
+.cmTipBox.cmActionList > .cmTipBoxInner > .cmBtnCombo,
+.cmTipBox.cmActionList > .cmTipBoxInner > .cmBtnLine {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.cmTipBox.cmActionList > .cmTipBoxInner > .cmBtn {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.cmTipBox.cmActionList > .cmTipBoxInner > .cmLeft {float: left; width: auto;}
+.cmTipBox.cmActionList > .cmTipBoxInner > .cmRight {float: right; width: auto;}
+
+html.moz .cmTipBox.cmActionList .cmBtnLine.cmLeft > *,
+html.moz .cmTipBox.cmActionList .cmBtnCombo.cmLeft > * {
+	float: left;
+}
+.cmTipBox.cmActionList > .cmBtnLine .cmBtnWrapper {padding-top: 5px; padding-bottom: 6px;}
+.cmTipBox.cmActionList > .cmBtnLine .cmBtnWrapper:first-child {padding-left: 5px;}
+.cmTipBox.cmActionList > .cmBtnLine .cmBtnWrapper:last-child {padding-right: 5px;}
+
+.cmTipBox.cmActionList .cmBtn {
+	border-color: black;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+.cmTipBox.cmActionList input {
+	border-color: black;
+	box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.25);
+	-webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+.cmTipBox.cmActionList.cmDownArrow .cmTipBoxArrow:after {
+	border-top-color: #333;  /** ref to .cmTipBox.cmActionList's darker side of gradient **/
+}
+
+
+/** The End **/
+/* --------------------------------------------- */
+/** @charset 'utf-8'; **/
+/* --------------------------------------------- */
+/** btn **/
+
+
+
+
+/* --------------------------------------------- */
+/** list **/
+
+
 
 
 /** The End **/
