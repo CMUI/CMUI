@@ -1686,6 +1686,8 @@ html.android-low .cmList.cmHasDetail > li > a:nth-child(2):after {
 
 .cmList.cmHasIcon.cmLeftArrow > li.cmNoIcon > :first-child,
 .cmList.cmHasIcon > li.cmLeftArrow.cmNoIcon > :first-child {padding-left: 30px;}
+.cmList.cmHasIcon.cmLeftArrow > li.cmNoIcon.cmNoArrow > :first-child,
+.cmList.cmHasIcon.cmLeftArrow > li.cmNoIcon.cmRightArrow > :first-child {padding-left: 10px;}
 
 .cmList.cmHasDetail > li > :first-child,
 .cmList > li.cmHasDetail > :first-child {padding-right: 40px;}
