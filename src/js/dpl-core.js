@@ -12,19 +12,20 @@ DPL.config = {
 //dom
 DPL.dom = {
 	ini: function () {
-		this.iniHtmlClass();
+		this._iniHtmlClass();
 	},
-	iniHtmlClass: function () {  //set css hook on html element.
+	_iniHtmlClass: function () {  //set css hook on html element.
+		var ua = _.ua;
 		var aClass = [
 			'js dpl',
-			_.ua.isWebKit ? 'webkit' : '',
-			_.ua.isSafari ? 'safari' : '',
-			_.ua.isChrome ? 'chrome' : '',
-			_.ua.isMoz ? 'moz' : '',
-			_.ua.isIOS ? 'ios' : '',
-			_.ua.isAndroid ? 'android android-' + (_.str.toFloat(_.ua.version) >= 4 ? 'high' : 'low') : '',
-			_.ua.isTouchDevice ? 'touch' : 'mouse',
-			_.ua.mobileDeviceType || 'desktop'  //or 'phone', 'pad'
+			ua.isWebKit ? 'webkit' : '',
+			ua.isSafari ? 'safari' : '',
+			ua.isChrome ? 'chrome' : '',
+			ua.isMoz ? 'moz' : '',
+			ua.isIOS ? 'ios' : '',
+			ua.isAndroid ? 'android android-' + (_.str.toFloat(ua.version) >= 4 ? 'high' : 'low') : '',
+			ua.isTouchDevice ? 'touch' : 'mouse',
+			ua.isMobileDevice ? 'mobile ' + ua.mobileDeviceType : 'desktop'  //or 'phone', 'pad'
 		];
 		_.dom.jDoc.removeClass('no-js').addClass(aClass.join(' '));
 	}
