@@ -8,6 +8,32 @@ A **Crude Mobile UI** framework.
 
 > 虽然已有基于 CMUI 的实际项目上线，但作为一个开源项目，它目前还没有完成，而且 API 极不稳定。
 
+## 兼容性
+
+#### 移动设备
+
+* iOS (iPhone/iPad/iPod touch): 4+
+* Android: 2.2+
+
+#### 桌面浏览器
+
+* Firefox: (Edge)
+* Safari: (Edge)
+* Chrome: (Edge)
+
+## 外部依赖
+
+* Underscore 1.3+
+* Underscore.string 2.2+
+* Zepto 1.0+ （需包含 detect、touch 模块）
+* iScroll 4.x
+
+> 注：即将在未来移除以下外部依赖：
+
+> * iScroll
+> * Underscore.string
+> * Zepto 的 detect、touch 模块
+
 ## 演示与文档
 
 建议使用 iOS/Android 设备访问：
