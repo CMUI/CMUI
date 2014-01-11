@@ -34,7 +34,7 @@ A **Crude Mobile UI** framework.
 > * Underscore.string
 > * Zepto 的 detect、touch 模块
 
-## 演示与文档
+## 演示
 
 建议使用 iOS/Android 设备访问：
 
