@@ -10,8 +10,8 @@
 .cmSystem .cmPage,
 .cmPage.cmSystem {
 	background-color: #c5ccd4;
-	aa background-image: -moz-linear-gradient(left, #c5ccd4, #c5ccd4 71.42857%, #cbd2d8 71.42857%, #cbd2d8);
-	aa background-image: -webkit-gradient(linear, left top, right top, from(#c5ccd4), to(#cbd2d8), color-stop(71.42857%, #c5ccd4), color-stop(71.42857%, #cbd2d8));
+	background-image: -moz-linear-gradient(left, #c5ccd4, #c5ccd4 71.42857%, #cbd2d8 71.42857%, #cbd2d8);
+	background-image: -webkit-gradient(linear, left top, right top, from(#c5ccd4), to(#cbd2d8), color-stop(71.42857%, #c5ccd4), color-stop(71.42857%, #cbd2d8));
 	background-image: -moz-linear-gradient(left, #d1d8df, #d1d8df 71.42857%, #d7dde3 71.42857%, #d7dde3);
 	background-image: -webkit-gradient(linear, left top, right top, from(#d1d8df), to(#d7dde3), color-stop(71.42857%, #d1d8df), color-stop(71.42857%, #d7dde3));
 	background-size: 7px 100px;
@@ -31,7 +31,7 @@
 /* --------------------------------------------- */
 /** page slide **/
 .cmPageScroll {
-	aa display: none;
+	display: none;
 }
 .cmPageSlideIn,
 .cmPageSlideReady,
@@ -111,7 +111,7 @@
 }
 .cmPageNavBar > .cmBtnWrapper {
 	bottom: -16px;
-	aa background-color: silver;  /** debug **/
+	background-color: silver;  /** debug **/
 }
 .cmPageNavBar > .cmRight.cmBtnWrapper {
 	right: 0;
@@ -138,7 +138,7 @@ html.chrome .cmPageNavBar > .cmLeft.cmBtnWrapper .cmBtn.cmForward {max-width: 73
 .cmPageNavBar > .cmLeft.cmBtnCombo,
 .cmPageNavBar > .cmRight.cmBtnLine,
 .cmPageNavBar > .cmRight.cmBtnCombo {
-	aa background-color: green;  /** debug **/
+	background-color: green;  /** debug **/
 }
 .cmPageNavBar > .cmLeft.cmBtnLine,
 .cmPageNavBar > .cmLeft.cmBtnCombo {left: 5px;}
@@ -197,7 +197,7 @@ html.moz .cmPageNavBar > .cmRight.cmBtnCombo .cmBtnWrapper:first-child {margin-l
 	margin: 0 28%;
 	padding: 0 2%;
 	max-width: 40%;
-	aa background-color: green;  /** debug **/
+	background-color: green;  /** debug **/
 }
 html.moz .cmPageNavBar > .cmBtnSwitch {
 	margin: 0 30%;
