@@ -3,10 +3,10 @@
 /** gallery **/
 .cmGallery {
 	position: relative;
-	aa visibility: hidden;
+	visibility: hidden;
 }
 .cmGallery.ready {
-	aa visibility: visible;
+	visibility: visible;
 }
 .cmGallery .cmGalleryFrame {
 	position: relative;

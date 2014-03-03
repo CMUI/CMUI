@@ -265,12 +265,11 @@ html.android-low .cmBtn.cmSmall.cmRightArrow:after {right: 5px;}
 	padding: 10px 7px 8px;
 	height: 40px;
 	line-height: 20px;
-	aa text-align: center;
+	text-align: center;
 	color: #385487;
 	border: 1px solid #999999;
 	border-radius: 5px;
 	box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 0px rgba(0,0,0,0.2);
-	-webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
 	-webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 0px rgba(0,0,0,0.2);
 }
 .cmBtnCombo > input.cmLarge {

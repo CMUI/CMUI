@@ -596,7 +596,7 @@ html.touch .cmList > li.cmDeletable {
 	bottom: 0;
 	padding: 0;
 	overflow: hidden;
-	aa -webkit-transform: translate3d(0, 0, 0);  /** 3d acceleration **/
+	-webkit-transform: translate3d(0, 0, 0);  /** 3d acceleration **/
 }
 .cmList li div.cmBtnWrapper.delete .cmBtn {
 	margin: 0 8px 0 10px;
