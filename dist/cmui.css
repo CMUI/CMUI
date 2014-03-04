@@ -857,8 +857,9 @@ html.dpl .cmBtnWrapper {
 .cmBtn.cmLarge .cmX40:not(:only-child) {top: 4px;}
 
 .cmBtn .cmIcon:not(:only-child) {
-	float: left;
+	display: inline-block;
 	margin-right: 0;
+	vertical-align: top;
 }
 .cmBtn .cmX20:not(:only-child) {margin-left: 4px; margin-right: 4px;}
 .cmBtn .cmX30:not(:only-child) {margin-left: 0; margin-right: 0;}
