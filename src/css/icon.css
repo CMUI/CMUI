@@ -18,18 +18,63 @@ a.cmIcon {
 	position: absolute;
 	border: 0 solid;
 }
+@-webkit-keyframes loading-spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes loading-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 
 /* --------------------------------------------- */
 /** cmX20 **/
 
 /** loading **/
-.cmX20.loading-black-bg {
-	background: url(/src/img/ui-loading-32x32-white-black.gif) no-repeat center center;
-	background-size: 16px 16px;
-}
+.cmX20.loading-black-bg,
 .cmX20.loading-white-bg {
-	background: url(/src/img/ui-loading-32x32-black-white.gif) no-repeat center center;
-	background-size: 16px 16px;
+  height: 16px;
+  width: 16px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  position: relative;
+}
+.cmX20.loading-black-bg:before,
+.cmX20.loading-white-bg:before {
+  content: "";
+  display: block;
+  height: 0px;
+  width: 4px;
+  border: 1px solid #ddd;
+  border-radius: 1px;
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  -webkit-transform-origin: 1px center;
+  transform-origin: 1px center;
+  -webkit-animation: loading-spin 3.6s linear infinite;
+  animation: loading-spin 3.6s linear infinite;
+}
+.cmX20.loading-black-bg:after,
+.cmX20.loading-white-bg:after {
+  content: "";
+  display: block;
+  height: 0px;
+  width: 6px;
+  border: 1px solid #ddd;
+  border-radius: 1px;
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  -webkit-transform-origin: 1px center;
+  transform-origin: 1px center;
+  -webkit-animation: loading-spin 1s linear infinite;
+  animation: loading-spin 1s linear infinite;
+}
+.cmX20.loading-white-bg,
+.cmX20.loading-white-bg:before,
+.cmX20.loading-white-bg:after {
+  border-color: #333;
 }
 
 /** jump-to-top **/
@@ -208,13 +253,50 @@ a.cmIcon {
 /** cmX30 **/
 
 /** loading **/
-.cmX30.loading-black-bg {
-	background: url(/src/img/ui-loading-48x48-white-black.gif) no-repeat center center;
-	background-size: 24px 24px;
-}
+.cmX30.loading-black-bg,
 .cmX30.loading-white-bg {
-	background: url(/src/img/ui-loading-48x48-black-white.gif) no-repeat center center;
-	background-size: 24px 24px;
+  height: 26px;
+  width: 26px;
+  border: 2px solid #ddd;
+  border-radius: 15px;
+  position: relative;
+}
+.cmX30.loading-black-bg:before,
+.cmX30.loading-white-bg:before {
+  content: "";
+  display: block;
+  height: 0px;
+  width: 7px;
+  border: 1px solid #ddd;
+  border-radius: 1px;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  -webkit-transform-origin: 1px center;
+  transform-origin: 1px center;
+  -webkit-animation: loading-spin 3.6s linear infinite;
+  animation: loading-spin 3.6s linear infinite;
+}
+.cmX30.loading-black-bg:after,
+.cmX30.loading-white-bg:after {
+  content: "";
+  display: block;
+  height: 0px;
+  width: 11px;
+  border: 1px solid #ddd;
+  border-radius: 1px;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  -webkit-transform-origin: 1px center;
+  transform-origin: 1px center;
+  -webkit-animation: loading-spin 1s linear infinite;
+  animation: loading-spin 1s linear infinite;
+}
+.cmX30.loading-white-bg,
+.cmX30.loading-white-bg:before,
+.cmX30.loading-white-bg:after {
+  border-color: #333;
 }
 
 /** home **/
@@ -390,11 +472,50 @@ a.cmIcon {
 /** cmX40 **/
 
 /** loading **/
-.cmX40.loading-black-bg {
-	background: url(/src/img/ui-loading-32x32-white-black.gif) no-repeat center center;
-}
+.cmX40.loading-black-bg,
 .cmX40.loading-white-bg {
-	background: url(/src/img/ui-loading-32x32-black-white.gif) no-repeat center center;
+  height: 34px;
+  width: 34px;
+  border: 3px solid #ddd;
+  border-radius: 20px;
+  position: relative;
+}
+.cmX40.loading-black-bg:before,
+.cmX40.loading-white-bg:before {
+  content: "";
+  display: block;
+  height: 0px;
+  width: 9px;
+  border: 2px solid #ddd;
+  border-radius: 2px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  -webkit-transform-origin: 2px center;
+  transform-origin: 2px center;
+  -webkit-animation: loading-spin 3.6s linear infinite;
+  animation: loading-spin 3.6s linear infinite;
+}
+.cmX40.loading-black-bg:after,
+.cmX40.loading-white-bg:after {
+  content: "";
+  display: block;
+  height: 0px;
+  width: 14px;
+  border: 2px solid #ddd;
+  border-radius: 2px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  -webkit-transform-origin: 2px center;
+  transform-origin: 2px center;
+  -webkit-animation: loading-spin 1s linear infinite;
+  animation: loading-spin 1s linear infinite;
+}
+.cmX40.loading-white-bg,
+.cmX40.loading-white-bg:before,
+.cmX40.loading-white-bg:after {
+  border-color: #333;
 }
 
 /** jump-to-top **/
@@ -444,11 +565,50 @@ a.cmIcon {
 /** cmX50 **/
 
 /** loading **/
-.cmX50.loading-black-bg {
-	background: url(/src/img/ui-loading-48x48-white-black.gif) no-repeat center center;
-}
+.cmX50.loading-black-bg,
 .cmX50.loading-white-bg {
-	background: url(/src/img/ui-loading-48x48-black-white.gif) no-repeat center center;
+  height: 44px;
+  width: 44px;
+  border: 3px solid #ddd;
+  border-radius: 25px;
+  position: relative;
+}
+.cmX50.loading-black-bg:before,
+.cmX50.loading-white-bg:before {
+  content: "";
+  display: block;
+  height: 0px;
+  width: 12px;
+  border: 2px solid #ddd;
+  border-radius: 2px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  -webkit-transform-origin: 2px center;
+  transform-origin: 2px center;
+  -webkit-animation: loading-spin 3.6s linear infinite;
+  animation: loading-spin 3.6s linear infinite;
+}
+.cmX50.loading-black-bg:after,
+.cmX50.loading-white-bg:after {
+  content: "";
+  display: block;
+  height: 0px;
+  width: 18px;
+  border: 2px solid #ddd;
+  border-radius: 2px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  -webkit-transform-origin: 2px center;
+  transform-origin: 2px center;
+  -webkit-animation: loading-spin 1s linear infinite;
+  animation: loading-spin 1s linear infinite;
+}
+.cmX50.loading-white-bg,
+.cmX50.loading-white-bg:before,
+.cmX50.loading-white-bg:after {
+  border-color: #333;
 }
 
 
