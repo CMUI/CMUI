@@ -223,11 +223,12 @@
 	color: white;
 	text-shadow: 0 -1px 0 black;
 }
-aa .cmTipBox.cmActionList {  /** debug **/
+/** debug **/
+/** .cmTipBox.cmActionList {  
 	position: relative !important;
 	opacity: 1 !important;
 	pointer-events: auto !important;
-}
+} **/
 li .cmTipBox.cmActionList {
 	top: auto;
 	left: 50%;

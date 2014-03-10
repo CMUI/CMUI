@@ -266,7 +266,7 @@ html.android-low .cmBtn.cmSmall.cmRightArrow:after {right: 5px;}
 	padding: 10px 7px 8px;
 	height: 40px;
 	line-height: 20px;
-	aa text-align: center;
+	/** text-align: center; **/
 	color: #385487;
 	border: 1px solid #999999;
 	border-radius: 5px;

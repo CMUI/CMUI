@@ -912,6 +912,7 @@ a.cmIcon {
   border-color: #333;
 }
 
+
 /** The End **/
 /* --------------------------------------------- */
 /** @charset "utf-8"; **/
@@ -1182,7 +1183,7 @@ html.android-low .cmBtn.cmSmall.cmRightArrow:after {right: 5px;}
 	padding: 10px 7px 8px;
 	height: 40px;
 	line-height: 20px;
-	aa text-align: center;
+	/** text-align: center; **/
 	color: #385487;
 	border: 1px solid #999999;
 	border-radius: 5px;
@@ -1900,7 +1901,7 @@ html.touch .cmList > li.cmDeletable {
 	bottom: 0;
 	padding: 0;
 	overflow: hidden;
-	aa -webkit-transform: translate3d(0, 0, 0);  /** 3d acceleration **/
+	/** -webkit-transform: translate3d(0, 0, 0); **/  /** 3d acceleration **/
 }
 .cmList li div.cmBtnWrapper.delete .cmBtn {
 	margin: 0 8px 0 10px;
@@ -1961,8 +1962,8 @@ html.moz .cmList li div.cmBtnWrapper.delete .cmBtn {
 .cmSystem .cmPage,
 .cmPage.cmSystem {
 	background-color: #c5ccd4;
-	aa background-image: -moz-linear-gradient(left, #c5ccd4, #c5ccd4 71.42857%, #cbd2d8 71.42857%, #cbd2d8);
-	aa background-image: -webkit-gradient(linear, left top, right top, from(#c5ccd4), to(#cbd2d8), color-stop(71.42857%, #c5ccd4), color-stop(71.42857%, #cbd2d8));
+	/** background-image: -moz-linear-gradient(left, #c5ccd4, #c5ccd4 71.42857%, #cbd2d8 71.42857%, #cbd2d8); **/
+	/** background-image: -webkit-gradient(linear, left top, right top, from(#c5ccd4), to(#cbd2d8), color-stop(71.42857%, #c5ccd4), color-stop(71.42857%, #cbd2d8)); **/
 	background-image: -moz-linear-gradient(left, #d1d8df, #d1d8df 71.42857%, #d7dde3 71.42857%, #d7dde3);
 	background-image: -webkit-gradient(linear, left top, right top, from(#d1d8df), to(#d7dde3), color-stop(71.42857%, #d1d8df), color-stop(71.42857%, #d7dde3));
 	background-size: 7px 100px;
@@ -1982,7 +1983,7 @@ html.moz .cmList li div.cmBtnWrapper.delete .cmBtn {
 /* --------------------------------------------- */
 /** page slide **/
 .cmPageScroll {
-	aa display: none;
+	/** display: none; **/
 }
 .cmPageSlideIn,
 .cmPageSlideReady,
@@ -2062,7 +2063,7 @@ html.moz .cmList li div.cmBtnWrapper.delete .cmBtn {
 }
 .cmPageNavBar > .cmBtnWrapper {
 	bottom: -16px;
-	aa background-color: silver;  /** debug **/
+	/** background-color: silver; **/  /** debug **/
 }
 .cmPageNavBar > .cmRight.cmBtnWrapper {
 	right: 0;
@@ -2089,7 +2090,7 @@ html.chrome .cmPageNavBar > .cmLeft.cmBtnWrapper .cmBtn.cmForward {max-width: 73
 .cmPageNavBar > .cmLeft.cmBtnCombo,
 .cmPageNavBar > .cmRight.cmBtnLine,
 .cmPageNavBar > .cmRight.cmBtnCombo {
-	aa background-color: green;  /** debug **/
+	/** background-color: green; **/  /** debug **/
 }
 .cmPageNavBar > .cmLeft.cmBtnLine,
 .cmPageNavBar > .cmLeft.cmBtnCombo {left: 5px;}
@@ -2148,7 +2149,7 @@ html.moz .cmPageNavBar > .cmRight.cmBtnCombo .cmBtnWrapper:first-child {margin-l
 	margin: 0 28%;
 	padding: 0 2%;
 	max-width: 40%;
-	aa background-color: green;  /** debug **/
+	/** background-color: green; **/  /** debug **/
 }
 html.moz .cmPageNavBar > .cmBtnSwitch {
 	margin: 0 30%;
@@ -2583,7 +2584,7 @@ li.cmHasIcon.cmHasOnlyBox > label:first-child > select {
 .cmHasOnlyBox label select:focus,
 .cmHasRightBox label input:focus,
 .cmHasRightBox label select:focus {
-	aa background-color: rgba(0,0,0,0.05);
+	/** background-color: rgba(0,0,0,0.05); **/
 	background-color: #f2f2f2;
 	box-shadow: inset 0 1px 5px rgba(0,0,0,0.5);
 	-webkit-box-shadow: inset 0 1px 5px rgba(0,0,0,0.5);
@@ -2626,7 +2627,7 @@ li.cmHasIcon.cmHasOnlyBox > label:first-child > select {
 	margin-bottom: 8px;
 }
 .cmFormLine + .cmFormLine {
-	aa margin-top: 10px;
+	/** margin-top: 10px; **/
 }
 .cmFormLine > input[type=radio]:first-child,
 .cmFormLine > input[type=checkbox]:first-child {
@@ -2685,10 +2686,10 @@ html.moz .cmFormLine + button.cmBtn {
 /** gallery **/
 .cmGallery {
 	position: relative;
-	aa visibility: hidden;
+	/** visibility: hidden; **/
 }
 .cmGallery.ready {
-	aa visibility: visible;
+	/** visibility: visible; **/
 }
 .cmGallery .cmGalleryFrame {
 	position: relative;
@@ -3159,11 +3160,12 @@ html.android-low .cmGallery .cmGalleryArrow a.next::after {
 	color: white;
 	text-shadow: 0 -1px 0 black;
 }
-aa .cmTipBox.cmActionList {  /** debug **/
+/** debug **/
+/** .cmTipBox.cmActionList {  
 	position: relative !important;
 	opacity: 1 !important;
 	pointer-events: auto !important;
-}
+} **/
 li .cmTipBox.cmActionList {
 	top: auto;
 	left: 50%;
@@ -3208,21 +3210,6 @@ html.moz .cmTipBox.cmActionList .cmBtnCombo.cmLeft > * {
 .cmTipBox.cmActionList.cmDownArrow .cmTipBoxArrow:after {
 	border-top-color: #333;  /** ref to .cmTipBox.cmActionList's darker side of gradient **/
 }
-
-
-/** The End **/
-/* --------------------------------------------- */
-/** @charset "utf-8"; **/
-/* --------------------------------------------- */
-/** btn **/
-
-
-
-
-/* --------------------------------------------- */
-/** list **/
-
-
 
 
 /** The End **/
