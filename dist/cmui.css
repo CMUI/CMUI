@@ -1,4 +1,4 @@
-@charset 'utf-8';
+@charset "utf-8";
 /* --------------------------------------------- */
 /** reset **/
 html,body,div,dl,dt,dd,ol,ul,li,h1,h2,h3,h4,h5,h6,p,blockquote,pre,address,
@@ -42,7 +42,7 @@ img {-ms-interpolation-mode:bicubic;}
 /** The End **/
 /* --------------------------------------------- */
 
-/** @charset 'utf-8'; **/
+/** @charset "utf-8"; **/
 /* --------------------------------------------- */
 /** framework **/
 html {background:gray;}
@@ -299,7 +299,7 @@ p.cmDescr {
 
 /** The End **/
 /* --------------------------------------------- */
-/** @charset 'utf-8'; **/
+/** @charset "utf-8"; **/
 /* --------------------------------------------- */
 /** icon **/
 .cmIcon {
@@ -914,7 +914,7 @@ a.cmIcon {
 
 /** The End **/
 /* --------------------------------------------- */
-/** @charset 'utf-8'; **/
+/** @charset "utf-8"; **/
 /* --------------------------------------------- */
 /** btn **/
 .cmBtnWrapper {
@@ -1302,7 +1302,7 @@ html.moz button.cmBtn {
 
 /** The End **/
 /* --------------------------------------------- */
-/** @charset 'utf-8'; **/
+/** @charset "utf-8"; **/
 /* --------------------------------------------- */
 /** list header **/
 .cmListHeader {
@@ -1949,7 +1949,7 @@ html.moz .cmList li div.cmBtnWrapper.delete .cmBtn {
 
 /** The End **/
 /* --------------------------------------------- */
-/** @charset 'utf-8'; **/
+/** @charset "utf-8"; **/
 /* --------------------------------------------- */
 /** page **/
 .cmPage {
@@ -2376,7 +2376,7 @@ html.safari .cmPageNavBar .cmBtnWrapper:active .cmBtn.cmForward:after {backgroun
 
 /** The End **/
 /* --------------------------------------------- */
-/** @charset 'utf-8'; **/
+/** @charset "utf-8"; **/
 /* --------------------------------------------- */
 /** form **/
 .cmPlaceHolder {color: #aaa;}
@@ -2680,7 +2680,7 @@ html.moz .cmFormLine + button.cmBtn {
 
 /** The End **/
 /* --------------------------------------------- */
-/** @charset 'utf-8'; **/
+/** @charset "utf-8"; **/
 /* --------------------------------------------- */
 /** gallery **/
 .cmGallery {
@@ -2856,7 +2856,7 @@ html.android-low .cmGallery .cmGalleryArrow a.next::after {
 
 /** The End **/
 /* --------------------------------------------- */
-/** @charset 'utf-8'; **/
+/** @charset "utf-8"; **/
 /* --------------------------------------------- */
 /** overlay **/
 
@@ -2934,7 +2934,7 @@ html.android-low .cmGallery .cmGalleryArrow a.next::after {
 
 /** The End **/
 /* --------------------------------------------- */
-/** @charset 'utf-8'; **/
+/** @charset "utf-8"; **/
 /* --------------------------------------------- */
 /** notice **/
 .cmSiteNoticeWrapper {
@@ -3212,7 +3212,7 @@ html.moz .cmTipBox.cmActionList .cmBtnCombo.cmLeft > * {
 
 /** The End **/
 /* --------------------------------------------- */
-/** @charset 'utf-8'; **/
+/** @charset "utf-8"; **/
 /* --------------------------------------------- */
 /** btn **/
 
