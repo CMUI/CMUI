@@ -60,7 +60,7 @@ DPL.ini = function (oConfig) {
 		}
 		DPL.IScroll = window.iScroll;
 		DPL.dom.ini();
-		DPL.blurLink.ini();
+		if (_.ua && !_.ua.isTouchDevice) DPL.blurLink.ini();
 		DPL.btn.ini();
 		DPL.list.ini();
 		DPL.page.ini();
