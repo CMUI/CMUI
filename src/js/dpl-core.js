@@ -64,7 +64,6 @@ DPL.ini = function (oConfig) {
 		DPL.btn.ini();
 		DPL.list.ini();
 		DPL.page.ini();
-		DPL.loading.ini();
 		DPL.smoothJump.ini();
 		DPL.actionList.ini();
 		result = true;

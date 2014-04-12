@@ -59,29 +59,15 @@ DPL.loading = {
 	isVisible: false,
 	origClass: 'cmLoading',
 	textClass: 'cmLoading cmText',
-	dbIcon: {
-		'x40-black-bg': '<i class="cmIcon cmX40 loading-black-bg">Loading</i>',
-		'x40-white-bg': '<i class="cmIcon cmX40 loading-white-bg">Loading</i>',
-		'x50-black-bg': '<i class="cmIcon cmX50 loading-black-bg">Loading</i>',
-		'x50-white-bg': '<i class="cmIcon cmX50 loading-white-bg">Loading</i>'
-	},
-	ini: function () {
-		this._preload();
-	},
-	_preload: function () {  //todo: remove this, after `loading` icon vectorized by css3
-		var html = [
-			'<div class="cmPreloadContainer" hidden>',
-				_.values(this.dbIcon).join(''),
-			'</div>'
-		].join('');
-		_.task.on('load', function () {
-			_.dom.jBody.append(html);
-		});
-	},
+	html: [
+		'<div class="cmLoading">',
+			'<i class="cmIcon cmX50 loading-black-bg"><b></b><b></b>Loading</i>',
+		'</div>'
+	].join(''),
 	_prepare: function () {
 		var _ns = this;
 		if (!this.isReady) {
-			this.j = $('<div class="cmLoading">' + this.dbIcon['x50-black-bg'] + '</div>');
+			this.j = $(this.html);
 			this.j.appendTo(_.dom.jBody);
 			this.isReady = true;
 			var elem = this.j[0];

@@ -3,7 +3,6 @@
 /** framework **/
 html {background:gray;}
 samp {font-family:inherit;}
-.cmPreloadContainer {position:absolute;display:block;height:0;overflow:hidden;}
 .clearfix:after,.cmClr:after,.cmWrapper:after,.cmPage:after,.cmInfoBox:after,.cmTipBoxInner:after {content:'';display:block;clear:both;height:0;}
 .cmWrapper {
 	box-sizing: border-box;
