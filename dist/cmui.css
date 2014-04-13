@@ -47,7 +47,6 @@ img {-ms-interpolation-mode:bicubic;}
 /** framework **/
 html {background:gray;}
 samp {font-family:inherit;}
-.cmPreloadContainer {position:absolute;display:block;height:0;overflow:hidden;}
 .clearfix:after,.cmClr:after,.cmWrapper:after,.cmPage:after,.cmInfoBox:after,.cmTipBoxInner:after {content:'';display:block;clear:both;height:0;}
 .cmWrapper {
 	box-sizing: border-box;
@@ -320,12 +319,12 @@ a.cmIcon {
 	border: 0 solid;
 }
 @-webkit-keyframes loading-spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+	0% {-webkit-transform: rotate(0deg);}
+	100% {-webkit-transform: rotate(360deg);}
 }
 @keyframes loading-spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+	0% {transform: rotate(0deg);}
+	100% {transform: rotate(360deg);}
 }
 
 /* --------------------------------------------- */
@@ -334,48 +333,48 @@ a.cmIcon {
 /** loading **/
 .cmX20.loading-black-bg,
 .cmX20.loading-white-bg {
-  height: 16px;
-  width: 16px;
-  border: 2px solid #ddd;
-  border-radius: 10px;
-  position: relative;
+	height: 16px;
+	width: 16px;
+	border: 2px solid #ddd;
+	border-radius: 10px;
+	position: relative;
 }
-.cmX20.loading-black-bg:before,
-.cmX20.loading-white-bg:before {
-  content: "";
-  display: block;
-  height: 0px;
-  width: 4px;
-  border: 1px solid #ddd;
-  border-radius: 1px;
-  position: absolute;
-  top: 7px;
-  left: 7px;
-  -webkit-transform-origin: 1px center;
-  transform-origin: 1px center;
-  -webkit-animation: loading-spin 3.6s linear infinite;
-  animation: loading-spin 3.6s linear infinite;
+.cmX20.loading-black-bg b:first-child,
+.cmX20.loading-white-bg b:first-child {
+	content: "";
+	display: block;
+	height: 0px;
+	width: 4px;
+	border: 1px solid #ddd;
+	border-radius: 1px;
+	position: absolute;
+	top: 7px;
+	left: 7px;
+	-webkit-transform-origin: 1px center;
+	transform-origin: 1px center;
+	-webkit-animation: loading-spin 3.6s linear infinite;
+	animation: loading-spin 3.6s linear infinite;
 }
-.cmX20.loading-black-bg:after,
-.cmX20.loading-white-bg:after {
-  content: "";
-  display: block;
-  height: 0px;
-  width: 6px;
-  border: 1px solid #ddd;
-  border-radius: 1px;
-  position: absolute;
-  top: 7px;
-  left: 7px;
-  -webkit-transform-origin: 1px center;
-  transform-origin: 1px center;
-  -webkit-animation: loading-spin 1s linear infinite;
-  animation: loading-spin 1s linear infinite;
+.cmX20.loading-black-bg b:last-child,
+.cmX20.loading-white-bg b:last-child {
+	content: "";
+	display: block;
+	height: 0px;
+	width: 6px;
+	border: 1px solid #ddd;
+	border-radius: 1px;
+	position: absolute;
+	top: 7px;
+	left: 7px;
+	-webkit-transform-origin: 1px center;
+	transform-origin: 1px center;
+	-webkit-animation: loading-spin 1s linear infinite;
+	animation: loading-spin 1s linear infinite;
 }
 .cmX20.loading-white-bg,
-.cmX20.loading-white-bg:before,
-.cmX20.loading-white-bg:after {
-  border-color: #333;
+.cmX20.loading-white-bg b:first-child,
+.cmX20.loading-white-bg b:last-child {
+	border-color: #333;
 }
 
 /** jump-to-top **/
@@ -556,48 +555,48 @@ a.cmIcon {
 /** loading **/
 .cmX30.loading-black-bg,
 .cmX30.loading-white-bg {
-  height: 26px;
-  width: 26px;
-  border: 2px solid #ddd;
-  border-radius: 15px;
-  position: relative;
+	height: 26px;
+	width: 26px;
+	border: 2px solid #ddd;
+	border-radius: 15px;
+	position: relative;
 }
-.cmX30.loading-black-bg:before,
-.cmX30.loading-white-bg:before {
-  content: "";
-  display: block;
-  height: 0px;
-  width: 7px;
-  border: 1px solid #ddd;
-  border-radius: 1px;
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  -webkit-transform-origin: 1px center;
-  transform-origin: 1px center;
-  -webkit-animation: loading-spin 3.6s linear infinite;
-  animation: loading-spin 3.6s linear infinite;
+.cmX30.loading-black-bg b:first-child,
+.cmX30.loading-white-bg b:first-child {
+	content: "";
+	display: block;
+	height: 0px;
+	width: 7px;
+	border: 1px solid #ddd;
+	border-radius: 1px;
+	position: absolute;
+	top: 12px;
+	left: 12px;
+	-webkit-transform-origin: 1px center;
+	transform-origin: 1px center;
+	-webkit-animation: loading-spin 3.6s linear infinite;
+	animation: loading-spin 3.6s linear infinite;
 }
-.cmX30.loading-black-bg:after,
-.cmX30.loading-white-bg:after {
-  content: "";
-  display: block;
-  height: 0px;
-  width: 11px;
-  border: 1px solid #ddd;
-  border-radius: 1px;
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  -webkit-transform-origin: 1px center;
-  transform-origin: 1px center;
-  -webkit-animation: loading-spin 1s linear infinite;
-  animation: loading-spin 1s linear infinite;
+.cmX30.loading-black-bg b:last-child,
+.cmX30.loading-white-bg b:last-child {
+	content: "";
+	display: block;
+	height: 0px;
+	width: 11px;
+	border: 1px solid #ddd;
+	border-radius: 1px;
+	position: absolute;
+	top: 12px;
+	left: 12px;
+	-webkit-transform-origin: 1px center;
+	transform-origin: 1px center;
+	-webkit-animation: loading-spin 1s linear infinite;
+	animation: loading-spin 1s linear infinite;
 }
 .cmX30.loading-white-bg,
-.cmX30.loading-white-bg:before,
-.cmX30.loading-white-bg:after {
-  border-color: #333;
+.cmX30.loading-white-bg b:first-child,
+.cmX30.loading-white-bg b:last-child {
+	border-color: #333;
 }
 
 /** home **/
@@ -775,48 +774,48 @@ a.cmIcon {
 /** loading **/
 .cmX40.loading-black-bg,
 .cmX40.loading-white-bg {
-  height: 34px;
-  width: 34px;
-  border: 3px solid #ddd;
-  border-radius: 20px;
-  position: relative;
+	height: 34px;
+	width: 34px;
+	border: 3px solid #ddd;
+	border-radius: 20px;
+	position: relative;
 }
-.cmX40.loading-black-bg:before,
-.cmX40.loading-white-bg:before {
-  content: "";
-  display: block;
-  height: 0px;
-  width: 9px;
-  border: 2px solid #ddd;
-  border-radius: 2px;
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  -webkit-transform-origin: 2px center;
-  transform-origin: 2px center;
-  -webkit-animation: loading-spin 3.6s linear infinite;
-  animation: loading-spin 3.6s linear infinite;
+.cmX40.loading-black-bg b:first-child,
+.cmX40.loading-white-bg b:first-child {
+	content: "";
+	display: block;
+	height: 0px;
+	width: 9px;
+	border: 2px solid #ddd;
+	border-radius: 2px;
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	-webkit-transform-origin: 2px center;
+	transform-origin: 2px center;
+	-webkit-animation: loading-spin 3.6s linear infinite;
+	animation: loading-spin 3.6s linear infinite;
 }
-.cmX40.loading-black-bg:after,
-.cmX40.loading-white-bg:after {
-  content: "";
-  display: block;
-  height: 0px;
-  width: 14px;
-  border: 2px solid #ddd;
-  border-radius: 2px;
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  -webkit-transform-origin: 2px center;
-  transform-origin: 2px center;
-  -webkit-animation: loading-spin 1s linear infinite;
-  animation: loading-spin 1s linear infinite;
+.cmX40.loading-black-bg b:last-child,
+.cmX40.loading-white-bg b:last-child {
+	content: "";
+	display: block;
+	height: 0px;
+	width: 14px;
+	border: 2px solid #ddd;
+	border-radius: 2px;
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	-webkit-transform-origin: 2px center;
+	transform-origin: 2px center;
+	-webkit-animation: loading-spin 1s linear infinite;
+	animation: loading-spin 1s linear infinite;
 }
 .cmX40.loading-white-bg,
-.cmX40.loading-white-bg:before,
-.cmX40.loading-white-bg:after {
-  border-color: #333;
+.cmX40.loading-white-bg b:first-child,
+.cmX40.loading-white-bg b:last-child {
+	border-color: #333;
 }
 
 /** jump-to-top **/
@@ -868,48 +867,48 @@ a.cmIcon {
 /** loading **/
 .cmX50.loading-black-bg,
 .cmX50.loading-white-bg {
-  height: 44px;
-  width: 44px;
-  border: 3px solid #ddd;
-  border-radius: 25px;
-  position: relative;
+	height: 44px;
+	width: 44px;
+	border: 3px solid #ddd;
+	border-radius: 25px;
+	position: relative;
 }
-.cmX50.loading-black-bg:before,
-.cmX50.loading-white-bg:before {
-  content: "";
-  display: block;
-  height: 0px;
-  width: 12px;
-  border: 2px solid #ddd;
-  border-radius: 2px;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  -webkit-transform-origin: 2px center;
-  transform-origin: 2px center;
-  -webkit-animation: loading-spin 3.6s linear infinite;
-  animation: loading-spin 3.6s linear infinite;
+.cmX50.loading-black-bg b:first-child,
+.cmX50.loading-white-bg b:first-child {
+	content: "";
+	display: block;
+	height: 0px;
+	width: 12px;
+	border: 2px solid #ddd;
+	border-radius: 2px;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	-webkit-transform-origin: 2px center;
+	transform-origin: 2px center;
+	-webkit-animation: loading-spin 3.6s linear infinite;
+	animation: loading-spin 3.6s linear infinite;
 }
-.cmX50.loading-black-bg:after,
-.cmX50.loading-white-bg:after {
-  content: "";
-  display: block;
-  height: 0px;
-  width: 18px;
-  border: 2px solid #ddd;
-  border-radius: 2px;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  -webkit-transform-origin: 2px center;
-  transform-origin: 2px center;
-  -webkit-animation: loading-spin 1s linear infinite;
-  animation: loading-spin 1s linear infinite;
+.cmX50.loading-black-bg b:last-child,
+.cmX50.loading-white-bg b:last-child {
+	content: "";
+	display: block;
+	height: 0px;
+	width: 18px;
+	border: 2px solid #ddd;
+	border-radius: 2px;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	-webkit-transform-origin: 2px center;
+	transform-origin: 2px center;
+	-webkit-animation: loading-spin 1s linear infinite;
+	animation: loading-spin 1s linear infinite;
 }
 .cmX50.loading-white-bg,
-.cmX50.loading-white-bg:before,
-.cmX50.loading-white-bg:after {
-  border-color: #333;
+.cmX50.loading-white-bg b:first-child,
+.cmX50.loading-white-bg b:last-child {
+	border-color: #333;
 }
 
 
