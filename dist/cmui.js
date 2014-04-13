@@ -1123,19 +1123,20 @@ DPL.config = {
 //dom
 DPL.dom = {
 	ini: function () {
-		this.iniHtmlClass();
+		this._iniHtmlClass();
 	},
-	iniHtmlClass: function () {  //set css hook on html element.
+	_iniHtmlClass: function () {  //set css hook on html element.
+		var ua = _.ua;
 		var aClass = [
 			'js dpl',
-			_.ua.isWebKit ? 'webkit' : '',
-			_.ua.isSafari ? 'safari' : '',
-			_.ua.isChrome ? 'chrome' : '',
-			_.ua.isMoz ? 'moz' : '',
-			_.ua.isIOS ? 'ios' : '',
-			_.ua.isAndroid ? 'android android-' + (_.str.toFloat(_.ua.version) >= 4 ? 'high' : 'low') : '',
-			_.ua.isTouchDevice ? 'touch' : 'mouse',
-			_.ua.mobileDeviceType || 'desktop'  //or 'phone', 'pad'
+			ua.isWebKit ? 'webkit' : '',
+			ua.isSafari ? 'safari' : '',
+			ua.isChrome ? 'chrome' : '',
+			ua.isMoz ? 'moz' : '',
+			ua.isIOS ? 'ios' : '',
+			ua.isAndroid ? 'android android-' + (_.str.toFloat(ua.version) >= 4 ? 'high' : 'low') : '',
+			ua.isTouchDevice ? 'touch' : 'mouse',
+			ua.isMobileDevice ? 'mobile ' + ua.mobileDeviceType : 'desktop'  //or 'phone', 'pad'
 		];
 		_.dom.jDoc.removeClass('no-js').addClass(aClass.join(' '));
 	}
@@ -1170,11 +1171,10 @@ DPL.ini = function (oConfig) {
 		}
 		DPL.IScroll = window.iScroll;
 		DPL.dom.ini();
-		DPL.blurLink.ini();
+		if (_.ua && !_.ua.isTouchDevice) DPL.blurLink.ini();
 		DPL.btn.ini();
 		DPL.list.ini();
 		DPL.page.ini();
-		DPL.loading.ini();
 		DPL.smoothJump.ini();
 		DPL.actionList.ini();
 		result = true;
@@ -1884,29 +1884,15 @@ DPL.loading = {
 	isVisible: false,
 	origClass: 'cmLoading',
 	textClass: 'cmLoading cmText',
-	dbIcon: {
-		'x40-black-bg': '<i class="cmIcon cmX40 loading-black-bg">Loading</i>',
-		'x40-white-bg': '<i class="cmIcon cmX40 loading-white-bg">Loading</i>',
-		'x50-black-bg': '<i class="cmIcon cmX50 loading-black-bg">Loading</i>',
-		'x50-white-bg': '<i class="cmIcon cmX50 loading-white-bg">Loading</i>'
-	},
-	ini: function () {
-		this._preload();
-	},
-	_preload: function () {  //todo: remove this, after `loading` icon vectorized by css3
-		var html = [
-			'<div class="cmPreloadContainer" hidden>',
-				_.values(this.dbIcon).join(''),
-			'</div>'
-		].join('');
-		_.task.on('load', function () {
-			_.dom.jBody.append(html);
-		});
-	},
+	html: [
+		'<div class="cmLoading">',
+			'<i class="cmIcon cmX50 loading-black-bg"><b></b><b></b>Loading</i>',
+		'</div>'
+	].join(''),
 	_prepare: function () {
 		var _ns = this;
 		if (!this.isReady) {
-			this.j = $('<div class="cmLoading">' + this.dbIcon['x50-black-bg'] + '</div>');
+			this.j = $(this.html);
 			this.j.appendTo(_.dom.jBody);
 			this.isReady = true;
 			var elem = this.j[0];
