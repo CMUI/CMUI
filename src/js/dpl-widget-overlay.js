@@ -92,7 +92,7 @@ DPL.loading = {
 		var offsetX = _.ua.support.stylePositionFixed ? 0 : _.dom.rootScrollingElem.scrollLeft;
 		var offsetY = _.ua.support.stylePositionFixed ? 0 : _.dom.rootScrollingElem.scrollTop;
 		var l = (this.offsetParent.clientWidth - elem.offsetWidth)/2;  //body may be a page wrapper, and may have {position: relative}.
-		var t = (window.innerHeight * 0.95 - elem.offsetHeight)/2;  //on ios, doc.clientHeight never change even when scrolling causes addr bar hiden.
+		var t = (window.innerHeight * 0.95 - elem.offsetHeight)/2;  //on ios, doc.clientHeight never change even when scrolling causes addr bar hidden.
 		this.j.css({
 			left: l + offsetX + 'px',
 			top: t + offsetY + 'px'
