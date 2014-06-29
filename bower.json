@@ -1,6 +1,6 @@
 {
   "name": "cmui",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Lightweight UI solution for mobile web.",
   "main": "dist/cmui.js",
   "moduleType": [
@@ -21,7 +21,7 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "package.json"
+    "package.json",
     "demo",
     "src",
     "test"
