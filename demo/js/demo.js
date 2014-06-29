@@ -107,7 +107,7 @@ DPL.demo.notice = {
 			'show-notice': function () {
 				DPL.siteNotice.show({
 					wrapper: 'section.demo',
-					html: '欢迎浏览 CMUI 演示网站！（全新的 v0.10 版本正在开发中，体积更小巧、功能更强大、性能更出色，敬请期待！）',
+					html: '欢迎浏览 CMUI 演示网站！（全新的 v0.10 正在开发中，体积更小巧、功能更强大、性能更出色，敬请期待！）',
 					//html: '测试 <a href="###">link</a>',
 					//actionClose: '#xxx',
 					//hideCloseBtn: true,
