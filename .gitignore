@@ -9,6 +9,16 @@ $RECYCLE.BIN/
 *.tmp
 *.bak
 *.swp
+*.lnk
 
 .svn
 .idea
+
+node_modules/
+bower_components/
+
+*.zip
+*.gz
+
+*.sh
+*.bat

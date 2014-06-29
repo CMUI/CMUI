@@ -1,0 +1,29 @@
+{
+  "name": "cmui",
+  "version": "0.9.0",
+  "description": "Lightweight UI solution for mobile web.",
+  "main": "dist/cmui.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "ui",
+    "framework",
+    "mobile",
+    "web"
+  ],
+  "authors": [
+    "cssmagic"
+  ],
+  "license": "MIT",
+  "homepage": "http://cmui.net/",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "package.json"
+    "demo",
+    "src",
+    "test"
+  ]
+}
