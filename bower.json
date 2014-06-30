@@ -22,7 +22,6 @@
     "node_modules",
     "bower_components",
     "package.json",
-    "demo",
     "src",
     "test"
   ]
