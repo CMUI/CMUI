@@ -1,6 +1,6 @@
 # CMUI
 
-> A **Crude Mobile UI** framework.
+> A **Crude Mobile UI** framework.  
 > 一个简单粗暴的移动端 Web UI 框架。
 
 CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和简洁的接口，开箱即用。CMUI 帮助开发者摆脱样式细节和兼容性困扰，从而腾出更多精力投入到业务开发中。
