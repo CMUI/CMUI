@@ -1,6 +1,6 @@
 > 此分支仅用于存档 v0.9 及以下版本；请访问 [`master`](https://github.com/CMUI/CMUI) 分支以获取最新版本。
 
-# CMUI - v0.x
+# CMUI (v0)
 
 > A **Crude Mobile UI** framework.  
 > 一个简单粗暴的移动端 Web UI 框架。
@@ -31,10 +31,9 @@ CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和�
 
 > 注： 从 v0.10 开始已移除对 iScroll、Underscore.string、Zepto 的 `detect` 和 `touch` 模块的依赖。
 
-
 ## 演示
 
-建议使用 iOS/Android 设备访问：[CMUI Demo](http://cmui.net/)
+建议使用 iOS/Android 设备访问：[CMUI Demo (v0)](http://cmui.net/demo/v0/)
 
 ![cmui](https://f.cloud.github.com/assets/1231359/1894178/3cec5d66-7ad6-11e3-91a8-124dd7307c10.png)
 
