@@ -1,0 +1,40 @@
+
+////////////////////  bx - list  ////////////////////
+
+/* --------------------------------------------- */
+.cmList
+	$-input-padding-v = 3px
+	$-input-padding-h = 10px
+	$-input-margin-v = (- $-input-padding-v)
+	$-input-margin-h = (- ($list-item-h-padding - ($list-item-v-padding - $-input-padding-v)))
+	$-input-color-bg = $bx-color-x-light-gray
+
+	> li
+		> label:first-child
+			display flex
+			cursor pointer
+			html.touch &:active
+				background-color darken($bx-color-light-gray, 10%)
+			> span:first-child
+				min-width 4em
+				padding-right 1em
+				em
+					margin-left 0.25em
+					margin-right -0.75em
+					width 0.5em
+					font-style inherit
+					color brown
+			>
+				{$sel-input-text}
+					appearance none
+					flex-grow 1
+					padding $-input-padding-v $-input-padding-h
+					margin $-input-margin-v $-input-margin-h $-input-margin-v 0
+					border none
+					border-radius ($list-border-radius - 2)
+					background-color $-input-color-bg
+					-webkit-tap-highlight-color transparent
+					box-shadow none
+					&:focus
+						background-color white
+						box-shadow 0 0 0 1px $bx-color-gray

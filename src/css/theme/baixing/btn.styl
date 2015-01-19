@@ -1,0 +1,177 @@
+
+////////////////////  bx - btn  ////////////////////
+
+/* --------------------------------------------- */
+/** size **/
+$btn-height = 40px
+$btn-h-padding = 5px
+$btn-fs = 16px
+
+.cmBtn
+	&
+		padding-left $btn-h-padding
+		padding-right $btn-h-padding
+		line-height-as-height($btn-height)
+		font-size $btn-fs
+	&.cmBtnXSmall
+		padding-left ($btn-h-padding - 2)
+		padding-right ($btn-h-padding - 2)
+		line-height-as-height($btn-height - 16)
+		font-size ($btn-fs - 4)
+	&.cmBtnSmall
+		padding-left ($btn-h-padding - 1)
+		padding-right ($btn-h-padding - 1)
+		line-height-as-height($btn-height - 8)
+		font-size ($btn-fs - 2)
+	&.cmBtnLarge
+		padding-left ($btn-h-padding + 2)
+		padding-right ($btn-h-padding + 2)
+		line-height-as-height($btn-height + 4)
+		font-size ($btn-fs + 2)
+	&.cmBtnXLarge
+		padding-left ($btn-h-padding + 4)
+		padding-right ($btn-h-padding + 4)
+		line-height-as-height($btn-height + 8)
+		font-size ($btn-fs + 4)
+
+/* --------------------------------------------- */
+/** color **/
+$btn-color-fg = $color-fg
+$btn-color-bg = #ededed
+$btn-color-fg-info = white
+$btn-color-bg-info = #b0bcc4
+$btn-color-fg-success = white
+$btn-color-bg-success = #80d032
+$btn-color-fg-danger = white
+$btn-color-bg-danger = #cb2616
+$btn-color-fg-warning = white
+$btn-color-bg-warning = #ffa64d
+
+-btn-style($fgColor, $bgColor)
+	color $fgColor
+	background-color $bgColor
+	background-image linear-gradient(to bottom, lighten($bgColor, 25%), darken($bgColor, 15%))
+
+.cmBtn
+	-btn-style($btn-color-fg, $btn-color-bg)
+.cmBtn.cmBtnInfo
+	-btn-style($btn-color-fg-info, $btn-color-bg-info)
+.cmBtn.cmBtnSuccess
+	-btn-style($btn-color-fg-success, $btn-color-bg-success)
+.cmBtn.cmBtnDanger
+	-btn-style($btn-color-fg-danger, $btn-color-bg-danger)
+.cmBtn.cmBtnWarning
+	-btn-style($btn-color-fg-warning, $btn-color-bg-warning)
+
+/* --------------------------------------------- */
+/** status **/
+
+//:hover
+-btn-hover-style($bgColor)
+	background-color darken($bgColor, 5%)
+	background-image linear-gradient(to bottom, lighten($bgColor, 15%), darken($bgColor, 25%))
+
+html.mouse
+	.cmBtnWrapper:not(.disabled):hover .cmBtn:not(.disabled):not(:disabled):not(.active)
+	.cmBtn:not(.disabled):not(:disabled):not(.active):not(:active):hover
+		-btn-hover-style($btn-color-bg)
+	.cmBtnWrapper:not(.disabled):hover .cmBtn.cmBtnSuccess:not(.disabled):not(:disabled):not(.active)
+	.cmBtn.cmBtnSuccess:not(.disabled):not(:disabled):not(.active):not(:active):hover
+		-btn-hover-style($btn-color-bg-success)
+	.cmBtnWrapper:not(.disabled):hover .cmBtn.cmBtnInfo:not(.disabled):not(:disabled):not(.active)
+	.cmBtn.cmBtnInfo:not(.disabled):not(:disabled):not(.active):not(:active):hover
+		-btn-hover-style($btn-color-bg-info)
+	.cmBtnWrapper:not(.disabled):hover .cmBtn.cmBtnDanger:not(.disabled):not(:disabled):not(.active)
+	.cmBtn.cmBtnDanger:not(.disabled):not(:disabled):not(.active):not(:active):hover
+		-btn-hover-style($btn-color-bg-danger)
+	.cmBtnWrapper:not(.disabled):hover .cmBtn.cmBtnWarning:not(.disabled):not(:disabled):not(.active)
+	.cmBtn.cmBtnWarning:not(.disabled):not(:disabled):not(.active):not(:active):hover
+		-btn-hover-style($btn-color-bg-warning)
+
+//:active
+-btn-active-style($bgColor)
+	box-shadow inset 0 2px 5px darken($bgColor, 50%)
+	background-color darken($bgColor, 25%)
+	background-image linear-gradient(to bottom, darken($bgColor, 35%), darken($bgColor, 15%))
+
+html.cmui .cmBtnWrapper:not(.disabled):active .cmBtn:not(.disabled):not(:disabled)
+.cmBtn:not(.disabled):not(:disabled):active
+	-btn-active-style($btn-color-bg)
+html.cmui .cmBtnWrapper:not(.disabled):active .cmBtn.cmBtnInfo:not(.disabled):not(:disabled)
+.cmBtn.cmBtnInfo:not(.disabled):not(:disabled):active
+	-btn-active-style($btn-color-bg-info)
+html.cmui .cmBtnWrapper:not(.disabled):active .cmBtn.cmBtnSuccess:not(.disabled):not(:disabled)
+.cmBtn.cmBtnSuccess:not(.disabled):not(:disabled):active
+	-btn-active-style($btn-color-bg-success)
+html.cmui .cmBtnWrapper:not(.disabled):active .cmBtn.cmBtnDanger:not(.disabled):not(:disabled)
+.cmBtn.cmBtnDanger:not(.disabled):not(:disabled):active
+	-btn-active-style($btn-color-bg-danger)
+html.cmui .cmBtnWrapper:not(.disabled):active .cmBtn.cmBtnWarning:not(.disabled):not(:disabled)
+.cmBtn.cmBtnWarning:not(.disabled):not(:disabled):active
+	-btn-active-style($btn-color-bg-warning)
+
+//disabled
+.cmBtn
+	.disabled &
+	&.disabled
+	&:disabled
+		text-shadow none
+		box-shadow none
+		background-image none
+		opacity .4
+
+//.active
+-btn-active-class($bgColor)
+	color white
+	box-shadow inset 0 2px 5px darken($bgColor, 70%)
+	background-color darken($bgColor, 40%)
+	background-image linear-gradient(to bottom, darken($bgColor, 50%), darken($bgColor, 30%))
+
+.cmBtnWrapper.active .cmBtn
+.cmBtn.active
+	-btn-active-class($btn-color-bg)
+.cmBtnWrapper.active .cmBtn.cmBtnSuccess
+.cmBtn.cmBtnSuccess.active
+	-btn-active-class($btn-color-bg-success)
+.cmBtnWrapper.active .cmBtn.cmBtnInfo
+.cmBtn.cmBtnInfo.active
+	-btn-active-class($btn-color-bg-info)
+.cmBtnWrapper.active .cmBtn.cmBtnDanger
+.cmBtn.cmBtnDanger.active
+	-btn-active-class($btn-color-bg-danger)
+.cmBtnWrapper.active .cmBtn.cmBtnWarning
+.cmBtn.cmBtnWarning.active
+	-btn-active-class($btn-color-bg-warning)
+
+
+/* --------------------------------------------- */
+/** multiple btn **/
+
+/** btn line **/
+.cmBtnLine
+	$-gap = 10px
+	>
+		.cmBtn
+		.cmBtnWrapper
+			margin-left ($-gap / 2)
+			margin-right ($-gap / 2)
+			&:first-child
+				margin-left 0
+			&:last-child
+				margin-right 0
+
+/** btn group **/
+.cmBtnGroup
+	$-gap = 1px
+	>
+		.cmBtn:not(:first-child)
+		.cmBtnWrapper:not(:first-child)
+			margin-left $-gap
+		.cmBtn:not(:first-child)
+		.cmBtnWrapper:not(:first-child) .cmBtn
+			border-top-left-radius 0
+			border-bottom-left-radius 0
+		.cmBtn:not(:last-child)
+		.cmBtnWrapper:not(:last-child) .cmBtn
+			border-top-right-radius 0
+			border-bottom-right-radius 0

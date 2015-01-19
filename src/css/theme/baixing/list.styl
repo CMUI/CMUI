@@ -1,0 +1,215 @@
+
+////////////////////  bx - list  ////////////////////
+
+/* --------------------------------------------- */
+/** list **/
+$-sel-list-item-content = 'a, p, div, label'
+
+.cmList
+	//layout
+	> li
+		&[data-badge],
+		&[data-value]
+			position relative
+
+		//padding
+		>
+			{$-sel-list-item-content}
+				&:first-child
+					padding $list-item-v-padding $list-item-h-padding
+
+
+/* --------------------------------------------- */
+/** theme **/
+.cmList
+	border-radius $border-radius
+	//margin
+	//todo: set margins to hx elements
+	& + &
+		margin-top 12px
+
+	//list item
+	> li
+		//border radius
+		&:first-child >
+			{$-sel-list-item-content}
+				&:first-child
+					border-top-left-radius $list-border-radius
+					border-top-right-radius $list-border-radius
+		&:last-child >
+			{$-sel-list-item-content}
+				&:first-child
+					border-bottom-left-radius $list-border-radius
+					border-bottom-right-radius $list-border-radius
+
+		&
+			min-height $list-item-min-height
+			font-size $bx-fs-headline-minor
+
+		& + li
+			margin-top 1px
+
+		>
+			{$-sel-list-item-content}
+				&:first-child
+					box-sizing border-box
+					min-height $list-item-min-height
+					height 100%
+					line-height $list-item-line-height
+					overflow ellipsis
+					background-color lighten($bx-color-x-light-gray, 30%)
+
+			a, label
+				&:first-child
+					display block
+					position relative
+					z-index 10
+					color inherit
+					text-decoration none
+					background-color $bx-color-light-gray
+					html.mouse &:hover
+						background-color darken($bx-color-light-gray, 5%)
+					html.mouse &:active
+						background-color darken($bx-color-light-gray, 10%)
+
+/* --------------------------------------------- */
+/** arrow **/
+$list-arrow-height = 8px
+/*$list-arrow-color = #444*/
+/*$list-arrow-angle = 26.565deg*/
+$list-arrow-angle = 40deg
+$list-arrow-line-width = 1px
+$list-arrow-area-width = 30px
+
+.cmList > li.cmRightArrow,
+.cmList.cmRightArrow > li
+	> a:first-child
+		&::before,
+		&::after
+			position absolute
+			top 50%
+			width 0
+			height $list-arrow-height
+			right $list-item-h-padding
+			pointer-events none
+			html.cmui &
+				content ''
+				border-right $list-arrow-line-width solid
+		&::before
+			margin-top (- $list-arrow-height)
+			transform skewX($list-arrow-angle)
+		&::after
+			transform skewX((- $list-arrow-angle))
+/*
+	//android legacy
+	html.android.legacy &::after
+		display none
+	html.android.legacy &::before
+		width 0
+		height 0
+		border-top-color transparent
+		border-bottom-color transparent
+		background-color transparent
+		border-style solid
+		border-width $list-arrow-height 0 $list-arrow-height ($list-arrow-height/2)
+		right $list-item-h-padding - 2px
+		transform none
+*/
+
+/* --------------------------------------------- */
+/** badge **/
+$list-badge-h-padding = 5px
+$list-badge-height = 22px
+$list-badge-min-width = 30px
+$list-badge-max-width = 45px
+$list-badge-bg-color = $color-fg-minor
+
+.cmList > li[data-badge]::after
+	content attr(data-badge)
+	box-sizing border-box
+	absolute top 50% right $list-item-h-padding
+	z-index 20
+	margin-top (- $list-badge-height/2)
+	padding 0 $list-badge-h-padding
+	min-width $list-badge-min-width
+	max-width $list-badge-max-width
+	overflow ellipsis
+	line-height-as-height($list-badge-height)
+	font-size $font-size
+	text-align center
+	color white
+	background-color $list-badge-bg-color
+	border-radius ($list-badge-height/2)
+	pointer-events none
+
+.cmList.cmRightArrow > li[data-badge],
+.cmList > li[data-badge].cmRightArrow
+	&::after
+		right $list-arrow-area-width
+
+
+/* --------------------------------------------- */
+/** value **/
+$list-value-width = 60%
+$list-value-height = 24px
+$list-value-fg-color = $color-fg-minor
+
+.cmList > li[data-value]::after
+	content attr(data-value)
+	box-sizing border-box
+	absolute top 50% right 0
+	z-index 20
+	margin-top (- $list-value-height/2)
+	padding-right $list-item-h-padding
+	line-height-as-height($list-value-height)
+	max-width $list-value-width
+	overflow ellipsis
+	text-align right
+	color $list-value-fg-color
+	pointer-events none
+
+.cmList.cmRightArrow > li[data-value],
+.cmList > li[data-value].cmRightArrow
+	&::after
+		padding-right $list-arrow-area-width
+
+
+/* --------------------------------------------- */
+/** padding **/
+.cmList > li.cmRightArrow,
+.cmList.cmRightArrow > li
+	> a:first-child
+		padding-right $list-arrow-area-width
+
+.cmList > li[data-badge] >
+	{$-sel-list-item-content}
+		&:first-child
+			padding-right ($list-item-h-padding + $list-badge-max-width + 5)
+.cmList > li[data-badge].cmRightArrow,
+.cmList.cmRightArrow > li[data-badge]
+	> a:first-child
+		padding-right ($list-arrow-area-width + $list-badge-max-width + 5)
+
+.cmList > li[data-value] >
+	{$-sel-list-item-content}
+		&:first-child
+			padding-right ($list-value-width + 2)
+
+
+/* --------------------------------------------- */
+/** icon **/
+$list-item-icon-h-margin = $list-item-v-padding
+
+.cmList > li >
+	{$-sel-list-item-content}
+		&:first-child
+			> .cmIcon
+				float left
+				margin-right $list-item-icon-h-margin
+
+				for $size in 2 .. 5
+					&.cmX{$size}0
+						$list-item-icon-v-margin = (($list-item-line-height - $size * 10)/2)
+						margin-top $list-item-icon-v-margin
+						margin-bottom $list-item-icon-v-margin
+

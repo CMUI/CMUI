@@ -1,0 +1,115 @@
+
+////////////////////  bx - text  ////////////////////
+
+/* --------------------------------------------- */
+/** theme **/
+bx-headline()
+	font-size $bx-fs-headline
+	font-weight inherit
+	line-height $line-height-text
+bx-headline-minor()
+	font-size $bx-fs-headline-minor
+	font-weight 700
+	line-height $line-height-text
+bx-text()
+	font-size $font-size
+	line-height $line-height-text
+bx-text-minor()
+	font-size $bx-fs-text-minor
+	line-height $line-height-text
+
+
+/* --------------------------------------------- */
+/** msg box **/
+.cmMsgBox
+	position relative
+	display block
+	margin-top 10px
+	margin-bottom 10px
+	padding 5px 10px 5px 30px
+	font-size $font-size
+	line-height $line-height-text
+	border-radius $border-radius
+
+	//icon
+	&::before
+		content ''
+		absolute left 7px top 6px
+
+	//contextual style
+	&
+		color $msg-box-color-fg-info
+		background-color $msg-box-color-bg-info
+		&::before
+			-cmIcon-cmX20('msg-info')
+	&.cmMsgBoxWarning
+		color $msg-box-color-fg-warning
+		background-color $msg-box-color-bg-warning
+		&::before
+			-cmIcon-cmX20('msg-warning')
+	&.cmMsgBoxSuccess
+		color $msg-box-color-fg-success
+		background-color $msg-box-color-bg-success
+		&::before
+			-cmIcon-cmX20('msg-success')
+	&.cmMsgBoxError
+		color $msg-box-color-fg-error
+		background-color $msg-box-color-bg-error
+		&::before
+			-cmIcon-cmX20('msg-error')
+	&.cmMsgBoxForbidden
+		color $msg-box-color-fg-error
+		background-color $msg-box-color-bg-error
+		&::before
+			-cmIcon-cmX20('msg-forbidden')
+
+	//debug
+	> .cmIcon:first-child
+		display none
+
+	&.cmText
+		h1, h2, h3, h4, h5, h6, p, ul, ol
+			font-size 1em
+			margin-top 0
+			margin-bottom 0
+		p, ul, ol
+			padding-top 3px
+			padding-bottom 3px
+			line-height $line-height-min
+
+
+/* --------------------------------------------- */
+/** label **/
+$label-border-radius = 0.25em
+$label-h-padding = 0.25em
+$label-v-padding = 0.20em
+
+$label-bg-color = #ffb380
+$label-bg-color-success = #98d374
+.cmLabel
+	padding $label-v-padding $label-h-padding
+	font-weight inherit
+	white-space nowrap
+	color white
+	background-color $label-bg-color
+	border-radius $label-border-radius
+	&.cmLabelSuccess
+		background-color $label-bg-color-success
+
+
+/* --------------------------------------------- */
+/** info box **/
+$info-box-color-bg = $bx-color-x-light-gray
+$info-box-color-border = $bx-color-light-gray
+$info-box-h-padding = $page-content-h-padding
+$info-box-v-padding = 10px
+$info-box-border-radius = $border-radius
+.cmInfoBox
+	margin-top 10px
+	margin-bottom 10px
+	padding $info-box-v-padding $info-box-h-padding
+	background-color $info-box-color-bg
+	border 1px solid $info-box-color-border
+	border-radius $info-box-border-radius
+
+

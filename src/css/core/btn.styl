@@ -1,0 +1,54 @@
+
+////////////////////  btn  ////////////////////
+
+/* --------------------------------------------- */
+/** basic **/
+.cmBtn
+.cmBtnWrapper
+	display block
+	-webkit-tap-highlight-color transparent
+
+//to make non-action elements response `click` event on ios
+html.cmui .cmBtnWrapper:not(.disabled)
+	cursor pointer
+
+.cmBtn
+	box-sizing border-box
+	overflow ellipsis
+	font-size 18px
+	text-align center
+	text-decoration none
+	border-radius $border-radius
+
+//form btn
+input
+button
+	&.cmBtn
+		width 100%
+		appearance none
+		border-style none
+		cursor pointer
+		.cmBtnLine > &
+		.cmBtnGroup > &
+			width auto
+
+//disabled
+.cmBtn
+.cmBtnWrapper
+	.disabled &
+	&.disabled
+	&:disabled
+		cursor default
+		pointer-events none
+
+
+
+/* --------------------------------------------- */
+/** multiple btn **/
+.cmBtnLine
+.cmBtnGroup
+	display flex
+	>
+		.cmBtn
+		.cmBtnWrapper
+			flex-grow 1
