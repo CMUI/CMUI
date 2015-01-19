@@ -1,0 +1,95 @@
+
+////////////////////  var  ////////////////////
+
+/* --------------------------------------------- */
+/** selector **/
+$sel-input-text = 'input[type=text], input[type=password], input[type=search], input[type=email], input[type=number], input[type=tel]'
+$sel-input-option = 'input[type=checkbox], input[type=radio]'
+$sel-btn = 'input[type=button], input[type=submit], button'
+
+/* --------------------------------------------- */
+/** color **/
+$color-bg ?= #efeff4
+$color-bg-ui ?= #bdbdc2
+$color-bg-text ?= white
+
+$color-fg-minor ?= #000
+$color-fg-light ?= #000
+$color-fg ?= #000
+$color-fg-dark ?= #000
+$color-fg-highlight ?= #FF8000
+
+$color-link ?= #015EE7
+
+
+/* --------------------------------------------- */
+/** visual **/
+$border-radius ?= 5px
+
+
+/* --------------------------------------------- */
+/** text **/
+$font-size ?= 16px
+$font-family ?= Helvetica, Arial, sans-serif
+$line-height-min ?= 1.2
+$line-height-ui ?= 1.5
+$line-height-text ?= 1.5
+
+
+/* --------------------------------------------- */
+/** page **/
+
+//nav-bar
+$nav-bar-height ?= 44px
+$nav-bar-padding ?= 5px
+
+$nav-bar-color-bg ?= #eee
+$nav-bar-color-border ?= #bbb
+
+$nav-bar-title-fs ?= 18px
+$nav-bar-title-width ?= 50%
+
+$nav-bar-btn-wrapper-width = (100% - $nav-bar-title-width)/2
+$nav-bar-btn-height ?= 30px
+$nav-bar-btn-br ?= 5px
+
+//content
+$page-content-h-padding ?= 10px
+
+full-width-block()
+	display block
+	width auto !important
+	margin-left (- $page-content-h-padding)
+	margin-right (- $page-content-h-padding)
+
+
+/* --------------------------------------------- */
+/** msg box **/
+//todo: colors need update from bs
+//todo: colors need to move to theme file
+$msg-box-color-fg-info ?= #31708F
+$msg-box-color-fg-success ?= #448245
+$msg-box-color-fg-error ?= #c77270
+$msg-box-color-fg-warning ?= #ba9552
+
+$msg-box-color-bg-info ?= #D9EDF7
+$msg-box-color-bg-success ?= #e2f1cf
+$msg-box-color-bg-error ?= #fff2f2
+$msg-box-color-bg-warning ?= #fff7db
+
+$msg-box-color-border-info ?= #31708F
+$msg-box-color-border-success ?= #448245
+$msg-box-color-border-error ?= #c77270
+$msg-box-color-border-warning ?= #ba9552
+
+
+/* --------------------------------------------- */
+/** list **/
+$list-border-radius ?= $border-radius
+$list-item-min-height ?= 44px
+$list-item-v-padding ?= 10px
+$list-item-h-padding ?= $list-item-v-padding
+$list-item-line-height = $list-item-min-height - $list-item-v-padding * 2
+
+
+

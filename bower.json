@@ -1,6 +1,6 @@
 {
   "name": "cmui",
-  "version": "0.9.1",
+  "version": "0.10.0",
   "description": "Lightweight UI solution for mobile web.",
   "main": "dist/cmui.js",
   "moduleType": [
@@ -13,7 +13,7 @@
     "web"
   ],
   "authors": [
-    "cssmagic"
+    "cssmagic <cssmagic.cn@gmail.com>"
   ],
   "license": "MIT",
   "homepage": "http://cmui.net/",
@@ -22,7 +22,16 @@
     "node_modules",
     "bower_components",
     "package.json",
-    "src",
+    "gulpfile.js",
     "test"
-  ]
+  ],
+  "dependencies": {
+    "zepto-cmui": "1.1.6+cmui",
+    "underscore": "^1.6.0",
+    "underscore.ext": "^0.3.3"
+  },
+  "devDependencies": {
+    "normalize.css": "^3.0.2",
+    "underscore.string": "^3.0.0"
+  }
 }

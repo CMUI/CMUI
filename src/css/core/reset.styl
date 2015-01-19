@@ -1,0 +1,70 @@
+
+////////////////////  reset  ////////////////////
+//base on normalize.css, but we still need to reset some elements.
+
+/* --------------------------------------------- */
+//helper
+reset-box()
+	margin 0
+	padding 0
+reset-border()
+	border 0 none
+reset-font-size()
+	font-size 100%
+reset-text()
+	font-style inherit
+	font-weight inherit
+
+/* --------------------------------------------- */
+//reset box model
+html, body,
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, address,
+dl, dt, dd, ol, ul, li,
+hr,
+form, fieldset, legend, label,
+input, button, textarea, select, optgroup, option,
+table, caption, tfoot, thead, tbody, tr, th, td,
+article, aside, details, figcaption,
+figure, footer, header, hgroup, main, nav, section, summary,
+menu
+	reset-box()
+
+//fix normalize.css
+menu
+	display block
+
+//headline
+h1, h2, h3, h4, h5, h6
+	reset-font-size()
+
+//list
+ul, ol, menu
+	list-style none outside
+
+//table cell
+caption, th, td
+	reset-table-cell()
+
+//form
+label[for]
+	cursor pointer
+
+/* --------------------------------------------- */
+//text style
+blockquote, q, address, abbr, dfn, cite
+	reset-text()
+
+/* --------------------------------------------- */
+//set inline-block to block
+embed, object, iframe, img, audio, video, canvas, progress
+	display block
+	reset-box()
+
+/* --------------------------------------------- */
+//other
+hr
+	display block
+	reset-border()
+	border-top 1px solid
+	background-color transparent

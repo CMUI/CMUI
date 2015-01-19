@@ -1,0 +1,75 @@
+
+////////////////////  bx - grid-list  ////////////////////
+$grid-list-border-color = $bx-color-light-gray
+$grid-list-item-height = 50px
+$grid-list-item-padding-v = ($grid-list-item-height - $font-size * $line-height-ui) / 2
+$grid-list-item-padding-h = 5px
+$grid-list-item-label-padding-left = $font-size * 1.5 + $page-content-h-padding
+$grid-list-item-label-padding-right = $page-content-h-padding
+$grid-list-item-label-input-offset-top = $font-size * (($line-height-ui - 1) / 2)
+
+ul.cmGridList
+	&
+		border-left 1px solid $grid-list-border-color
+		clearfix()
+	//list item style
+	& > li
+		float left
+		box-sizing border-box
+		border 1px solid $grid-list-border-color
+		border-left none
+		//to collapse border
+		&
+			margin-bottom -1px
+			&:last-child
+				margin-bottom 0
+		> a,
+		> label
+			display block
+			overflow ellipsis
+			html.mouse &:hover
+				background-color $bx-color-x-light-gray
+				background-image linear-gradient(to bottom, white, $bx-color-x-light-gray)
+			html.mouse &:active
+				background-color $bx-color-x-light-gray
+				background-image linear-gradient(to bottom, $bx-color-x-light-gray, white)
+		> label
+			padding $grid-list-item-padding-v $grid-list-item-label-padding-right $grid-list-item-padding-v $grid-list-item-label-padding-left
+			cursor pointer
+			html.touch &:active
+				background-color $bx-color-gray
+			> input[type='radio']:first-child,
+			> input[type='checkbox']:first-child
+				float left
+				margin-left (- $font-size * 1.5)
+				margin-top $grid-list-item-label-input-offset-top
+		> a
+			padding $grid-list-item-padding-v $grid-list-item-padding-h
+			text-center()
+			text-decoration none
+			color inherit
+		//selected item
+		&.selected
+			position relative
+			&::before
+				//content ''
+				absolute top 2px left 2px
+				border 0 solid $bx-color-active-green
+				border-width 13px 13px 0 0
+				border-right-color transparent
+				pointer-events none
+			> a,
+			> label
+				background $bx-color-x-light-gray !important
+
+	//border style
+	&.cmGridListNoBorder
+		border none
+		& > li
+			margin-top 0
+			border none
+
+	//list item width
+	& > li
+		min-width 4em
+		width 50%

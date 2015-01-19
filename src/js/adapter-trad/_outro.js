@@ -1,0 +1,5 @@
+
+}(this)
+
+//init
+CMUI.init();

@@ -1,0 +1,149 @@
+
+////////////////////  bx - page  ////////////////////
+
+/* --------------------------------------------- */
+/** nav bar **/
+.cmSubview > header
+	position relative
+	z-index 10
+	background-color $nav-bar-color-bg
+	box-shadow 0 1px 3px 0 rgba(0,0,0,.2)
+	& > nav
+		border-bottom 1px solid $nav-bar-color-border
+
+.cmNavBar
+	position relative
+	height $nav-bar-height
+	line-height $nav-bar-height
+	& > h1
+		margin-left $nav-bar-btn-wrapper-width
+		margin-right $nav-bar-btn-wrapper-width
+		text-center()
+		font-size $nav-bar-title-fs
+		overflow ellipsis
+	& > div
+		box-sizing border-box
+		position absolute
+		top 0
+		width $nav-bar-btn-wrapper-width
+	& > .cmNavBarLeft
+		left 0
+	& > .cmNavBarRight
+		right 0
+	.cmBtnWrapper
+		padding-top (($nav-bar-height - $nav-bar-btn-height)/2)
+		padding-bottom (($nav-bar-height - $nav-bar-btn-height)/2 + 10)
+	& > .cmNavBarLeft .cmBtnWrapper
+	& > .cmNavBarLeft.cmBtnWrapper
+		padding-left $nav-bar-padding
+		& .cmBtn
+			float left
+	& > .cmNavBarRight .cmBtnWrapper
+	& > .cmNavBarRight.cmBtnWrapper
+		padding-right $nav-bar-padding
+		& .cmBtn
+			float right
+
+/* --------------------------------------------- */
+/** nav bar btn **/
+$nav-bar-btn-h-padding = 7px
+
+$nav-bar-btn-color-fg = $color-fg
+$nav-bar-btn-color-bg = darken($btn-color-bg, 10%)
+$nav-bar-btn-color-bg-success = darken($btn-color-bg-success, 20%)
+$nav-bar-btn-color-bg-danger = #ff7166
+$nav-bar-btn-color-bg-info = #b0bcc4
+
+.cmNavBar .cmBtn
+	height $nav-bar-btn-height
+	line-height $nav-bar-btn-height
+	padding-left $nav-bar-btn-h-padding
+	padding-right $nav-bar-btn-h-padding
+	font-size $bx-fs-text-minor
+	border-radius $nav-bar-btn-br
+	&.cmBtnBack
+		margin-left 8px
+		position relative
+		padding-left 4px
+		overflow visible
+		border-top-left-radius 7px
+		border-bottom-left-radius 7px
+		background-image none !important	//no gradient
+		&::before,
+		&::after
+			content ''
+			absolute left -9px
+			border-style solid
+			border-color transparent
+			border-width 11px 11px 11px 0
+			height 2px
+		&::before
+			top 3px
+		&::after
+			top 2px
+
+-nav-bar-btn($fgColor, $bgColor)
+	$hoverColor = darken($bgColor, 5%)
+	$activeColor = darken($bgColor, 30%)
+	$shadowColor = darken($bgColor, 25%)
+	$shadowColorHover = darken($bgColor, 40%)
+	$shadowColorActive = darken($bgColor, 50%)
+	.cmNavBar &
+		color $fgColor
+		background-color $bgColor
+		background-image linear-gradient(to bottom, lighten($bgColor, 15%), darken($bgColor, 15%))
+		box-shadow 0 1px 0 0 $shadowColor
+		//Android 2 ignore declaration, if shadow blur set to `0`
+		html.android.legacy &
+			-webkit-box-shadow 0 1px 1px 0 $shadowColor
+
+		&.cmBtnBack
+			&::before
+				border-right-color $shadowColor
+			&::after
+				border-right-color $bgColor
+
+	//hover
+	html.mouse .cmNavBar .cmBtnWrapper:hover &:not(.disabled),
+	html.mouse .cmNavBar &:hover
+		background-color $hoverColor
+		background-image linear-gradient(to bottom, lighten($bgColor, 5%), darken($bgColor, 25%))
+		box-shadow 0 1px 0 0 $shadowColorHover
+	html.mouse .cmNavBar .cmBtnWrapper:hover &.cmBtnBack:not(.disabled),
+	html.mouse .cmNavBar &.cmBtnBack:hover
+		&::before
+			border-right-color $shadowColorHover
+		&::after
+			border-right-color $hoverColor
+	//active
+	html.cmui .cmNavBar .cmBtnWrapper:active &:not(.disabled),
+	.cmNavBar &:active
+		background-color $activeColor
+		background-image linear-gradient(to bottom, darken($bgColor, 45%), darken($bgColor, 15%))
+		box-shadow 0 1px 0 0 $shadowColorActive
+	html.cmui .cmNavBar .cmBtnWrapper:active &.cmBtnBack:not(.disabled),
+	.cmNavBar &.cmBtnBack:active
+		&::before
+			border-right-color $shadowColorActive
+		&::after
+			border-right-color $activeColor
+
+.cmBtn
+	&
+		-nav-bar-btn(darken($nav-bar-btn-color-fg, 10%), $nav-bar-btn-color-bg)
+	&.cmBtnSuccess
+		-nav-bar-btn(white, $nav-bar-btn-color-bg-success)
+	&.cmBtnDanger
+		-nav-bar-btn(white, $nav-bar-btn-color-bg-danger)
+	&.cmBtnInfo
+		-nav-bar-btn(white, $nav-bar-btn-color-bg-info)
+
+
+
+/* --------------------------------------------- */
+/** main content **/
+.cmSubview > main
+	padding-left $page-content-h-padding
+	padding-right $page-content-h-padding
+	min-height 200px
+	clearfix()

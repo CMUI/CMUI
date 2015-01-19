@@ -1,0 +1,58 @@
+
+////////////////////  common  ////////////////////
+
+/* --------------------------------------------- */
+/** layout **/
+html
+	height 100%
+	overflow-y scroll
+	background-color $color-bg-ui
+
+body
+	min-height 100%
+	font $font-size/$line-height-ui $font-family
+	color $color-fg
+	background-color $color-bg
+
+/* --------------------------------------------- */
+/** helper classes **/
+.clearfix
+	$clearfix()
+
+//sizes: .cmX20 ~ .cmX50
+for $size in 2 .. 5
+	.cmX{$size}0
+		size ($size * 10px)
+
+
+/* --------------------------------------------- */
+/** basic style **/
+
+//tap highlight
+html, body, a.off
+	-webkit-tap-highlight-color transparent
+input, textarea, select, label[for], a
+	-webkit-tap-highlight-color rgba(0,0,0,0.3)
+
+//link
+a
+	color $color-link
+
+//phone link
+html:not(.phone) a[href^="tel:"]
+	color inherit
+	text-decoration inherit
+html.desktop a[href^="tel:"]
+	pointer-events none
+
+//context menu
+a[data-action]
+	-webkit-touch-callout none
+
+//form element
+label
+	> input[type='radio']:first-child,
+	> input[type='checkbox']:first-child
+		margin-right 0.5em
+
+
