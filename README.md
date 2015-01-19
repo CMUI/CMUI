@@ -1,58 +1,49 @@
-# CMUI
+> 此分支仅用于存档 v0.9 及以下版本；请访问 [`master`](https://github.com/CMUI/CMUI) 分支以获取最新版本。
 
-A **Crude Mobile UI** framework.
+# CMUI - v0.x
 
-一个简单粗暴的移动端 Web UI 框架。
+> A **Crude Mobile UI** framework.  
+> 一个简单粗暴的移动端 Web UI 框架。
 
-> **警告**：
+CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和简洁的接口，开箱即用。CMUI 帮助开发者摆脱样式细节和兼容性困扰，从而腾出更多精力投入在业务开发上。
 
-> 虽然已有基于 CMUI 的实际项目上线，但作为一个开源项目，它目前还没有完成，而且 API 极不稳定。
+以下内容仅适用于 CMUI v0.9 以及下版本。
 
 ## 兼容性
 
-#### 移动设备
+#### 浏览器支持
 
-* iOS (iPhone/iPad/iPod touch): 4+
-* Android: 2.2+
+* 支持以下移动设备：
+	* iOS (iPhone/iPad/iPod touch): 4+
+	* Android: 2.2+
 
-#### 桌面浏览器
+* 同样支持以下桌面浏览器：
+	* Firefox: (edge)
+	* Safari: (edge)
+	* Chrome: (edge)
 
-* Firefox: (Edge)
-* Safari: (Edge)
-* Chrome: (Edge)
-
-## 外部依赖
+#### 外部依赖
 
 * Underscore 1.3+
 * Underscore.string 2.2+
-* Zepto 1.0+ （需包含 detect、touch 模块）
+* Zepto 1.0+ （需包含 `detect`、`touch` 模块）
 * iScroll 4.x
 
-> 注：即将在未来移除以下外部依赖：
+> 注： 从 v0.10 开始已移除对 iScroll、Underscore.string、Zepto 的 `detect` 和 `touch` 模块的依赖。
 
-> * iScroll
-> * Underscore.string
-> * Zepto 的 detect、touch 模块
 
 ## 演示
 
-建议使用 iOS/Android 设备访问：
+建议使用 iOS/Android 设备访问：[CMUI Demo](http://cmui.net/)
 
-* [CMUI Demo](http://cmui.net/)
+![cmui](https://f.cloud.github.com/assets/1231359/1894178/3cec5d66-7ad6-11e3-91a8-124dd7307c10.png)
 
-	![cmui](https://f.cloud.github.com/assets/1231359/1894178/3cec5d66-7ad6-11e3-91a8-124dd7307c10.png)
+## 谁在用？
 
-## 案例
+以下案例基于 CMUI v0.8 构建（建议使用 iOS/Android 设备访问）：
 
-建议使用 iOS/Android 设备访问：
-
-* [优e网 - 手机版](http://m.uemall.com/)（基于 CMUI 0.8）
-
-	![uemall](https://f.cloud.github.com/assets/1231359/1894184/c5236fc6-7ad6-11e3-993a-ed7a7cbac535.png)
-
-* [薇姿官方电子商城 - 手机版](http://m.vichy.com.cn/)（基于 CMUI 0.8）
-
-	![vichy](https://f.cloud.github.com/assets/1231359/1894180/82cdf54c-7ad6-11e3-9486-4204c7bc873f.png)
+* [优e网 - 手机版](http://m.uemall.com/)
+* [薇姿官方电子商城 - 手机版](http://m.vichy.com.cn/)
 
 ***
 
