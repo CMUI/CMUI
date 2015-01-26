@@ -55,7 +55,7 @@ CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和�
 
 建议使用 iOS/Android 设备访问：[CMUI Demo](http://cmui.net/)
 
-![cmui](https://f.cloud.github.com/assets/1231359/1894178/3cec5d66-7ad6-11e3-91a8-124dd7307c10.png)
+![cmui-demo](https://cloud.githubusercontent.com/assets/1231359/5896609/594d6914-a573-11e4-8dcf-8bc1378593be.png)
 
 ## 谁在用？
 
