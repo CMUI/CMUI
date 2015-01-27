@@ -5,7 +5,7 @@
 > A **Crude Mobile UI** framework.  
 > 一个简单粗暴的移动端 Web UI 框架。
 
-CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和简洁的接口，开箱即用。CMUI 帮助开发者摆脱样式细节和兼容性困扰，从而腾出更多精力投入在业务开发上。
+CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和简洁的接口，开箱即用。CMUI 帮助开发者摆脱样式细节和兼容性困扰，从而腾出更多精力投入到业务开发中。
 
 以下内容仅适用于 CMUI v0.9 以及下版本。
 
@@ -35,7 +35,7 @@ CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和�
 
 建议使用 iOS/Android 设备访问：[CMUI Demo (v0)](http://cmui.net/demo/v0/)
 
-![cmui-demo-v0](https://cloud.githubusercontent.com/assets/1231359/5896547/5013c7f4-a572-11e4-975a-ea7bbaff3fb9.png)
+![cmui-demo-v0](https://cloud.githubusercontent.com/assets/1231359/5915338/9b499c62-a63f-11e4-8a90-fe5c64b8a4dc.png)
 
 ## 谁在用？
 
