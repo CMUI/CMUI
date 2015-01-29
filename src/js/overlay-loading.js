@@ -90,19 +90,19 @@ void function (window, CMUI) {
 			this._prepare()
 			this._setText(str)
 			this._pos()
-			var classNames = _.union(this.basicClassNames, this.CLS_FADE_IN)
+			var classNames = _.union(this.basicClassNames, [this.CLS_FADE_IN])
 			this.$elem.attr('class', classNames.join(' '))
 			this.isVisible = true
 		},
 		hide: function () {
 			if (!this.isVisible) return false
-			var classNames = _.union(this.basicClassNames, this.CLS_HIDDEN)
+			var classNames = _.union(this.basicClassNames, [this.CLS_HIDDEN])
 			this.$elem.attr('class', classNames.join(' '))
 			this.isVisible = false
 		},
 		fadeOut: function () {
 			if (!this.isVisible) return false
-			var classNames = _.union(this.basicClassNames, this.CLS_FADE_OUT)
+			var classNames = _.union(this.basicClassNames, [this.CLS_FADE_OUT])
 			this.$elem.attr('class', classNames.join(' '))
 			this.isVisible = false
 		},
