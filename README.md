@@ -26,10 +26,8 @@ CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和�
 
 * Underscore 1.3+
 * Underscore.string 2.2+
-* Zepto 1.0+ （需包含 `detect`、`touch` 模块）
+* Zepto 1.x （需包含 `detect`、`touch` 模块）
 * iScroll 4.x
-
-> 注： 从 v0.10 开始已移除对 iScroll、Underscore.string、Zepto 的 `detect` 和 `touch` 模块的依赖。
 
 ## 演示
 
