@@ -1,6 +1,5 @@
 {
   "name": "cmui",
-  "version": "0.10.0",
   "description": "Lightweight UI solution for mobile web.",
   "main": "dist/cmui.js",
   "moduleType": [
