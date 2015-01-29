@@ -26,7 +26,7 @@
   ],
   "dependencies": {
     "zepto-cmui": "1.1.6+cmui",
-    "underscore": "^1.6.0",
+    "underscore": "~1.6.0",
     "underscore.ext": "^0.3.3"
   },
   "devDependencies": {
