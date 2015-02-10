@@ -1,22 +1,23 @@
 
 ////////////////////  bx - grid-list  ////////////////////
-$grid-list-border-color = $bx-color-light-gray
-$grid-list-item-height = 50px
-$grid-list-item-padding-v = ($grid-list-item-height - $font-size * $line-height-ui) / 2
-$grid-list-item-padding-h = 5px
-$grid-list-item-label-padding-left = $font-size * 1.5 + $page-content-h-padding
-$grid-list-item-label-padding-right = $page-content-h-padding
-$grid-list-item-label-input-offset-top = $font-size * (($line-height-ui - 1) / 2)
 
 ul.cmGridList
+	$-border-color = $bx-color-light-gray
+	$-item-height = 50px
+	$-item-padding-v = ($-item-height - $font-size * $line-height-ui) / 2
+	$-item-padding-h = 5px
+	$-item-label-padding-left = $font-size * 1.5 + $page-content-h-padding
+	$-item-label-padding-right = $page-content-h-padding
+	$-item-label-input-offset-top = $font-size * (($line-height-ui - 1) / 2)
+	
 	&
-		border-left 1px solid $grid-list-border-color
+		border-left 1px solid $-border-color
 		clearfix()
 	//list item style
 	& > li
 		float left
 		box-sizing border-box
-		border 1px solid $grid-list-border-color
+		border 1px solid $-border-color
 		border-left none
 		//to collapse border
 		&
@@ -34,30 +35,24 @@ ul.cmGridList
 				background-color $bx-color-x-light-gray
 				background-image linear-gradient(to bottom, $bx-color-x-light-gray, white)
 		> label
-			padding $grid-list-item-padding-v $grid-list-item-label-padding-right $grid-list-item-padding-v $grid-list-item-label-padding-left
+			padding $-item-padding-v $-item-label-padding-right $-item-padding-v $-item-label-padding-left
 			cursor pointer
+			//use `:active` and bg color to improve responsivity, instead of touch-highlight
 			html.touch &:active
 				background-color $bx-color-gray
 			> input[type='radio']:first-child,
 			> input[type='checkbox']:first-child
 				float left
 				margin-left (- $font-size * 1.5)
-				margin-top $grid-list-item-label-input-offset-top
+				margin-top $-item-label-input-offset-top
 		> a
-			padding $grid-list-item-padding-v $grid-list-item-padding-h
+			padding $-item-padding-v $-item-padding-h
 			text-center()
 			text-decoration none
 			color inherit
 		//selected item
 		&.selected
 			position relative
-			&::before
-				//content ''
-				absolute top 2px left 2px
-				border 0 solid $bx-color-active-green
-				border-width 13px 13px 0 0
-				border-right-color transparent
-				pointer-events none
 			> a,
 			> label
 				background-color $bx-color-x-light-gray
