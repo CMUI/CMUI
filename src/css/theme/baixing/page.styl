@@ -46,7 +46,7 @@
 
 /* --------------------------------------------- */
 /** nav bar btn **/
-$nav-bar-btn-h-padding = 7px
+$nav-bar-btn-padding-h = 7px
 
 $nav-bar-btn-color-fg = $color-fg
 $nav-bar-btn-color-bg = darken($btn-color-bg, 10%)
@@ -57,8 +57,8 @@ $nav-bar-btn-color-bg-info = #b0bcc4
 .cmNavBar .cmBtn
 	height $nav-bar-btn-height
 	line-height $nav-bar-btn-height
-	padding-left $nav-bar-btn-h-padding
-	padding-right $nav-bar-btn-h-padding
+	padding-left $nav-bar-btn-padding-h
+	padding-right $nav-bar-btn-padding-h
 	font-size $bx-fs-text-minor
 	border-radius $nav-bar-btn-br
 	&.cmBtnBack
@@ -143,8 +143,8 @@ $nav-bar-btn-color-bg-info = #b0bcc4
 /* --------------------------------------------- */
 /** main content **/
 .cmSubview > main
-	padding-left $page-content-h-padding
-	padding-right $page-content-h-padding
+	padding-left $page-content-padding-h
+	padding-right $page-content-padding-h
 	min-height 200px
 	clearfix()
 
@@ -152,5 +152,5 @@ $nav-bar-btn-color-bg-info = #b0bcc4
 full-width-block()
 	display block
 	box-sizing border-box
-	margin-left (- $page-content-h-padding)
-	margin-right (- $page-content-h-padding)
+	margin-left (- $page-content-padding-h)
+	margin-right (- $page-content-padding-h)
