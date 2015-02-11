@@ -16,7 +16,7 @@ $-sel-list-item-content = 'a, p, div, label'
 		>
 			{$-sel-list-item-content}
 				&:first-child
-					padding $list-item-v-padding $list-item-h-padding
+					padding $list-item-padding-v $list-item-padding-h
 
 
 /* --------------------------------------------- */
@@ -90,7 +90,7 @@ $list-arrow-area-width = 30px
 			top 50%
 			width 0
 			height $list-arrow-height
-			right $list-item-h-padding
+			right $list-item-padding-h
 			pointer-events none
 			html.cmui &
 				content ''
@@ -112,13 +112,13 @@ $list-arrow-area-width = 30px
 		background-color transparent
 		border-style solid
 		border-width $list-arrow-height 0 $list-arrow-height ($list-arrow-height/2)
-		right $list-item-h-padding - 2px
+		right $list-item-padding-h - 2px
 		transform none
 */
 
 /* --------------------------------------------- */
 /** badge **/
-$list-badge-h-padding = 5px
+$list-badge-padding-h = 5px
 $list-badge-height = 22px
 $list-badge-min-width = 30px
 $list-badge-max-width = 45px
@@ -127,10 +127,10 @@ $list-badge-bg-color = $color-fg-minor
 .cmList > li[data-badge]::after
 	content attr(data-badge)
 	box-sizing border-box
-	absolute top 50% right $list-item-h-padding
+	absolute top 50% right $list-item-padding-h
 	z-index 20
 	margin-top (- $list-badge-height/2)
-	padding 0 $list-badge-h-padding
+	padding 0 $list-badge-padding-h
 	min-width $list-badge-min-width
 	max-width $list-badge-max-width
 	overflow ellipsis
@@ -160,7 +160,7 @@ $list-value-fg-color = $color-fg-minor
 	absolute top 50% right 0
 	z-index 20
 	margin-top (- $list-value-height/2)
-	padding-right $list-item-h-padding
+	padding-right $list-item-padding-h
 	line-height-as-height($list-value-height)
 	max-width $list-value-width
 	overflow ellipsis
@@ -184,7 +184,7 @@ $list-value-fg-color = $color-fg-minor
 .cmList > li[data-badge] >
 	{$-sel-list-item-content}
 		&:first-child
-			padding-right ($list-item-h-padding + $list-badge-max-width + 5)
+			padding-right ($list-item-padding-h + $list-badge-max-width + 5)
 .cmList > li[data-badge].cmRightArrow,
 .cmList.cmRightArrow > li[data-badge]
 	> a:first-child
@@ -198,18 +198,18 @@ $list-value-fg-color = $color-fg-minor
 
 /* --------------------------------------------- */
 /** icon **/
-$list-item-icon-h-margin = $list-item-v-padding
+$list-item-icon-margin-h = $list-item-padding-v
 
 .cmList > li >
 	{$-sel-list-item-content}
 		&:first-child
 			> .cmIcon
 				float left
-				margin-right $list-item-icon-h-margin
+				margin-right $list-item-icon-margin-h
 
 				for $size in 2 .. 5
 					&.cmX{$size}0
-						$list-item-icon-v-margin = (($list-item-line-height - $size * 10)/2)
-						margin-top $list-item-icon-v-margin
-						margin-bottom $list-item-icon-v-margin
+						$list-item-icon-margin-v = (($list-item-line-height - $size * 10)/2)
+						margin-top $list-item-icon-margin-v
+						margin-bottom $list-item-icon-margin-v
 

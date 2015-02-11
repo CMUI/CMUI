@@ -81,13 +81,13 @@ bx-text-minor()
 /* --------------------------------------------- */
 /** label **/
 $label-border-radius = 0.25em
-$label-h-padding = 0.25em
-$label-v-padding = 0.20em
+$label-padding-h = 0.25em
+$label-padding-v = 0.20em
 
 $label-bg-color = #ffb380
 $label-bg-color-success = #98d374
 .cmLabel
-	padding $label-v-padding $label-h-padding
+	padding $label-padding-v $label-padding-h
 	font-weight inherit
 	white-space nowrap
 	color white
@@ -101,13 +101,13 @@ $label-bg-color-success = #98d374
 /** info box **/
 $info-box-color-bg = $bx-color-x-light-gray
 $info-box-color-border = $bx-color-light-gray
-$info-box-h-padding = $page-content-h-padding
-$info-box-v-padding = 10px
+$info-box-padding-h = $page-content-padding-h
+$info-box-padding-v = 10px
 $info-box-border-radius = $border-radius
 .cmInfoBox
 	margin-top 10px
 	margin-bottom 10px
-	padding $info-box-v-padding $info-box-h-padding
+	padding $info-box-padding-v $info-box-padding-h
 	background-color $info-box-color-bg
 	border 1px solid $info-box-color-border
 	border-radius $info-box-border-radius
