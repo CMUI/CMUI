@@ -22,7 +22,7 @@ CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和�
 
 #### 外部依赖
 
-* Zepto 1.1+ （需使用 [CMUI 构建版](https://github.com/CMUI/zepto)）
+* Zepto 1.1+
 * Underscore 1.6+
 * Underscore.ext 0.3+
 
@@ -43,7 +43,7 @@ CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和�
 	</head>
 	<body>
 		...
-		<script src="bower_components/zepto-cmui/dist/zepto.js">
+		<script src="bower_components/zepto.js/dist/zepto.js">
 		<script src="bower_components/underscore/underscore.js">
 		<script src="bower_components/underscore.ext/dist/underscore.ext.js">
 		<script src="bower_components/cmui/dist/cmui.js">
