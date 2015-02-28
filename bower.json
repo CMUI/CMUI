@@ -25,12 +25,11 @@
     "test"
   ],
   "dependencies": {
-    "zepto-cmui": "1.1.6+cmui",
-    "underscore": "~1.6.0",
-    "underscore.ext": "^0.3.3"
+    "zepto.js": "1.*",
+    "underscore": "^1.6.0",
+    "underscore.ext": "^0.3.0"
   },
   "devDependencies": {
-    "normalize.css": "^3.0.2",
-    "underscore.string": "^3.0.0"
+    "normalize.css": "^3.0.2"
   }
 }
