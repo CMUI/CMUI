@@ -43,10 +43,10 @@ CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和�
 	</head>
 	<body>
 		...
-		<script src="bower_components/zepto.js/dist/zepto.js">
-		<script src="bower_components/underscore/underscore.js">
-		<script src="bower_components/underscore.ext/dist/underscore.ext.js">
-		<script src="bower_components/cmui/dist/cmui.js">
+		<script src="bower_components/zepto.js/dist/zepto.js"></script>
+		<script src="bower_components/underscore/underscore.js"></script>
+		<script src="bower_components/underscore.ext/dist/underscore.ext.js"></script>
+		<script src="bower_components/cmui/dist/cmui.js"></script>
 	</body>
 	</html>
 	```
