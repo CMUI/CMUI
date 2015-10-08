@@ -30,7 +30,7 @@ void function (window, CMUI) {
 			ua.isTouchDevice ? 'touch' : 'mouse',
 			ua.isMobileDevice ? 'mobile' : 'desktop'
 		]
-		_.dom.$doc.removeClass('no-js').addClass(classNames.join(' '))
+		_.dom.$root.removeClass('no-js').addClass(classNames.join(' '))
 
 		//to enable `:active` style on ios and android 4+
 		if (ua.isIOS || (ua.isAndroid && !isLegacy)) {

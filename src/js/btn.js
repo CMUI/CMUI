@@ -21,7 +21,7 @@ void function (window, CMUI) {
 	 * @private
 	 */
 	function _iniBtnWrapper() {
-		var $wrapper = _.dom.$body || _.dom.$doc
+		var $wrapper = _.dom.$body || _.dom.$root
 		$wrapper.on('click', function (ev) {
 			var $target = _.$(ev.target)
 			if ($target.hasClass(CLS_BTN_WRAPPER) && !$target.hasClass(CLS_BTN_DISABLED)) {

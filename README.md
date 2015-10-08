@@ -22,18 +22,20 @@ CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和�
 
 #### 外部依赖
 
-* Zepto 1.1+
 * Underscore 1.6+
-* Underscore.ext 0.3+
+* Zepto 1.1+
+* Gearbox 0.4+
 
 ## 安装
 
 0. 通过 Bower 安装：
+
 	```sh
 	$ bower install cmui
 	```
 
 0. 在页面中加载 CMUI 的样式文件、脚本文件及必要的依赖：
+
 	```html
 	<!DOCTYPE html>
 	<html>
@@ -43,9 +45,9 @@ CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和�
 	</head>
 	<body>
 		...
-		<script src="bower_components/zepto.js/dist/zepto.js"></script>
-		<script src="bower_components/underscore/underscore.js"></script>
-		<script src="bower_components/underscore.ext/dist/underscore.ext.js"></script>
+		<script src="bower_components/underscore/underscore-min.js"></script>
+		<script src="bower_components/zepto.js/dist/zepto.min.js"></script>
+		<script src="bower_components/gearbox/dist/gearbox.min.js"></script>
 		<script src="bower_components/cmui/dist/cmui.js"></script>
 	</body>
 	</html>

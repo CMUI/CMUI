@@ -1,26 +1,12 @@
 {
   "name": "cmui",
-  "version": "0.10.0",
+  "homepage": "http://cmui.net/",
+  "author": "cssmagic <cssmagic.cn@gmail.com>",
   "description": "Lightweight UI solution for mobile web.",
+  "license": "MIT",
   "main": "dist/cmui.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "ui",
-    "framework",
-    "mobile",
-    "web"
-  ],
-  "author": "cssmagic <cssmagic.cn@gmail.com>",
-  "license": "MIT",
-  "homepage": "http://cmui.net/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/CMUI/CMUI.git"
-  },
-  "bugs": {
-    "url": "https://github.com/CMUI/CMUI/issues"
   },
   "dependencies": {
     "nib": "^1.0.4"
