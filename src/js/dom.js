@@ -23,14 +23,12 @@ void function (window, CMUI) {
 			ua.isIOS ? 'ios' : '',
 			ua.isAndroid ? 'android' : '',
 			isLegacy ? 'legacy' : '',
-			ua.isWebKit ? 'webkit' : '',
 			ua.isSafari ? 'safari' : '',
 			ua.isChrome ? 'chrome' : '',
-			ua.isMoz ? 'moz' : '',
 			ua.isTouchDevice ? 'touch' : 'mouse',
 			ua.isMobileDevice ? 'mobile' : 'desktop'
 		]
-		_.dom.$doc.removeClass('no-js').addClass(classNames.join(' '))
+		_.dom.$root.removeClass('no-js').addClass(classNames.join(' '))
 
 		//to enable `:active` style on ios and android 4+
 		if (ua.isIOS || (ua.isAndroid && !isLegacy)) {
