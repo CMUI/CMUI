@@ -23,10 +23,8 @@ void function (window, CMUI) {
 			ua.isIOS ? 'ios' : '',
 			ua.isAndroid ? 'android' : '',
 			isLegacy ? 'legacy' : '',
-			ua.isWebKit ? 'webkit' : '',
 			ua.isSafari ? 'safari' : '',
 			ua.isChrome ? 'chrome' : '',
-			ua.isMoz ? 'moz' : '',
 			ua.isTouchDevice ? 'touch' : 'mouse',
 			ua.isMobileDevice ? 'mobile' : 'desktop'
 		]
