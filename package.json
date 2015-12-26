@@ -6,17 +6,21 @@
   "license": "MIT",
   "main": "dist/cmui.js",
   "scripts": {
-    "lint-css": "gulp lint-css",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dist": "echo \"Error: to be done...\" && exit 1",
+    "dist": "gulp",
+    "css": "gulp css",
+    "lint-css": "gulp lint-css",
     "predist": "stylus -C bower_components/normalize.css/normalize.css src/css/vendor/normalize.styl"
   },
   "dependencies": {
     "nib": "^1.0.4"
   },
   "devDependencies": {
+    "del": "1.*",
     "stylus": "^0.53",
+    "gulp-stylus": "2.*",
     "gulp-stylint": "^3.0.0",
+    "gulp-rename": "1.*",
     "gulp": "3.*"
   }
 }
