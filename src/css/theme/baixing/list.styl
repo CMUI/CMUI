@@ -6,13 +6,13 @@
 $-sel-list-item-content = 'a, p, div, label'
 
 .cmList
-	//layout
+	// layout
 	> li
 		&[data-badge],
 		&[data-value]
 			position relative
 
-		//padding
+		// padding
 		>
 			{$-sel-list-item-content}
 				&:first-child
@@ -23,14 +23,14 @@ $-sel-list-item-content = 'a, p, div, label'
 /** theme **/
 .cmList
 	border-radius $border-radius
-	//margin
-	//todo: set margins to hx elements
+	// margin
+	// TODO: set margins to hx elements
 	& + &
 		margin-top 12px
 
-	//list item
+	// list item
 	> li
-		//border radius
+		// border radius
 		&:first-child >
 			{$-sel-list-item-content}
 				&:first-child
@@ -101,7 +101,7 @@ $list-arrow-area-width = 30px
 		&::after
 			transform skewX((- $list-arrow-angle))
 /*
-	//android legacy
+	// android legacy
 	html.android.legacy &::after
 		display none
 	html.android.legacy &::before

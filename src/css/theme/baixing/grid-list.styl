@@ -13,13 +13,13 @@ ul.cmGridList
 	&
 		border-left 1px solid $-border-color
 		clearfix()
-	//list item style
+	// list item style
 	& > li
 		float left
 		box-sizing border-box
 		border 1px solid $-border-color
 		border-left none
-		//to collapse border
+		// to collapse border
 		&
 			margin-bottom -1px
 			&:last-child
@@ -37,7 +37,7 @@ ul.cmGridList
 		> label
 			padding $-item-padding-v $-item-label-padding-right $-item-padding-v $-item-label-padding-left
 			cursor pointer
-			//use `:active` and bg color to improve responsivity, instead of touch-highlight
+			// use `:active` and bg color to improve responsivity, instead of touch-highlight
 			html.touch &:active
 				background-color $bx-color-gray
 			> input[type='radio']:first-child,
@@ -50,7 +50,7 @@ ul.cmGridList
 			text-center()
 			text-decoration none
 			color inherit
-		//selected item
+		// selected item
 		&.selected
 			position relative
 			> a,
@@ -59,14 +59,14 @@ ul.cmGridList
 				html.mouse &
 					background-image none
 
-	//border style
+	// border style
 	&.cmGridListNoBorder
 		border none
 		& > li
 			margin-top 0
 			border none
 
-	//list item width
+	// list item width
 	& > li
 		min-width 4em
 		width 50%

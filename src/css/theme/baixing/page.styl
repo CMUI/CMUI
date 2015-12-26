@@ -7,7 +7,7 @@
 	position relative
 	z-index 10
 	background-color $nav-bar-color-bg
-	box-shadow 0 1px 3px 0 rgba(0,0,0,.2)
+	box-shadow 0 1px 3px 0 rgba(0, 0, 0, 0.2)
 	& > nav
 		border-bottom 1px solid $nav-bar-color-border
 
@@ -68,7 +68,7 @@ $nav-bar-btn-color-bg-info = #b0bcc4
 		overflow visible
 		border-top-left-radius 7px
 		border-bottom-left-radius 7px
-		background-image none !important	//no gradient
+		background-image none !important	// no gradient
 		&::before,
 		&::after
 			content ''
@@ -93,7 +93,7 @@ $nav-bar-btn-color-bg-info = #b0bcc4
 		background-color $bgColor
 		background-image linear-gradient(to bottom, lighten($bgColor, 15%), darken($bgColor, 15%))
 		box-shadow 0 1px 0 0 $shadowColor
-		//Android 2 ignore declaration, if shadow blur set to `0`
+		// Android 2 ignore declaration, if shadow blur set to `0`
 		html.android.legacy &
 			-webkit-box-shadow 0 1px 1px 0 $shadowColor
 
@@ -103,7 +103,7 @@ $nav-bar-btn-color-bg-info = #b0bcc4
 			&::after
 				border-right-color $bgColor
 
-	//hover
+	// hover
 	html.mouse .cmNavBar .cmBtnWrapper:hover &:not(.disabled),
 	html.mouse .cmNavBar &:hover
 		background-color $hoverColor
@@ -115,7 +115,7 @@ $nav-bar-btn-color-bg-info = #b0bcc4
 			border-right-color $shadowColorHover
 		&::after
 			border-right-color $hoverColor
-	//active
+	// active
 	html.cmui .cmNavBar .cmBtnWrapper:active &:not(.disabled),
 	.cmNavBar &:active
 		background-color $activeColor
@@ -148,7 +148,7 @@ $nav-bar-btn-color-bg-info = #b0bcc4
 	min-height 200px
 	clearfix()
 
-//use this mixin on `main`'s children to get edge-to-edge fx.
+// use this mixin on `main`'s children to get edge-to-edge fx.
 full-width-block()
 	display block
 	box-sizing border-box

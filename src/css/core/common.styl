@@ -19,7 +19,7 @@ body
 .clearfix
 	$clearfix()
 
-//sizes: .cmX20 ~ .cmX50
+// sizes: .cmX20 ~ .cmX50
 for $size in 2 .. 5
 	.cmX{$size}0
 		size ($size * 10px)
@@ -28,28 +28,28 @@ for $size in 2 .. 5
 /* --------------------------------------------- */
 /** basic style **/
 
-//tap highlight
+// tap highlight
 html, body, a.off
 	-webkit-tap-highlight-color transparent
 input, textarea, select, label[for], a
-	-webkit-tap-highlight-color rgba(0,0,0,0.3)
+	-webkit-tap-highlight-color rgba(0, 0, 0, 0.3)
 
-//link
+// link
 a
 	color $color-link
 
-//phone link
+// phone link
 html:not(.phone) a[href^="tel:"]
 	color inherit
 	text-decoration inherit
 html.desktop a[href^="tel:"]
 	pointer-events none
 
-//context menu
+// context menu
 a[data-action]
 	-webkit-touch-callout none
 
-//form element
+// form element
 label
 	> input[type='radio']:first-child,
 	> input[type='checkbox']:first-child
