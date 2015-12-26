@@ -8,40 +8,40 @@
 	z-index 10
 	background-color $nav-bar-color-bg
 	box-shadow 0 1px 3px 0 rgba(0, 0, 0, 0.2)
-	& > nav
+	> nav
 		border-bottom 1px solid $nav-bar-color-border
 
 .cmNavBar
 	position relative
 	height $nav-bar-height
 	line-height $nav-bar-height
-	& > h1
+	> h1
 		margin-left $nav-bar-btn-wrapper-width
 		margin-right $nav-bar-btn-wrapper-width
 		text-center()
 		font-size $nav-bar-title-fs
 		overflow ellipsis
-	& > div
+	> div
 		box-sizing border-box
 		position absolute
 		top 0
 		width $nav-bar-btn-wrapper-width
-	& > .cmNavBarLeft
+	> .cmNavBarLeft
 		left 0
-	& > .cmNavBarRight
+	> .cmNavBarRight
 		right 0
 	.cmBtnWrapper
 		padding-top (($nav-bar-height - $nav-bar-btn-height)/2)
 		padding-bottom (($nav-bar-height - $nav-bar-btn-height)/2 + 10)
-	& > .cmNavBarLeft .cmBtnWrapper
-	& > .cmNavBarLeft.cmBtnWrapper
+	> .cmNavBarLeft .cmBtnWrapper
+	> .cmNavBarLeft.cmBtnWrapper
 		padding-left $nav-bar-padding
-		& .cmBtn
+		.cmBtn
 			float left
-	& > .cmNavBarRight .cmBtnWrapper
-	& > .cmNavBarRight.cmBtnWrapper
+	> .cmNavBarRight .cmBtnWrapper
+	> .cmNavBarRight.cmBtnWrapper
 		padding-right $nav-bar-padding
-		& .cmBtn
+		.cmBtn
 			float right
 
 /* --------------------------------------------- */
@@ -69,7 +69,7 @@ $nav-bar-btn-color-bg-info = #b0bcc4
 		border-top-left-radius 7px
 		border-bottom-left-radius 7px
 		background-image none !important	// no gradient
-		&::before,
+		&::before
 		&::after
 			content ''
 			absolute left -9px
@@ -104,24 +104,24 @@ $nav-bar-btn-color-bg-info = #b0bcc4
 				border-right-color $bgColor
 
 	// hover
-	html.mouse .cmNavBar .cmBtnWrapper:hover &:not(.disabled),
+	html.mouse .cmNavBar .cmBtnWrapper:hover &:not(.disabled)
 	html.mouse .cmNavBar &:hover
 		background-color $hoverColor
 		background-image linear-gradient(to bottom, lighten($bgColor, 5%), darken($bgColor, 25%))
 		box-shadow 0 1px 0 0 $shadowColorHover
-	html.mouse .cmNavBar .cmBtnWrapper:hover &.cmBtnBack:not(.disabled),
+	html.mouse .cmNavBar .cmBtnWrapper:hover &.cmBtnBack:not(.disabled)
 	html.mouse .cmNavBar &.cmBtnBack:hover
 		&::before
 			border-right-color $shadowColorHover
 		&::after
 			border-right-color $hoverColor
 	// active
-	html.cmui .cmNavBar .cmBtnWrapper:active &:not(.disabled),
+	html.cmui .cmNavBar .cmBtnWrapper:active &:not(.disabled)
 	.cmNavBar &:active
 		background-color $activeColor
 		background-image linear-gradient(to bottom, darken($bgColor, 45%), darken($bgColor, 15%))
 		box-shadow 0 1px 0 0 $shadowColorActive
-	html.cmui .cmNavBar .cmBtnWrapper:active &.cmBtnBack:not(.disabled),
+	html.cmui .cmNavBar .cmBtnWrapper:active &.cmBtnBack:not(.disabled)
 	.cmNavBar &.cmBtnBack:active
 		&::before
 			border-right-color $shadowColorActive
