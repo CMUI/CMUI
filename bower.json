@@ -30,7 +30,7 @@
   "dependencies": {
     "underscore": "^1.6.0",
     "zepto.js": "1.*",
-    "gearbox": "^0.4.0"
+    "gearbox": "0.5.*"
   },
   "devDependencies": {
     "normalize.css": "^3.0.2"
