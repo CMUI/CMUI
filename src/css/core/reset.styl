@@ -1,9 +1,9 @@
 
 ////////////////////  reset  ////////////////////
-//base on normalize.css, but we still need to reset some elements.
+// base on normalize.css, but we still need to reset some elements.
 
 /* --------------------------------------------- */
-//helper
+// helper
 reset-box()
 	margin 0
 	padding 0
@@ -16,7 +16,7 @@ reset-text()
 	font-weight inherit
 
 /* --------------------------------------------- */
-//reset box model
+// reset box model
 html, body,
 h1, h2, h3, h4, h5, h6,
 p, blockquote, pre, address,
@@ -30,39 +30,39 @@ figure, footer, header, hgroup, main, nav, section, summary,
 menu
 	reset-box()
 
-//fix normalize.css
+// fix normalize.css
 menu
 	display block
 
-//headline
+// headline
 h1, h2, h3, h4, h5, h6
 	reset-font-size()
 
-//list
+// list
 ul, ol, menu
 	list-style none outside
 
-//table cell
+// table cell
 caption, th, td
 	reset-table-cell()
 
-//form
+// form
 label[for]
 	cursor pointer
 
 /* --------------------------------------------- */
-//text style
+// text style
 blockquote, q, address, abbr, dfn, cite
 	reset-text()
 
 /* --------------------------------------------- */
-//set inline-block to block
+// set inline-block to block
 embed, object, iframe, img, audio, video, canvas, progress
 	display block
 	reset-box()
 
 /* --------------------------------------------- */
-//other
+// other
 hr
 	display block
 	reset-border()

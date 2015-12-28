@@ -2,7 +2,7 @@
 /* --------------------------------------------- */
 /** shortcut **/
 
-//function
+// function
 fraction()
 	if length(arguments) == 1
 		unit(100 / arguments[0], '%')
@@ -11,7 +11,7 @@ fraction()
 	else
 		(error 'missing arg')
 
-//layout
+// layout
 text-center()
 	text-align center
 
@@ -23,7 +23,7 @@ line-height-as-height($height)
 	height $height
 	line-height $height
 
-//link
+// link
 block-link()
 	display block
 	text-decoration none
@@ -31,37 +31,37 @@ block-link()
 no-tap-highlight()
 	-webkit-tap-highlight-color transparent
 
-//broder
+// broder
 border-dashed($color)
 	if $color
-		border: 1px dashed $color
+		border 1px dashed $color
 	else
-		border-style: dashed
+		border-style dashed
 border-dotted($color)
 	if $color
-		border: 1px dotted $color
+		border 1px dotted $color
 	else
-		border-style: dotted
+		border-style dotted
 
 border-left($color, $args...)
 	if $color is a 'color'
-		border-left: 1px solid $color
+		border-left 1px solid $color
 	else
-		border-left: arguments
+		border-left arguments
 border-right($color, $args...)
 	if $color is a 'color'
-		border-right: 1px solid $color
+		border-right 1px solid $color
 	else
-		border-right: arguments
+		border-right arguments
 border-top($color, $args...)
 	if $color is a 'color'
-		border-top: 1px solid $color
+		border-top 1px solid $color
 	else
-		border-top: arguments
+		border-top arguments
 border-bottom($color, $args...)
 	if $color is a 'color'
-		border-bottom: 1px solid $color
+		border-bottom 1px solid $color
 	else
-		border-bottom: arguments
+		border-bottom arguments
 
 

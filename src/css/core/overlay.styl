@@ -3,30 +3,30 @@
 
 /* --------------------------------------------- */
 /** overlay style **/
-.cmTipBox,
-.cmLoading,
+.cmTipBox
+.cmLoading
 .cmMask
 	pointer-events auto
 	transform translate3d(0, 0, 0)
 
-.cmTipBox.hidden,
-.cmTipBox.fade-out,
-.cmLoading.hidden,
-.cmLoading.fade-out,
-.cmMask.hidden,
+.cmTipBox.hidden
+.cmTipBox.fade-out
+.cmLoading.hidden
+.cmLoading.fade-out
+.cmMask.hidden
 .cmMask.fade-out
 	opacity 0
 	pointer-events none
 
-.cmTipBox.fade-in,
-.cmLoading.fade-in,
+.cmTipBox.fade-in
+.cmLoading.fade-in
 .cmMask.fade-in
-	transition opacity .15s linear
+	transition opacity 0.15s linear
 
-.cmTipBox.fade-out,
-.cmLoading.fade-out,
+.cmTipBox.fade-out
+.cmLoading.fade-out
 .cmMask.fade-out
-	transition opacity .20s linear
+	transition opacity 0.20s linear
 
 
 /* --------------------------------------------- */
@@ -53,12 +53,12 @@
 		background black
 		border-radius 10px
 		opacity 0.75
-	//loading icon
+	// loading icon
 	.cmX50
 		margin-top 25px
 	&.cmText .cmX50
 		margin-top 18px
-	//loading text
+	// loading text
 	p
 		display none
 	&.cmText p

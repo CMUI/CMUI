@@ -6,13 +6,13 @@
 $-sel-list-item-content = 'a, p, div, label'
 
 .cmList
-	//layout
+	// layout
 	> li
-		&[data-badge],
+		&[data-badge]
 		&[data-value]
 			position relative
 
-		//padding
+		// padding
 		>
 			{$-sel-list-item-content}
 				&:first-child
@@ -23,14 +23,14 @@ $-sel-list-item-content = 'a, p, div, label'
 /** theme **/
 .cmList
 	border-radius $border-radius
-	//margin
-	//todo: set margins to hx elements
+	// margin
+	// TODO: set margins to hx elements
 	& + &
 		margin-top 12px
 
-	//list item
+	// list item
 	> li
-		//border radius
+		// border radius
 		&:first-child >
 			{$-sel-list-item-content}
 				&:first-child
@@ -46,7 +46,7 @@ $-sel-list-item-content = 'a, p, div, label'
 			min-height $list-item-min-height
 			font-size $bx-fs-headline-minor
 
-		& + li
+		+ li
 			margin-top 1px
 
 		>
@@ -81,10 +81,10 @@ $list-arrow-angle = 40deg
 $list-arrow-line-width = 1px
 $list-arrow-area-width = 30px
 
-.cmList > li.cmRightArrow,
+.cmList > li.cmRightArrow
 .cmList.cmRightArrow > li
 	> a:first-child
-		&::before,
+		&::before
 		&::after
 			position absolute
 			top 50%
@@ -101,7 +101,7 @@ $list-arrow-area-width = 30px
 		&::after
 			transform skewX((- $list-arrow-angle))
 /*
-	//android legacy
+	// android legacy
 	html.android.legacy &::after
 		display none
 	html.android.legacy &::before
@@ -142,7 +142,7 @@ $list-badge-bg-color = $color-fg-minor
 	border-radius ($list-badge-height/2)
 	pointer-events none
 
-.cmList.cmRightArrow > li[data-badge],
+.cmList.cmRightArrow > li[data-badge]
 .cmList > li[data-badge].cmRightArrow
 	&::after
 		right $list-arrow-area-width
@@ -168,7 +168,7 @@ $list-value-fg-color = $color-fg-minor
 	color $list-value-fg-color
 	pointer-events none
 
-.cmList.cmRightArrow > li[data-value],
+.cmList.cmRightArrow > li[data-value]
 .cmList > li[data-value].cmRightArrow
 	&::after
 		padding-right $list-arrow-area-width
@@ -176,7 +176,7 @@ $list-value-fg-color = $color-fg-minor
 
 /* --------------------------------------------- */
 /** padding **/
-.cmList > li.cmRightArrow,
+.cmList > li.cmRightArrow
 .cmList.cmRightArrow > li
 	> a:first-child
 		padding-right $list-arrow-area-width
@@ -185,7 +185,7 @@ $list-value-fg-color = $color-fg-minor
 	{$-sel-list-item-content}
 		&:first-child
 			padding-right ($list-item-padding-h + $list-badge-max-width + 5)
-.cmList > li[data-badge].cmRightArrow,
+.cmList > li[data-badge].cmRightArrow
 .cmList.cmRightArrow > li[data-badge]
 	> a:first-child
 		padding-right ($list-arrow-area-width + $list-badge-max-width + 5)
