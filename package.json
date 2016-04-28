@@ -1,10 +1,17 @@
 {
   "name": "cmui",
+  "version": "0.12.0",
   "homepage": "http://cmui.net/",
   "author": "cssmagic <cssmagic.cn@gmail.com>",
   "description": "Lightweight UI solution for mobile web.",
   "license": "MIT",
-  "main": "dist/cmui.js",
+  "keywords": [
+    "ui",
+    "framework",
+    "mobile",
+    "web"
+  ],
+  "main": "./src/css/theme/baixing/index.styl",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dist": "gulp",
@@ -12,11 +19,10 @@
     "lint-css": "gulp lint-css",
     "predist": "stylus -C bower_components/normalize.css/normalize.css src/css/vendor/normalize.styl"
   },
-  "dependencies": {
-    "nib": "^1.0.4"
-  },
+  "dependencies": {},
   "devDependencies": {
     "del": "1.*",
+    "nib": "^1.0.4",
     "stylus": "^0.53",
     "gulp-stylus": "2.*",
     "gulp-stylint": "^3.0.0",
