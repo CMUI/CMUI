@@ -1,6 +1,7 @@
 # CMUI
 
-> A **Crude Mobile UI** framework.  
+> A **Crude Mobile UI** framework.
+
 > 一个简单粗暴的移动端 Web UI 框架。
 
 CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和简洁的接口，开箱即用。CMUI 帮助开发者摆脱样式细节和兼容性困扰，从而腾出更多精力投入到业务开发中。
@@ -14,9 +15,9 @@ CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和�
 	* Android 4+
 
 * 同样支持以下桌面浏览器：
-	* Firefox (edge)
-	* Chrome (edge)
-	* Safari (edge)
+	* Firefox (Latest)
+	* Chrome (Latest)
+	* Safari (Latest)
 
 （更多细节参见 [CMUI 的浏览器分级支持策略](https://github.com/CMUI/doc/issues/2)。）
 
@@ -24,7 +25,7 @@ CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和�
 
 * Underscore 1.6+
 * Zepto 1.1+
-* Gearbox 0.4+
+* Gearbox 0.5+
 
 ## 安装
 
