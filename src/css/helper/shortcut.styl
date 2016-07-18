@@ -19,49 +19,11 @@ block-center()
 	margin-left auto
 	margin-right auto
 
+// dimension
 line-height-as-height($height)
 	height $height
 	line-height $height
 
-// link
-block-link()
-	display block
-	text-decoration none
-
+// interaction
 no-tap-highlight()
 	-webkit-tap-highlight-color transparent
-
-// broder
-border-dashed($color)
-	if $color
-		border 1px dashed $color
-	else
-		border-style dashed
-border-dotted($color)
-	if $color
-		border 1px dotted $color
-	else
-		border-style dotted
-
-border-left($color, $args...)
-	if $color is a 'color'
-		border-left 1px solid $color
-	else
-		border-left arguments
-border-right($color, $args...)
-	if $color is a 'color'
-		border-right 1px solid $color
-	else
-		border-right arguments
-border-top($color, $args...)
-	if $color is a 'color'
-		border-top 1px solid $color
-	else
-		border-top arguments
-border-bottom($color, $args...)
-	if $color is a 'color'
-		border-bottom 1px solid $color
-	else
-		border-bottom arguments
-
-
