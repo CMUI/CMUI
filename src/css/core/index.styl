@@ -2,12 +2,21 @@
 ////////////////////  cmui  ////////////////////
 
 /* --------------------------------------------- */
-/** base **/
+/** use nib for vendor prefix **/
+@import 'nib'
+
+/* --------------------------------------------- */
+/** unify browser style **/
 @import '../vendor/normalize'
-@import '../helper/index'
+
+/* --------------------------------------------- */
+/** cmui helper **/
+@import '../helper/config'
+@import '../helper/shorthand'
 
 /* --------------------------------------------- */
 /** modules **/
+@import './var'
 @import './reset'
 @import './common'
 @import './icon'
