@@ -1,54 +1,54 @@
 
 ////////////////////  btn  ////////////////////
+-cm-core-btn()
+	/* --------------------------------------------- */
+	/** basic **/
+	.cmBtn
+	.cmBtnWrapper
+		display block
+		-webkit-tap-highlight-color transparent
 
-/* --------------------------------------------- */
-/** basic **/
-.cmBtn
-.cmBtnWrapper
-	display block
-	-webkit-tap-highlight-color transparent
-
-// to make non-action elements response `click` event on ios
-html.cmui .cmBtnWrapper:not(.disabled)
-	cursor pointer
-
-.cmBtn
-	box-sizing border-box
-	overflow ellipsis
-	font-size 18px
-	text-align center
-	text-decoration none
-	border-radius $cm-border-radius
-
-// form btn
-input
-button
-	&.cmBtn
-		width 100%
-		appearance none
-		border-style none
+	// to make non-action elements response `click` event on ios
+	html.cmui .cmBtnWrapper:not(.disabled)
 		cursor pointer
-		.cmBtnLine > &
-		.cmBtnGroup > &
-			width auto
 
-// disabled
-.cmBtn
-.cmBtnWrapper
-	.disabled &
-	&.disabled
-	&:disabled
-		cursor default
-		pointer-events none
+	.cmBtn
+		box-sizing border-box
+		overflow ellipsis
+		font-size 18px
+		text-align center
+		text-decoration none
+		border-radius $cm-border-radius
+
+	// form btn
+	input
+	button
+		&.cmBtn
+			width 100%
+			appearance none
+			border-style none
+			cursor pointer
+			.cmBtnLine > &
+			.cmBtnGroup > &
+				width auto
+
+	// disabled
+	.cmBtn
+	.cmBtnWrapper
+		.disabled &
+		&.disabled
+		&:disabled
+			cursor default
+			pointer-events none
 
 
 
-/* --------------------------------------------- */
-/** multiple btn **/
-.cmBtnLine
-.cmBtnGroup
-	display flex
-	>
-		.cmBtn
-		.cmBtnWrapper
-			flex-grow 1
+	/* --------------------------------------------- */
+	/** multiple btn **/
+	.cmBtnLine
+	.cmBtnGroup
+		display flex
+		>
+			.cmBtn
+			.cmBtnWrapper
+				flex-grow 1
