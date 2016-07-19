@@ -1,0 +1,66 @@
+
+////////////////////  text  ////////////////////
+
+-cm-core-text()
+	// basic format
+	.cmText
+		text-align justify
+		text-justify distribute
+		line-height $cm-line-height-text
+		// TODO: change `px` to `em` on virtical margin
+		hr
+			margin-top 10px
+			margin-bottom 10px
+			border-color $bx-color-gray
+		h1
+			font-size 150%
+			margin-top 20px
+			margin-bottom 10px
+		h2
+			font-size 125%
+			margin-top 15px
+			margin-bottom 5px
+		h1 + h2
+			margin-top 10px
+		h3
+			margin-top 10px
+			margin-bottom 5px
+		p, h4
+		ul, ol
+			margin-top 5px
+			margin-bottom 5px
+		ul + ul,
+		ol + ul,
+		ol + ol,
+		ul + ol
+			margin-top 10px
+		h1:first-child
+		h2:first-child
+		h3:first-child
+		h4:first-child
+		p:first-child
+		ul:first-child
+		ol:first-child
+			margin-top 0
+		p:last-child
+		ul:last-child
+		ol:last-child
+			margin-bottom 0
+
+	// list
+	ul.cmText
+	ol.cmText
+	.cmText ul
+	.cmText ol
+		padding-left 2em
+		list-style-type disc
+	ol.cmText
+	.cmText ol
+		list-style-type decimal
+	ul.cmText ul
+	.cmText ul ul
+		list-style-type square
+	ul.cmText ul ul
+	.cmText ul ul ul
+		list-style-type circle
+
