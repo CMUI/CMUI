@@ -1,5 +1,25 @@
 
 ////////////////////  bx - page  ////////////////////
+/** var **/
+
+// nav bar
+$cm-nav-bar-height = 44px
+$cm-nav-bar-padding = 7px
+
+$cm-nav-bar-color-bg ?= #efeeeb
+$cm-nav-bar-color-border ?= #aaa
+
+$cm-nav-bar-title-fs = 18px
+
+$cm-nav-bar-btn-height = 28px
+$cm-nav-bar-btn-br = 5px
+
+// content
+$page-content-padding-h = 10px
+
+
+/* --------------------------------------------- */
+/** core **/
 -cm-core-page()
 
 /* --------------------------------------------- */
@@ -7,61 +27,61 @@
 .cmSubview > header
 	position relative
 	z-index 10
-	background-color $nav-bar-color-bg
+	background-color $cm-nav-bar-color-bg
 	box-shadow 0 1px 3px 0 rgba(0, 0, 0, 0.2)
 	> nav
-		border-bottom 1px solid $nav-bar-color-border
+		border-bottom 1px solid $cm-nav-bar-color-border
 
 .cmNavBar
 	position relative
-	height $nav-bar-height
-	line-height $nav-bar-height
+	height $cm-nav-bar-height
+	line-height $cm-nav-bar-height
 	> h1
-		margin-left $nav-bar-btn-wrapper-width
-		margin-right $nav-bar-btn-wrapper-width
+		margin-left $cm-nav-bar-btn-wrapper-width
+		margin-right $cm-nav-bar-btn-wrapper-width
 		text-center()
-		font-size $nav-bar-title-fs
+		font-size $cm-nav-bar-title-fs
 		overflow ellipsis
 	> div
 		box-sizing border-box
 		position absolute
 		top 0
-		width $nav-bar-btn-wrapper-width
+		width $cm-nav-bar-btn-wrapper-width
 	> .cmNavBarLeft
 		left 0
 	> .cmNavBarRight
 		right 0
 	.cmBtnWrapper
-		padding-top (($nav-bar-height - $nav-bar-btn-height)/2)
-		padding-bottom (($nav-bar-height - $nav-bar-btn-height)/2 + 10)
+		padding-top (($cm-nav-bar-height - $cm-nav-bar-btn-height)/2)
+		padding-bottom (($cm-nav-bar-height - $cm-nav-bar-btn-height)/2 + 10)
 	> .cmNavBarLeft .cmBtnWrapper
 	> .cmNavBarLeft.cmBtnWrapper
-		padding-left $nav-bar-padding
+		padding-left $cm-nav-bar-padding
 		.cmBtn
 			float left
 	> .cmNavBarRight .cmBtnWrapper
 	> .cmNavBarRight.cmBtnWrapper
-		padding-right $nav-bar-padding
+		padding-right $cm-nav-bar-padding
 		.cmBtn
 			float right
 
 /* --------------------------------------------- */
 /** nav bar btn **/
-$nav-bar-btn-padding-h = 7px
+$cm-nav-bar-btn-padding-h = 7px
 
-$nav-bar-btn-color-fg = $cm-color-fg
-$nav-bar-btn-color-bg = darken($btn-color-bg, 10%)
-$nav-bar-btn-color-bg-success = darken($btn-color-bg-success, 20%)
-$nav-bar-btn-color-bg-danger = #ff7166
-$nav-bar-btn-color-bg-info = #b0bcc4
+$cm-nav-bar-btn-color-fg = $cm-color-fg
+$cm-nav-bar-btn-color-bg = darken($btn-color-bg, 10%)
+$cm-nav-bar-btn-color-bg-success = darken($btn-color-bg-success, 20%)
+$cm-nav-bar-btn-color-bg-danger = #ff7166
+$cm-nav-bar-btn-color-bg-info = #b0bcc4
 
 .cmNavBar .cmBtn
-	height $nav-bar-btn-height
-	line-height $nav-bar-btn-height
-	padding-left $nav-bar-btn-padding-h
-	padding-right $nav-bar-btn-padding-h
+	height $cm-nav-bar-btn-height
+	line-height $cm-nav-bar-btn-height
+	padding-left $cm-nav-bar-btn-padding-h
+	padding-right $cm-nav-bar-btn-padding-h
 	font-size $bx-fs-text-minor
-	border-radius $nav-bar-btn-br
+	border-radius $cm-nav-bar-btn-br
 	&.cmBtnBack
 		margin-left 8px
 		position relative
@@ -131,13 +151,13 @@ $nav-bar-btn-color-bg-info = #b0bcc4
 
 .cmBtn
 	&
-		-nav-bar-btn(darken($nav-bar-btn-color-fg, 10%), $nav-bar-btn-color-bg)
+		-nav-bar-btn(darken($cm-nav-bar-btn-color-fg, 10%), $cm-nav-bar-btn-color-bg)
 	&.cmBtnSuccess
-		-nav-bar-btn(white, $nav-bar-btn-color-bg-success)
+		-nav-bar-btn(white, $cm-nav-bar-btn-color-bg-success)
 	&.cmBtnDanger
-		-nav-bar-btn(white, $nav-bar-btn-color-bg-danger)
+		-nav-bar-btn(white, $cm-nav-bar-btn-color-bg-danger)
 	&.cmBtnInfo
-		-nav-bar-btn(white, $nav-bar-btn-color-bg-info)
+		-nav-bar-btn(white, $cm-nav-bar-btn-color-bg-info)
 
 
 
