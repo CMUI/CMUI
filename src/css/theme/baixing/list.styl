@@ -1,5 +1,8 @@
 
 ////////////////////  bx - list  ////////////////////
+/** var **/
+$cm-list-item-min-height = 50px
+$cm-list-item-padding-h = 15px
 
 /* --------------------------------------------- */
 /** list **/
@@ -14,7 +17,7 @@
 		>
 			{$-sel-list-item-content}
 				&:first-child
-					padding $list-item-padding-v $list-item-padding-h
+					padding $cm-list-item-padding-v $cm-list-item-padding-h
 
 
 /* --------------------------------------------- */
@@ -32,16 +35,16 @@
 		&:first-child >
 			{$-sel-list-item-content}
 				&:first-child
-					border-top-left-radius $list-border-radius
-					border-top-right-radius $list-border-radius
+					border-top-left-radius $cm-list-border-radius
+					border-top-right-radius $cm-list-border-radius
 		&:last-child >
 			{$-sel-list-item-content}
 				&:first-child
-					border-bottom-left-radius $list-border-radius
-					border-bottom-right-radius $list-border-radius
+					border-bottom-left-radius $cm-list-border-radius
+					border-bottom-right-radius $cm-list-border-radius
 
 		&
-			min-height $list-item-min-height
+			min-height $cm-list-item-min-height
 			font-size $bx-fs-headline-minor
 
 		+ li
@@ -51,9 +54,9 @@
 			{$-sel-list-item-content}
 				&:first-child
 					box-sizing border-box
-					min-height $list-item-min-height
+					min-height $cm-list-item-min-height
 					height 100%
-					line-height $list-item-line-height
+					line-height $cm-list-item-line-height
 					overflow ellipsis
 					background-color lighten($bx-color-x-light-gray, 30%)
 
@@ -72,12 +75,12 @@
 
 /* --------------------------------------------- */
 /** arrow **/
-$list-arrow-height = 8px
-/*$list-arrow-color = #444*/
-/*$list-arrow-angle = 26.565deg*/
-$list-arrow-angle = 40deg
-$list-arrow-line-width = 1px
-$list-arrow-area-width = 30px
+$cm-list-arrow-height = 8px
+/*$cm-list-arrow-color = #444*/
+/*$cm-list-arrow-angle = 26.565deg*/
+$cm-list-arrow-angle = 40deg
+$cm-list-arrow-line-width = 1px
+$cm-list-arrow-area-width = 30px
 
 .cmList > li.cmRightArrow
 .cmList.cmRightArrow > li
@@ -87,17 +90,17 @@ $list-arrow-area-width = 30px
 			position absolute
 			top 50%
 			width 0
-			height $list-arrow-height
-			right $list-item-padding-h
+			height $cm-list-arrow-height
+			right $cm-list-item-padding-h
 			pointer-events none
 			html.cmui &
 				content ''
-				border-right $list-arrow-line-width solid
+				border-right $cm-list-arrow-line-width solid
 		&::before
-			margin-top (- $list-arrow-height)
-			transform skewX($list-arrow-angle)
+			margin-top (- $cm-list-arrow-height)
+			transform skewX($cm-list-arrow-angle)
 		&::after
-			transform skewX((- $list-arrow-angle))
+			transform skewX((- $cm-list-arrow-angle))
 /*
 	// android legacy
 	html.android.legacy &::after
@@ -109,67 +112,67 @@ $list-arrow-area-width = 30px
 		border-bottom-color transparent
 		background-color transparent
 		border-style solid
-		border-width $list-arrow-height 0 $list-arrow-height ($list-arrow-height/2)
-		right $list-item-padding-h - 2px
+		border-width $cm-list-arrow-height 0 $cm-list-arrow-height ($cm-list-arrow-height/2)
+		right $cm-list-item-padding-h - 2px
 		transform none
 */
 
 /* --------------------------------------------- */
 /** badge **/
-$list-badge-padding-h = 5px
-$list-badge-height = 22px
-$list-badge-min-width = 30px
-$list-badge-max-width = 45px
-$list-badge-bg-color = $cm-color-fg
+$cm-list-badge-padding-h = 5px
+$cm-list-badge-height = 22px
+$cm-list-badge-min-width = 30px
+$cm-list-badge-max-width = 45px
+$cm-list-badge-bg-color = $cm-color-fg
 
 .cmList > li[data-badge]::after
 	content attr(data-badge)
 	box-sizing border-box
-	absolute top 50% right $list-item-padding-h
+	absolute top 50% right $cm-list-item-padding-h
 	z-index 20
-	margin-top (- $list-badge-height/2)
-	padding 0 $list-badge-padding-h
-	min-width $list-badge-min-width
-	max-width $list-badge-max-width
+	margin-top (- $cm-list-badge-height/2)
+	padding 0 $cm-list-badge-padding-h
+	min-width $cm-list-badge-min-width
+	max-width $cm-list-badge-max-width
 	overflow ellipsis
-	line-height-as-height($list-badge-height)
+	line-height-as-height($cm-list-badge-height)
 	font-size $cm-font-size
 	text-align center
 	color white
-	background-color $list-badge-bg-color
-	border-radius ($list-badge-height/2)
+	background-color $cm-list-badge-bg-color
+	border-radius ($cm-list-badge-height/2)
 	pointer-events none
 
 .cmList.cmRightArrow > li[data-badge]
 .cmList > li[data-badge].cmRightArrow
 	&::after
-		right $list-arrow-area-width
+		right $cm-list-arrow-area-width
 
 
 /* --------------------------------------------- */
 /** value **/
-$list-value-width = 60%
-$list-value-height = 24px
-$list-value-fg-color = $cm-color-fg
+$cm-list-value-width = 60%
+$cm-list-value-height = 24px
+$cm-list-value-fg-color = $cm-color-fg
 
 .cmList > li[data-value]::after
 	content attr(data-value)
 	box-sizing border-box
 	absolute top 50% right 0
 	z-index 20
-	margin-top (- $list-value-height/2)
-	padding-right $list-item-padding-h
-	line-height-as-height($list-value-height)
-	max-width $list-value-width
+	margin-top (- $cm-list-value-height/2)
+	padding-right $cm-list-item-padding-h
+	line-height-as-height($cm-list-value-height)
+	max-width $cm-list-value-width
 	overflow ellipsis
 	text-align right
-	color $list-value-fg-color
+	color $cm-list-value-fg-color
 	pointer-events none
 
 .cmList.cmRightArrow > li[data-value]
 .cmList > li[data-value].cmRightArrow
 	&::after
-		padding-right $list-arrow-area-width
+		padding-right $cm-list-arrow-area-width
 
 
 /* --------------------------------------------- */
@@ -177,37 +180,37 @@ $list-value-fg-color = $cm-color-fg
 .cmList > li.cmRightArrow
 .cmList.cmRightArrow > li
 	> a:first-child
-		padding-right $list-arrow-area-width
+		padding-right $cm-list-arrow-area-width
 
 .cmList > li[data-badge] >
 	{$-sel-list-item-content}
 		&:first-child
-			padding-right ($list-item-padding-h + $list-badge-max-width + 5)
+			padding-right ($cm-list-item-padding-h + $cm-list-badge-max-width + 5)
 .cmList > li[data-badge].cmRightArrow
 .cmList.cmRightArrow > li[data-badge]
 	> a:first-child
-		padding-right ($list-arrow-area-width + $list-badge-max-width + 5)
+		padding-right ($cm-list-arrow-area-width + $cm-list-badge-max-width + 5)
 
 .cmList > li[data-value] >
 	{$-sel-list-item-content}
 		&:first-child
-			padding-right ($list-value-width + 2)
+			padding-right ($cm-list-value-width + 2)
 
 
 /* --------------------------------------------- */
 /** icon **/
-$list-item-icon-margin-h = $list-item-padding-v
+$cm-list-item-icon-margin-h = $cm-list-item-padding-v
 
 .cmList > li >
 	{$-sel-list-item-content}
 		&:first-child
 			> .cmIcon
 				float left
-				margin-right $list-item-icon-margin-h
+				margin-right $cm-list-item-icon-margin-h
 
 				for $size in 2 .. 5
 					&.cmX{$size}0
-						$list-item-icon-margin-v = (($list-item-line-height - $size * 10)/2)
-						margin-top $list-item-icon-margin-v
-						margin-bottom $list-item-icon-margin-v
+						$cm-list-item-icon-margin-v = (($cm-list-item-line-height - $size * 10)/2)
+						margin-top $cm-list-item-icon-margin-v
+						margin-bottom $cm-list-item-icon-margin-v
 
