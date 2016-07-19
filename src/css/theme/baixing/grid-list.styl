@@ -4,12 +4,12 @@
 ul.cmGridList
 	$-border-color = $bx-color-light-gray
 	$-item-height = 50px
-	$-item-padding-v = ($-item-height - $font-size * $line-height-ui) / 2
+	$-item-padding-v = ($-item-height - $cm-font-size * $cm-line-height-ui) / 2
 	$-item-padding-h = 5px
-	$-item-label-padding-left = $font-size * 1.5 + $page-content-padding-h
+	$-item-label-padding-left = $cm-font-size * 1.5 + $page-content-padding-h
 	$-item-label-padding-right = $page-content-padding-h
-	$-item-label-input-offset-top = $font-size * (($line-height-ui - 1) / 2)
-	
+	$-item-label-input-offset-top = $cm-font-size * (($cm-line-height-ui - 1) / 2)
+
 	&
 		border-left 1px solid $-border-color
 		clearfix()
@@ -43,7 +43,7 @@ ul.cmGridList
 			> input[type='radio']:first-child
 			> input[type='checkbox']:first-child
 				float left
-				margin-left (- $font-size * 1.5)
+				margin-left (- $cm-font-size * 1.5)
 				margin-top $-item-label-input-offset-top
 		> a
 			padding $-item-padding-v $-item-padding-h
