@@ -22,6 +22,24 @@ bx-text-minor()
 
 /* --------------------------------------------- */
 /** msg box **/
+
+// TODO: colors need update from bs
+// TODO: colors need to move to theme file
+$cm-msg-box-color-fg-info ?= #31708F
+$cm-msg-box-color-fg-success ?= #448245
+$cm-msg-box-color-fg-error ?= #c77270
+$cm-msg-box-color-fg-warning ?= #ba9552
+
+$cm-msg-box-color-bg-info ?= #D9EDF7
+$cm-msg-box-color-bg-success ?= #e2f1cf
+$cm-msg-box-color-bg-error ?= #fff2f2
+$cm-msg-box-color-bg-warning ?= #fff7db
+
+$cm-msg-box-color-border-info ?= #31708F
+$cm-msg-box-color-border-success ?= #448245
+$cm-msg-box-color-border-error ?= #c77270
+$cm-msg-box-color-border-warning ?= #ba9552
+
 .cmMsgBox
 	position relative
 	display block
@@ -39,28 +57,28 @@ bx-text-minor()
 
 	// contextual style
 	&
-		color $msg-box-color-fg-info
-		background-color $msg-box-color-bg-info
+		color $cm-msg-box-color-fg-info
+		background-color $cm-msg-box-color-bg-info
 		&::before
 			-cmIcon-cmX20('msg-info')
 	&.cmMsgBoxWarning
-		color $msg-box-color-fg-warning
-		background-color $msg-box-color-bg-warning
+		color $cm-msg-box-color-fg-warning
+		background-color $cm-msg-box-color-bg-warning
 		&::before
 			-cmIcon-cmX20('msg-warning')
 	&.cmMsgBoxSuccess
-		color $msg-box-color-fg-success
-		background-color $msg-box-color-bg-success
+		color $cm-msg-box-color-fg-success
+		background-color $cm-msg-box-color-bg-success
 		&::before
 			-cmIcon-cmX20('msg-success')
 	&.cmMsgBoxError
-		color $msg-box-color-fg-error
-		background-color $msg-box-color-bg-error
+		color $cm-msg-box-color-fg-error
+		background-color $cm-msg-box-color-bg-error
 		&::before
 			-cmIcon-cmX20('msg-error')
 	&.cmMsgBoxForbidden
-		color $msg-box-color-fg-error
-		background-color $msg-box-color-bg-error
+		color $cm-msg-box-color-fg-error
+		background-color $cm-msg-box-color-bg-error
 		&::before
 			-cmIcon-cmX20('msg-forbidden')
 
@@ -81,36 +99,36 @@ bx-text-minor()
 
 /* --------------------------------------------- */
 /** label **/
-$label-border-radius = 0.25em
-$label-padding-h = 0.25em
-$label-padding-v = 0.20em
+$cm-label-border-radius = 0.25em
+$cm-label-padding-h = 0.25em
+$cm-label-padding-v = 0.20em
 
-$label-bg-color = #ffb380
-$label-bg-color-success = #98d374
+$cm-label-bg-color = #ffb380
+$cm-label-bg-color-success = #98d374
 .cmLabel
-	padding $label-padding-v $label-padding-h
+	padding $cm-label-padding-v $cm-label-padding-h
 	font-weight inherit
 	white-space nowrap
 	color white
-	background-color $label-bg-color
-	border-radius $label-border-radius
+	background-color $cm-label-bg-color
+	border-radius $cm-label-border-radius
 	&.cmLabelSuccess
-		background-color $label-bg-color-success
+		background-color $cm-label-bg-color-success
 
 
 /* --------------------------------------------- */
 /** info box **/
-$info-box-color-bg = $bx-color-x-light-gray
-$info-box-color-border = $bx-color-light-gray
-$info-box-padding-h = $page-content-padding-h
-$info-box-padding-v = 10px
-$info-box-border-radius = $cm-border-radius
+$cm-info-box-color-bg = $bx-color-x-light-gray
+$cm-info-box-color-border = $bx-color-light-gray
+$cm-info-box-padding-h = $page-content-padding-h
+$cm-info-box-padding-v = 10px
+$cm-info-box-border-radius = $cm-border-radius
 .cmInfoBox
 	margin-top 10px
 	margin-bottom 10px
-	padding $info-box-padding-v $info-box-padding-h
-	background-color $info-box-color-bg
-	border 1px solid $info-box-color-border
-	border-radius $info-box-border-radius
+	padding $cm-info-box-padding-v $cm-info-box-padding-h
+	background-color $cm-info-box-color-bg
+	border 1px solid $cm-info-box-color-border
+	border-radius $cm-info-box-border-radius
 
 
