@@ -22,7 +22,7 @@ $-sel-list-item-content = 'a, p, div, label'
 /* --------------------------------------------- */
 /** theme **/
 .cmList
-	border-radius $border-radius
+	border-radius $cm-border-radius
 	// margin
 	// TODO: set margins to hx elements
 	& + &
@@ -122,7 +122,7 @@ $list-badge-padding-h = 5px
 $list-badge-height = 22px
 $list-badge-min-width = 30px
 $list-badge-max-width = 45px
-$list-badge-bg-color = $color-fg-minor
+$list-badge-bg-color = $cm-color-fg
 
 .cmList > li[data-badge]::after
 	content attr(data-badge)
@@ -152,7 +152,7 @@ $list-badge-bg-color = $color-fg-minor
 /** value **/
 $list-value-width = 60%
 $list-value-height = 24px
-$list-value-fg-color = $color-fg-minor
+$list-value-fg-color = $cm-color-fg
 
 .cmList > li[data-value]::after
 	content attr(data-value)

@@ -6,13 +6,12 @@
 html
 	height 100%
 	overflow-y scroll
-	background-color $color-bg-ui
 
 body
 	min-height 100%
 	font $font-size/$line-height-ui $font-family
-	color $color-fg
-	background-color $color-bg
+	color $cm-color-fg
+	background-color $cm-color-bg
 
 /* --------------------------------------------- */
 /** helper classes **/
@@ -36,7 +35,7 @@ input, textarea, select, label[for], a
 
 // link
 a
-	color $color-link
+	color $cm-color-link
 
 // phone link
 html:not(.phone) a[href^="tel:"]
