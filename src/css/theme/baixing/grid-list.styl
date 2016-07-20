@@ -2,7 +2,7 @@
 ////////////////////  bx - grid-list  ////////////////////
 
 ul.cmGridList
-	$-border-color = $bx-color-light-gray
+	$-border-color = $cm-color-light-gray
 	$-item-height = 50px
 	$-item-padding-v = ($-item-height - $cm-font-size * $cm-line-height-ui) / 2
 	$-item-padding-h = 5px
@@ -29,17 +29,17 @@ ul.cmGridList
 			display block
 			overflow ellipsis
 			html.mouse &:hover
-				background-color $bx-color-x-light-gray
-				background-image linear-gradient(to bottom, white, $bx-color-x-light-gray)
+				background-color $cm-color-x-light-gray
+				background-image linear-gradient(to bottom, white, $cm-color-x-light-gray)
 			html.mouse &:active
-				background-color $bx-color-x-light-gray
-				background-image linear-gradient(to bottom, $bx-color-x-light-gray, white)
+				background-color $cm-color-x-light-gray
+				background-image linear-gradient(to bottom, $cm-color-x-light-gray, white)
 		> label
 			padding $-item-padding-v $-item-label-padding-right $-item-padding-v $-item-label-padding-left
 			cursor pointer
 			// use `:active` and bg color to improve responsivity, instead of touch-highlight
 			html.touch &:active
-				background-color $bx-color-gray
+				background-color $cm-color-gray
 			> input[type='radio']:first-child
 			> input[type='checkbox']:first-child
 				float left
@@ -55,7 +55,7 @@ ul.cmGridList
 			position relative
 			> a
 			> label
-				background-color $bx-color-x-light-gray
+				background-color $cm-color-x-light-gray
 				html.mouse &
 					background-image none
 
