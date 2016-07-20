@@ -4,49 +4,49 @@
 
 /* --------------------------------------------- */
 /** size **/
-$btn-height = 40px
-$btn-padding-h = 5px
-$btn-fs = 16px
+$cm-btn-height = 40px
+$cm-btn-padding-h = 5px
+$cm-btn-fs = 16px
 
 .cmBtn
 	&
-		padding-left $btn-padding-h
-		padding-right $btn-padding-h
-		line-height-as-height($btn-height)
-		font-size $btn-fs
+		padding-left $cm-btn-padding-h
+		padding-right $cm-btn-padding-h
+		line-height-as-height($cm-btn-height)
+		font-size $cm-btn-fs
 	&.cmBtnXSmall
-		padding-left ($btn-padding-h - 2)
-		padding-right ($btn-padding-h - 2)
-		line-height-as-height($btn-height - 16)
-		font-size ($btn-fs - 4)
+		padding-left ($cm-btn-padding-h - 2)
+		padding-right ($cm-btn-padding-h - 2)
+		line-height-as-height($cm-btn-height - 16)
+		font-size ($cm-btn-fs - 4)
 	&.cmBtnSmall
-		padding-left ($btn-padding-h - 1)
-		padding-right ($btn-padding-h - 1)
-		line-height-as-height($btn-height - 8)
-		font-size ($btn-fs - 2)
+		padding-left ($cm-btn-padding-h - 1)
+		padding-right ($cm-btn-padding-h - 1)
+		line-height-as-height($cm-btn-height - 8)
+		font-size ($cm-btn-fs - 2)
 	&.cmBtnLarge
-		padding-left ($btn-padding-h + 2)
-		padding-right ($btn-padding-h + 2)
-		line-height-as-height($btn-height + 4)
-		font-size ($btn-fs + 2)
+		padding-left ($cm-btn-padding-h + 2)
+		padding-right ($cm-btn-padding-h + 2)
+		line-height-as-height($cm-btn-height + 4)
+		font-size ($cm-btn-fs + 2)
 	&.cmBtnXLarge
-		padding-left ($btn-padding-h + 4)
-		padding-right ($btn-padding-h + 4)
-		line-height-as-height($btn-height + 8)
-		font-size ($btn-fs + 4)
+		padding-left ($cm-btn-padding-h + 4)
+		padding-right ($cm-btn-padding-h + 4)
+		line-height-as-height($cm-btn-height + 8)
+		font-size ($cm-btn-fs + 4)
 
 /* --------------------------------------------- */
 /** color **/
-$btn-color-fg = $cm-color-fg
-$btn-color-bg = #ededed
-$btn-color-fg-info = white
-$btn-color-bg-info = #b0bcc4
-$btn-color-fg-success = white
-$btn-color-bg-success = #80d032
-$btn-color-fg-danger = white
-$btn-color-bg-danger = #cb2616
-$btn-color-fg-warning = white
-$btn-color-bg-warning = #ffa64d
+$cm-btn-color-fg = $cm-color-fg
+$cm-btn-color-bg = #ededed
+$cm-btn-color-fg-info = white
+$cm-btn-color-bg-info = #b0bcc4
+$cm-btn-color-fg-success = white
+$cm-btn-color-bg-success = #80d032
+$cm-btn-color-fg-danger = white
+$cm-btn-color-bg-danger = #cb2616
+$cm-btn-color-fg-warning = white
+$cm-btn-color-bg-warning = #ffa64d
 
 -btn-style($fgColor, $bgColor)
 	color $fgColor
@@ -54,15 +54,15 @@ $btn-color-bg-warning = #ffa64d
 	background-image linear-gradient(to bottom, lighten($bgColor, 25%), darken($bgColor, 15%))
 
 .cmBtn
-	-btn-style($btn-color-fg, $btn-color-bg)
+	-btn-style($cm-btn-color-fg, $cm-btn-color-bg)
 .cmBtn.cmBtnInfo
-	-btn-style($btn-color-fg-info, $btn-color-bg-info)
+	-btn-style($cm-btn-color-fg-info, $cm-btn-color-bg-info)
 .cmBtn.cmBtnSuccess
-	-btn-style($btn-color-fg-success, $btn-color-bg-success)
+	-btn-style($cm-btn-color-fg-success, $cm-btn-color-bg-success)
 .cmBtn.cmBtnDanger
-	-btn-style($btn-color-fg-danger, $btn-color-bg-danger)
+	-btn-style($cm-btn-color-fg-danger, $cm-btn-color-bg-danger)
 .cmBtn.cmBtnWarning
-	-btn-style($btn-color-fg-warning, $btn-color-bg-warning)
+	-btn-style($cm-btn-color-fg-warning, $cm-btn-color-bg-warning)
 
 /* --------------------------------------------- */
 /** status **/
@@ -75,19 +75,19 @@ $btn-color-bg-warning = #ffa64d
 html.mouse
 	.cmBtnWrapper:not(.disabled):hover .cmBtn:not(.disabled):not(:disabled):not(.active)
 	.cmBtn:not(.disabled):not(:disabled):not(.active):not(:active):hover
-		-btn-hover-style($btn-color-bg)
+		-btn-hover-style($cm-btn-color-bg)
 	.cmBtnWrapper:not(.disabled):hover .cmBtn.cmBtnSuccess:not(.disabled):not(:disabled):not(.active)
 	.cmBtn.cmBtnSuccess:not(.disabled):not(:disabled):not(.active):not(:active):hover
-		-btn-hover-style($btn-color-bg-success)
+		-btn-hover-style($cm-btn-color-bg-success)
 	.cmBtnWrapper:not(.disabled):hover .cmBtn.cmBtnInfo:not(.disabled):not(:disabled):not(.active)
 	.cmBtn.cmBtnInfo:not(.disabled):not(:disabled):not(.active):not(:active):hover
-		-btn-hover-style($btn-color-bg-info)
+		-btn-hover-style($cm-btn-color-bg-info)
 	.cmBtnWrapper:not(.disabled):hover .cmBtn.cmBtnDanger:not(.disabled):not(:disabled):not(.active)
 	.cmBtn.cmBtnDanger:not(.disabled):not(:disabled):not(.active):not(:active):hover
-		-btn-hover-style($btn-color-bg-danger)
+		-btn-hover-style($cm-btn-color-bg-danger)
 	.cmBtnWrapper:not(.disabled):hover .cmBtn.cmBtnWarning:not(.disabled):not(:disabled):not(.active)
 	.cmBtn.cmBtnWarning:not(.disabled):not(:disabled):not(.active):not(:active):hover
-		-btn-hover-style($btn-color-bg-warning)
+		-btn-hover-style($cm-btn-color-bg-warning)
 
 // :active
 -btn-active-style($bgColor)
@@ -97,19 +97,19 @@ html.mouse
 
 html.cmui .cmBtnWrapper:not(.disabled):active .cmBtn:not(.disabled):not(:disabled)
 .cmBtn:not(.disabled):not(:disabled):active
-	-btn-active-style($btn-color-bg)
+	-btn-active-style($cm-btn-color-bg)
 html.cmui .cmBtnWrapper:not(.disabled):active .cmBtn.cmBtnInfo:not(.disabled):not(:disabled)
 .cmBtn.cmBtnInfo:not(.disabled):not(:disabled):active
-	-btn-active-style($btn-color-bg-info)
+	-btn-active-style($cm-btn-color-bg-info)
 html.cmui .cmBtnWrapper:not(.disabled):active .cmBtn.cmBtnSuccess:not(.disabled):not(:disabled)
 .cmBtn.cmBtnSuccess:not(.disabled):not(:disabled):active
-	-btn-active-style($btn-color-bg-success)
+	-btn-active-style($cm-btn-color-bg-success)
 html.cmui .cmBtnWrapper:not(.disabled):active .cmBtn.cmBtnDanger:not(.disabled):not(:disabled)
 .cmBtn.cmBtnDanger:not(.disabled):not(:disabled):active
-	-btn-active-style($btn-color-bg-danger)
+	-btn-active-style($cm-btn-color-bg-danger)
 html.cmui .cmBtnWrapper:not(.disabled):active .cmBtn.cmBtnWarning:not(.disabled):not(:disabled)
 .cmBtn.cmBtnWarning:not(.disabled):not(:disabled):active
-	-btn-active-style($btn-color-bg-warning)
+	-btn-active-style($cm-btn-color-bg-warning)
 
 // disabled
 .cmBtn
@@ -130,19 +130,19 @@ html.cmui .cmBtnWrapper:not(.disabled):active .cmBtn.cmBtnWarning:not(.disabled)
 
 .cmBtnWrapper.active .cmBtn
 .cmBtn.active
-	-btn-active-class($btn-color-bg)
+	-btn-active-class($cm-btn-color-bg)
 .cmBtnWrapper.active .cmBtn.cmBtnSuccess
 .cmBtn.cmBtnSuccess.active
-	-btn-active-class($btn-color-bg-success)
+	-btn-active-class($cm-btn-color-bg-success)
 .cmBtnWrapper.active .cmBtn.cmBtnInfo
 .cmBtn.cmBtnInfo.active
-	-btn-active-class($btn-color-bg-info)
+	-btn-active-class($cm-btn-color-bg-info)
 .cmBtnWrapper.active .cmBtn.cmBtnDanger
 .cmBtn.cmBtnDanger.active
-	-btn-active-class($btn-color-bg-danger)
+	-btn-active-class($cm-btn-color-bg-danger)
 .cmBtnWrapper.active .cmBtn.cmBtnWarning
 .cmBtn.cmBtnWarning.active
-	-btn-active-class($btn-color-bg-warning)
+	-btn-active-class($cm-btn-color-bg-warning)
 
 
 /* --------------------------------------------- */
