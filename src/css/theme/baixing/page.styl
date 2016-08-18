@@ -13,10 +13,6 @@ $cm-nav-bar-title-fs = 18px
 $cm-nav-bar-btn-height = 28px
 $cm-nav-bar-btn-br = 5px
 
-// content
-$cm-page-content-padding-h = 10px
-
-
 /* --------------------------------------------- */
 /** core **/
 -cm-core-page($cm-color-stage)
@@ -161,8 +157,8 @@ $cm-nav-bar-btn-color-bg-info = #b0bcc4
 /* --------------------------------------------- */
 /** main content **/
 .cmSubview > main
-	padding-left $cm-page-content-padding-h
-	padding-right $cm-page-content-padding-h
+	padding-left $cm-content-padding
+	padding-right $cm-content-padding
 	min-height 200px
 	clearfix()
 
@@ -170,5 +166,5 @@ $cm-nav-bar-btn-color-bg-info = #b0bcc4
 full-width-block()
 	display block
 	box-sizing border-box
-	margin-left (- $cm-page-content-padding-h)
-	margin-right (- $cm-page-content-padding-h)
+	margin-left (- $cm-content-padding)
+	margin-right (- $cm-content-padding)
