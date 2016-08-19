@@ -100,20 +100,33 @@ $cm-msg-box-color-border-warning ?= #ba9552
 /* --------------------------------------------- */
 /** label **/
 $cm-label-border-radius = 0.25em
-$cm-label-padding-h = 0.25em
-$cm-label-padding-v = 0.20em
+$cm-label-padding-h = 0.2em
 
-$cm-label-bg-color = #ffb380
-$cm-label-bg-color-success = #98d374
 .cmLabel
-	padding $cm-label-padding-v $cm-label-padding-h
-	font-weight inherit
+	display inline-block
+	padding 0.1em $cm-label-padding-h 0 $cm-label-padding-h
+	font-size $cm-font-size
+	line-height $cm-line-height-min
 	white-space nowrap
-	color white
-	background-color $cm-label-bg-color
+	border 1px solid
 	border-radius $cm-label-border-radius
-	&.cmLabelSuccess
-		background-color $cm-label-bg-color-success
+
+	// size
+	small&
+	&.cmLabelXSmall
+		font-size ($cm-font-size - 4)
+	&.cmLabelSmall
+		font-size ($cm-font-size - 2)
+	&.cmLabelLarge
+		font-size ($cm-font-size + 2)
+	&.cmLabelXLarge
+		font-size ($cm-font-size + 4)
+
+	// style
+	&.cmLabelSolid
+		background-color currentColor
+		-webkit-text-fill-color white
+		text-fill-color white
 
 
 /* --------------------------------------------- */
