@@ -8,17 +8,11 @@
 		display block
 		-webkit-tap-highlight-color transparent
 
-	// to make non-action elements response `click` event on ios
-	html.cmui .cmBtnWrapper:not(.disabled)
-		cursor pointer
-
 	.cmBtn
 		box-sizing border-box
 		overflow ellipsis
-		font-size 18px
 		text-align center
 		text-decoration none
-		border-radius $cm-border-radius
 
 	// form btn
 	input
@@ -33,15 +27,23 @@
 				width auto
 
 	// disabled
-	.cmBtn
-	.cmBtnWrapper
-		.disabled &
-		&.disabled
-		&:disabled
+	.cmBtn.disabled
+	.cmBtn:disabled
+		cursor default
+		cursor not-allowed
+	.cmBtn.disabled
+		pointer-events none
+
+	// btn wrapper
+	html.cmui
+		.cmBtnWrapper
+			// to make non-action elements response `click` event on ios
+			cursor pointer
+		// `.disabled` classes on btn-wrappers only disable functionality of btn-wrapper's,
+		// no effect to functionality of btn's
+		.disabled .cmBtnWrapper
+		.cmBtnWrapper.disabled
 			cursor default
-			pointer-events none
-
-
 
 	/* --------------------------------------------- */
 	/** multiple btn **/
