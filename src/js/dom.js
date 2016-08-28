@@ -25,7 +25,8 @@ void function (window, CMUI) {
 			isLegacy ? 'legacy' : '',
 			ua.isSafari ? 'safari' : '',
 			ua.isChrome ? 'chrome' : '',
-			ua.isTouchDevice ? 'touch' : 'mouse',
+			// @DEPRECATED 'mouse' means mouse-only, use `no-touch` instead
+			ua.isTouchDevice ? 'touch' : 'no-touch mouse',
 			ua.isMobileDevice ? 'mobile' : 'desktop'
 		]
 		_.dom.$root.removeClass('no-js').addClass(classNames.join(' '))
