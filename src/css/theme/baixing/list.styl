@@ -24,32 +24,17 @@ $cm-list-item-line-height = $cm-list-item-min-height - $cm-list-item-padding-v *
 /* --------------------------------------------- */
 /** theme **/
 .cmList
-	border-radius $cm-border-radius
-	// margin
-	// TODO: set margins to hx elements
+	border-bottom 1px solid $cm-color-splitter
+	// gap between lists
 	& + &
-		margin-top 12px
+		margin-top $cm-list-item-min-height * 0.5
 
 	// list item
 	> li
-		// border radius
-		&:first-child >
-			{$-sel-list-item-content}
-				&:first-child
-					border-top-left-radius $cm-list-border-radius
-					border-top-right-radius $cm-list-border-radius
-		&:last-child >
-			{$-sel-list-item-content}
-				&:first-child
-					border-bottom-left-radius $cm-list-border-radius
-					border-bottom-right-radius $cm-list-border-radius
+		min-height $cm-list-item-min-height
 
-		&
-			min-height $cm-list-item-min-height
-			font-size $bx-fs-headline-minor
-
-		+ li
-			margin-top 1px
+		// splitter
+		border-top 1px solid $cm-color-splitter
 
 		>
 			{$-sel-list-item-content}
@@ -59,7 +44,7 @@ $cm-list-item-line-height = $cm-list-item-min-height - $cm-list-item-padding-v *
 					height 100%
 					line-height $cm-list-item-line-height
 					overflow ellipsis
-					background-color lighten($cm-color-x-light-gray, 30%)
+					background-color white
 
 			a, label
 				&:first-child
@@ -68,16 +53,42 @@ $cm-list-item-line-height = $cm-list-item-min-height - $cm-list-item-padding-v *
 					z-index 10
 					color inherit
 					text-decoration none
-					background-color $cm-color-light-gray
-					html.mouse &:hover
-						background-color darken($cm-color-light-gray, 5%)
-					html.mouse &:active
-						background-color darken($cm-color-light-gray, 10%)
+					background-color white
+					html.no-touch &:hover
+						background-color $cm-color-hover
+					html.no-touch &:active
+						background-color $cm-color-active
+
+/* --------------------------------------------- */
+/** card list **/
+.cmList.cmCard
+	border-bottom none
+	> li:first-child
+		border-top none
+
+	// gap
+	.cmList + &
+		margin-top $cm-card-gap + 10
+
+
+/** list title **/
+.cmListTitle
+	font-size 110%
+	padding-left $cm-list-item-padding-h
+	padding-right $cm-list-item-padding-h
+
+	// gap
+	&
+		margin-top $cm-card-gap + 5
+	+ .cmList
+		margin-top $cm-card-gap - 5
+	.cmList + &
+		margin-top $cm-card-gap + 15
 
 /* --------------------------------------------- */
 /** arrow **/
-$cm-list-arrow-height = 8px
-/*$cm-list-arrow-color = #444*/
+$cm-list-arrow-size = 10px
+$cm-list-arrow-color = #c7c7cc
 /*$cm-list-arrow-angle = 26.565deg*/
 $cm-list-arrow-angle = 40deg
 $cm-list-arrow-line-width = 1px
@@ -86,37 +97,19 @@ $cm-list-arrow-area-width = 30px
 .cmList > li.cmRightArrow
 .cmList.cmRightArrow > li
 	> a:first-child
-		&::before
 		&::after
+			content ''
+			box-sizing border-box
 			position absolute
-			top 50%
-			width 0
-			height $cm-list-arrow-height
 			right $cm-list-item-padding-h
+			top 50%
+			margin-top (- $cm-list-arrow-size / 2)
+			size $cm-list-arrow-size
+			color $cm-list-arrow-color
+			border-style solid
+			border-width 2px 2px 0 0
+			transform rotate(45deg)
 			pointer-events none
-			html.cmui &
-				content ''
-				border-right $cm-list-arrow-line-width solid
-		&::before
-			margin-top (- $cm-list-arrow-height)
-			transform skewX($cm-list-arrow-angle)
-		&::after
-			transform skewX((- $cm-list-arrow-angle))
-/*
-	// android legacy
-	html.android.legacy &::after
-		display none
-	html.android.legacy &::before
-		width 0
-		height 0
-		border-top-color transparent
-		border-bottom-color transparent
-		background-color transparent
-		border-style solid
-		border-width $cm-list-arrow-height 0 $cm-list-arrow-height ($cm-list-arrow-height/2)
-		right $cm-list-item-padding-h - 2px
-		transform none
-*/
 
 /* --------------------------------------------- */
 /** badge **/
@@ -124,7 +117,7 @@ $cm-list-badge-padding-h = 5px
 $cm-list-badge-height = 22px
 $cm-list-badge-min-width = 30px
 $cm-list-badge-max-width = 45px
-$cm-list-badge-bg-color = $cm-color-fg
+$cm-list-badge-bg-color = $cm-color-fg-light
 
 .cmList > li[data-badge]::after
 	content attr(data-badge)
@@ -135,8 +128,8 @@ $cm-list-badge-bg-color = $cm-color-fg
 	padding 0 $cm-list-badge-padding-h
 	min-width $cm-list-badge-min-width
 	max-width $cm-list-badge-max-width
+	line-height $cm-list-badge-height
 	overflow ellipsis
-	line-height-as-height($cm-list-badge-height)
 	font-size $cm-font-size
 	text-align center
 	color white
@@ -154,7 +147,7 @@ $cm-list-badge-bg-color = $cm-color-fg
 /** value **/
 $cm-list-value-width = 60%
 $cm-list-value-height = 24px
-$cm-list-value-fg-color = $cm-color-fg
+$cm-list-value-fg-color = $cm-color-fg-light
 
 .cmList > li[data-value]::after
 	content attr(data-value)
@@ -163,8 +156,8 @@ $cm-list-value-fg-color = $cm-color-fg
 	z-index 20
 	margin-top (- $cm-list-value-height/2)
 	padding-right $cm-list-item-padding-h
-	line-height-as-height($cm-list-value-height)
 	max-width $cm-list-value-width
+	line-height $cm-list-value-height
 	overflow ellipsis
 	text-align right
 	color $cm-list-value-fg-color
