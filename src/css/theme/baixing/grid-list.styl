@@ -2,7 +2,7 @@
 ////////////////////  bx - grid-list  ////////////////////
 
 ul.cmGridList
-	$-border-color = $cm-color-light-gray
+	$-border-color = $cm-color-splitter
 	$-item-height = 50px
 	$-item-padding-v = ($-item-height - $cm-font-size * $cm-line-height-ui) / 2
 	$-item-padding-h = 5px
@@ -10,36 +10,36 @@ ul.cmGridList
 	$-item-label-padding-right = $cm-content-padding
 	$-item-label-input-offset-top = $cm-font-size * (($cm-line-height-ui - 1) / 2)
 
-	&
-		border-left 1px solid $-border-color
-		clearfix()
+	clearfix()
+	font-size $cm-font-size
+	line-height $cm-line-height-ui
+	border-top 1px solid transparent
+	border-left 1px solid $-border-color
+
 	// list item style
 	> li
 		float left
 		box-sizing border-box
+		// to collapse h border
+		margin-top -1px
+		// `li` can't always fill full width of `ul`, so we have to let `li` draw h border
 		border 1px solid $-border-color
 		border-left none
-		// to collapse border
-		&
-			margin-bottom -1px
-			&:last-child
-				margin-bottom 0
+
 		> a
 		> label
 			display block
 			overflow ellipsis
-			html.mouse &:hover
-				background-color $cm-color-x-light-gray
-				background-image linear-gradient(to bottom, white, $cm-color-x-light-gray)
-			html.mouse &:active
-				background-color $cm-color-x-light-gray
-				background-image linear-gradient(to bottom, $cm-color-x-light-gray, white)
+			html.no-touch &:hover
+				background-color $cm-color-hover
+			html.no-touch &:active
+				background-color $cm-color-active
 		> label
 			padding $-item-padding-v $-item-label-padding-right $-item-padding-v $-item-label-padding-left
 			cursor pointer
 			// use `:active` and bg color to improve responsivity, instead of touch-highlight
 			html.touch &:active
-				background-color $cm-color-gray
+				background-color $cm-color-active
 			> input[type='radio']:first-child
 			> input[type='checkbox']:first-child
 				float left
@@ -47,26 +47,41 @@ ul.cmGridList
 				margin-top $-item-label-input-offset-top
 		> a
 			padding $-item-padding-v $-item-padding-h
-			text-center()
+			text-align center
 			text-decoration none
 			color inherit
+
 		// selected item
-		&.selected
-			position relative
-			> a
-			> label
-				background-color $cm-color-x-light-gray
-				html.mouse &
-					background-image none
+		&.selected > a
+		> a.selected
+				color white
+				// to overlap onto borders of `li` in the following line
+				outline 1px solid $cm-color-fg-light
+				position relative
 
-	// border style
-	&.cmGridListNoBorder
-		border none
-		> li
-			margin-top 0
-			border none
+				html.cmui &
+					background-color $cm-color-fg-light
 
-	// list item width
+// width of list item
+ul.cmGridList
+	// default width
 	> li
 		min-width 4em
 		width 50%
+
+	// flexible
+	&.cmGridListFlexible
+		$-medium = 'screen and (max-width: 359px)'
+		@media $-medium
+			&.cmGridListLongText > li
+				width 50%
+			> li
+				width 33.3333%
+		$-medium = 'screen and (min-width: 360px) and (max-width: 567px)'
+		@media $-medium
+			> li
+				width 33.3333%
+		$-medium = 'screen and (min-width: 568px)'
+		@media $-medium
+			> li
+				width 20%
