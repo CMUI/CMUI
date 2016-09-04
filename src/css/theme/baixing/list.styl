@@ -60,36 +60,16 @@ $cm-list-item-line-height = $cm-list-item-min-height - $cm-list-item-padding-v *
 						background-color $cm-color-active
 
 /* --------------------------------------------- */
-/** card list **/
-.cmList.cmCard
+/** list as section content **/
+.cmList.cmSectionContent
 	border-bottom none
 	> li:first-child
 		border-top none
-
-	// gap
-	.cmList + &
-		margin-top $cm-card-gap + 10
-
-
-/** list title **/
-.cmListTitle
-	font-size 110%
-	padding-left $cm-list-item-padding-h
-	padding-right $cm-list-item-padding-h
-
-	// gap
-	&
-		margin-top $cm-card-gap + 5
-	+ .cmList
-		margin-top $cm-card-gap - 5
-	.cmList + &
-		margin-top $cm-card-gap + 15
 
 /* --------------------------------------------- */
 /** arrow **/
 $cm-list-arrow-size = 10px
 $cm-list-arrow-color = #c7c7cc
-/*$cm-list-arrow-angle = 26.565deg*/
 $cm-list-arrow-angle = 40deg
 $cm-list-arrow-line-width = 1px
 $cm-list-arrow-area-width = 30px
