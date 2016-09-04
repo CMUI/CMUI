@@ -19,20 +19,28 @@ $cm-nav-bar-btn-br = 5px
 
 /* --------------------------------------------- */
 /** section **/
--cmSectionTitle()
-	padding 0 $cm-content-padding
-	color $cm-color-fg-light
-	line-height 30px
-	height 30px
-	font-size ($cm-font-size - 2)
-	font-weight normal
-.cmSectionTitle
-	-cmSectionTitle()
+$cm-section-gap = 6px
 
--cmSectionContent()
-	background-color $cm-color-bg
+.cmSectionTitle
+	$-h = 30px
+	$-fs = $cm-font-size - 2
+	box-sizing border-box
+	padding-left $cm-content-padding
+	padding-right $cm-content-padding
+	height $-h
+	line-height $-h
+	font-size $-fs
+	font-weight normal
+	color $cm-color-fg-light
+
 .cmSectionContent
-	-cmSectionContent()
+	background-color $cm-color-bg
+
+	// gap
+	&
+		margin-top $cm-section-gap
+	.cmSectionTitle + &
+		margin-top 0
 
 /* --------------------------------------------- */
 /** nav bar **/
