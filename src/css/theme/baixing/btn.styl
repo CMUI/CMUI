@@ -64,7 +64,7 @@ $cm-btn-br = 4px
 /* --------------------------------------------- */
 /** contextual style (color) **/
 $cm-btn-color = #777
-$cm-btn-color-primary = $cm-color-highlight
+$cm-btn-color-primary = $cm-color-primary
 $cm-btn-color-info = #46b8da
 $cm-btn-color-success = #4cae4c
 $cm-btn-color-danger = #cb2616
@@ -93,46 +93,34 @@ $cm-btn-color-warning = #ff9933
 	background-color $c
 
 html.no-touch
-	.cmBtnWrapper:not(.disabled):hover .cmBtn:not(.disabled):not(:disabled):not(.active)
 	.cmBtn:not(.disabled):not(:disabled):not(.active):not(:active):hover
 		-btn-hover-style($cm-btn-color)
-	.cmBtnWrapper:not(.disabled):hover .cmBtn.cmBtnPrimary:not(.disabled):not(:disabled):not(.active)
 	.cmBtn.cmBtnPrimary:not(.disabled):not(:disabled):not(.active):not(:active):hover
 		-btn-hover-style($cm-btn-color-primary)
-	.cmBtnWrapper:not(.disabled):hover .cmBtn.cmBtnSuccess:not(.disabled):not(:disabled):not(.active)
 	.cmBtn.cmBtnSuccess:not(.disabled):not(:disabled):not(.active):not(:active):hover
 		-btn-hover-style($cm-btn-color-success)
-	.cmBtnWrapper:not(.disabled):hover .cmBtn.cmBtnInfo:not(.disabled):not(:disabled):not(.active)
 	.cmBtn.cmBtnInfo:not(.disabled):not(:disabled):not(.active):not(:active):hover
 		-btn-hover-style($cm-btn-color-info)
-	.cmBtnWrapper:not(.disabled):hover .cmBtn.cmBtnDanger:not(.disabled):not(:disabled):not(.active)
 	.cmBtn.cmBtnDanger:not(.disabled):not(:disabled):not(.active):not(:active):hover
 		-btn-hover-style($cm-btn-color-danger)
-	.cmBtnWrapper:not(.disabled):hover .cmBtn.cmBtnWarning:not(.disabled):not(:disabled):not(.active)
 	.cmBtn.cmBtnWarning:not(.disabled):not(:disabled):not(.active):not(:active):hover
 		-btn-hover-style($cm-btn-color-warning)
 
 -btn-bordered-hover-style($color)
 	border-color $color
-	background-color tint($color, 90%)
+	background-color lighten($color, 90%)
 
 html.no-touch
-	.cmBtnWrapper:not(.disabled):hover .cmBtn.cmBtnBordered:not(.disabled):not(:disabled):not(.active)
 	.cmBtn.cmBtnBordered:not(.disabled):not(:disabled):not(.active):not(:active):hover
 		-btn-bordered-hover-style($cm-btn-color)
-	.cmBtnWrapper:not(.disabled):hover .cmBtn.cmBtnBordered.cmBtnPrimary:not(.disabled):not(:disabled):not(.active)
 	.cmBtn.cmBtnBordered.cmBtnPrimary:not(.disabled):not(:disabled):not(.active):not(:active):hover
 		-btn-bordered-hover-style($cm-btn-color-primary)
-	.cmBtnWrapper:not(.disabled):hover .cmBtn.cmBtnBordered.cmBtnSuccess:not(.disabled):not(:disabled):not(.active)
 	.cmBtn.cmBtnBordered.cmBtnSuccess:not(.disabled):not(:disabled):not(.active):not(:active):hover
 		-btn-bordered-hover-style($cm-btn-color-success)
-	.cmBtnWrapper:not(.disabled):hover .cmBtn.cmBtnBordered.cmBtnInfo:not(.disabled):not(:disabled):not(.active)
 	.cmBtn.cmBtnBordered.cmBtnInfo:not(.disabled):not(:disabled):not(.active):not(:active):hover
 		-btn-bordered-hover-style($cm-btn-color-info)
-	.cmBtnWrapper:not(.disabled):hover .cmBtn.cmBtnBordered.cmBtnDanger:not(.disabled):not(:disabled):not(.active)
 	.cmBtn.cmBtnBordered.cmBtnDanger:not(.disabled):not(:disabled):not(.active):not(:active):hover
 		-btn-bordered-hover-style($cm-btn-color-danger)
-	.cmBtnWrapper:not(.disabled):hover .cmBtn.cmBtnBordered.cmBtnWarning:not(.disabled):not(:disabled):not(.active)
 	.cmBtn.cmBtnBordered.cmBtnWarning:not(.disabled):not(:disabled):not(.active):not(:active):hover
 		-btn-bordered-hover-style($cm-btn-color-warning)
 
@@ -143,27 +131,21 @@ html.no-touch
 	background-color darken($color, 50%)
 	box-shadow inset 0 2px 1px darken($color, 75%)
 
-html.cmui .cmBtnWrapper:not(.disabled):active .cmBtn:not(.disabled):not(:disabled)
 .cmBtn:not(.disabled):not(:disabled):active
 .cmBtn.active
 	-btn-active-style($cm-btn-color)
-html.cmui .cmBtnWrapper:not(.disabled):active .cmBtn.cmBtnPrimary:not(.disabled):not(:disabled)
 .cmBtn.cmBtnPrimary:not(.disabled):not(:disabled):active
 .cmBtn.cmBtnPrimary.active
 	-btn-active-style($cm-btn-color-primary)
-html.cmui .cmBtnWrapper:not(.disabled):active .cmBtn.cmBtnInfo:not(.disabled):not(:disabled)
 .cmBtn.cmBtnInfo:not(.disabled):not(:disabled):active
 .cmBtn.cmBtnInfo.active
 	-btn-active-style($cm-btn-color-info)
-html.cmui .cmBtnWrapper:not(.disabled):active .cmBtn.cmBtnSuccess:not(.disabled):not(:disabled)
 .cmBtn.cmBtnSuccess:not(.disabled):not(:disabled):active
 .cmBtn.cmBtnSuccess.active
 	-btn-active-style($cm-btn-color-success)
-html.cmui .cmBtnWrapper:not(.disabled):active .cmBtn.cmBtnDanger:not(.disabled):not(:disabled)
 .cmBtn.cmBtnDanger:not(.disabled):not(:disabled):active
 .cmBtn.cmBtnDanger.active
 	-btn-active-style($cm-btn-color-danger)
-html.cmui .cmBtnWrapper:not(.disabled):active .cmBtn.cmBtnWarning:not(.disabled):not(:disabled)
 .cmBtn.cmBtnWarning:not(.disabled):not(:disabled):active
 .cmBtn.cmBtnWarning.active
 	-btn-active-style($cm-btn-color-warning)
@@ -174,23 +156,17 @@ html.cmui .cmBtnWrapper:not(.disabled):active .cmBtn.cmBtnWarning:not(.disabled)
 	background-color currentColor
 	box-shadow none
 
-html.cmui .cmBtnWrapper:not(.disabled):active .cmBtn.cmBtnBordered:not(.disabled):not(:disabled)
 .cmBtn.cmBtnBordered:not(.disabled):not(:disabled):active
 .cmBtn.cmBtnBordered.active
 	-btn-bordered-active-style($cm-btn-color)
-//html.cmui .cmBtnWrapper:not(.disabled):active .cmBtn.cmBtnBordered.cmBtnPrimary:not(.disabled):not(:disabled)
 //.cmBtn.cmBtnBordered.cmBtnPrimary:not(.disabled):not(:disabled):active
 //	-btn-bordered-active-style($cm-btn-color-primary)
-//html.cmui .cmBtnWrapper:not(.disabled):active .cmBtn.cmBtnBordered.cmBtnInfo:not(.disabled):not(:disabled)
 //.cmBtn.cmBtnBordered.cmBtnInfo:not(.disabled):not(:disabled):active
 //	-btn-bordered-active-style($cm-btn-color-info)
-//html.cmui .cmBtnWrapper:not(.disabled):active .cmBtn.cmBtnBordered.cmBtnSuccess:not(.disabled):not(:disabled)
 //.cmBtn.cmBtnBordered.cmBtnSuccess:not(.disabled):not(:disabled):active
 //	-btn-bordered-active-style($cm-btn-color-success)
-//html.cmui .cmBtnWrapper:not(.disabled):active .cmBtn.cmBtnBordered.cmBtnDanger:not(.disabled):not(:disabled)
 //.cmBtn.cmBtnBordered.cmBtnDanger:not(.disabled):not(:disabled):active
 //	-btn-bordered-active-style($cm-btn-color-danger)
-//html.cmui .cmBtnWrapper:not(.disabled):active .cmBtn.cmBtnBordered.cmBtnWarning:not(.disabled):not(:disabled)
 //.cmBtn.cmBtnBordered.cmBtnWarning:not(.disabled):not(:disabled):active
 //	-btn-bordered-active-style($cm-btn-color-warning)
 
