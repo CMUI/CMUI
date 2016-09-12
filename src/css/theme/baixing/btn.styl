@@ -6,7 +6,7 @@
 /** basic **/
 
 // size
-$cm-btn-height = 40px
+$cm-btn-height = 44px
 $cm-btn-padding-h = 5px
 $cm-btn-fs = $cm-font-size-l
 $cm-btn-br = 4px
@@ -15,44 +15,48 @@ $cm-btn-br = 4px
 	&
 		padding-left $cm-btn-padding-h
 		padding-right $cm-btn-padding-h
-		$h = $cm-btn-height
-		height ($h + 2)
-		line-height $h
+		$-h = $cm-btn-height
+		height $-h
+		line-height ($-h - 2)
 		font-size $cm-btn-fs
 		border 1px solid
 		border-radius $cm-btn-br
 		background-color currentColor
 		-webkit-text-fill-color white
+		html.cmui a&:hover
+			text-decoration none	// to prevent default link style
+
 	input&
 	button&
 		border-style solid
+
 	&.cmBtnXSmall
 		padding-left ($cm-btn-padding-h - 2)
 		padding-right ($cm-btn-padding-h - 2)
-		$h = $cm-btn-height - 20
-		height ($h + 2)
-		line-height $h
+		$-h = $cm-btn-height - 20
+		height $-h
+		line-height ($-h - 2)
 		font-size ($cm-btn-fs - 4)
 	&.cmBtnSmall
 		padding-left ($cm-btn-padding-h - 1)
 		padding-right ($cm-btn-padding-h - 1)
-		$h = $cm-btn-height - 10
-		height ($h + 2)
-		line-height $h
+		$-h = $cm-btn-height - 10
+		height $-h
+		line-height ($-h - 2)
 		font-size ($cm-btn-fs - 2)
 	&.cmBtnLarge
 		padding-left ($cm-btn-padding-h + 2)
 		padding-right ($cm-btn-padding-h + 2)
-		$h = $cm-btn-height + 4
-		height ($h + 2)
-		line-height $h
+		$-h = $cm-btn-height + 6
+		height $-h
+		line-height ($-h - 2)
 		font-size ($cm-btn-fs + 2)
 	&.cmBtnXLarge
 		padding-left ($cm-btn-padding-h + 4)
 		padding-right ($cm-btn-padding-h + 4)
-		$h = $cm-btn-height + 8
-		height ($h + 2)
-		line-height $h
+		$-h = $cm-btn-height + 12
+		height $-h
+		line-height ($-h - 2)
 		font-size ($cm-btn-fs + 4)
 
 // style
@@ -69,6 +73,7 @@ $cm-btn-color-info = #46b8da
 $cm-btn-color-success = #4cae4c
 $cm-btn-color-danger = #cb2616
 $cm-btn-color-warning = #ff9933
+$cm-btn-color-disabled = #ccc
 
 .cmBtn
 	&
@@ -126,10 +131,8 @@ html.no-touch
 
 // active
 -btn-active-style($color)
-	-webkit-text-fill-color white
-	border-color darken($color, 75%)
+	border-color darken($color, 60%)
 	background-color darken($color, 50%)
-	box-shadow inset 0 2px 1px darken($color, 75%)
 
 .cmBtn:not(.disabled):not(:disabled):active
 .cmBtn.active
@@ -150,32 +153,26 @@ html.no-touch
 .cmBtn.cmBtnWarning.active
 	-btn-active-style($cm-btn-color-warning)
 
--btn-bordered-active-style($color)
-	//-webkit-text-fill-color white
+-btn-bordered-active-style()
+	-webkit-text-fill-color white
 	border-color currentColor
 	background-color currentColor
-	box-shadow none
 
 .cmBtn.cmBtnBordered:not(.disabled):not(:disabled):active
 .cmBtn.cmBtnBordered.active
-	-btn-bordered-active-style($cm-btn-color)
-//.cmBtn.cmBtnBordered.cmBtnPrimary:not(.disabled):not(:disabled):active
-//	-btn-bordered-active-style($cm-btn-color-primary)
-//.cmBtn.cmBtnBordered.cmBtnInfo:not(.disabled):not(:disabled):active
-//	-btn-bordered-active-style($cm-btn-color-info)
-//.cmBtn.cmBtnBordered.cmBtnSuccess:not(.disabled):not(:disabled):active
-//	-btn-bordered-active-style($cm-btn-color-success)
-//.cmBtn.cmBtnBordered.cmBtnDanger:not(.disabled):not(:disabled):active
-//	-btn-bordered-active-style($cm-btn-color-danger)
-//.cmBtn.cmBtnBordered.cmBtnWarning:not(.disabled):not(:disabled):active
-//	-btn-bordered-active-style($cm-btn-color-warning)
+	-btn-bordered-active-style()
 
 // disabled
 .cmBtn
 	&.disabled
 	&:disabled
-		opacity 0.4
-
+		&
+			color $cm-btn-color-disabled !important
+			background-color currentColor !important
+			border-color currentColor !important
+		&.cmBtnBordered
+			-webkit-text-fill-color currentColor !important
+			background-color transparent !important
 
 /* --------------------------------------------- */
 /** multiple btn **/
