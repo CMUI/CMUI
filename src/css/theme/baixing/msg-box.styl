@@ -1,64 +1,73 @@
 
 ////////////////////  bx - msg box  ////////////////////
 
-$cm-msg-box-color-fg-info ?= #078993
-$cm-msg-box-color-fg-success ?= #448245
-$cm-msg-box-color-fg-error ?= #fd1800
-$cm-msg-box-color-fg-warning ?= $cm-color-highlight
+$cm-msg-box-color-fg = $cm-color-fg-dark
+$cm-msg-box-color-fg-info = #078993
+$cm-msg-box-color-fg-warning = $cm-color-highlight
+$cm-msg-box-color-fg-success = #448245
+$cm-msg-box-color-fg-error = #fd1800
 
-$cm-msg-box-color-bg-info ?= #d7ebec
-$cm-msg-box-color-bg-success ?= #d5f5d6
-$cm-msg-box-color-bg-error ?= #ffe9e7
-$cm-msg-box-color-bg-error ?= #dc5245
-$cm-msg-box-color-bg-warning ?= #fff7e9
+$cm-msg-box-color-bg = #f8f8f8
+$cm-msg-box-color-bg-info = #d7ebec
+$cm-msg-box-color-bg-warning = #fff7e9
+$cm-msg-box-color-bg-success = #d5f5d6
+$cm-msg-box-color-bg-error = #ffe9e7
+
 
 .cmMsgBox
-	$-padding-v = 8px
+	$-h = 44px
+	$-lh = 20px	// approximately 14px * 1.5
+	$-padding-v = ($-h - $-lh) / 2
+	clearfix()
 	position relative
 	display block
-	margin-top 10px
-	margin-bottom 10px
-	padding $-padding-v $cm-content-padding $-padding-v 30px
+	padding $-padding-v $cm-content-padding
 	font-size $cm-font-size
-	line-height $cm-line-height-text
-	border-radius $cm-border-radius
+	line-height $-lh
 
 	// icon
-	&::before
-		content ''
-		$-top = ($cm-font-size * $cm-line-height-text - 20) / 2 + $-padding-v
+	.cmIcon
+		$-icon-size = 20px
+		$-top = ($-lh - $-icon-size) / 2 + $-padding-v
 		position absolute
 		left 7px
 		top $-top
 
+	&.cm-msg-box-with-icon
+		padding-left 30px
+
+	// close btn
+	.cm-msg-box-close-btn
+		position absolute
+		size $-h
+		right 0
+		top 0
+		text-align center
+		text-decoration none !important
+		color inherit
+		html.no-touch &:hover
+			background-color rgba(0, 0, 0, 0.1)
+		&::after
+			content '×'
+			line-height $-h
+			font-size 20px
+
+	&.cm-msg-box-with-close-btn
+		padding-right $-h
+
 	// contextual style
 	&
+		color $cm-msg-box-color-fg
+		background-color $cm-msg-box-color-bg
+	&.cmMsgBoxInfo
 		color $cm-msg-box-color-fg-info
 		background-color $cm-msg-box-color-bg-info
-		&::before
-			-cmIcon-cmX20('msg-info')
 	&.cmMsgBoxWarning
 		color $cm-msg-box-color-fg-warning
 		background-color $cm-msg-box-color-bg-warning
-		&::before
-			-cmIcon-cmX20('msg-warning')
 	&.cmMsgBoxSuccess
 		color $cm-msg-box-color-fg-success
 		background-color $cm-msg-box-color-bg-success
-		&::before
-			-cmIcon-cmX20('msg-success')
 	&.cmMsgBoxError
 		color $cm-msg-box-color-fg-error
 		background-color $cm-msg-box-color-bg-error
-		&::before
-			-cmIcon-cmX20('msg-error')
-	&.cmMsgBoxForbidden
-		color $cm-msg-box-color-fg-error
-		background-color $cm-msg-box-color-bg-error
-		&::before
-			-cmIcon-cmX20('msg-forbidden')
-
-	&.cmText
-		h1, h2, h3, h4, h5, h6
-			font-size 100%
-			margin-bottom 5px
