@@ -19,7 +19,7 @@ void function (window, CMUI) {
 		basicClassNames: [],
 		html: [
 			'<div class="cmLoading">',
-				'<i class="cmIcon cmX50 loading-black-bg">Loading</i>',
+				'<i class="cmIcon cm-icon-x50-loading-black-bg">Loading</i>',
 			'</div>'
 		].join(''),
 
