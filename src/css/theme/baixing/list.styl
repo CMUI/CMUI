@@ -73,8 +73,8 @@ $cm-list-arrow-color = #ccc
 $cm-list-arrow-line-width = 1px
 $cm-list-arrow-area-width = 30px
 
-.cm-list > li.cm-list-right-arrow
-.cm-list.cm-list-right-arrow > li
+.cm-list > li.cm-list-with-right-arrow
+.cm-list.cm-list-with-right-arrow > li
 	> a:first-child
 		&::after
 			content ''
@@ -116,8 +116,8 @@ $cm-list-badge-bg-color = $cm-color-primary
 	border-radius ($cm-list-badge-height/2)
 	pointer-events none
 
-.cm-list.cm-list-right-arrow > li[data-badge]
-.cm-list > li[data-badge].cm-list-right-arrow
+.cm-list.cm-list-with-right-arrow > li[data-badge]
+.cm-list > li[data-badge].cm-list-with-right-arrow
 	&::after
 		right $cm-list-arrow-area-width
 
@@ -142,16 +142,16 @@ $cm-list-value-fg-color = $cm-color-fg-light
 	color $cm-list-value-fg-color
 	pointer-events none
 
-.cm-list.cm-list-right-arrow > li[data-value]
-.cm-list > li[data-value].cm-list-right-arrow
+.cm-list.cm-list-with-right-arrow > li[data-value]
+.cm-list > li[data-value].cm-list-with-right-arrow
 	&::after
 		padding-right $cm-list-arrow-area-width
 
 
 /* --------------------------------------------- */
 /** padding **/
-.cm-list > li.cm-list-right-arrow
-.cm-list.cm-list-right-arrow > li
+.cm-list > li.cm-list-with-right-arrow
+.cm-list.cm-list-with-right-arrow > li
 	> a:first-child
 		padding-right $cm-list-arrow-area-width
 
@@ -159,8 +159,8 @@ $cm-list-value-fg-color = $cm-color-fg-light
 	{$-sel-list-item-content}
 		&:first-child
 			padding-right ($cm-list-item-padding-h + $cm-list-badge-max-width + 5)
-.cm-list > li[data-badge].cm-list-right-arrow
-.cm-list.cm-list-right-arrow > li[data-badge]
+.cm-list > li[data-badge].cm-list-with-right-arrow
+.cm-list.cm-list-with-right-arrow > li[data-badge]
 	> a:first-child
 		padding-right ($cm-list-arrow-area-width + $cm-list-badge-max-width + 5)
 
