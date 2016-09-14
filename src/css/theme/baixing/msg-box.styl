@@ -45,12 +45,18 @@ $cm-msg-box-color-bg-error = #ffe9e7
 		text-align center
 		text-decoration none !important
 		color inherit
-		html.no-touch &:hover
-			background-color rgba(0, 0, 0, 0.1)
+
 		&::after
 			content '×'
 			line-height $-h
 			font-size 20px
+
+		// interaction
+		no-tap-highlight()
+		html.no-touch &:hover
+			background-color rgba(0, 0, 0, 0.05)
+		html.cmui &:active
+			background-color rgba(0, 0, 0, 0.1)
 
 	&.cm-msg-box-with-close-btn
 		padding-right $-h
