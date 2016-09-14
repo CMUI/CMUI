@@ -5,8 +5,8 @@ void function (window, CMUI) {
 
 	CMUI.loading = {
 		//class name
-		CLS: 'cmLoading',
-		CLS_TEXT: 'cmText',
+		CLS: 'cm-loading',
+		CLS_TEXT: 'cm-text',
 		CLS_HIDDEN: 'hidden',
 		CLS_FADE_IN: 'fade-in',
 		CLS_FADE_OUT: 'fade-out',
@@ -18,8 +18,8 @@ void function (window, CMUI) {
 		//element
 		basicClassNames: [],
 		html: [
-			'<div class="cmLoading">',
-				'<i class="cmIcon cm-icon-x50-loading-black-bg">Loading</i>',
+			'<div class="cm-loading">',
+				'<i class="cm-icon cm-icon-x50-loading-black-bg">Loading</i>',
 			'</div>'
 		].join(''),
 

@@ -1,7 +1,7 @@
 
 ////////////////////  bx - grid-list  ////////////////////
 
-ul.cmGridList
+ul.cm-grid-list
 	$-border-color = $cm-color-splitter
 	$-item-height = 50px
 	$-item-padding-v = ($-item-height - $cm-font-size * $cm-line-height) / 2
@@ -63,17 +63,17 @@ ul.cmGridList
 					background-color $cm-color-fg
 
 // width of list item
-ul.cmGridList
+ul.cm-grid-list
 	// default width
 	> li
 		min-width 4em
 		width 50%
 
 	// flexible
-	&.cmGridListFlexible
+	&.cm-grid-list-flexible
 		$-medium = 'screen and (max-width: 359px)'
 		@media $-medium
-			&.cmGridListLongText > li
+			&.cm-grid-list-long-text > li
 				width 50%
 			> li
 				width 33.3333%

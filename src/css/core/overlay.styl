@@ -4,35 +4,35 @@
 
 	/* --------------------------------------------- */
 	/** overlay style **/
-	.cmTipBox
-	.cmLoading
-	.cmMask
+	.cm-tip-box
+	.cm-loading
+	.cm-mask
 		pointer-events auto
 		transform translate3d(0, 0, 0)
 
-	.cmTipBox.hidden
-	.cmTipBox.fade-out
-	.cmLoading.hidden
-	.cmLoading.fade-out
-	.cmMask.hidden
-	.cmMask.fade-out
+	.cm-tip-box.hidden
+	.cm-tip-box.fade-out
+	.cm-loading.hidden
+	.cm-loading.fade-out
+	.cm-mask.hidden
+	.cm-mask.fade-out
 		opacity 0
 		pointer-events none
 
-	.cmTipBox.fade-in
-	.cmLoading.fade-in
-	.cmMask.fade-in
+	.cm-tip-box.fade-in
+	.cm-loading.fade-in
+	.cm-mask.fade-in
 		transition opacity 0.15s linear
 
-	.cmTipBox.fade-out
-	.cmLoading.fade-out
-	.cmMask.fade-out
+	.cm-tip-box.fade-out
+	.cm-loading.fade-out
+	.cm-mask.fade-out
 		transition opacity 0.20s linear
 
 
 	/* --------------------------------------------- */
 	/** mask **/
-	.cmMask
+	.cm-mask
 		absolute left top
 		z-index 100
 		size 100% 100%
@@ -43,7 +43,7 @@
 
 	/* --------------------------------------------- */
 	/** loading **/
-	.cmLoading
+	.cm-loading
 		&
 			fixed left -210px top
 			z-index 200
@@ -55,15 +55,15 @@
 			border-radius 10px
 			opacity 0.75
 		// loading icon
-		.cmIcon
+		.cm-icon
 			margin auto
 			margin-top 25px
-		&.cmText .cmIcon
+		&.cm-text .cm-icon
 			margin-top 18px
 		// loading text
 		p
 			display none
-		&.cmText p
+		&.cm-text p
 			display block
 			margin 5px 20px 10px
 			color white
@@ -73,10 +73,10 @@
 
 	/* --------------------------------------------- */
 	/** dialog **/
-	.cmDialog
+	.cm-dialog
 		display none
 
-	.cmDialogReady
+	.cm-dialog-ready
 		display block
 		absolute left -999px top -999px
 		z-index 110

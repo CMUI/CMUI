@@ -18,7 +18,7 @@ $cm-nav-bar-btn-height = 28px
 
 /* --------------------------------------------- */
 /** section **/
-.cmSectionTitle
+.cm-section-title
 	$-h = 30px
 	$-fs = $cm-font-size
 	box-sizing border-box
@@ -30,17 +30,17 @@ $cm-nav-bar-btn-height = 28px
 	font-weight normal
 	color $cm-color-fg-light
 
-.cmSectionContent
+.cm-section-content
 	background-color $cm-color-bg
 
 /* --------------------------------------------- */
 /** nav bar **/
-.cmSubview > header
+.cm-subview > header
 	//position relative
 	//z-index 10
 	background-color $cm-nav-bar-color-bg
 
-.cmNavBar
+.cm-nav-bar
 	position relative
 	height $cm-nav-bar-height
 	line-height $cm-nav-bar-height
@@ -55,22 +55,22 @@ $cm-nav-bar-btn-height = 28px
 		position absolute
 		top 0
 		width $cm-nav-bar-btn-wrapper-width
-	> .cmNavBarLeft
+	> .cm-nav-bar-left
 		left 0
-	> .cmNavBarRight
+	> .cm-nav-bar-right
 		right 0
-	.cmBtnWrapper
+	.cm-btn-wrapper
 		padding-top (($cm-nav-bar-height - $cm-nav-bar-btn-height)/2)
 		padding-bottom (($cm-nav-bar-height - $cm-nav-bar-btn-height)/2)
-	> .cmNavBarLeft .cmBtnWrapper
-	> .cmNavBarLeft.cmBtnWrapper
+	> .cm-nav-bar-left .cm-btn-wrapper
+	> .cm-nav-bar-left.cm-btn-wrapper
 		padding-left $cm-nav-bar-padding-h
-		.cmBtn
+		.cm-btn
 			float left
-	> .cmNavBarRight .cmBtnWrapper
-	> .cmNavBarRight.cmBtnWrapper
+	> .cm-nav-bar-right .cm-btn-wrapper
+	> .cm-nav-bar-right.cm-btn-wrapper
 		padding-right $cm-nav-bar-padding-h
-		.cmBtn
+		.cm-btn
 			float right
 
 /* --------------------------------------------- */
@@ -79,7 +79,7 @@ $cm-nav-bar-btn-padding-h = 7px
 $cm-nav-bar-btn-fs = $cm-font-size
 $cm-nav-bar-btn-br = $cm-btn-br
 
-.cmNavBar .cmBtn
+.cm-nav-bar .cm-btn
 	padding-left $cm-nav-bar-btn-padding-h
 	padding-right $cm-nav-bar-btn-padding-h
 	height $cm-nav-bar-btn-height
@@ -89,6 +89,6 @@ $cm-nav-bar-btn-br = $cm-btn-br
 
 /* --------------------------------------------- */
 /** main content **/
-.cmSubview > main
+.cm-subview > main
 	min-height 200px
 	clearfix()

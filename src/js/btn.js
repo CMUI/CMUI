@@ -9,11 +9,11 @@ void function (window, CMUI) {
 
 	//const
 	var BTN_ELEM_TAGS = ['a', 'input', 'button']
-	var CLS_BTN = 'cmBtn'
+	var CLS_BTN = 'cm-btn'
 	var CLS_BTN_DISABLED = 'disabled'
-	var CLS_BTN_WRAPPER = 'cmBtnWrapper'
-//	var CLS_BTN_SWITCH = 'cmBtnSwitch'
-//	var CLS_BTN_SWITCH_ITEM = 'cmBtnItem'
+	var CLS_BTN_WRAPPER = 'cm-btn-wrapper'
+//	var CLS_BTN_SWITCH = 'cm-btn-switch'
+//	var CLS_BTN_SWITCH_ITEM = 'cm-btn-item'
 
 	//util
 	/**

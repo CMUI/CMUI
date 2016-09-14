@@ -5,7 +5,7 @@ void function (window, CMUI) {
 
 	CMUI.mask = {
 		//class name
-		CLS: 'cmMask',
+		CLS: 'cm-mask',
 		CLS_HIDDEN: 'hidden',
 		CLS_FADE_IN: 'fade-in',
 		CLS_FADE_OUT: 'fade-out',
@@ -18,7 +18,7 @@ void function (window, CMUI) {
 		_prepare: function () {
 			var _ns = this
 			if (!this.isReady) {
-				this.$elem = $('<div class="cmMask hidden"></div>').appendTo(_.dom.$body)
+				this.$elem = $('<div class="cm-mask hidden"></div>').appendTo(_.dom.$body)
 				_.dom.$win.on('resize', function () {
 					if (_ns.isVisible) _ns._pos()
 				})

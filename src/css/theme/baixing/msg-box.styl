@@ -14,7 +14,7 @@ $cm-msg-box-color-bg-success = #d5f5d6
 $cm-msg-box-color-bg-error = #ffe9e7
 
 
-.cmMsgBox
+.cm-msg-box
 	$-h = 44px
 	$-lh = 20px	// approximately 14px * 1.5
 	$-padding-v = ($-h - $-lh) / 2
@@ -26,7 +26,7 @@ $cm-msg-box-color-bg-error = #ffe9e7
 	line-height $-lh
 
 	// icon
-	.cmIcon
+	.cm-icon
 		$-icon-size = 20px
 		$-top = ($-lh - $-icon-size) / 2 + $-padding-v
 		position absolute
@@ -59,15 +59,15 @@ $cm-msg-box-color-bg-error = #ffe9e7
 	&
 		color $cm-msg-box-color-fg
 		background-color $cm-msg-box-color-bg
-	&.cmMsgBoxInfo
+	&.cm-msg-box-info
 		color $cm-msg-box-color-fg-info
 		background-color $cm-msg-box-color-bg-info
-	&.cmMsgBoxWarning
+	&.cm-msg-box-warning
 		color $cm-msg-box-color-fg-warning
 		background-color $cm-msg-box-color-bg-warning
-	&.cmMsgBoxSuccess
+	&.cm-msg-box-success
 		color $cm-msg-box-color-fg-success
 		background-color $cm-msg-box-color-bg-success
-	&.cmMsgBoxError
+	&.cm-msg-box-error
 		color $cm-msg-box-color-fg-error
 		background-color $cm-msg-box-color-bg-error

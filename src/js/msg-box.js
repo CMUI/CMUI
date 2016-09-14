@@ -7,7 +7,7 @@ void function (window, CMUI) {
 	var moduleName = 'msg-box'
 	var module = CMUI[moduleName] = CMUI[moduleName] || {}
 
-	var CLS_MSG_BOX = 'cmMsgBox'
+	var CLS_MSG_BOX = 'cm-msg-box'
 	var CLS_CLOSE_BTN = 'cm-msg-box-close-btn'
 	var SELECTOR = '.' + CLS_MSG_BOX + ' ' + '.' + CLS_CLOSE_BTN
 

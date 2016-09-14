@@ -7,7 +7,7 @@ $cm-list-item-line-height = $cm-list-item-min-height - $cm-list-item-padding-v *
 
 /* --------------------------------------------- */
 /** list **/
-.cmList
+.cm-list
 	// layout
 	> li
 		&[data-badge]
@@ -23,7 +23,7 @@ $cm-list-item-line-height = $cm-list-item-min-height - $cm-list-item-padding-v *
 
 /* --------------------------------------------- */
 /** theme **/
-.cmList
+.cm-list
 	border-bottom 1px solid $cm-color-splitter
 	// gap between lists
 	& + &
@@ -61,7 +61,7 @@ $cm-list-item-line-height = $cm-list-item-min-height - $cm-list-item-padding-v *
 
 /* --------------------------------------------- */
 /** list as section content **/
-.cmList.cmSectionContent
+.cm-list.cm-section-content
 	border-bottom none
 	> li:first-child
 		border-top none
@@ -73,8 +73,8 @@ $cm-list-arrow-color = #ccc
 $cm-list-arrow-line-width = 1px
 $cm-list-arrow-area-width = 30px
 
-.cmList > li.cmListRightArrow
-.cmList.cmListRightArrow > li
+.cm-list > li.cm-list-right-arrow
+.cm-list.cm-list-right-arrow > li
 	> a:first-child
 		&::after
 			content ''
@@ -98,7 +98,7 @@ $cm-list-badge-min-width = 20px
 $cm-list-badge-max-width = 45px
 $cm-list-badge-bg-color = $cm-color-primary
 
-.cmList > li[data-badge]::after
+.cm-list > li[data-badge]::after
 	content attr(data-badge)
 	box-sizing border-box
 	absolute top 50% right $cm-list-item-padding-h
@@ -116,8 +116,8 @@ $cm-list-badge-bg-color = $cm-color-primary
 	border-radius ($cm-list-badge-height/2)
 	pointer-events none
 
-.cmList.cmListRightArrow > li[data-badge]
-.cmList > li[data-badge].cmListRightArrow
+.cm-list.cm-list-right-arrow > li[data-badge]
+.cm-list > li[data-badge].cm-list-right-arrow
 	&::after
 		right $cm-list-arrow-area-width
 
@@ -128,7 +128,7 @@ $cm-list-value-width = 60%
 $cm-list-value-height = 24px
 $cm-list-value-fg-color = $cm-color-fg-light
 
-.cmList > li[data-value]::after
+.cm-list > li[data-value]::after
 	content attr(data-value)
 	box-sizing border-box
 	absolute top 50% right 0
@@ -142,29 +142,29 @@ $cm-list-value-fg-color = $cm-color-fg-light
 	color $cm-list-value-fg-color
 	pointer-events none
 
-.cmList.cmListRightArrow > li[data-value]
-.cmList > li[data-value].cmListRightArrow
+.cm-list.cm-list-right-arrow > li[data-value]
+.cm-list > li[data-value].cm-list-right-arrow
 	&::after
 		padding-right $cm-list-arrow-area-width
 
 
 /* --------------------------------------------- */
 /** padding **/
-.cmList > li.cmListRightArrow
-.cmList.cmListRightArrow > li
+.cm-list > li.cm-list-right-arrow
+.cm-list.cm-list-right-arrow > li
 	> a:first-child
 		padding-right $cm-list-arrow-area-width
 
-.cmList > li[data-badge] >
+.cm-list > li[data-badge] >
 	{$-sel-list-item-content}
 		&:first-child
 			padding-right ($cm-list-item-padding-h + $cm-list-badge-max-width + 5)
-.cmList > li[data-badge].cmListRightArrow
-.cmList.cmListRightArrow > li[data-badge]
+.cm-list > li[data-badge].cm-list-right-arrow
+.cm-list.cm-list-right-arrow > li[data-badge]
 	> a:first-child
 		padding-right ($cm-list-arrow-area-width + $cm-list-badge-max-width + 5)
 
-.cmList > li[data-value] >
+.cm-list > li[data-value] >
 	{$-sel-list-item-content}
 		&:first-child
 			padding-right ($cm-list-value-width + 2)
@@ -174,15 +174,15 @@ $cm-list-value-fg-color = $cm-color-fg-light
 /** icon **/
 $cm-list-item-icon-margin-h = $cm-list-item-padding-v
 
-.cmList > li >
+.cm-list > li >
 	{$-sel-list-item-content}
 		&:first-child
-			> .cmIcon
+			> .cm-icon
 				float left
 				margin-right $cm-list-item-icon-margin-h
 
 				for $size in 2 .. 5
-					&.cmX{$size}0
+					&.cm-x{$size}0
 						$cm-list-item-icon-margin-v = (($cm-list-item-line-height - $size * 10)/2)
 						margin-top $cm-list-item-icon-margin-v
 						margin-bottom $cm-list-item-icon-margin-v
