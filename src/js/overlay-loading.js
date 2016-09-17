@@ -27,11 +27,11 @@ void function (window, CMUI) {
 		_prepare: function () {
 			var _ns = this
 			if (!this.isReady) {
-				this.$elem = $(this.html).appendTo(_.dom.$body)
+				this.$elem = $(this.html).appendTo(gearbox.dom.$body)
 				this.isReady = true
 				var elem = this.$elem[0]
 				this.offsetParent = document.documentElement
-				_.dom.$win.on('resize', function () {
+				gearbox.dom.$win.on('resize', function () {
 					if (_ns.isVisible) _ns._pos()
 				})
 			}

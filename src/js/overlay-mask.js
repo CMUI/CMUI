@@ -18,8 +18,8 @@ void function (window, CMUI) {
 		_prepare: function () {
 			var _ns = this
 			if (!this.isReady) {
-				this.$elem = $('<div class="cm-mask hidden"></div>').appendTo(_.dom.$body)
-				_.dom.$win.on('resize', function () {
+				this.$elem = $('<div class="cm-mask hidden"></div>').appendTo(gearbox.dom.$body)
+				gearbox.dom.$win.on('resize', function () {
 					if (_ns.isVisible) _ns._pos()
 				})
 				this.isReady = true

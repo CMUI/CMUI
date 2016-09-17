@@ -12,7 +12,7 @@ void function (window, CMUI) {
 	var SELECTOR = '.' + CLS_MSG_BOX + ' ' + '.' + CLS_CLOSE_BTN
 
 	function _init() {
-		var $wrapper = _.dom.$body || _.dom.$root
+		var $wrapper = gearbox.dom.$body || gearbox.dom.$root
 		$wrapper.on('click', SELECTOR, function (ev) {
 			ev.preventDefault()
 			var $msgBox = $(this).closest('.' + CLS_MSG_BOX)

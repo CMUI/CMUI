@@ -9,10 +9,10 @@ void function (window, CMUI) {
 
 	//api
 	function _init() {
-		var ua = _.ua
+		var ua = gearbox.ua
 
 		//segment legacy os
-		var version = _.str.toFloat(ua.osVersion)
+		var version = gearbox.str.toFloat(ua.osVersion)
 		var isLegacy =
 				(ua.isIOS && version < 6) ||	//below ios 6
 				(ua.isAndroid && version < 4)	//below android 4
@@ -29,12 +29,12 @@ void function (window, CMUI) {
 			ua.isTouchDevice ? 'touch' : 'no-touch mouse',
 			ua.isMobileDevice ? 'mobile' : 'desktop'
 		]
-		_.dom.$root.removeClass('no-js').addClass(classNames.join(' '))
+		gearbox.dom.$root.removeClass('no-js').addClass(classNames.join(' '))
 
 		//to enable `:active` style on ios and android 4+
 		if (ua.isIOS || (ua.isAndroid && !isLegacy)) {
 			$(function () {
-				_.dom.$body.on('touchstart', function () {})
+				gearbox.dom.$body.on('touchstart', function () {})
 			})
 		}
 	}
