@@ -7,3 +7,9 @@ $cm-list-item-padding-v ?= 10px
 $cm-list-item-padding-h ?= $cm-list-item-padding-v
 
 $-sel-list-item-content = 'a, p, div, label'
+
+/* --------------------------------------------- */
+-cm-core-list()
+	.cm-list
+		li > label:first-child
+			-webkit-tap-highlight-color rgba(0, 0, 0, 0.3)

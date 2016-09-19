@@ -1,5 +1,7 @@
 
 ////////////////////  bx - list  ////////////////////
+-cm-core-list()
+
 /** var **/
 $cm-list-item-min-height = 50px
 $cm-list-item-padding-h = 10px
@@ -24,17 +26,17 @@ $cm-list-item-line-height = $cm-list-item-min-height - $cm-list-item-padding-v *
 /* --------------------------------------------- */
 /** theme **/
 .cm-list
-	border-bottom 1px solid $cm-color-splitter
+	border 1px solid $cm-color-splitter
+	border-width 1px 0
 	// gap between lists
 	& + &
 		margin-top $cm-list-item-min-height * 0.5
 
 	// list item
 	> li
-		min-height $cm-list-item-min-height
-
 		// splitter
-		border-top 1px solid $cm-color-splitter
+		+ li
+			border-top 1px solid $cm-color-splitter
 
 		>
 			{$-sel-list-item-content}
@@ -44,7 +46,6 @@ $cm-list-item-line-height = $cm-list-item-min-height - $cm-list-item-padding-v *
 					height 100%
 					line-height $cm-list-item-line-height
 					overflow ellipsis
-					background-color white
 
 			a, label
 				&:first-child
@@ -53,7 +54,6 @@ $cm-list-item-line-height = $cm-list-item-min-height - $cm-list-item-padding-v *
 					z-index 10
 					color inherit
 					text-decoration none
-					background-color white
 					html.no-touch &:hover
 						background-color $cm-color-hover
 					html.no-touch &:active
@@ -62,9 +62,7 @@ $cm-list-item-line-height = $cm-list-item-min-height - $cm-list-item-padding-v *
 /* --------------------------------------------- */
 /** list as section content **/
 .cm-list.cm-section-content
-	border-bottom none
-	> li:first-child
-		border-top none
+	border none
 
 	& + &
 		margin-top $cm-section-gap
