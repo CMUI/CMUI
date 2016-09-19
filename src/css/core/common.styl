@@ -1,11 +1,12 @@
 
 ////////////////////  common  ////////////////////
--cm-core-common($bodyBg = $cm-color-bg)
+-cm-core-common($htmlBg = $cm-color-bg, $bodyBg = $cm-color-bg)
 	/* --------------------------------------------- */
 	/** layout **/
 	html
 		height 100%
 		overflow-y scroll
+		background-color $htmlBg
 
 	body
 		min-height 100%
