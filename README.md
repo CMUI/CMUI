@@ -25,31 +25,33 @@ CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和�
 
 * Underscore 1.6+
 * Zepto 1.1+
-* Gearbox 0.5+
+* Gearbox 0.6+
 
 ## 安装
 
-0. 通过 Bower 安装：
+0. 通过 npm 3 安装：
 
 	```sh
-	$ bower install cmui
+	$ npm install cmui
 	```
 
 0. 在页面中加载 CMUI 的样式文件、脚本文件及必要的依赖：
+
+	> 抱歉，目前包内未包含 dist 文件，需要自行构建。
 
 	```html
 	<!DOCTYPE html>
 	<html>
 	<head>
 		...
-		<link rel="stylesheet" href="bower_components/cmui/dist/cmui.css">
+		<link rel="stylesheet" href="node_modules/cmui/dist/cmui.css">
 	</head>
 	<body>
 		...
-		<script src="bower_components/underscore/underscore-min.js"></script>
-		<script src="bower_components/zepto.js/dist/zepto.min.js"></script>
-		<script src="bower_components/gearbox/dist/gearbox.min.js"></script>
-		<script src="bower_components/cmui/dist/cmui.js"></script>
+		<script src="node_modules/underscore/underscore-min.js"></script>
+		<script src="node_modules/zepto.js/dist/zepto.min.js"></script>
+		<script src="node_modules/cmui-gearbox/dist/gearbox.min.js"></script>
+		<script src="node_modules/cmui/dist/cmui.js"></script>
 	</body>
 	</html>
 	```
@@ -62,14 +64,14 @@ CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和�
 
 ## 谁在用？
 
-以下案例基于 CMUI v0.10 构建（建议使用 iOS/Android 设备访问）：
+以下案例基于 CMUI v2 构建（请使用 iOS/Android 设备访问）：
 
-* [百姓网 - 手机版](http://m.baixing.com/)
+* [百姓网 - 手机版 (m.baixing.com)](http://m.baixing.com/)
 
 以下案例基于 CMUI v0.8 构建（建议使用 iOS/Android 设备访问）：
 
-* [优e网 - 手机版](http://m.uemall.com/)
-* [薇姿官方电子商城 - 手机版](http://m.vichy.com.cn/)
+* [优e网 - 手机版 (m.uemall.com)](http://m.uemall.com/)
+* [薇姿官方电子商城 - 手机版 (m.vichy.com.cn)](http://m.vichy.com.cn/)
 
 ***
 
