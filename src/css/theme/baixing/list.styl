@@ -12,8 +12,8 @@ $cm-list-item-line-height = $cm-list-item-min-height - $cm-list-item-padding-v *
 .cm-list
 	// layout
 	> li
-		&[data-badge]
-		&[data-value]
+		&[data-cm-badge]
+		&[data-cm-value]
 			position relative
 
 		// padding
@@ -99,8 +99,8 @@ $cm-list-badge-min-width = 20px
 $cm-list-badge-max-width = 45px
 $cm-list-badge-bg-color = $cm-color-primary
 
-.cm-list > li[data-badge]::after
-	content attr(data-badge)
+.cm-list > li[data-cm-badge]::after
+	content attr(data-cm-badge)
 	box-sizing border-box
 	absolute top 50% right $cm-list-item-padding-h
 	z-index 20
@@ -117,8 +117,8 @@ $cm-list-badge-bg-color = $cm-color-primary
 	border-radius ($cm-list-badge-height/2)
 	pointer-events none
 
-.cm-list.cm-list-with-right-arrow > li[data-badge]
-.cm-list > li[data-badge].cm-list-with-right-arrow
+.cm-list.cm-list-with-right-arrow > li[data-cm-badge]
+.cm-list > li[data-cm-badge].cm-list-with-right-arrow
 	&::after
 		right $cm-list-arrow-area-width
 
@@ -129,8 +129,8 @@ $cm-list-value-width = 60%
 $cm-list-value-height = 24px
 $cm-list-value-fg-color = $cm-color-fg-light
 
-.cm-list > li[data-value]::after
-	content attr(data-value)
+.cm-list > li[data-cm-value]::after
+	content attr(data-cm-value)
 	box-sizing border-box
 	absolute top 50% right 0
 	z-index 20
@@ -143,8 +143,8 @@ $cm-list-value-fg-color = $cm-color-fg-light
 	color $cm-list-value-fg-color
 	pointer-events none
 
-.cm-list.cm-list-with-right-arrow > li[data-value]
-.cm-list > li[data-value].cm-list-with-right-arrow
+.cm-list.cm-list-with-right-arrow > li[data-cm-value]
+.cm-list > li[data-cm-value].cm-list-with-right-arrow
 	&::after
 		padding-right $cm-list-arrow-area-width
 
@@ -156,16 +156,16 @@ $cm-list-value-fg-color = $cm-color-fg-light
 	> a:first-child
 		padding-right $cm-list-arrow-area-width
 
-.cm-list > li[data-badge] >
+.cm-list > li[data-cm-badge] >
 	{$-sel-list-item-content}
 		&:first-child
 			padding-right ($cm-list-item-padding-h + $cm-list-badge-max-width + 5)
-.cm-list > li[data-badge].cm-list-with-right-arrow
-.cm-list.cm-list-with-right-arrow > li[data-badge]
+.cm-list > li[data-cm-badge].cm-list-with-right-arrow
+.cm-list.cm-list-with-right-arrow > li[data-cm-badge]
 	> a:first-child
 		padding-right ($cm-list-arrow-area-width + $cm-list-badge-max-width + 5)
 
-.cm-list > li[data-value] >
+.cm-list > li[data-cm-value] >
 	{$-sel-list-item-content}
 		&:first-child
 			padding-right ($cm-list-value-width + 2)
