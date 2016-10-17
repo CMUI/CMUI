@@ -1,0 +1,343 @@
+
+////////////////////  bx - form  ////////////////////
+
+.cm-form
+	$-color-placeholder = #ccc
+	$-color-fg-error = #fd1800
+	$-color-bg-error = #ffe9e7
+	$-h = 50px
+	$-lh = 20px
+	$-padding-v = ($-h - $-lh) / 2
+	$-size-input-option = $cm-font-size
+	$-label-ch = 6
+	$-label-ctrl-gap-ch = 0.4
+
+	.cm-section-content + .cm-section-content
+		margin-top $cm-section-gap
+
+	.cm-form-line
+		clearfix()
+		min-height $-h
+		line-height $-lh
+		+ .cm-form-line
+			border-top 1px solid $cm-color-splitter
+
+	.cm-form-label
+		float left
+		width unit($-label-ch, 'em')
+		margin-left $cm-content-padding
+		padding $-padding-v
+		padding-left $cm-content-padding
+		padding-right unit($-label-ctrl-gap-ch, 'em')
+		.required
+			float left
+			margin-left (- $cm-content-padding)
+			font-weight inherit
+			color $cm-color-primary
+	.cm-form-unit
+		float right
+		margin-right $cm-content-padding
+		padding $-padding-v 0
+		white-space nowrap
+	.cm-form-ctrl
+		overflow hidden	// use BFC to auto fit width
+		padding-right $cm-content-padding
+
+		textarea, select, option
+		{$-sel-input-text}
+			appearance none
+			box-sizing border-box
+			margin 0
+			padding 0
+			width 100%
+			color inherit
+			border none
+			background-color transparent
+		textarea
+			resize vertical
+			padding $-padding-v 0
+			min-height $-lh * 3
+		{$-sel-input-text}
+			height $-h
+		select
+			height $-h
+		option
+			padding 5px 0
+		{$-sel-input-option}
+			size $-size-input-option
+
+		// placeholder for select box
+		select
+			&.cm-form-placeholder
+				color $-color-placeholder
+		option
+			color $cm-color-fg
+			&.cm-form-placeholder
+				color $-color-placeholder
+
+	// placeholder style for text box
+	textarea
+	{$-sel-input-text}
+		-placeholder()
+			color $-color-placeholder
+			opacity 1
+		&::-webkit-input-placeholder
+			-placeholder()
+		&::-moz-placeholder
+			-placeholder()
+		&:-ms-input-placeholder
+			-placeholder()
+		&::placeholder
+			-placeholder()
+
+	// placeholder to trigger interactive widget
+	.cm-form-ctrl-value
+		display block
+		padding $-padding-v 0
+		cursor pointer
+	.cm-form-placeholder
+		color $-color-placeholder
+	.cm-form-ctrl-value-with-right-arrow
+		padding-right 20px
+
+	// ctrl with right arrow
+	-right-arrow()
+		$-arrow-size = 10px
+		$-arrow-color = #ccc
+		$-arrow-line-width = 1px
+		$-arrow-area-width = 30px
+		position relative
+		&::after
+			content ''
+			box-sizing border-box
+			position absolute
+			right ($-arrow-size * (1.4142135 - 1) / 2)	// make arrow inside exactly
+			top 50%
+			margin-top (- $-arrow-size / 2)
+			size $-arrow-size
+			color $-arrow-color
+			border-style solid
+			border-width $-arrow-line-width $-arrow-line-width 0 0
+			transform rotate(45deg)
+			pointer-events none
+
+	.cm-form-select-wrapper
+	.cm-form-ctrl-value-with-right-arrow
+		-right-arrow()
+
+	// dual select
+	.cm-form-dual-select
+		> .cm-form-select-wrapper
+			$-gap = 5%	// approximatively 10px in 191px (width of `.cm-form-ctrl` in 320px screen)
+			$-splitter-h = 30px
+			$-splitter-w = 1px
+			float left
+			width (50% - $-gap)
+			+ .cm-form-select-wrapper
+				float right
+				padding-left $-gap
+				&::before
+					content ''
+					float left
+					margin-left (- unit(($-gap + 0.5%) / 50% * 100, '%'))	// get gap value related to select-wrapper
+					margin-top (($-h - $-splitter-h) / 2)
+					size 0 $-splitter-h
+					border-left $-splitter-w solid $cm-color-splitter
+
+	.cm-form-select-range
+		// layout
+		> span
+			float left
+			margin-left 0.25em
+		.cm-form-select-wrapper
+			position relative
+			width 42%
+			float right
+			&:first-child
+				float left
+
+			.cm-form-unit
+				position absolute
+				top 0
+				right 0
+				margin 0	// override defaults
+				padding 0	// override defaults
+
+		// vertical align
+		> span
+		label
+			line-height $-h
+		// remove arrow
+		.cm-form-select-wrapper
+			&::after
+				display none
+
+	// muitiple radio button
+	.cm-form-option-list
+		$-gap = 1em
+		padding-top $-padding-v
+		// make room for option's margin-right
+		margin-right (- $cm-content-padding)
+		> label
+			float left
+			margin-right $-gap
+			margin-bottom $-padding-v
+			cursor pointer
+		{$-sel-input-option}
+			float left
+			margin-left 1px
+			margin-top (($-lh - $-size-input-option) / 2)
+			margin-right 0.333em
+
+	// note
+	$-label-w = $cm-font-size * ($-label-ch + $-label-ctrl-gap-ch) + $cm-content-padding * 2
+	.cm-form-note-minor
+		clear both
+		padding-left $-label-w
+		padding-right $cm-content-padding
+		padding-bottom $cm-content-padding
+		font-size $cm-font-size-s
+		line-height $cm-line-height
+	.cm-form-note
+		clear both
+		padding $cm-content-padding
+		padding-left $cm-content-padding * 2
+		font-size $cm-font-size-s
+		line-height $cm-line-height
+		background-color #f8f8f8
+		&.cm-form-note-error
+			font-size inherit
+			color $-color-fg-error
+			background-color $-color-bg-error
+
+	// error msg
+	.cm-form-error
+		clear both
+		padding-left 40px
+		padding-right $cm-content-padding
+		padding-bottom $cm-content-padding
+		color $-color-fg-error
+		> .cm-icon
+			float left
+			margin-left -23px
+
+	// image uploader
+	.cm-form-image
+		$-img-size = 66px	// including border
+		$-img-size-s = 58px	// including border
+		$-gap = 10px
+
+		clearfix()
+		padding-top $-padding-v
+		padding-bottom ($-padding-v - $-gap)
+		// make room for `image-item`'s margin-right
+		margin-right (- $cm-content-padding)
+
+		.cm-form-image-item
+		.cm-form-image-btn-add
+			float left
+			position relative
+			box-sizing border-box
+			margin 0 $-gap $-gap 0
+			border 1px solid #e6e6e6
+			// size
+			size $-img-size
+			@media screen and (max-width: 359px)
+				size $-img-size-s
+
+		.cm-form-image-title
+			position absolute
+			z-index 10
+			left 0
+			right 0
+			bottom 0
+			font-size $cm-font-size-s
+			text-align center
+			color white
+			background-color rgba(0, 0, 0, 50%)
+
+		.cm-form-image-btn-add
+			html.no-touch &:hover
+				border-color #ccc
+			input[type="file"]
+				position absolute
+				z-index 10
+				size 100%
+				overflow hidden
+				opacity 0
+				cursor pointer
+			label
+				$-len = 26px
+				color transparent
+				font-size 0
+				&
+				&::before
+				&::after
+					position absolute
+					content ''
+					border 1px solid #ccc
+					border-radius 1px
+				&
+					size ($-len - 2) 0
+					left 50%
+					top 50%
+					margin-left (-26px / 2)
+					margin-top -1px
+				&::before
+				&::after
+					left 50%
+					margin-left -1px
+					size 0
+				&::before
+					top (- $-len / 2)
+				&::after
+					bottom (- $-len / 2)
+					height ($-len - 2 - 2 - 2)
+
+		.cm-form-image-btn-remove
+			$-btn-size = 24px
+			appearance none
+			border none
+			position absolute
+			z-index 20
+			right (- $-btn-size / 4)
+			top (- $-btn-size / 4)
+			cursor pointer
+			size $-btn-size
+			font-size 20px
+			line-height $-btn-size
+			text-align center
+			color white
+			border-radius 99em
+			background-color rgba(0, 0, 0, 0.75)
+			box-shadow 0 0 0 1px rgba(255, 255, 255, 0.2)
+			// interaction
+			no-tap-highlight()
+			html.no-touch &:hover
+				background-color $-color-fg-error
+			html.cmui &:active
+				background-color darken($-color-fg-error, 50%)
+
+		.cm-form-image-wrapper
+			size 100%
+			img
+				display block
+				size 100%
+
+		$-alpha = 0.5
+		.cm-form-image-status-loading
+		.cm-form-image-status-failed
+			position absolute
+			left 0
+			right 0
+			top 0
+			bottom 0
+			z-index 10
+			color white
+			background-color rgba(0, 0, 0, $-alpha)
+			font-size $cm-font-size-s
+			line-height ($-img-size - 2)
+			text-align center
+		.cm-form-image-status-loading
+			background black url(http://file.baixing.net/201504/ui-loading-32x32-white-black.gif) no-repeat center center
+			opacity $-alpha
