@@ -75,6 +75,12 @@ CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和�
 
 ***
 
+## Thanks
+
+CMUI is based on these open source projects:
+
+* [Normalize.css](https://github.com/necolas/normalize.css)
+
 ## License
 
 [MIT License](http://www.opensource.org/licenses/mit-license.php)
