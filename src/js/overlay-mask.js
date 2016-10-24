@@ -26,12 +26,19 @@ void function (window, CMUI) {
 			}
 		},
 		_pos: function () {
+			// first, shrink
+			this.$elem.css('height', '100%')
+			// then, reset its height.
 			this.$elem.css({
 				height: document.documentElement.scrollHeight + 'px'
 			})
 		},
 
 		//api
+		get$Element: function () {
+			this._prepare()
+			return this.$elem
+		},
 		adjust: function () {
 			this._pos()
 		},

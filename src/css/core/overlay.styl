@@ -32,6 +32,8 @@
 
 	/* --------------------------------------------- */
 	/** mask **/
+	// Why not use `fixed` for mask?
+	// On iOS, viewport updates async while scrolling, making Mask sluggish.
 	.cm-mask
 		absolute left top
 		z-index 100
@@ -67,7 +69,6 @@
 			display block
 			margin 5px 20px 10px
 			color white
-			font-weight 700
 			text-align center
 
 
