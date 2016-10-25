@@ -28,11 +28,12 @@
 		color $cm-color-link
 
 	// phone link
-	html:not(.phone) a[href^="tel:"]
+	html.desktop a[href^="tel:"]
 		color inherit
 		text-decoration inherit
-	html.desktop a[href^="tel:"]
 		pointer-events none
+		cursor text
+		cursor not-allowed
 
 	// context menu
 	a[data-action]
