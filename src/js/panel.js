@@ -11,6 +11,7 @@ void function (window, CMUI) {
 	var CLS = 'cm-panel'
 
 	var _stack = []
+	/*
 	var actions = {
 		'cm-panel-show': function () {
 			var elem = this
@@ -49,10 +50,12 @@ void function (window, CMUI) {
 		}
 	}
 
-	// api
 	function _init() {
 		gearbox.action.add(actions)
 	}
+	*/
+
+	// api
 	function show(elem, options) {
 		// options
 		// - height: '123px' or '45%' (default '200px')
@@ -161,7 +164,7 @@ void function (window, CMUI) {
 	}
 
 	//exports
-	module._init = _init
+	// module._init = _init
 	module.show = show
 	module.hide = hide
 	module.switchTo = switchTo
