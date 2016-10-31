@@ -19,7 +19,11 @@
     "lint-css": "gulp lint-css",
     "predist": "stylus -C node_modules/normalize.css/normalize.css src/css/vendor/normalize.styl"
   },
-  "dependencies": {},
+  "dependencies": {
+    "cmui-gearbox": "^0.6.0",
+    "underscore": "^1.6.0",
+    "zepto.js": "^1.1"
+  },
   "devDependencies": {
     "normalize.css": "^4.2.0",
     "del": "1.*",
