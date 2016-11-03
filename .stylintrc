@@ -16,7 +16,7 @@
   },
   "efficient": {
     "expect": "always",
-    "error": true
+    "error": false
   },
   "leadingZero": {
     "expect": "always",
@@ -32,7 +32,7 @@
   },
   "colons": {
     "expect": "never",
-    "error": true
+    "error": false
   },
   "brackets": {
     "expect": "never",
@@ -57,7 +57,7 @@
   },
   "quotePref": {
     "expect": "single",
-    "error": true
+    "error": false
   },
   "commaSpace": {
     "expect": "always",
@@ -74,7 +74,7 @@
 
   "valid": {
     "expect": true,
-    "error": true
+    "error": false
   },
   "mixins": false,
   "none": false,
