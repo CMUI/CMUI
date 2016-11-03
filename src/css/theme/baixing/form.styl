@@ -198,6 +198,9 @@
 		padding-bottom $cm-content-padding
 		font-size $cm-font-size-s
 		line-height $cm-line-height
+	.cm-form-ctrl
+		.cm-form-note-minor
+			padding-left 0
 	.cm-form-note
 		clear both
 		padding $cm-content-padding
@@ -226,13 +229,16 @@
 		$-img-size = 66px	// including border
 		$-img-size-s = 58px	// including border
 		$-gap = 10px
+		$-wrapper-padding-bottom = $-padding-v - $-gap
 
 		clearfix()
 		padding-top $-padding-v
-		padding-bottom ($-padding-v - $-gap)
+		padding-bottom $-wrapper-padding-bottom
 		// make room for `image-item`'s margin-right
 		margin-right (- $cm-content-padding)
 
+		.cm-form-note-minor
+			padding-bottom ($cm-content-padding - $-wrapper-padding-bottom)
 		.cm-form-image-item
 		.cm-form-image-btn-add
 			float left
