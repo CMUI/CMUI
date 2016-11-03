@@ -25,11 +25,9 @@
     "zepto.js": "^1.1"
   },
   "devDependencies": {
-    "del": "1.*",
-    "gulp": "3.*",
-    "gulp-rename": "1.*",
+    "gulp": "github:gulpjs/gulp#4.0",
     "gulp-stylint": "^3.0.0",
-    "gulp-stylus": "2.*",
+    "gulpfiles": "^0.2.0",
     "nib": "^1.0.4",
     "normalize.css": "5.0.0",
     "stylus": "^0.54"
