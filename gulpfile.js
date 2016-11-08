@@ -15,7 +15,7 @@ var PATH_DEST = './dist/'
 var FILES_DEST = path.join(PATH_DEST, '**/*')
 
 gulp.task('clean', gulpfiles.del({
-	files: FILES_DEST,
+	glob: FILES_DEST,
 }))
 
 gulp.task('lint-css', function () {
