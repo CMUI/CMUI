@@ -1,8 +1,6 @@
+/*! Zero | MIT License | https://github.com/CMUI/zero */
+// Inspired by [nib](https://github.com/tj/nib).
 
-////////////////////  reset  ////////////////////
-// CMUI is based on normalize.css, but we still need to reset some elements.
-
-/* --------------------------------------------- */
 // helper
 reset-box()
 	margin 0
@@ -16,7 +14,7 @@ reset-text()
 	font-weight inherit
 
 /* --------------------------------------------- */
-// reset box model
+/* reset box model */
 html, body,
 h1, h2, h3, h4, h5, h6,
 p, blockquote, pre, address,
@@ -30,15 +28,15 @@ figure, footer, header, main, nav, section, summary,
 menu
 	reset-box()
 
-// headline
+/* headline */
 h1, h2, h3, h4, h5, h6
 	reset-font-size()
 
-// list
+/* list */
 ul, ol, menu
 	list-style none outside
 
-// table cell
+/* table cell */
 caption, th, td
 	reset-table-cell()
 
@@ -47,18 +45,18 @@ label[for]
 	cursor pointer
 
 /* --------------------------------------------- */
-// text style
+/* text style */
 blockquote, q, address, abbr, dfn, cite
 	reset-text()
 
 /* --------------------------------------------- */
-// set inline-block to block
+/* set inline-block to block */
 embed, object, iframe, img, audio, video, canvas, progress
 	display block
 	reset-box()
 
 /* --------------------------------------------- */
-// other
+/* other */
 hr
 	display block
 	reset-border()

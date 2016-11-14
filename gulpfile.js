@@ -29,6 +29,11 @@ const scripts = {
 		'./src/js/adapter-trad/_outro.js',
 	]
 }
+const modules = {
+	'zero.styl': [
+		'./node_modules/cmui-zero/src/zero.styl',
+	]
+}
 
 gulp.task('clean', gulpfiles.del({
 	glob: FILES_DEST,
@@ -44,6 +49,10 @@ gulp.task('lint-css', function () {
 		.pipe(stylint.reporter())
 		.pipe(stylint.reporter('fail'))
 })
+gulp.task('prepare-module', gulpfiles.concat({
+	rules: modules,
+	dest: './src/css/vendor/',
+}))
 
 gulp.task('css', gulpfiles.stylus({
 	src: ENTRY_SRC_CSS,
@@ -58,6 +67,7 @@ gulp.task('js', gulpfiles.concat({
 gulp.task('default', gulp.series([
 	'lint-css',
 	'clean',
+	'prepare-module',
 	gulp.parallel([
 		'js',
 		'css',

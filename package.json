@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "cmui-gearbox": "^0.6.0",
+    "cmui-zero": "^0.1.1",
     "underscore": "^1.6.0",
     "zepto.js": "^1.1"
   },
