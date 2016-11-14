@@ -1,18 +1,34 @@
 'use strict'
 
-var path = require('path')
-var gulp = require('gulp')
-var nib = require('nib')
-var stylus = require('gulp-stylus')
-var stylint = require('gulp-stylint')
-var rename = require('gulp-rename')
-var gulpfiles = require('gulpfiles')
+const path = require('path')
+const gulp = require('gulp')
+const nib = require('nib')
+const stylus = require('gulp-stylus')
+const stylint = require('gulp-stylint')
+const rename = require('gulp-rename')
+const gulpfiles = require('gulpfiles')
 
-var PATH_SRC_CSS = './src/css/'
-var FILES_SRC_CSS = path.join(PATH_SRC_CSS, '**/*.styl')
-var ENTRY_SRC_CSS = path.join(PATH_SRC_CSS, '_wrapper/cmui.styl')
-var PATH_DEST = './dist/'
-var FILES_DEST = path.join(PATH_DEST, '**/*')
+const PATH_SRC_CSS = './src/css/'
+const FILES_SRC_CSS = path.join(PATH_SRC_CSS, '**/*.styl')
+const ENTRY_SRC_CSS = path.join(PATH_SRC_CSS, '_wrapper/cmui.styl')
+const PATH_DEST = './dist/'
+const FILES_DEST = path.join(PATH_DEST, '**/*')
+
+const scripts = {
+	'cmui.js': [
+		'./src/js/adapter-trad/_intro.js',
+		'./src/js/adapter-trad/_var.js',
+		'./src/js/core.js',
+		'./src/js/dom.js',
+		'./src/js/btn.js',
+		'./src/js/form.js',
+		'./src/js/msg-box.js',
+		'./src/js/overlay-mask.js',
+		'./src/js/overlay-loading.js',
+		'./src/js/panel.js',
+		'./src/js/adapter-trad/_outro.js',
+	]
+}
 
 gulp.task('clean', gulpfiles.del({
 	glob: FILES_DEST,
@@ -34,12 +50,16 @@ gulp.task('css', gulpfiles.stylus({
 	dest: PATH_DEST,
 }))
 
+gulp.task('js', gulpfiles.concat({
+	rules: scripts,
+	dest: PATH_DEST,
+}))
+
 gulp.task('default', gulp.series([
+	'lint-css',
+	'clean',
 	gulp.parallel([
-		'clean',
-		'lint-css',
-	]),
-	gulp.parallel([
+		'js',
 		'css',
 	]),
 ]))
