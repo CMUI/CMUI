@@ -23,5 +23,3 @@ npm-debug.log
 
 *.sh
 *.bat
-
-dist/
