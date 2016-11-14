@@ -1,6 +1,6 @@
 # CMUI
 
-CMUI is a UI framework for mobile web. It provides rich widgets and simple interfaces out-of-the-box, which helps developers get ride of details of styling and troubles of compatibility, and focus on building their own applications.
+> CMUI is a UI framework for mobile web. It provides rich widgets and simple interfaces out-of-the-box, which helps developers get ride of details of styling and troubles of compatibility, and focus on building their own applications.
 
 CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和简洁的接口，开箱即用。CMUI 帮助开发者摆脱样式细节和兼容性困扰，从而腾出更多精力投入到业务开发中。
 
@@ -25,7 +25,11 @@ CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和�
 * Zepto 1.1+
 * Gearbox 0.6+
 
-## 安装
+## 安装与使用
+
+> CMUI v2 仍在 beta 阶段，以下步骤可能无法工作。
+
+#### 传统方式
 
 0. 通过 npm 3 安装：
 
@@ -34,8 +38,6 @@ CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和�
 	```
 
 0. 在页面中加载 CMUI 的样式文件、脚本文件及必要的依赖：
-
-	> 抱歉，目前包内未包含 dist 文件，需要自行构建。
 
 	```html
 	<!DOCTYPE html>
@@ -54,7 +56,20 @@ CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和�
 	</html>
 	```
 
-## 演示
+#### 通过 Stylus 加载
+
+如果你的项目以 [Stylus](http://stylus-lang.com/) 作为 CSS 预处理器语言，则可以在你的源码中直接引入 CMUI 的样式入口文件：
+
+```stylus
+@import './node_modules/cmui/src/css/theme/baixing/index'
+```
+
+在这种方式下，你可以在源码中使用 [CMUI 提供的高级 API](http://cmui.net/demo/v2/theme/baixing/api.php)：
+
+* 变量
+* Mixin
+
+## 演示与文档
 
 建议使用 iOS/Android 设备访问：[CMUI Demo](http://cmui.net/)
 
@@ -78,6 +93,7 @@ CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和�
 CMUI is based on these open source projects:
 
 * [Normalize.css](https://github.com/necolas/normalize.css)
+* [Zero](https://github.com/CMUI/zero)
 
 ## License
 
