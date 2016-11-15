@@ -18,21 +18,19 @@
     "css": "gulp css",
     "js": "gulp js",
     "lint-css": "gulp lint-css",
-    "prepublish": "npm run dist",
-    "predist": "stylus -C node_modules/normalize.css/normalize.css src/css/vendor/normalize.styl"
+    "prepublish": "npm run dist"
   },
   "dependencies": {
     "cmui-gearbox": "^0.6.0",
-    "cmui-zero": "^0.1.1",
+    "cmui-zero": "^0.1.2",
     "underscore": "^1.6.0",
     "zepto.js": "^1.1"
   },
   "devDependencies": {
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-stylint": "^3.0.0",
-    "gulpfiles": "^0.3.0",
+    "gulpfiles": "^0.4.0",
     "nib": "^1.0.4",
-    "normalize.css": "5.0.0",
-    "stylus": "^0.54"
+    "normalize.css": "5.0.0"
   }
 }

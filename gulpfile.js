@@ -2,10 +2,7 @@
 
 const path = require('path')
 const gulp = require('gulp')
-const nib = require('nib')
-const stylus = require('gulp-stylus')
 const stylint = require('gulp-stylint')
-const rename = require('gulp-rename')
 const gulpfiles = require('gulpfiles')
 
 const PATH_SRC_CSS = './src/css/'
@@ -32,7 +29,10 @@ const scripts = {
 const modules = {
 	'zero.styl': [
 		'./node_modules/cmui-zero/src/zero.styl',
-	]
+	],
+	'normalize.styl': [
+		'./node_modules/normalize.css/normalize.css',
+	],
 }
 
 gulp.task('clean', gulpfiles.del({
@@ -57,6 +57,7 @@ gulp.task('prepare-module', gulpfiles.concat({
 gulp.task('css', gulpfiles.stylus({
 	src: ENTRY_SRC_CSS,
 	dest: PATH_DEST,
+	config: {nib: true},
 }))
 
 gulp.task('js', gulpfiles.concat({
