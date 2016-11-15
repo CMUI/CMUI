@@ -57,7 +57,10 @@ gulp.task('prepare-module', gulpfiles.concat({
 gulp.task('css', gulpfiles.stylus({
 	src: ENTRY_SRC_CSS,
 	dest: PATH_DEST,
-	config: {nib: true},
+	config: {
+		nib: true,
+		brush: true,
+	},
 }))
 
 gulp.task('js', gulpfiles.concat({
