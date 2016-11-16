@@ -10,6 +10,7 @@ const FILES_SRC_CSS = path.join(PATH_SRC_CSS, '**/*.styl')
 const ENTRY_SRC_CSS = path.join(PATH_SRC_CSS, '_wrapper/cmui.styl')
 const PATH_DEST = './dist/'
 const FILES_DEST = path.join(PATH_DEST, '**/*')
+const PATH_SRC_CSS_VENDOR = path.join(PATH_SRC_CSS, 'vendor')
 
 const scripts = {
 	'cmui.js': [
@@ -26,14 +27,6 @@ const scripts = {
 		'./src/js/adapter-trad/_outro.js',
 	]
 }
-const modules = {
-	'zero.styl': [
-		'./node_modules/cmui-zero/src/zero.styl',
-	],
-	'normalize.styl': [
-		'./node_modules/normalize.css/normalize.css',
-	],
-}
 
 gulp.task('clean', gulpfiles.del({
 	glob: FILES_DEST,
@@ -49,10 +42,20 @@ gulp.task('lint-css', function () {
 		.pipe(stylint.reporter())
 		.pipe(stylint.reporter('fail'))
 })
-gulp.task('prepare-module', gulpfiles.concat({
-	rules: modules,
-	dest: './src/css/vendor/',
-}))
+
+gulp.task('prepare-module', gulp.parallel([
+	gulpfiles.copy({
+		src: './node_modules/cmui-zero/src/zero.styl',
+		dest: PATH_SRC_CSS_VENDOR,
+	}),
+	gulpfiles.copy({
+		src: './node_modules/normalize.css/normalize.css',
+		dest: PATH_SRC_CSS_VENDOR,
+		config: {
+			rename: 'normalize.styl',
+		}
+	}),
+]))
 
 gulp.task('css', gulpfiles.stylus({
 	src: ENTRY_SRC_CSS,

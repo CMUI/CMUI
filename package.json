@@ -31,7 +31,7 @@
   "devDependencies": {
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-stylint": "^3.0.0",
-    "gulpfiles": "^0.4.1",
+    "gulpfiles": "^0.4.3",
     "normalize.css": "5.0.0"
   }
 }
