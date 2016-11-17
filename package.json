@@ -23,12 +23,12 @@
   "dependencies": {
     "cmui-brush": "*",
     "cmui-gearbox": "^0.6.0",
-    "cmui-zero": "^0.1.2",
     "nib": "^1.0.4",
     "underscore": "^1.6.0",
     "zepto.js": "^1.1"
   },
   "devDependencies": {
+    "cmui-zero": "^0.1.2",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-stylint": "^3.0.0",
     "gulpfiles": "^0.4.3",
