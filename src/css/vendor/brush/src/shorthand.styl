@@ -1,0 +1,31 @@
+
+/* --------------------------------------------- */
+/** shorthand **/
+
+// function
+fraction()
+	if length(arguments) == 1
+		unit(100 / arguments[0], '%')
+	else if length(arguments) > 1
+		unit(arguments[0] / arguments[1] * 100, '%')
+	else
+		error('missing arg')
+
+// layout
+text-center()
+	text-align center
+
+block-center()
+	margin-left auto
+	margin-right auto
+
+// dimension
+line-height-as-height($height)
+	height $height
+	line-height $height
+
+// interaction
+no-tap-highlight()
+	-webkit-tap-highlight-color transparent
+tap-highlight()
+	-webkit-tap-highlight-color rgba(0, 0, 0, 0.3)

@@ -41,7 +41,7 @@
   "indentPref": false,
   "mixed": {
     "expect": true,
-    "error": true
+    "error": false
   },
   "trailingWhitespace": {
     "expect": "never",

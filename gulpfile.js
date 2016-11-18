@@ -29,14 +29,16 @@ const scripts = {
 }
 
 gulp.task('clean', gulpfiles.del({
-	glob: FILES_DEST,
+	glob: [
+		FILES_DEST,
+		PATH_SRC_CSS_VENDOR,
+	],
 }))
 
 gulp.task('lint-css', function () {
 	return gulp.src([
 		FILES_SRC_CSS,
-		'!' + path.join(PATH_SRC_CSS, 'vendor/*.*'),
-		'!' + path.join(PATH_SRC_CSS, 'helper/lib.styl'),
+		'!' + path.join(PATH_SRC_CSS, 'vendor/**/*.*'),
 	])
 		.pipe(stylint())
 		.pipe(stylint.reporter())
@@ -54,6 +56,10 @@ gulp.task('prepare-module', gulp.parallel([
 		config: {
 			rename: 'normalize.styl',
 		}
+	}),
+	gulpfiles.copy({
+		src: './node_modules/cmui-brush/**/*.styl',
+		dest: path.join(PATH_SRC_CSS_VENDOR, 'brush'),
 	}),
 ]))
 
