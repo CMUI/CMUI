@@ -94,6 +94,7 @@ CMUI is based on these open source projects:
 
 * [Normalize.css](https://github.com/necolas/normalize.css)
 * [Zero](https://github.com/CMUI/zero)
+* [Brush](https://github.com/CMUI/brush)
 
 ## License
 
