@@ -14,7 +14,7 @@ void function (window, CMUI) {
 		//segment legacy os
 		var version = gearbox.str.toFloat(ua.osVersion)
 		var isLegacy =
-				(ua.isIOS && version < 6) ||	//below ios 6
+				(ua.isIOS && version < 7) ||	//below ios 7
 				(ua.isAndroid && version < 4)	//below android 4
 
 		//set css hook on `html` element
