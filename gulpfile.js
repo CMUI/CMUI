@@ -24,6 +24,7 @@ const scripts = {
 		'./src/js/overlay-mask.js',
 		'./src/js/overlay-loading.js',
 		'./src/js/panel.js',
+		'./src/js/scroll-box.js',
 		'./src/js/adapter-trad/_outro.js',
 	]
 }
