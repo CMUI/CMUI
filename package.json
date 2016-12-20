@@ -1,6 +1,6 @@
 {
-  "name": "cmui-v2",
-  "version": "2.0.0-beta.13",
+  "name": "cmui",
+  "version": "2.0.0-beta.14",
   "homepage": "http://cmui.net/",
   "author": "cssmagic <cssmagic.cn@gmail.com>",
   "description": "Lightweight UI solution for mobile web.",
@@ -21,8 +21,7 @@
     "prepublish": "npm run dist"
   },
   "dependencies": {
-    "cmui-gearbox": "^0.6.0",
-    "nib": "^1.0.4",
+    "cmui-gearbox": "^0.7.0",
     "underscore": "^1.6.0",
     "zepto.js": "^1.1"
   },
@@ -32,6 +31,7 @@
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-stylint": "^3.0.0",
     "gulpfiles": "^0.4.4",
+    "nib": "^1.0.4",
     "normalize.css": "5.0.0"
   }
 }
