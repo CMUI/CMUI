@@ -4,14 +4,14 @@
 
 	/* --------------------------------------------- */
 	/** overlay style **/
-	.cm-tip-box
+	.cm-toast
 	.cm-loading
 	.cm-mask
 		pointer-events auto
 		transform translate3d(0, 0, 0)
 
-	.cm-tip-box.hidden
-	.cm-tip-box.fade-out
+	.cm-toast.hidden
+	.cm-toast.fade-out
 	.cm-loading.hidden
 	.cm-loading.fade-out
 	.cm-mask.hidden
@@ -19,12 +19,12 @@
 		opacity 0
 		pointer-events none
 
-	.cm-tip-box.fade-in
+	.cm-toast.fade-in
 	.cm-loading.fade-in
 	.cm-mask.fade-in
 		transition opacity 0.15s linear
 
-	.cm-tip-box.fade-out
+	.cm-toast.fade-out
 	.cm-loading.fade-out
 	.cm-mask.fade-out
 		transition opacity 0.20s linear
@@ -76,8 +76,7 @@
 	/** dialog **/
 	.cm-dialog
 		display none
-
-	.cm-dialog-ready
-		display block
-		absolute left -999px top -999px
+		fixed left 101% top 0
 		z-index 110
+		max-width 300px
+
