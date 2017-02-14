@@ -66,6 +66,7 @@ void function (window, CMUI) {
 		// TODO: what if show a panel when another panel already shown?
 
 		// move to root of body
+		// it is unnecessary, because of fixed position.
 		// if (!$elem.parent().is('body')) $elem.appendTo(gearbox.dom.$body)
 
 		if (!_.isObject(options)) options = {}
@@ -163,14 +164,14 @@ void function (window, CMUI) {
 		_stack.pop()
 	}
 
-	//exports
+	// exports
 	// module._init = _init
 	module.show = show
 	module.hide = hide
 	module.switchTo = switchTo
 	module.switchBack = switchBack
 
-	//init
+	// init
 	CMUI._initModule(moduleName)
 
 }(window, CMUI)
