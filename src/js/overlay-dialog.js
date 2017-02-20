@@ -12,9 +12,123 @@ void function (window, CMUI) {
 
 	// const
 	var CLS = 'cm-dialog'
+	var TMPL = [
+		'<div class="cm-dialog">',
+			'<% if (data.img) { %>',
+			'<div class="cm-dialog-img">',
+				'<img src="<%= data.img %>">',
+			'</div>',
+			'<% } %>',
+			'<% if (!data.img || data.title) { %>',
+			'<header class="cm-dialog-header">',
+				'<h2 class="cm-dialog-header-title"><%- data.title || \'提示\' %></h2>',
+			'</header>',
+			'<% } %>',
+			'<% if (data.content) { %>',
+			'<main class="cm-dialog-content"><%- data.content %></main>',
+			'<% } %>',
+			'<% if (_.isObject(data.btn)) { %>',
+			'<%',
+				'var btn = data.btn',
+				'var primary = btn.primary',
+				'var minor = btn.minor',
+			'%>',
+			'<footer class="cm-dialog-footer">',
+				'<% if (_.isObject(primary)) { %>',
+					'<%',
+						'var btnLabel = primary.html || \'确定\'',
+						'var btnClass = _.isArray(primary.className) ?',
+							'primary.className.join(\' \') :',
+							'(_.isString(primary.className) ?',
+								'primary.className :',
+								'\'cm-btn cm-btn-primary\')',
+					'%>',
+					'<% if (!primary.tag || primary.tag === \'button\') { %>',
+						'<button',
+							'class="<%= btnClass %>"',
+							'<% if (primary.action) { %>',
+								'data-action="<%= primary.action %>"',
+							'<% } %>',
+							'<% if (primary.hideDialog) { %>',
+								'data-cm-dialog-btn-hide-dialog="<%= 1 %>"',
+							'<% } %>',
+						'><%- btnLabel %></button>',
+					'<% } else if (primary.tag === \'a\') { %>',
+						'<a',
+							'class="<%= btnClass %>"',
+							'href="<%= primary.link || \'#\' %>"',
+							'<% if (primary.action) { %>',
+								'data-action="<%= primary.action %>"',
+							'<% } %>',
+							'<% if (primary.hideDialog) { %>',
+								'data-cm-dialog-btn-hide-dialog="<%= 1 %>"',
+							'<% } %>',
+						'><%- btnLabel %></a>',
+					'<% } else if (primary.tag === \'input\') { %>',
+						'<input',
+							'class="<%= btnClass %>"',
+							'<% if (primary.action) { %>',
+								'data-action="<%= primary.action %>"',
+							'<% } %>',
+							'<% if (primary.hideDialog) { %>',
+								'data-cm-dialog-btn-hide-dialog="<%= 1 %>"',
+							'<% } %>',
+							'value="<%= btnLabel %>"',
+						'>',
+					'<% } %>',
+				'<% } %>',
+				'<% if (_.isObject(minor)) { %>',
+					'<%',
+						'var btnLabel = minor.html || \'取消\'',
+						'var btnClass = _.isArray(minor.className) ?',
+							'minor.className.join(\' \') :',
+							'(_.isString(minor.className) ?',
+								'minor.className :',
+								'\'cm-btn cm-btn-primary cm-btn-bordered\'',
+							')',
+					'%>',
+					'<% if (!minor.tag || minor.tag === \'button\') { %>',
+						'<button',
+							'class="<%= btnClass %> cm-btn-minor"',
+							'<% if (minor.action) { %>',
+								'data-action="<%= minor.action %>"',
+							'<% } %>',
+							'<% if (minor.hideDialog) { %>',
+								'data-cm-dialog-btn-hide-dialog="<%= 1 %>"',
+							'<% } %>',
+						'><%- btnLabel %></button>',
+					'<% } else if (minor.tag === \'a\') { %>',
+						'<a',
+							'class="<%= btnClass %> cm-btn-minor"',
+							'href="<%= minor.link || \'#\' %>"',
+							'<% if (minor.action) { %>',
+								'data-action="<%= minor.action %>"',
+							'<% } %>',
+							'<% if (minor.hideDialog) { %>',
+								'data-cm-dialog-btn-hide-dialog="<%= 1 %>"',
+							'<% } %>',
+						'><%- btnLabel %></a>',
+					'<% } else if (minor.tag === \'input\') { %>',
+						'<input',
+							'class="<%= btnClass %> cm-btn-minor"',
+							'<% if (minor.action) { %>',
+								'data-action="<%= minor.action %>"',
+							'<% } %>',
+							'<% if (minor.hideDialog) { %>',
+								'data-cm-dialog-btn-hide-dialog="<%= 1 %>"',
+							'<% } %>',
+							'value="<%= btnLabel %>"',
+						'>',
+					'<% } %>',
+				'<% } %>',
+			'</footer>',
+			'<% } %>',
+		'</div>'
+	].join('\n')
 
 	var _stack = []
-	var _isReady = false
+	var _isWindowResizeReady = false
+	var _isTemplateReady = false
 
 	var _root = document.documentElement
 	var _body = document.body
@@ -23,8 +137,9 @@ void function (window, CMUI) {
 	gearbox.action.add({
 		'cm-dialog-hide': function () {
 			var $this = $(this)
-			if (this !== window) {	// means current action is not triggered by js
-				var $dialog = $(this).closest('.' + CLS)
+			// means current action is triggered by user click, not by js
+			if (this !== window) {
+				var $dialog = $this.closest('.' + CLS)
 				if (_.last(_stack).elem === $dialog[0]) {
 					CMUI.dialog.hide()
 				} else {
@@ -38,7 +153,7 @@ void function (window, CMUI) {
 
 	// api
 	function show(elem, options) {
-		_prepare()
+		_prepareWindowResize()
 		var $elem = $(elem).first()	// only allow to show one dialog
 		if (!$elem.hasClass(CLS)) return false
 		var dialog = new Dialog($elem, options)
@@ -50,19 +165,28 @@ void function (window, CMUI) {
 		dialog.hide()
 	}
 	function create(config) {
-		// todo
+		_prepareTemplate()
+		if (!_.isObject(config)) config = {}
+		var html = gearbox.template.render('cm-dialog', config)
+		var $dialog = $(html).appendTo(gearbox.dom.$body)
+		return $dialog[0]
 	}
 
 	// util
-	function _prepare() {
-		if (_isReady) return
-		_isReady = true
+	function _prepareWindowResize() {
+		if (_isWindowResizeReady) return
+		_isWindowResizeReady = true
 		gearbox.dom.$win.on('resize', function () {
-			console.log('resize')
+			// console.log('resize')
 			if (!_stack.length) return
 			var dialog = _.last(_stack)
 			dialog.adjust()
 		})
+	}
+	function _prepareTemplate() {
+		if (_isTemplateReady) return
+		_isTemplateReady = true
+		gearbox.template.add('cm-dialog', TMPL)
 	}
 
 	// class
