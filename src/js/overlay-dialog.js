@@ -94,7 +94,7 @@ void function (window, CMUI) {
 								'data-action="<%= minor.action %>"',
 							'<% } %>',
 							'<% if (minor.hideDialog) { %>',
-								'data-cm-dialog-btn-hide-dialog="<%= 1 %>"',
+								'data-cm-dialog-btn-hide-dialog',
 							'<% } %>',
 						'><%- btnLabel %></button>',
 					'<% } else if (minor.tag === \'a\') { %>',
@@ -115,7 +115,7 @@ void function (window, CMUI) {
 								'data-action="<%= minor.action %>"',
 							'<% } %>',
 							'<% if (minor.hideDialog) { %>',
-								'data-cm-dialog-btn-hide-dialog="<%= 1 %>"',
+								'data-cm-dialog-btn-hide-dialog',
 							'<% } %>',
 							'value="<%= btnLabel %>"',
 						'>',
@@ -127,7 +127,7 @@ void function (window, CMUI) {
 	].join('\n')
 
 	var _stack = []
-	var _isWindowResizeReady = false
+	var _isEventReady = false
 	var _isTemplateReady = false
 
 	var _root = document.documentElement
@@ -153,7 +153,7 @@ void function (window, CMUI) {
 
 	// api
 	function show(elem, options) {
-		_prepareWindowResize()
+		_prepareEvent()
 		var $elem = $(elem).first()	// only allow to show one dialog
 		if (!$elem.hasClass(CLS)) return false
 		var dialog = new Dialog($elem, options)
@@ -173,14 +173,17 @@ void function (window, CMUI) {
 	}
 
 	// util
-	function _prepareWindowResize() {
-		if (_isWindowResizeReady) return
-		_isWindowResizeReady = true
+	function _prepareEvent() {
+		if (_isEventReady) return
+		_isEventReady = true
 		gearbox.dom.$win.on('resize', function () {
 			// console.log('resize')
 			if (!_stack.length) return
 			var dialog = _.last(_stack)
 			dialog.adjust()
+		})
+		gearbox.dom.$body.on('click', '[data-cm-dialog-btn-hide-dialog]', function () {
+			gearbox.action.trigger('cm-dialog-hide', this)
 		})
 	}
 	function _prepareTemplate() {
@@ -266,28 +269,24 @@ void function (window, CMUI) {
 				dialogLast.$elem.hide()
 			}
 
-			// to get its actual size, show it at first
-			$elem.css({
-				visibility: 'hidden',
-				left: '-101%',
-				top: 0,
-			}).show()
 			this._pos()
-			$elem.css({ visibility: 'visible' })
+			$elem.css({ visibility: 'visible' }).show()
 
 			if (!_stack.length) CMUI.mask.fadeIn()
 			_stack.push(this)
 		},
 		hide: function () {
+			_stack.pop()
 			this.$elem.hide()
 			this.destroy()
-			if (_stack.length === 1) CMUI.mask.fadeOut()
-			_stack.pop()
 
 			// restore previous dialog
 			if (_stack.length) {
 				var dialogLast = _.last(_stack)
-				dialogLast.$elem.show()
+				dialogLast._pos()
+				dialogLast.$elem.css({ visibility: 'visible' }).show()
+			} else {
+				CMUI.mask.fadeOut()
 			}
 		},
 		destroy: function () {
@@ -298,6 +297,15 @@ void function (window, CMUI) {
 		_pos: function (onlyX) {
 			var $elem = this.$elem
 			var elem = $elem[0]
+
+			// if its not current dialog, show it to get its actual size
+			if ($elem.css('display') === 'none') {
+				$elem.css({
+					visibility: 'hidden',
+					left: '-101%',
+					top: 0,
+				}).show()
+			}
 
 			var l = Math.round((_root.clientWidth - elem.offsetWidth) / 2)
 			var t
