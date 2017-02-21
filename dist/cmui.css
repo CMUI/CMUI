@@ -447,6 +447,12 @@ ol.cm-text,
   padding-left: 2em;
   list-style-type: disc;
 }
+ul.cm-text li:not(:first-child) p,
+ol.cm-text li:not(:first-child) p,
+.cm-text ul li:not(:first-child) p,
+.cm-text ol li:not(:first-child) p {
+  margin-top: 5px;
+}
 ol.cm-text,
 .cm-text ol {
   list-style-type: decimal;
@@ -939,7 +945,7 @@ html.cmui .cm-msg-box .cm-msg-box-close-btn:active {
 .subview > main:after {
   clear: both;
 }
-.cm-tip-box,
+.cm-toast,
 .cm-loading,
 .cm-mask {
   pointer-events: auto;
@@ -947,8 +953,8 @@ html.cmui .cm-msg-box .cm-msg-box-close-btn:active {
   -moz-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
-.cm-tip-box.hidden,
-.cm-tip-box.fade-out,
+.cm-toast.hidden,
+.cm-toast.fade-out,
 .cm-loading.hidden,
 .cm-loading.fade-out,
 .cm-mask.hidden,
@@ -956,14 +962,14 @@ html.cmui .cm-msg-box .cm-msg-box-close-btn:active {
   opacity: 0;
   pointer-events: none;
 }
-.cm-tip-box.fade-in,
+.cm-toast.fade-in,
 .cm-loading.fade-in,
 .cm-mask.fade-in {
   -webkit-transition: opacity 0.15s linear;
   -moz-transition: opacity 0.15s linear;
   transition: opacity 0.15s linear;
 }
-.cm-tip-box.fade-out,
+.cm-toast.fade-out,
 .cm-loading.fade-out,
 .cm-mask.fade-out {
   -webkit-transition: opacity 0.2s linear;
@@ -1012,13 +1018,94 @@ html.cmui .cm-msg-box .cm-msg-box-close-btn:active {
 }
 .cm-dialog {
   display: none;
-}
-.cm-dialog-ready {
-  display: block;
   position: absolute;
-  left: -999px;
-  top: -999px;
   z-index: 110;
+  max-width: 300px;
+}
+.cm-dialog {
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 42px;
+  color: #999;
+  text-align: center;
+  background-color: #fff;
+}
+.cm-dialog .cm-dialog-header {
+  margin-top: 18px;
+}
+.cm-dialog .cm-dialog-header:last-child {
+  margin-bottom: 20px;
+}
+.cm-dialog .cm-dialog-content {
+  margin-top: 18px;
+}
+.cm-dialog .cm-dialog-content:last-child {
+  margin-bottom: 20px;
+}
+.cm-dialog .cm-dialog-header + .cm-dialog-content {
+  margin-top: 6px;
+}
+.cm-dialog .cm-dialog-footer {
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+.cm-dialog .cm-dialog-header + .cm-dialog-auto-hide {
+  margin-top: 20px;
+}
+.cm-dialog .cm-dialog-content + .cm-dialog-auto-hide {
+  margin-top: 20px;
+}
+.cm-dialog .cm-dialog-close-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 42px;
+  height: 42px;
+  text-decoration: none !important;
+  color: rgba(0,0,0,0.4);
+  border-radius: 8px;
+  -webkit-tap-highlight-color: transparent;
+}
+.cm-dialog .cm-dialog-close-btn::after {
+  content: '×';
+  line-height: 42px;
+  font-size: 32px;
+}
+html.no-touch .cm-dialog .cm-dialog-close-btn:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+html.cmui .cm-dialog .cm-dialog-close-btn:active {
+  background-color: rgba(0,0,0,0.1);
+}
+.cm-dialog .cm-dialog-img img {
+  width: 100%;
+}
+.cm-dialog .cm-dialog-header {
+  padding: 0 15px;
+  font-size: 18px;
+  color: #333;
+}
+.cm-dialog .cm-dialog-header .cm-dialog-header-title,
+.cm-dialog .cm-dialog-header h1,
+.cm-dialog .cm-dialog-header h2,
+.cm-dialog .cm-dialog-header h3,
+.cm-dialog .cm-dialog-header h4,
+.cm-dialog .cm-dialog-header h5,
+.cm-dialog .cm-dialog-header h6 {
+  font-weight: inherit;
+}
+.cm-dialog .cm-dialog-content {
+  padding: 0 15px;
+}
+.cm-dialog .cm-dialog-footer {
+  padding: 0 15px;
+}
+.cm-dialog .cm-dialog-footer .cm-btn + .cm-btn {
+  margin-top: 10px;
+}
+.cm-dialog .cm-dialog-auto-hide {
+  border-top: 1px solid #e6e6e6;
+  padding: 13px 15px 15px;
 }
 .cm-list li > label:first-child {
   -webkit-tap-highlight-color: rgba(0,0,0,0.3);
