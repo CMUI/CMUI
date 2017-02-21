@@ -1,3 +1,86 @@
 
 ////////////////////  bx - overlay  ////////////////////
 -cm-core-overlay()
+
+/* --------------------------------------------- */
+/** dialog **/
+.cm-dialog
+	$-padding = 15px
+	$-br = 8px
+	$-color-border = #e6e6e6
+	$-min-size = 42px
+
+	border-radius $-br
+	overflow hidden
+	min-height $-min-size
+	color $cm-color-fg-light
+	text-align center
+	background-color $cm-color-bg
+
+	// layout
+	$-margin = 20px
+	.cm-dialog-header
+		margin-top ($-margin - 2)
+		&:last-child
+			margin-bottom $-margin
+	.cm-dialog-content
+		margin-top ($-margin - 2)
+		&:last-child
+			margin-bottom $-margin
+	.cm-dialog-header + .cm-dialog-content
+		margin-top 6px
+	.cm-dialog-footer
+		margin-top $-margin
+		margin-bottom $-padding
+	.cm-dialog-header + .cm-dialog-auto-hide
+		margin-top $-margin
+	.cm-dialog-content + .cm-dialog-auto-hide
+		margin-top $-margin
+
+
+	.cm-dialog-close-btn
+		position absolute
+		right 0
+		top 0
+		size $-min-size
+		text-decoration none !important
+		color rgba(0,0,0,0.4)
+		border-radius $-br
+
+		&::after
+			content '×'
+			line-height $-min-size
+			font-size 32px
+
+		// interaction
+		no-tap-highlight()
+		html.no-touch &:hover
+			background-color rgba(0, 0, 0, 0.05)
+		html.cmui &:active
+			background-color rgba(0, 0, 0, 0.1)
+
+	.cm-dialog-img
+		img
+			width 100%
+	.cm-dialog-header
+		padding 0 $-padding
+		font-size $cm-font-size-xl
+		color $cm-color-fg-dark
+		.cm-dialog-header-title
+		h1, h2, h3, h4, h5, h6
+			font-weight inherit
+
+	.cm-dialog-content
+		padding 0 $-padding
+
+	.cm-dialog-footer
+		padding 0 $-padding
+		.cm-btn
+			+ .cm-btn
+				margin-top 10px
+
+	.cm-dialog-auto-hide
+		border-top 1px solid $-color-border
+		padding ($-padding - 2) $-padding $-padding
+
+

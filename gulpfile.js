@@ -23,6 +23,7 @@ const scripts = {
 		'./src/js/msg-box.js',
 		'./src/js/overlay-mask.js',
 		'./src/js/overlay-loading.js',
+		'./src/js/overlay-dialog.js',
 		'./src/js/panel.js',
 		'./src/js/scroll-box.js',
 		'./src/js/adapter-trad/_outro.js',
