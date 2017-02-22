@@ -14,7 +14,8 @@ void function (window, CMUI) {
 	// const
 	var CLS = 'cm-dialog'
 	var TMPL = [
-		'<div class="cm-dialog"',
+		'<% var tagName = data.tag || \'div\' %>',
+		'<<%- tagName %> class="cm-dialog"',
 			'<% if (data.id) { %>',
 			'id="<%= data.id %>"',
 			'<% } %>',
@@ -128,7 +129,7 @@ void function (window, CMUI) {
 				'<% } %>',
 			'</footer>',
 			'<% } %>',
-		'</div>'
+		'</<%- tagName %>>'
 	].join('\n')
 
 	var _stack = []
