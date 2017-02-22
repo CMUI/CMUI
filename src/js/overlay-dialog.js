@@ -1,5 +1,6 @@
 ////////////////////  dialog  ////////////////////
 /**
+ * Demo: http://cmui.net/demo/v2/theme/baixing/dialog.php
  * API Doc: CMUI/doc#3
  */
 
@@ -13,7 +14,11 @@ void function (window, CMUI) {
 	// const
 	var CLS = 'cm-dialog'
 	var TMPL = [
-		'<div class="cm-dialog">',
+		'<div class="cm-dialog"',
+			'<% if (data.id) { %>',
+			'id="<%= data.id %>"',
+			'<% } %>',
+		'>',
 			'<% if (data.img) { %>',
 			'<div class="cm-dialog-img">',
 				'<img src="<%= data.img %>">',
@@ -256,6 +261,37 @@ void function (window, CMUI) {
 			var html = '<a class="cm-dialog-close-btn" href="#" data-action="cm-dialog-hide"></a>'
 			this.$elem.prepend(html)
 		},
+		_pos: function (onlyX) {
+			var $elem = this.$elem
+			var elem = $elem[0]
+
+			// if its not current dialog, show it to get its actual size
+			if ($elem.css('display') === 'none') {
+				$elem.css({
+					visibility: 'hidden',
+					left: '-101%',
+					top: 0,
+				}).show()
+			}
+
+			var l = Math.round((_root.clientWidth - elem.offsetWidth) / 2)
+			var t
+			if (!onlyX) {
+				// on ios, `doc.clientHeight` never change even when scrolling causes addr bar hidden,
+				// so use `window.innerHeight` instead.
+				var absT = Math.round((window.innerHeight * 0.95 - elem.offsetHeight) / 2)
+				absT = absT < 5 ? 5 : absT
+				t = absT + (_root.scrollTop || _body.scrollTop)
+				// console.log('absT: ' + absT)
+				// console.log('scrollTop: ' + (_root.scrollTop || _body.scrollTop))
+				// console.log('t: ' + t)
+			}
+
+			var css = {left: l + 'px'}
+			if (!onlyX) css.top = t + 'px'
+
+			$elem.css(css)
+		},
 		show: function () {
 			var $elem = this.$elem
 			this._prepareCloseBtn()
@@ -294,50 +330,19 @@ void function (window, CMUI) {
 			delete this.$elem
 			delete this.elem
 		},
-		_pos: function (onlyX) {
-			var $elem = this.$elem
-			var elem = $elem[0]
-
-			// if its not current dialog, show it to get its actual size
-			if ($elem.css('display') === 'none') {
-				$elem.css({
-					visibility: 'hidden',
-					left: '-101%',
-					top: 0,
-				}).show()
-			}
-
-			var l = Math.round((_root.clientWidth - elem.offsetWidth) / 2)
-			var t
-			if (!onlyX) {
-				// on ios, `doc.clientHeight` never change even when scrolling causes addr bar hidden,
-				// so use `window.innerHeight` instead.
-				var absT = Math.round((window.innerHeight * 0.95 - elem.offsetHeight) / 2)
-				absT = absT < 5 ? 5 : absT
-				t = absT + (_root.scrollTop || _body.scrollTop)
-				// console.log('absT: ' + absT)
-				// console.log('scrollTop: ' + (_root.scrollTop || _body.scrollTop))
-				// console.log('t: ' + t)
-			}
-
-			var css = {left: l + 'px'}
-			if (!onlyX) css.top = t + 'px'
-
-			$elem.css(css)
-		},
 		adjust: function () {
 			this._pos(true)
 		},
 	})
 
-	//exports
+	// exports
 	module.show = show
 	module.hide = hide
 	module.create = create
 
 	module._stack = _stack
 
-	//init
+	// init
 	CMUI._initModule(moduleName)
 
 }(window, CMUI)
