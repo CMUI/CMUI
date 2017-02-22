@@ -8,11 +8,12 @@
 	$-padding = 15px
 	$-br = 8px
 	$-color-border = #e6e6e6
-	$-min-size = 42px
+	$-close-btn-size = 42px
 
 	border-radius $-br
 	overflow hidden
-	min-height $-min-size
+	min-width 282px
+	min-height $-close-btn-size
 	color $cm-color-fg-light
 	text-align center
 	background-color $cm-color-bg
@@ -42,14 +43,14 @@
 		position absolute
 		right 0
 		top 0
-		size $-min-size
+		size $-close-btn-size
 		text-decoration none !important
 		color rgba(0, 0, 0, 0.4)
 		border-radius $-br
 
 		&::after
 			content '×'
-			line-height $-min-size
+			line-height $-close-btn-size
 			font-size 32px
 
 		// interaction
