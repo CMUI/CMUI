@@ -1,13 +1,15 @@
 {
   "name": "cmui",
-  "version": "2.0.0-rc.1",
+  "version": "2.0.0-rc.2",
   "homepage": "http://cmui.net/",
+  "repository": "CMUI/CMUI",
   "author": "cssmagic <cssmagic.cn@gmail.com>",
   "description": "Lightweight UI solution for mobile web.",
   "license": "MIT",
   "keywords": [
     "ui",
     "framework",
+    "widget",
     "mobile",
     "web"
   ],

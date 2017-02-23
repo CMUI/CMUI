@@ -1020,11 +1020,11 @@ html.cmui .cm-msg-box .cm-msg-box-close-btn:active {
   display: none;
   position: absolute;
   z-index: 110;
-  max-width: 300px;
 }
 .cm-dialog {
   border-radius: 8px;
   overflow: hidden;
+  min-width: 282px;
   min-height: 42px;
   color: #999;
   text-align: center;
