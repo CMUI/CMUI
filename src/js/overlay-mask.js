@@ -3,73 +3,83 @@
 void function (window, CMUI) {
 	'use strict'
 
-	CMUI.mask = {
-		//class name
-		CLS: 'cm-mask',
-		CLS_HIDDEN: 'hidden',
-		CLS_FADE_IN: 'fade-in',
-		CLS_FADE_OUT: 'fade-out',
+	// namespace
+	var moduleName = 'mask'
+	var module = CMUI[moduleName] = CMUI[moduleName] || {}
 
-		//flag
-		isReady: false,
-		isVisible: false,
+	//class name
+	var CLS = 'cm-mask'
+	var CLS_HIDDEN = 'hidden'
+	var CLS_FADE_IN = 'fade-in'
+	var CLS_FADE_OUT = 'fade-out'
+	var HTML = '<div class="' + CLS + ' ' + CLS_HIDDEN + '"></div>'
 
-		//util
-		_prepare: function () {
-			var _ns = this
-			if (!this.isReady) {
-				this.$elem = $('<div class="cm-mask hidden"></div>').appendTo(gearbox.dom.$body)
-				gearbox.dom.$win.on('resize', function () {
-					if (_ns.isVisible) _ns._pos()
-				})
-				this.isReady = true
-			}
-		},
-		_pos: function () {
-			// first, shrink
-			this.$elem.css('height', '100%')
-			// then, reset its height.
-			this.$elem.css({
-				height: document.documentElement.scrollHeight + 'px'
-			})
-		},
+	//flag
+	var $elem
+	var isVisible = false
 
-		//api
-		get$Element: function () {
-			this._prepare()
-			return this.$elem
-		},
-		adjust: function () {
-			this._pos()
-		},
-		show: function () {
-			if (this.isVisible) return false
-			this._prepare()
-			this._pos()
-			var classNames = [this.CLS]
-			this.$elem.attr('class', classNames.join(' '))
-			this.isVisible = true
-		},
-		fadeIn: function () {
-			if (this.isVisible) return false
-			this._prepare()
-			this._pos()
-			var classNames = [this.CLS, this.CLS_FADE_IN]
-			this.$elem.attr('class', classNames.join(' '))
-			this.isVisible = true
-		},
-		hide: function () {
-			if (!this.isVisible) return false
-			var classNames = [this.CLS, this.CLS_HIDDEN]
-			this.$elem.attr('class', classNames.join(' '))
-			this.isVisible = false
-		},
-		fadeOut: function () {
-			if (!this.isVisible) return false
-			var classNames = [this.CLS, this.CLS_FADE_OUT]
-			this.$elem.attr('class', classNames.join(' '))
-			this.isVisible = false
-		}
+	//util
+	var _prepare = _.once(function () {
+		$elem = $(HTML).appendTo(gearbox.dom.$body)
+		gearbox.dom.$win.on('resize', function () {
+			if (isVisible) _pos()
+		})
+	})
+	function _pos() {
+		// first, shrink
+		$elem.css('height', '100%')
+		// then, reset its height.
+		$elem.css({
+			height: document.documentElement.scrollHeight + 'px'
+		})
 	}
+
+	//api
+	function get$Element() {
+		_prepare()
+		return $elem
+	}
+	function adjust() {
+		_pos()
+	}
+	function show() {
+		if (isVisible) return false
+		_prepare()
+		_pos()
+		var classNames = [CLS]
+		$elem.attr('class', classNames.join(' '))
+		isVisible = true
+	}
+	function fadeIn() {
+		if (isVisible) return false
+		_prepare()
+		_pos()
+		var classNames = [CLS, CLS_FADE_IN]
+		$elem.attr('class', classNames.join(' '))
+		isVisible = true
+	}
+	function hide() {
+		if (!isVisible) return false
+		var classNames = [CLS, CLS_HIDDEN]
+		$elem.attr('class', classNames.join(' '))
+		isVisible = false
+	}
+	function fadeOut() {
+		if (!isVisible) return false
+		var classNames = [CLS, CLS_FADE_OUT]
+		$elem.attr('class', classNames.join(' '))
+		isVisible = false
+	}
+
+	// exports
+	module.get$Element = get$Element
+	module.adjust = adjust
+	module.show = show
+	module.hide = hide
+	module.fadeIn = fadeIn
+	module.fadeOut = fadeOut
+
+	// init
+	CMUI._initModule(moduleName)
 
 }(window, CMUI)
