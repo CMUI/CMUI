@@ -14,33 +14,30 @@ void function (window, CMUI) {
 	var CLS_FADE_OUT = 'fade-out'
 	var HTML = '<div class="' + CLS + ' ' + CLS_HIDDEN + '"></div>'
 
-	//flag
 	var $elem
 	var isVisible = false
 
 	//util
 	var _prepare = _.once(function () {
 		$elem = $(HTML).appendTo(gearbox.dom.$body)
-		gearbox.dom.$win.on('resize', function () {
-			if (isVisible) _pos()
-		})
+		window.addEventListener('resize', _callbackToReposition, {passive: true})
+		document.addEventListener('scroll', _callbackToReposition, {passive: true})
 	})
+	var _callbackToReposition = _.debounce(function () {
+		if (isVisible) _pos()
+	}, 100)
+
 	function _pos() {
 		// first, shrink
 		$elem.css('height', '100%')
 		// then, reset its height.
-		$elem.css({
-			height: document.documentElement.scrollHeight + 'px'
-		})
+		$elem.css('height', document.documentElement.scrollHeight + 'px')
 	}
 
 	//api
 	function get$Element() {
 		_prepare()
 		return $elem
-	}
-	function adjust() {
-		_pos()
 	}
 	function show() {
 		if (isVisible) return false
@@ -73,7 +70,6 @@ void function (window, CMUI) {
 
 	// exports
 	module.get$Element = get$Element
-	module.adjust = adjust
 	module.show = show
 	module.hide = hide
 	module.fadeIn = fadeIn
