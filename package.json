@@ -15,12 +15,12 @@
   ],
   "main": "./src/css/theme/baixing/index.styl",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dist": "gulp",
     "css": "gulp css",
     "js": "gulp js",
     "lint-css": "gulp lint-css",
-    "prepublish": "npm run dist"
+    "prepublish": "npm run dist",
+    "test": "echo \"See README.md to run tests in browsers.\" && exit 1"
   },
   "dependencies": {
     "cmui-gearbox": "^0.7.0",
@@ -33,7 +33,9 @@
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-stylint": "^3.0.0",
     "gulpfiles": "^0.4.4",
+    "mocha": "*",
     "nib": "^1.0.4",
-    "normalize.css": "5.0.0"
+    "normalize.css": "5.0.0",
+    "power-assert": "*"
   }
 }

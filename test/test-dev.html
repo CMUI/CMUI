@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>UT (Dev) - CMUI</title>
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+<link rel="stylesheet" href="mocha.css">
+<link rel="stylesheet" href="../dist/cmui.css">
+</head>
+<body>
+<header>
+	<h1>UT (Dev) - CMUI</h1>
+	<p><a href="https://github.com/CMUI/gearbox">View on GitHub</a></p>
+</header>
+<div id="mocha"></div>
+<!-- deps -->
+<script src="../node_modules/underscore/underscore-min.js"></script>
+<script src="../node_modules/zepto.js/dist/zepto.min.js"></script>
+<script src="../node_modules/cmui-gearbox/dist/gearbox.min.js"></script>
+<script>
+// init template settings
+_.extend(_.templateSettings, {
+	interpolate: /<%-([\s\S]+?)%>/g,
+	escape: /<%=([\s\S]+?)%>/g,
+	variable: 'data'
+})
+</script>
+<!-- testing framework -->
+<script src="../node_modules/mocha/mocha.js"></script>
+<script src="../node_modules/power-assert/build/power-assert.js"></script>
+<script>
+mocha.setup('bdd')
+mocha.checkLeaks()
+mocha.globals(['_zid'])	// a prop on window set by zepto's event module
+</script>
+<!-- source code -->
+<script src="../src/js/core.js"></script>
+<script src="../src/js/dom.js"></script>
+<script src="../src/js/btn.js"></script>
+<script src="../src/js/form.js"></script>
+<script src="../src/js/msg-box.js"></script>
+<script src="../src/js/overlay-mask.js"></script>
+<script src="../src/js/overlay-loading.js"></script>
+<script src="../src/js/overlay-dialog.js"></script>
+<script src="../src/js/panel.js"></script>
+<script src="../src/js/scroll-box.js"></script>
+<!-- test-case -->
+<script src="util.js"></script>
+<script src="test-overlay-loading.js"></script>
+<!-- init -->
+<script>mocha.run()</script>
+</body>
+</html>
