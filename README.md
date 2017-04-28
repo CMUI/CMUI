@@ -82,7 +82,32 @@ CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和�
 以下案例基于 CMUI v0.8 构建（建议使用 iOS/Android 设备访问）：
 
 * [优e网 - 手机版 (m.uemall.com)](http://m.uemall.com/)
-* [薇姿官方电子商城 - 手机版 (m.vichy.com.cn)](http://m.vichy.com.cn/)
+* （其它案例已改版或下线）
+
+***
+
+## 参与开发
+
+#### 功能模块
+
+CMUI 的部分模块已经分离出去，成为独立项目。这些模块以开发依赖的方式引入，并打包到发布文件中。因此，参与这些独立项目的开发即可修改这些模块。
+
+* CSS Reset - [Zero](https://github.com/CMUI/zero)
+* Stylus Library - [Brush](https://github.com/CMUI/brush)
+
+#### 构建
+
+0. 把本项目的代码 fork 并 clone 到本地。
+0. 在项目根目录执行 `npm install`，安装必要的依赖。
+0. 在项目根目录执行 `npm run dist`，运行构建脚本。
+0. 构建生成的发布文件将存放在 `/dist` 目录下。
+
+#### 单元测试
+
+0. 把本项目的代码 fork 并 clone 到本地。
+0. 在项目根目录执行 `npm install`，安装必要的依赖。
+0. 在浏览器中打开以下文件即可运行单元测试：
+	* `test/test-dev.html` - 测试源码（用于开发阶段的测试）
 
 ***
 
@@ -91,8 +116,6 @@ CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和�
 CMUI is based on these open source projects:
 
 * [Normalize.css](https://github.com/necolas/normalize.css)
-* [Zero](https://github.com/CMUI/zero)
-* [Brush](https://github.com/CMUI/brush)
 
 ## License
 
