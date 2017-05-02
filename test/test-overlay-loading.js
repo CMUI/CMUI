@@ -185,11 +185,11 @@ describe('Overlay - Loading', function () {
 							assert.equal($btn.html(), '确定')
 						})
 						it('sets given innerHTML to generated btn', () => {
-							const text = `test-dialog-btn-inner-html-<strong>${Math.random()}</strong>`
-							const btn = { primary: { html: text } }	// TODO rename html -> innerHTML
+							const innerHTML = `test-dialog-btn-inner-html-<strong>${Math.random()}</strong>`
+							const btn = { primary: { innerHTML } }
 							const elem = CMUI.dialog.create({ btn })
 							const $btn = $(elem).find('.cm-dialog-footer *:first-child')
-							assert.equal($btn.html(), text)
+							assert.equal($btn.html(), innerHTML)
 						})
 					})
 					describe('link', () => {
@@ -332,11 +332,11 @@ describe('Overlay - Loading', function () {
 							assert.equal($btn.html(), '取消')
 						})
 						it('sets given innerHTML to generated btn', () => {
-							const text = `test-dialog-btn-inner-html-<strong>${Math.random()}</strong>`
-							const btn = { minor: { html: text } }	// TODO rename html -> innerHTML
+							const innerHTML = `test-dialog-btn-inner-html-<strong>${Math.random()}</strong>`
+							const btn = { minor: { innerHTML } }
 							const elem = CMUI.dialog.create({ btn })
 							const $btn = $(elem).find('.cm-dialog-footer *:last-child')
-							assert.equal($btn.html(), text)
+							assert.equal($btn.html(), innerHTML)
 						})
 					})
 					describe('link', () => {
