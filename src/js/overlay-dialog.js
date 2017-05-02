@@ -111,19 +111,17 @@ void function (window, CMUI) {
 	].join('\n')
 
 	var _stack = []
-	var _isEventReady = false
-	var _isTemplateReady = false
 
+	// shortcuts
 	var _root = document.documentElement
 	var _body = document.body
 
 	// action
-	gearbox.action.add({
+	var actions = {
 		'cm-dialog-hide': function () {
-			var $this = $(this)
 			// means current action is triggered by user click, not by js
 			if (this !== window) {
-				var $dialog = $this.closest('.' + CLS)
+				var $dialog = $(this).closest('.' + CLS)
 				if (_.last(_stack).elem === $dialog[0]) {
 					CMUI.dialog.hide()
 				} else {
@@ -133,7 +131,7 @@ void function (window, CMUI) {
 				CMUI.dialog.hide()
 			}
 		},
-	})
+	}
 
 	// api
 	function show(elem, options) {
@@ -157,24 +155,23 @@ void function (window, CMUI) {
 	}
 
 	// util
-	function _prepareEvent() {
-		if (_isEventReady) return
-		_isEventReady = true
+	var _prepareEvent = _.once(function () {
 		gearbox.dom.$win.on('resize', function () {
 			// console.log('resize')
 			if (!_stack.length) return
 			var dialog = _.last(_stack)
 			dialog.adjust()
 		})
+
+		gearbox.action.add(actions)
 		gearbox.dom.$body.on('click', '[data-cm-dialog-btn-hide-dialog]', function () {
 			gearbox.action.trigger('cm-dialog-hide', this)
 		})
-	}
-	function _prepareTemplate() {
-		if (_isTemplateReady) return
-		_isTemplateReady = true
+	})
+
+	var _prepareTemplate = _.once(function () {
 		gearbox.template.add('cm-dialog', TMPL)
-	}
+	})
 
 	// class
 	function Dialog($elem, options) {
@@ -261,9 +258,6 @@ void function (window, CMUI) {
 				var absT = Math.round((window.innerHeight * 0.95 - elem.offsetHeight) / 2)
 				absT = absT < 5 ? 5 : absT
 				t = absT + (_root.scrollTop || _body.scrollTop)
-				// console.log('absT: ' + absT)
-				// console.log('scrollTop: ' + (_root.scrollTop || _body.scrollTop))
-				// console.log('t: ' + t)
 			}
 
 			var css = {left: l + 'px'}

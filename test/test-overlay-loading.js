@@ -6,7 +6,7 @@ describe('Overlay - Loading', function () {
 		$('.cm-dialog').remove()
 	})
 
-	describe('API', () =>{
+	describe('JS API', () => {
 		describe('CMUI.dialog.create()', () => {
 			describe('tag', () => {
 				it('generates default tag "div" if no param given', () => {
@@ -536,6 +536,13 @@ describe('Overlay - Loading', function () {
 
 		// TODO: .hide()
 
+
+	})
+
+	describe('Actions', () => {
+		describe('cm-dialog-hide', () => {
+			// TODO
+		})
 
 	})
 })
