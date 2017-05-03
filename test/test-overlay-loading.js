@@ -150,10 +150,10 @@ describe('Overlay - Loading', function () {
 					const $footer = $emptyDialog.find('.cm-dialog-footer')
 					assert($footer.length === 0)
 				})
-				it('does not generate any btn if no btn detail given', () => {
+				it('does not generate footer if no btn detail given', () => {
 					const elem = CMUI.dialog.create({ btn: {} })
 					const $footer = $(elem).find('.cm-dialog-footer')
-					assert.equal($footer.html().trim(), '')
+					assert($footer.length === 0)
 				})
 				describe('primary', () => {
 					describe('tag', () => {

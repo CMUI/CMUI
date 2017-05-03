@@ -14,100 +14,47 @@ void function (window, CMUI) {
 	// const
 	var CLS = 'cm-dialog'
 	var TMPL = [
-		'<% var tagName = data.tag || \'div\' %>',
-		'<<%- tagName %> class="cm-dialog"',
+		'<<%= data.tag %> class="cm-dialog"',
 			'<% if (data.id) { %>',
-			'id="<%= data.id %>"',
+				'id="<%= data.id %>"',
 			'<% } %>',
 		'>',
 			'<% if (data.img) { %>',
-			'<div class="cm-dialog-img">',
-				'<img src="<%= data.img %>">',
-			'</div>',
+				'<div class="cm-dialog-img">',
+					'<% if (data.img.useBg) { %>',
+						'<div class="cm-dialog-img-content" style="<%= data.img.style %>"></div>',
+					'<% } else { %>',
+						'<img src="<%= data.img.url %>">',
+					'<% } %>',
+				'</div>',
 			'<% } %>',
-			'<% if (!data.img || data.title) { %>',
-			'<header class="cm-dialog-header">',
-				'<h2 class="cm-dialog-header-title"><%- data.title || \'提示\' %></h2>',
-			'</header>',
+			'<% if (data.title) { %>',
+				'<header class="cm-dialog-header">',
+					'<h2 class="cm-dialog-header-title"><%- data.title %></h2>',
+				'</header>',
 			'<% } %>',
 			'<% if (data.content) { %>',
-			'<main class="cm-dialog-content"><%- data.content %></main>',
+				'<main class="cm-dialog-content"><%- data.content %></main>',
 			'<% } %>',
-			'<% if (_.isObject(data.btn)) { %>',
-			'<%',
-				'var btn = data.btn',
-				'var primary = btn.primary',
-				'var minor = btn.minor',
-			'%>',
-			'<footer class="cm-dialog-footer">',
-				'<% if (_.isObject(primary)) { %>',
-					'<%',
-						'var btnLabel = primary.innerHTML || \'确定\'',
-						'var btnClass = _.isArray(primary.className) ?',
-							'primary.className.join(\' \') :',
-							'(_.isString(primary.className) ?',
-								'primary.className :',
-								'\'cm-btn cm-btn-primary\')',
-					'%>',
-					'<% if (primary.tag === \'a\') { %>',
-						'<a',
-							'class="<%= btnClass %>"',
-							'href="<%= primary.link || \'#\' %>"',
-							'<% if (primary.action) { %>',
-								'data-action="<%= primary.action %>"',
+			'<% if (_.isArray(data.btn) && data.btn.length) { %>',
+				'<footer class="cm-dialog-footer">',
+					'<% _.each(data.btn, function (btn) { %>',
+						'<<%= btn.tag %>',
+							'class="<%= btn.className %>"',
+							'<% if (btn.link) { %>',
+								'href="<%= btn.link %>"',
 							'<% } %>',
-							'<% if (primary.hideDialog) { %>',
+							'<% if (btn.action) { %>',
+								'data-action="<%= btn.action %>"',
+							'<% } %>',
+							'<% if (btn.hideDialog) { %>',
 								'data-cm-dialog-btn-hide-dialog="<%= 1 %>"',
 							'<% } %>',
-						'><%- btnLabel %></a>',
-					'<% } else { %>',
-						'<button',
-							'class="<%= btnClass %>"',
-							'<% if (primary.action) { %>',
-								'data-action="<%= primary.action %>"',
-							'<% } %>',
-							'<% if (primary.hideDialog) { %>',
-								'data-cm-dialog-btn-hide-dialog="<%= 1 %>"',
-							'<% } %>',
-						'><%- btnLabel %></button>',
-					'<% } %>',
-				'<% } %>',
-				'<% if (_.isObject(minor)) { %>',
-					'<%',
-						'var btnLabel = minor.innerHTML || \'取消\'',
-						'var btnClass = _.isArray(minor.className) ?',
-							'minor.className.join(\' \') :',
-							'(_.isString(minor.className) ?',
-								'minor.className :',
-								'\'cm-btn cm-btn-primary cm-btn-bordered\'',
-							')',
-					'%>',
-					'<% if (minor.tag === \'a\') { %>',
-						'<a',
-							'class="<%= btnClass %>"',
-							'href="<%= minor.link || \'#\' %>"',
-							'<% if (minor.action) { %>',
-								'data-action="<%= minor.action %>"',
-							'<% } %>',
-							'<% if (minor.hideDialog) { %>',
-								'data-cm-dialog-btn-hide-dialog="<%= 1 %>"',
-							'<% } %>',
-						'><%- btnLabel %></a>',
-					'<% } else { %>',
-						'<button',
-							'class="<%= btnClass %>"',
-							'<% if (minor.action) { %>',
-								'data-action="<%= minor.action %>"',
-							'<% } %>',
-							'<% if (minor.hideDialog) { %>',
-								'data-cm-dialog-btn-hide-dialog',
-							'<% } %>',
-						'><%- btnLabel %></button>',
-					'<% } %>',
-				'<% } %>',
-			'</footer>',
+						'><%- btn.innerHTML %></<%= btn.tag %>>',
+					'<% }) %>',
+				'</footer>',
 			'<% } %>',
-		'</<%- tagName %>>'
+		'</<%= data.tag %>>',
 	].join('\n')
 
 	var _stack = []
@@ -148,13 +95,77 @@ void function (window, CMUI) {
 	}
 	function create(config) {
 		_prepareTemplate()
-		if (!_.isObject(config)) config = {}
-		var html = gearbox.template.render('cm-dialog', config)
+		var templateData = _formatConfig(config)
+		var html = gearbox.template.render('cm-dialog', templateData)
 		var $dialog = $(html).appendTo(gearbox.dom.$body)
 		return $dialog[0]
 	}
 
 	// util
+	function _formatConfig(config) {
+		if (!_.isObject(config)) config = {}
+		config.tag = config.tag || 'div'
+
+		// img
+		var img = config.img
+		var imgStyleRules = []
+		if (_.isString(img) && img) {
+			config.img = { url: img }
+		} else if (_.isObject(img) && img.url) {
+			img.width = gearbox.str.toFloat(img.width)	// 123 or '123px'
+			img.height = gearbox.str.toFloat(img.height)	// 123 or '123px'
+			// if height given, use bg img to achieve lazy loading
+			if (img.height) {
+				img.useBg = true
+				if (img.width) imgStyleRules.push('width: ' + img.width + 'px')
+				imgStyleRules.push('height: ' + img.height + 'px')
+				imgStyleRules.push('background: url(' + img.url + ') no-repeat top center')
+				imgStyleRules.push('background-size: 100% 100%')
+				img.style = imgStyleRules.join('; ')
+			}
+		} else {
+			config.img = null
+		}
+
+		// title
+		// if no img and no title given, use default title
+		if (!img) {
+			config.title = config.title || '提示'
+		}
+
+		// btn
+		var buttons = []
+		function _formatClassName(cls) {
+			if (_.isString(cls)) {
+				return cls
+			} else if (_.isArray(cls)) {
+				return cls.join(' ')
+			}
+			return ''
+		}
+		function _formatBtn(btn, defaultInnerHTML, defaultCls) {
+			if (!_.isObject(btn)) return
+			if (_.isString(btn.tag)) {
+				btn.tag = btn.tag.trim()
+				if (btn.tag !== 'a') btn.tag = 'button'
+			} else {
+				btn.tag = 'button'
+			}
+			btn.innerHTML = btn.innerHTML || defaultInnerHTML
+			btn.link = (btn.tag === 'button') ? '' : (btn.link || '#')
+			btn.className = _formatClassName(btn.className) || defaultCls
+			// output
+			buttons.push(btn)
+		}
+		if (_.isObject(config.btn)) {
+			_formatBtn(config.btn.primary, '确定', 'cm-btn cm-btn-primary')
+			_formatBtn(config.btn.minor, '取消', 'cm-btn cm-btn-primary cm-btn-bordered')
+		}
+		config.btn = buttons
+
+		return config
+	}
+
 	var _prepareEvent = _.once(function () {
 		gearbox.dom.$win.on('resize', function () {
 			// console.log('resize')
