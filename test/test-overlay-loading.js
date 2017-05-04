@@ -1,3 +1,5 @@
+'use strict'
+
 describe('Overlay - Loading', function () {
 	const imgUrl = 'http://file.baixing.net/201701/cmui-demo-dialog-img.png'
 
@@ -7,7 +9,7 @@ describe('Overlay - Loading', function () {
 	})
 
 	describe('JS API', () => {
-		describe('CMUI.dialog.create()', () => {
+		describe('`CMUI.dialog.create()`', () => {
 			describe('config.tag', () => {
 				it('generates default tag "div" if no param given', () => {
 					const $emptyDialog = $(CMUI.dialog.create())
@@ -302,6 +304,7 @@ describe('Overlay - Loading', function () {
 							const $btn = $(elem).find('.cm-dialog-footer *:first-child')
 							assert.equal(assert._util.isDialogShown(elem), false)
 							CMUI.dialog.show(elem)
+							assert.equal(assert._util.isDialogShown(elem), true)
 							$btn.click()
 							assert.equal(assert._util.isDialogShown(elem), false)
 						})
@@ -456,31 +459,34 @@ describe('Overlay - Loading', function () {
 		})
 
 		describe('CMUI.dialog.show()', () => {
-			it('shows a dialog - selector', () => {
-				const id = _.uniqueId('test-dialog-id-')
-				const elem = CMUI.dialog.create({ id })
-				assert.equal(assert._util.isDialogShown(elem), false)
-				CMUI.dialog.show('#' + id)
-				assert.equal(assert._util.isDialogShown(elem), true)
+			describe('Basic Behavior', () => {
+				it('shows a dialog - selector', () => {
+					const id = _.uniqueId('test-dialog-id-')
+					const elem = CMUI.dialog.create({ id })
+					assert.equal(assert._util.isDialogShown(elem), false)
+					CMUI.dialog.show('#' + id)
+					assert.equal(assert._util.isDialogShown(elem), true)
+				})
+				it('shows a dialog - dom element', () => {
+					const elem = CMUI.dialog.create()
+					assert.equal(assert._util.isDialogShown(elem), false)
+					CMUI.dialog.show(elem)
+					assert.equal(assert._util.isDialogShown(elem), true)
+				})
+				it('shows a dialog - $ element', () => {
+					const elem = CMUI.dialog.create()
+					assert.equal(assert._util.isDialogShown(elem), false)
+					CMUI.dialog.show($(elem))
+					assert.equal(assert._util.isDialogShown(elem), true)
+				})
+				it('also shows mask', () => {
+					const elem = CMUI.dialog.create()
+					assert.equal(assert._util.isMaskShown(), false)
+					CMUI.dialog.show(elem)
+					assert.equal(assert._util.isMaskShown(), true)
+				})
 			})
-			it('shows a dialog - dom element', () => {
-				const elem = CMUI.dialog.create()
-				assert.equal(assert._util.isDialogShown(elem), false)
-				CMUI.dialog.show(elem)
-				assert.equal(assert._util.isDialogShown(elem), true)
-			})
-			it('shows a dialog - $ element', () => {
-				const elem = CMUI.dialog.create()
-				assert.equal(assert._util.isDialogShown(elem), false)
-				CMUI.dialog.show($(elem))
-				assert.equal(assert._util.isDialogShown(elem), true)
-			})
-			it('also shows mask', () => {
-				const elem = CMUI.dialog.create()
-				assert.equal(assert._util.isMaskShown(), false)
-				CMUI.dialog.show(elem)
-				assert.equal(assert._util.isMaskShown(), true)
-			})
+
 			describe('options.autoHideDelay', () => {
 				it('will not auto hide if no param given', (done) => {
 					const elem = CMUI.dialog.create()
@@ -539,14 +545,72 @@ describe('Overlay - Loading', function () {
 
 		})
 
-		// TODO: .hide()
-
+		describe('`CMUI.dialog.hide()`', () => {
+			it('hides dialog', () => {
+				const elem = CMUI.dialog.create()
+				assert.equal(assert._util.isDialogShown(elem), false)
+				CMUI.dialog.show(elem)
+				assert.equal(assert._util.isDialogShown(elem), true)
+				CMUI.dialog.hide(elem)
+				assert.equal(assert._util.isDialogShown(elem), false)
+			})
+		})
 
 	})
 
 	describe('Actions', () => {
-		describe('cm-dialog-hide', () => {
-			// TODO
+		describe('`cm-dialog-hide`', () => {
+			const testAction = 'cm-dialog-hide'
+			it('hides current dialog when trigger by JS', () => {
+				const elem = CMUI.dialog.create()
+				assert.equal(assert._util.isDialogShown(elem), false)
+				CMUI.dialog.show(elem)
+				assert.equal(assert._util.isDialogShown(elem), true)
+				CMUI.dialog.hide(elem)
+				assert.equal(assert._util.isDialogShown(elem), false)
+			})
+			it('hides current dialog when trigger by click in current dialog', () => {
+				const elem = CMUI.dialog.create({
+					btn: {
+						primary: { action: testAction }
+					}
+				})
+				assert.equal(assert._util.isDialogShown(elem), false)
+				CMUI.dialog.show(elem)
+				assert.equal(assert._util.isDialogShown(elem), true)
+				const $btn = $(elem).find('.cm-dialog-footer *:first-child')
+				$btn.click()
+				assert.equal(assert._util.isDialogShown(elem), false)
+			})
+			it('does nothing when trigger by click outside current dialog - in another dialog', () => {
+				const elem = CMUI.dialog.create()
+				const anotherDialog = CMUI.dialog.create({
+					btn: {
+						primary: { action: testAction }
+					}
+				})
+				assert.equal(assert._util.isDialogShown(elem), false)
+				CMUI.dialog.show(elem)
+				assert.equal(assert._util.isDialogShown(elem), true)
+				const $btn = $(anotherDialog).find('.cm-dialog-footer *:first-child')
+				$btn.click()	// it does nothing
+				assert.equal(assert._util.isDialogShown(elem), true)
+			})
+			it('does nothing when trigger by click outside current dialog - in page', () => {
+				const elem = CMUI.dialog.create()
+				const $btn = $('<button></button>')
+					.attr('action', testAction)
+					.css({
+						position: 'absolute',
+						top: '-100px',
+					})
+					.appendTo(gearbox.dom.$body)
+				assert.equal(assert._util.isDialogShown(elem), false)
+				CMUI.dialog.show(elem)
+				assert.equal(assert._util.isDialogShown(elem), true)
+				$btn.click()	// it does nothing
+				assert.equal(assert._util.isDialogShown(elem), true)
+			})
 		})
 
 	})
