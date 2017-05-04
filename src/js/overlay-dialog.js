@@ -22,9 +22,13 @@ void function (window, CMUI) {
 			'<% if (data.img) { %>',
 				'<div class="cm-dialog-img">',
 					'<% if (data.img.useBg) { %>',
-						'<div class="cm-dialog-img-content" style="<%= data.img.style %>"></div>',
+						'<div class="cm-dialog-img-content" style="<%= data.img.cssText %>"></div>',
 					'<% } else { %>',
-						'<img src="<%= data.img.url %>">',
+						'<img src="<%= data.img.url %>"',
+							'<% if (data.img.width) { %>',
+								'style="width: <%= data.img.width %>px;"',
+							'<% } %>',
+						'>',
 					'<% } %>',
 				'</div>',
 			'<% } %>',
@@ -104,7 +108,11 @@ void function (window, CMUI) {
 	// util
 	function _formatConfig(config) {
 		if (!_.isObject(config)) config = {}
-		config.tag = config.tag || 'div'
+		// tag
+		config.tag = gearbox.str.trim(config.tag).toLowerCase() || 'div'
+
+		// id
+		config.id = gearbox.str.stripHash(config.id)
 
 		// img
 		var img = config.img
@@ -119,9 +127,8 @@ void function (window, CMUI) {
 				img.useBg = true
 				if (img.width) imgStyleRules.push('width: ' + img.width + 'px')
 				imgStyleRules.push('height: ' + img.height + 'px')
-				imgStyleRules.push('background: url(' + img.url + ') no-repeat top center')
-				imgStyleRules.push('background-size: 100% 100%')
-				img.style = imgStyleRules.join('; ')
+				imgStyleRules.push('background-image: url(' + img.url + ')')
+				img.cssText = imgStyleRules.join('; ')
 			}
 		} else {
 			config.img = null
@@ -145,12 +152,8 @@ void function (window, CMUI) {
 		}
 		function _formatBtn(btn, defaultInnerHTML, defaultCls) {
 			if (!_.isObject(btn)) return
-			if (_.isString(btn.tag)) {
-				btn.tag = btn.tag.trim()
-				if (btn.tag !== 'a') btn.tag = 'button'
-			} else {
-				btn.tag = 'button'
-			}
+			btn.tag = gearbox.str.trim(btn.tag).toLowerCase()
+			if (btn.tag !== 'a') btn.tag = 'button'
 			btn.innerHTML = btn.innerHTML || defaultInnerHTML
 			btn.link = (btn.tag === 'button') ? '' : (btn.link || '#')
 			btn.className = _formatClassName(btn.className) || defaultCls
