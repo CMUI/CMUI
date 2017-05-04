@@ -1077,8 +1077,20 @@ html.no-touch .cm-dialog .cm-dialog-close-btn:hover {
 html.cmui .cm-dialog .cm-dialog-close-btn:active {
   background-color: rgba(0,0,0,0.1);
 }
+.cm-dialog .cm-dialog-img {
+  background-color: #f2f2f2;
+}
+.cm-dialog .cm-dialog-img img,
+.cm-dialog .cm-dialog-img .cm-dialog-img-content {
+  margin: auto;
+}
 .cm-dialog .cm-dialog-img img {
   width: 100%;
+}
+.cm-dialog .cm-dialog-img .cm-dialog-img-content {
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  background-size: 100% 100%;
 }
 .cm-dialog .cm-dialog-header {
   padding: 0 15px;
