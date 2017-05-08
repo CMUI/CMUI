@@ -6,11 +6,12 @@ describe('Overlay - Loading', function () {
 		$('.cm-dialog').remove()
 	})
 
-	describe('API', () =>{
+	describe('JS API', () => {
 		describe('CMUI.dialog.create()', () => {
-			describe('tag', () => {
+			describe('config.tag', () => {
 				it('generates default tag "div" if no param given', () => {
 					const $emptyDialog = $(CMUI.dialog.create())
+					console.log($emptyDialog)
 					assert.equal($emptyDialog[0].tagName.toLocaleLowerCase(), 'div')
 				})
 				it('uses given tag to generate dialog', () => {
@@ -20,7 +21,7 @@ describe('Overlay - Loading', function () {
 				})
 			})
 
-			describe('id', () => {
+			describe('config.id', () => {
 				it('does not generate any id if no param given', () => {
 					const $emptyDialog = $(CMUI.dialog.create())
 					assert(!$emptyDialog.attr('id'))
@@ -31,80 +32,84 @@ describe('Overlay - Loading', function () {
 					assert.equal(elem.id, id)
 				})
 				it('sets given id to generated dialog element - hash', () => {
-					// const id = _.uniqueId('test-dialog-id-')
-					// const elem = CMUI.dialog.create({ id: '#' + id })
-					// assert.equal(elem.id, id)
+					const id = _.uniqueId('test-dialog-id-')
+					const elem = CMUI.dialog.create({ id: '#' + id })
+					assert.equal(elem.id, id)
 				})
 				it('sets given id to generated dialog element - trimming id', () => {
-					// const id = _.uniqueId('test-dialog-id-')
-					// const elem = CMUI.dialog.create({ id: ' ' + id + ' ' })
-					// assert.equal(elem.id, id)
+					const id = _.uniqueId('test-dialog-id-')
+					const elem = CMUI.dialog.create({ id: ' ' + id + ' ' })
+					assert.equal(elem.id, id)
 				})
 				it('sets given id to generated dialog element - trimming hash', () => {
-					// const id = _.uniqueId('test-dialog-id-')
-					// const elem = CMUI.dialog.create({ id: '   #' + id + ' ' })
-					// assert.equal(elem.id, id)
+					const id = _.uniqueId('test-dialog-id-')
+					const elem = CMUI.dialog.create({ id: '   #' + id + ' ' })
+					assert.equal(elem.id, id)
 				})
 			})
 
-			describe('img', () => {
+			describe('config.img', () => {
 				it('does not generate img wrapper if no param given - url', () => {
 					const $emptyDialog = $(CMUI.dialog.create())
 					const $imgWrapper = $emptyDialog.find('.cm-dialog-img')
 					assert($imgWrapper.length === 0)
 				})
 				it('does not generate img wrapper if no param given - config', () => {
-					// const img = {}
-					// const elem = CMUI.dialog.create({ img })
-					// const $imgWrapper = $(elem).find('.cm-dialog-img')
-					// console.log($imgWrapper.html())
-					// assert($imgWrapper.length === 0)
+					const img = {}
+					const elem = CMUI.dialog.create({ img })
+					const $imgWrapper = $(elem).find('.cm-dialog-img')
+					console.log($imgWrapper.html())
+					assert($imgWrapper.length === 0)
 				})
-				it('sets given img to generated dialog element - given url', () => {
+				it('generates img element as dialog img - given url', () => {
 					const img = imgUrl
 					const elem = CMUI.dialog.create({ img })
 					const imgSrc = $(elem).find('.cm-dialog-img img').attr('src')
 					assert.equal(imgSrc, img)
 				})
-				it('sets given img to generated dialog element - given config - only url', () => {
-					// const img = {
-					// 	url: imgUrl,
-					// }
-					// const elem = CMUI.dialog.create({ img })
-					// const imgSrc = $(elem).find('.cm-dialog-img img').attr('src')
-					// assert.equal(imgSrc, img.url)
+				it('generates img element as dialog img - given config - only url', () => {
+					const img = {
+						url: imgUrl,
+					}
+					const elem = CMUI.dialog.create({ img })
+					const imgSrc = $(elem).find('.cm-dialog-img img').attr('src')
+					assert.equal(imgSrc, img.url)
 				})
-				it('sets given img to generated dialog element - given config - url and height', () => {
-					// const img = {
-					// 	url: imgUrl,
-					// 	height: 100,
-					// }
-					// const elem = CMUI.dialog.create({ img })
-					// const imgSrc = $(elem).find('.cm-dialog-img img').attr('src')
-					// assert.equal(imgSrc, img.url)
+				it('generates img element as dialog img - given config - url and width', () => {
+					const img = {
+						url: imgUrl,
+						width: 100,
+					}
+					const elem = CMUI.dialog.create({ img })
+					const $img = $(elem).find('.cm-dialog-img img')
+					assert.equal($img.attr('src'), img.url)
+					assert.equal(gearbox.str.toFloat($img.css('width')), img.width)
 				})
-				it('sets given img to generated dialog element - given config - url and width', () => {
-					// const img = {
-					// 	url: imgUrl,
-					// 	width: 100,
-					// }
-					// const elem = CMUI.dialog.create({ img })
-					// const imgSrc = $(elem).find('.cm-dialog-img img').attr('src')
-					// assert.equal(imgSrc, img.url)
+				it('generates bg img as dialog img - given config - url and height', () => {
+					const img = {
+						url: imgUrl,
+						height: 100,
+					}
+					const elem = CMUI.dialog.create({ img })
+					const $imgContent = $(elem).find('.cm-dialog-img .cm-dialog-img-content')
+					assert(gearbox.str.includes($imgContent.css('background-image'), img.url))
+					assert.equal(gearbox.str.toFloat($imgContent.css('height')), img.height)
 				})
-				it('sets given img to generated dialog element - given config - url, width and height', () => {
-					// const img = {
-					// 	url: imgUrl,
-					// 	height: 100,
-					// 	weight: 100,
-					// }
-					// const elem = CMUI.dialog.create({ img })
-					// const imgSrc = $(elem).find('.cm-dialog-img img').attr('src')
-					// assert.equal(imgSrc, img.url)
+				it('generates bg img as dialog img - given config - url, width and height', () => {
+					const img = {
+						url: imgUrl,
+						width: 100,
+						height: 100,
+					}
+					const elem = CMUI.dialog.create({ img })
+					const $imgContent = $(elem).find('.cm-dialog-img .cm-dialog-img-content')
+					assert(gearbox.str.includes($imgContent.css('background-image'), img.url))
+					assert.equal(gearbox.str.toFloat($imgContent.css('width')), img.width)
+					assert.equal(gearbox.str.toFloat($imgContent.css('height')), img.height)
 				})
 			})
 
-			describe('title', () =>{
+			describe('config.title', () =>{
 				it('generates default title "提示" if no param given', () => {
 					const $emptyDialog = $(CMUI.dialog.create())
 					const title = $emptyDialog.find('.cm-dialog-header-title').html()
@@ -124,7 +129,7 @@ describe('Overlay - Loading', function () {
 				})
 			})
 
-			describe('content', () =>{
+			describe('config.content', () =>{
 				it('does not generate any content if no param given', () => {
 					const $emptyDialog = $(CMUI.dialog.create())
 					const $contentWrapper = $emptyDialog.find('.cm-dialog-content')
@@ -144,19 +149,19 @@ describe('Overlay - Loading', function () {
 				})
 			})
 
-			describe('btn', () =>{
+			describe('config.btn', () =>{
 				it('does not generate footer if no btn given', () => {
 					const $emptyDialog = $(CMUI.dialog.create())
 					const $footer = $emptyDialog.find('.cm-dialog-footer')
 					assert($footer.length === 0)
 				})
-				it('does not generate any btn if no btn detail given', () => {
+				it('does not generate footer if no btn detail given', () => {
 					const elem = CMUI.dialog.create({ btn: {} })
 					const $footer = $(elem).find('.cm-dialog-footer')
-					assert.equal($footer.html().trim(), '')
+					assert($footer.length === 0)
 				})
-				describe('primary', () => {
-					describe('tag', () => {
+				describe('.primary', () => {
+					describe('.tag', () => {
 						it('generates default tag "button" if no param given', () => {
 							const btn = { primary: {} }
 							const elem = CMUI.dialog.create({ btn })
@@ -177,7 +182,7 @@ describe('Overlay - Loading', function () {
 							assert.equal($btn[0].tagName.toLocaleLowerCase(), 'button')
 						})
 					})
-					describe('innerHTML', () => {
+					describe('.innerHTML', () => {
 						it('generates default innerHTML "确定" if no param given', () => {
 							const btn = { primary: {} }
 							const elem = CMUI.dialog.create({ btn })
@@ -185,14 +190,14 @@ describe('Overlay - Loading', function () {
 							assert.equal($btn.html(), '确定')
 						})
 						it('sets given innerHTML to generated btn', () => {
-							const text = `test-dialog-btn-inner-html-<strong>${Math.random()}</strong>`
-							const btn = { primary: { html: text } }	// TODO rename html -> innerHTML
+							const innerHTML = `test-dialog-btn-inner-html-<strong>${Math.random()}</strong>`
+							const btn = { primary: { innerHTML } }
 							const elem = CMUI.dialog.create({ btn })
 							const $btn = $(elem).find('.cm-dialog-footer *:first-child')
-							assert.equal($btn.html(), text)
+							assert.equal($btn.html(), innerHTML)
 						})
 					})
-					describe('link', () => {
+					describe('.link', () => {
 						it('ignores link param if tag "a" is not given', () => {
 							const btn = { primary: {} }
 							const elem = CMUI.dialog.create({ btn })
@@ -210,7 +215,7 @@ describe('Overlay - Loading', function () {
 							assert.equal($btn.attr('href'), link)
 						})
 					})
-					describe('className', () => {
+					describe('.className', () => {
 						// TODO: function assetClassNames()
 						const arrayClassName = [
 							' foo  ',
@@ -257,7 +262,7 @@ describe('Overlay - Loading', function () {
 							assert.equal(arrayClassName.length, classList.length)
 						})
 					})
-					describe('action', () => {
+					describe('.action', () => {
 						it('does not generate any action if no param given', () => {
 							const btn = { primary: {} }
 							const elem = CMUI.dialog.create({ btn })
@@ -272,7 +277,7 @@ describe('Overlay - Loading', function () {
 							assert.equal($btn.attr('data-action'), action)
 						})
 					})
-					describe('hideDialog', () => {
+					describe('.hideDialog', () => {
 						it('generates btn which does not hide dialog if no param given', () => {
 							const btn = { primary: {} }
 							const elem = CMUI.dialog.create({ btn })
@@ -302,8 +307,8 @@ describe('Overlay - Loading', function () {
 						})
 					})
 				})
-				describe('minor', () => {
-					describe('tag', () => {
+				describe('.minor', () => {
+					describe('.tag', () => {
 						it('generates default tag "button" if no param given', () => {
 							const btn = { minor: {} }
 							const elem = CMUI.dialog.create({ btn })
@@ -324,7 +329,7 @@ describe('Overlay - Loading', function () {
 							assert.equal($btn[0].tagName.toLocaleLowerCase(), 'button')
 						})
 					})
-					describe('innerHTML', () => {
+					describe('.innerHTML', () => {
 						it('generates default innerHTML "取消" if no param given', () => {
 							const btn = { minor: {} }
 							const elem = CMUI.dialog.create({ btn })
@@ -332,14 +337,14 @@ describe('Overlay - Loading', function () {
 							assert.equal($btn.html(), '取消')
 						})
 						it('sets given innerHTML to generated btn', () => {
-							const text = `test-dialog-btn-inner-html-<strong>${Math.random()}</strong>`
-							const btn = { minor: { html: text } }	// TODO rename html -> innerHTML
+							const innerHTML = `test-dialog-btn-inner-html-<strong>${Math.random()}</strong>`
+							const btn = { minor: { innerHTML } }
 							const elem = CMUI.dialog.create({ btn })
 							const $btn = $(elem).find('.cm-dialog-footer *:last-child')
-							assert.equal($btn.html(), text)
+							assert.equal($btn.html(), innerHTML)
 						})
 					})
-					describe('link', () => {
+					describe('.link', () => {
 						it('ignores link param if tag "a" is not given', () => {
 							const btn = { minor: {} }
 							const elem = CMUI.dialog.create({ btn })
@@ -357,7 +362,7 @@ describe('Overlay - Loading', function () {
 							assert.equal($btn.attr('href'), link)
 						})
 					})
-					describe('className', () => {
+					describe('.className', () => {
 						// TODO: function assetClassNames()
 						const arrayClassName = [
 							' foo  ',
@@ -405,7 +410,7 @@ describe('Overlay - Loading', function () {
 							assert.equal(arrayClassName.length, classList.length)
 						})
 					})
-					describe('action', () => {
+					describe('.action', () => {
 						it('does not generate any action if no param given', () => {
 							const btn = { minor: {} }
 							const elem = CMUI.dialog.create({ btn })
@@ -420,7 +425,7 @@ describe('Overlay - Loading', function () {
 							assert.equal($btn.attr('data-action'), action)
 						})
 					})
-					describe('hideDialog', () => {
+					describe('.hideDialog', () => {
 						it('generates btn which does not hide dialog if no param given', () => {
 							const btn = { minor: {} }
 							const elem = CMUI.dialog.create({ btn })
@@ -476,7 +481,7 @@ describe('Overlay - Loading', function () {
 				CMUI.dialog.show(elem)
 				assert.equal(assert._util.isMaskShown(), true)
 			})
-			describe('autoHideDelay', () => {
+			describe('options.autoHideDelay', () => {
 				it('will not auto hide if no param given', (done) => {
 					const elem = CMUI.dialog.create()
 					CMUI.dialog.show(elem)
@@ -536,6 +541,13 @@ describe('Overlay - Loading', function () {
 
 		// TODO: .hide()
 
+
+	})
+
+	describe('Actions', () => {
+		describe('cm-dialog-hide', () => {
+			// TODO
+		})
 
 	})
 })
