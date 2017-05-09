@@ -278,7 +278,7 @@ describe('Overlay - Loading', function () {
 								assert.equal($btn.attr('data-action'), action)
 							})
 						})
-						describe('.hideDialog', () => {
+						describe('.canHideDialog', () => {
 							it('generates btn which does not hide dialog if no param given', () => {
 								const btn = { primary: {} }
 								const elem = CMUI.dialog.create({ btn })
@@ -289,7 +289,7 @@ describe('Overlay - Loading', function () {
 								assert.equal(assert._util.isDialogShown(elem), true)
 							})
 							it('generates btn which does not hide dialog if given param is falsy', () => {
-								const btn = { primary: { hideDialog: 0 } }
+								const btn = { primary: { canHideDialog: 0 } }
 								const elem = CMUI.dialog.create({ btn })
 								const $btn = $(elem).find('.cm-dialog-footer *:first-child')
 								assert.equal(assert._util.isDialogShown(elem), false)
@@ -298,7 +298,7 @@ describe('Overlay - Loading', function () {
 								assert.equal(assert._util.isDialogShown(elem), true)
 							})
 							it('generates btn which can hide dialog if given param is true', () => {
-								const btn = { primary: { hideDialog: 1 } }
+								const btn = { primary: { canHideDialog: 1 } }
 								const elem = CMUI.dialog.create({ btn })
 								const $btn = $(elem).find('.cm-dialog-footer *:first-child')
 								assert.equal(assert._util.isDialogShown(elem), false)
@@ -427,7 +427,7 @@ describe('Overlay - Loading', function () {
 								assert.equal($btn.attr('data-action'), action)
 							})
 						})
-						describe('.hideDialog', () => {
+						describe('.canHideDialog', () => {
 							it('generates btn which does not hide dialog if no param given', () => {
 								const btn = { minor: {} }
 								const elem = CMUI.dialog.create({ btn })
@@ -437,7 +437,7 @@ describe('Overlay - Loading', function () {
 								assert.equal(assert._util.isDialogShown(elem), true)
 							})
 							it('generates btn which does not hide dialog if given param is falsy', () => {
-								const btn = { minor: { hideDialog: 0 } }
+								const btn = { minor: { canHideDialog: 0 } }
 								const elem = CMUI.dialog.create({ btn })
 								const $btn = $(elem).find('.cm-dialog-footer *:last-child')
 								CMUI.dialog.show(elem)
@@ -445,7 +445,7 @@ describe('Overlay - Loading', function () {
 								assert.equal(assert._util.isDialogShown(elem), true)
 							})
 							it('generates btn which can hide dialog if given param is true', () => {
-								const btn = { minor: { hideDialog: 1 } }
+								const btn = { minor: { canHideDialog: 1 } }
 								const elem = CMUI.dialog.create({ btn })
 								const $btn = $(elem).find('.cm-dialog-footer *:last-child')
 								CMUI.dialog.show(elem)

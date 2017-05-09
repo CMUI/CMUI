@@ -51,7 +51,7 @@ void function (window, CMUI) {
 							'<% if (btn.action) { %>',
 								'data-action="<%= btn.action %>"',
 							'<% } %>',
-							'<% if (btn.hideDialog) { %>',
+							'<% if (btn.canHideDialog) { %>',
 								'data-cm-dialog-btn-hide-dialog="<%= 1 %>"',
 							'<% } %>',
 						'><%- btn.innerHTML %></<%= btn.tag %>>',
