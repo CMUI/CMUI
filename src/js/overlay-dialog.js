@@ -89,6 +89,8 @@ void function (window, CMUI) {
 		_prepareEvent()
 		var $elem = $(elem).first()	// only allow to show one dialog
 		if (!$elem.hasClass(CLS)) return false
+		// do nothing if this dialog is already shown
+		if (_.last(_stack) && _.last(_stack).elem === $elem[0]) return false
 		var dialog = new Dialog($elem, options)
 		dialog.show()
 	}
