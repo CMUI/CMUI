@@ -78,10 +78,6 @@ CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和�
 以下案例基于 CMUI v2 构建（请使用 iOS/Android 设备访问）：
 
 * [百姓网 - 手机版 (m.baixing.com)](http://m.baixing.com/)
-
-以下案例基于 CMUI v0.8 构建（建议使用 iOS/Android 设备访问）：
-
-* [优e网 - 手机版 (m.uemall.com)](http://m.uemall.com/)
 * （其它案例已改版或下线）
 
 ***
