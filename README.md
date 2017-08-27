@@ -75,10 +75,11 @@ CMUI 是一个专攻移动网页的 UI 框架，它提供了丰富的组件和�
 
 ## 谁在用？
 
-以下案例基于 CMUI v2 构建（请使用 iOS/Android 设备访问）：
+以下网站基于 CMUI 构建（请使用 iOS/Android 设备访问）：
 
 * [百姓网 - 手机版 (m.baixing.com)](http://m.baixing.com/)
-* （其它案例已改版或下线）
+* ~~优e网 - 手机版 (m.uemall.com)~~（已下线）
+* ~~薇姿官方电子商城 - 手机版 (m.vichy.com.cn)~~（已改版）
 
 ***
 
