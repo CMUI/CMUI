@@ -30,6 +30,8 @@
   "devDependencies": {
     "cmui-brush": "^0.1.1",
     "cmui-zero": "^0.1.2",
+    "eslint": "^4.10.0",
+    "eslint-config-cmui": "^0.1.0",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-stylint": "^3.0.0",
     "gulpfiles": "^0.4.4",
