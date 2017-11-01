@@ -114,6 +114,10 @@ CMUI is based on these open source projects:
 
 * [Normalize.css](https://github.com/necolas/normalize.css)
 
+CMUI team is using JetBrains IDE (WebStorm) with Open Source License:
+
+* [![WebStorm Logo](https://user-images.githubusercontent.com/5830104/32258214-2f230426-bef4-11e7-8a5f-1b4f9e116e87.png)](https://www.jetbrains.com/webstorm/)
+
 ## License
 
 [MIT License](http://www.opensource.org/licenses/mit-license.php)
