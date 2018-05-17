@@ -30,15 +30,15 @@ ul.cm-grid-list
 		> label
 			display block
 			overflow ellipsis
-			html.no-touch &:hover
+			/html.no-touch &:hover
 				background-color $cm-color-hover
-			html.no-touch &:active
+			/html.no-touch &:active
 				background-color $cm-color-active
 		> label
 			padding $-item-padding-v $-item-label-padding-right $-item-padding-v $-item-label-padding-left
 			cursor pointer
 			// use `:active` and bg color to improve responsivity, instead of touch-highlight
-			html.touch &:active
+			/html.touch &:active
 				background-color $cm-color-active
 			> input[type='radio']:first-child
 			> input[type='checkbox']:first-child
@@ -59,7 +59,7 @@ ul.cm-grid-list
 				outline 1px solid $cm-color-fg
 				position relative
 
-				html.cmui &
+				/html.cmui &
 					background-color $cm-color-fg
 
 // width of list item
