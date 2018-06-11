@@ -257,6 +257,8 @@ void function (window, CMUI) {
 	var CLS_FADE_OUT = 'fade-out'
 	var HTML = '<div class="' + CLS + ' ' + CLS_HIDDEN + '"></div>'
 
+	var FADEOUT_DURATION = 200
+
 	var $elem
 	var isVisible = false
 
@@ -272,9 +274,12 @@ void function (window, CMUI) {
 
 	function _pos() {
 		// first, shrink
-		$elem.css('height', '100%')
+		_shrink()
 		// then, reset its height.
 		$elem.css('height', document.documentElement.scrollHeight + 'px')
+	}
+	function _shrink() {
+		$elem.css('height', '100%')
 	}
 
 	//api
@@ -302,12 +307,16 @@ void function (window, CMUI) {
 		if (!isVisible) return false
 		var classNames = [CLS, CLS_HIDDEN]
 		$elem.attr('class', classNames.join(' '))
+		_shrink()
 		isVisible = false
 	}
 	function fadeOut() {
 		if (!isVisible) return false
 		var classNames = [CLS, CLS_FADE_OUT]
 		$elem.attr('class', classNames.join(' '))
+		setTimeout(() => {
+			if (!isVisible) _shrink()
+		}, FADEOUT_DURATION)
 		isVisible = false
 	}
 
