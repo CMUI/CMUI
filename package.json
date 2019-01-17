@@ -1,6 +1,6 @@
 {
   "name": "cmui",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "homepage": "http://cmui.net/",
   "repository": "CMUI/CMUI",
   "author": "cssmagic <cssmagic.cn@gmail.com>",
@@ -32,12 +32,12 @@
     "cmui-zero": "^0.1.2",
     "eslint": "^4.10.0",
     "eslint-config-cmui": "^0.1.0",
-    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp": "^4.0.0",
     "gulp-stylint": "^3.0.0",
-    "gulpfiles": "^0.4.4",
-    "mocha": "*",
+    "gulpfiles": "^0.4.6",
+    "mocha": "5.*",
     "nib": "^1.0.4",
     "normalize.css": "5.0.0",
-    "power-assert": "*"
+    "power-assert": "^1.6.1"
   }
 }
