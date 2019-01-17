@@ -1,6 +1,6 @@
 {
   "name": "cmui",
-  "version": "2.0.4",
+  "version": "2.1.0-alpha.1",
   "homepage": "http://cmui.net/",
   "repository": "CMUI/CMUI",
   "author": "cssmagic <cssmagic.cn@gmail.com>",
@@ -13,7 +13,8 @@
     "mobile",
     "web"
   ],
-  "main": "./src/css/theme/baixing/index.styl",
+  "main": "./dist/cmui.js",
+  "types": "./dist/cmui.d.ts",
   "scripts": {
     "dist": "gulp",
     "css": "gulp css",
@@ -23,6 +24,7 @@
     "test": "echo \"See README.md to run tests in browsers.\" && exit 1"
   },
   "dependencies": {
+    "@types/zepto": "^1.0.30",
     "cmui-gearbox": "^0.7.0",
     "underscore": "^1.6.0",
     "zepto.js": "^1.1"
