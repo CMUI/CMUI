@@ -33,7 +33,7 @@ declare namespace CMUI {
 
 	////////////////////  dialog  ////////////////////
 	interface IDialog {
-		create: (config: IDialogCreateConfig) => Element
+		create: (config?: IDialogCreateConfig) => Element
 		hide: () => void
 		show: (elem: elem, options?: IDialogShowOptions) => void
 	}
@@ -54,7 +54,7 @@ declare namespace CMUI {
 		height?: number
 	}
 	interface IDialogBtnConfig {
-		tag?: 'button' | 'a'
+		tag?: string
 		innerHTML?: string
 		link?: string
 		className?: string | string[]
