@@ -22,18 +22,18 @@ declare namespace CMUI {
 
 	////////////////////  loading  ////////////////////
 	interface ILoading {
-		show: (options: loadingShowOptions) => void
+		show: (options?: loadingShowOptions) => void
 		hide: () => void
-		fadeIn: (options: loadingShowOptions) => void
+		fadeIn: (options?: loadingShowOptions) => void
 		fadeOut: () => void
-		updateText: (text: string) => void
+		updateText: (text?: string) => void
 	}
 	type loadingShowOptions = string
 	export const loading: ILoading
 
 	////////////////////  dialog  ////////////////////
 	interface IDialog {
-		create: (config: IDialogCreateConfig) => void
+		create: (config: IDialogCreateConfig) => Element
 		hide: () => void
 		show: (elem: elem, options?: IDialogShowOptions) => void
 	}
@@ -69,9 +69,9 @@ declare namespace CMUI {
 	////////////////////  panel  ////////////////////
 	interface IPanel {
 		show: (elem: elem, options?: IPanelOptions) => void
-		hide: (options) => void
+		hide: (options?: IPanelOptions) => void
 		switchTo: (elem: elem, options?: IPanelOptions) => void
-		switchBack: (options) => void
+		switchBack: (options?: IPanelOptions) => void
 	}
 	interface IPanelOptions {
 		duration?: number
