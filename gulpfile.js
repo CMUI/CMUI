@@ -9,7 +9,6 @@ const PATH_SRC_CSS = './src/css/'
 const FILES_SRC_CSS = path.join(PATH_SRC_CSS, '**/*.styl')
 const ENTRY_SRC_CSS = path.join(PATH_SRC_CSS, '_wrapper/cmui.styl')
 const PATH_DEST = './dist/'
-const FILES_DEST = path.join(PATH_DEST, '**/*')
 const PATH_SRC_CSS_VENDOR = path.join(PATH_SRC_CSS, 'vendor')
 
 const scripts = {
@@ -32,7 +31,7 @@ const scripts = {
 
 gulp.task('clean', gulpfiles.del({
 	glob: [
-		FILES_DEST,
+		path.join(PATH_DEST, '*.@(js|css)'),
 		PATH_SRC_CSS_VENDOR,
 	],
 }))
