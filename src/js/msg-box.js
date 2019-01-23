@@ -4,7 +4,7 @@ void function (window, CMUI) {
 	'use strict'
 
 	//namespace
-	var moduleName = 'msg-box'
+	var moduleName = 'msgBox'
 	var module = CMUI[moduleName] = CMUI[moduleName] || {}
 
 	var CLS_MSG_BOX = 'cm-msg-box'
