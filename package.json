@@ -15,6 +15,7 @@
   ],
   "main": "./dist/cmui.js",
   "types": "./dist/cmui.d.ts",
+  "style": "./dist/cmui.css",
   "scripts": {
     "dist": "gulp",
     "css": "gulp css",
